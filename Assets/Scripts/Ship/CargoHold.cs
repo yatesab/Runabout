@@ -9,13 +9,13 @@ public class CargoHold : MonoBehaviour
     public float currentWeight = 0f;
     public List<Item> itemsInCargoHold = new List<Item>();
 
-    public bool AddToCargoHold(Item newItem)
+    public bool AddToCargoHold(Item _item)
     {
-        float newMaxWeight = newItem.Weight + currentWeight;
+        float newMaxWeight = _item.Weight + currentWeight;
         if(!(newMaxWeight > maxWeight))
         {
-            currentWeight += newItem.Weight;
-            itemsInCargoHold.Add(newItem);
+            currentWeight += _item.Weight;
+            itemsInCargoHold.Add(_item);
 
             return true;
         } else 
@@ -24,8 +24,13 @@ public class CargoHold : MonoBehaviour
         }
     }
 
-    public bool RemoveItemFromCargo()
+    public bool CheckCargoHold(Item checkItem)
     {
-        return true;
+        return itemsInCargoHold.Contains(checkItem);
+    }
+
+    public void RemoveItemFromCargo(Item checkItem)
+    {
+        itemsInCargoHold.Remove(checkItem);
     }
 }

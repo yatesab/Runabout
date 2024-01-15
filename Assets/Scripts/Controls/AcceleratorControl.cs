@@ -9,21 +9,25 @@ using TMPro;
 public class AcceleratorControl : MonoBehaviour
 {
     public PropulsionSystem propulsionSystem;
+    public WeaponSystem weaponSystem;
 
     [Header("Input Actions")]
     [SerializeField] private InputActionReference stickAction;
     [SerializeField] private InputActionReference strafeInputSource;
     [SerializeField] private InputActionReference upDownInputSource;
+    [SerializeField] protected InputActionReference leftFireAction;
+    [SerializeField] protected InputActionReference rightFireAction;
 
-    [SerializeField] private enum SIDES{
-        Left,
-        Right
-    };
-    [SerializeField] private SIDES thrustSide = SIDES.Left;
+    [Header("Throttle Settings")]
+    [SerializeField] private Transform leftAccelerator;
+    [SerializeField] private Transform rightAccelerator;
     [SerializeField] private bool resetWhenLetGo = true;
+
+    [Header("Stick Settings")]
     [SerializeField] private bool useRoll = false;
     [SerializeField] private bool usePitch = false;
 
+    private bool switchToPitch = false;
     private Transform thrustHandle;
     private TMP_Text thrustPercentage;
     private bool isGrabbed;
@@ -54,19 +58,32 @@ public class AcceleratorControl : MonoBehaviour
         // Set up Strage Up / Down Actions
         upDownInputSource.action.performed += OnUpDownPressed;
         upDownInputSource.action.canceled += OnUpDownStopped;
+
+        if(thrustSide == SIDES.Left)
+        {
+            leftFireAction.action.performed += OnLeftWeaponPressed;
+            leftFireAction.action.canceled += OnLeftWeaponStopped;
+        }
+
+        if(thrustSide == SIDES.Right)
+        {
+            rightFireAction.action.performed += OnRightWeaponPressed;
+            rightFireAction.action.canceled += OnRightWeaponStopped;
+        }
     }
 
     private void Update()
     {
-        handlePercentage = transform.InverseTransformPoint(thrustHandle.position).z / 0.2f;
+        leftHandlePercentage = leftAccelerator.InverseTransformPoint(thrustHandle.position).z / 0.2f;
+        rightHandlePercentage = rightAccelerator.InverseTransformPoint(thrustHandle.position).z / 0.2f;
 
         if(handlePercentage > 0.1f || handlePercentage < -0.1f )
         {
             UpdateScreen(handlePercentage);
-            SetThrustPercentage(handlePercentage);
+            SetThrustPercentage(leftHandlePercentage, rightHandlePercentage);
         }else {
-            UpdateScreen(0f);
-            SetThrustPercentage(0f);
+            UpdateScreen(0f, 0f);
+            SetThrustPercentage(0f, 0f);
         }
     }
 
@@ -77,10 +94,16 @@ public class AcceleratorControl : MonoBehaviour
 
     private void SetThrustPercentage(float percentage)
     {
-        if(thrustSide == SIDES.Left){
-            propulsionSystem.SetLeftThrustPercentage(percentage);
-        } else {
-            propulsionSystem.SetRightThrustPercentage(percentage);
+        if(switchToPitch)
+        {
+            propulsionSystem.SetPitchRotation(percentage);
+        } else 
+        {
+            if(thrustSide == SIDES.Left){
+                propulsionSystem.SetLeftThrustPercentage(percentage);
+            } else {
+                propulsionSystem.SetRightThrustPercentage(percentage);
+            }
         }
     }
 
@@ -143,16 +166,13 @@ public class AcceleratorControl : MonoBehaviour
     {
         if(isGrabbed)
         {
-            propulsionSystem.SetStrafingStarted(true);
+            switchToPitch = !switchToPitch;
         }
     }
 
     private void OnStrafeStopped(InputAction.CallbackContext obj)
     {
-        if(isGrabbed)
-        {
-            propulsionSystem.SetStrafingStarted(false);
-        }
+        // Nothing
     }
 
     private void OnUpDownPressed(InputAction.CallbackContext obj)
@@ -168,6 +188,38 @@ public class AcceleratorControl : MonoBehaviour
         if(isGrabbed)
         {
             propulsionSystem.SetUpDownStarted(false);
+        }
+    }
+    
+    private void OnLeftWeaponPressed(InputAction.CallbackContext obj)
+    {
+        if(isGrabbed)
+        {
+            weaponSystem.FireLeftWeapon();
+        }
+    }
+
+    private void OnLeftWeaponStopped(InputAction.CallbackContext obj)
+    {
+        if(isGrabbed)
+        {
+            weaponSystem.StopLeftWeapon();
+        }
+    }
+
+    private void OnRightWeaponPressed(InputAction.CallbackContext obj)
+    {
+        if(isGrabbed)
+        {
+            weaponSystem.FireRightWeapon();
+        }
+    }
+
+    private void OnRightWeaponStopped(InputAction.CallbackContext obj)
+    {
+        if(isGrabbed)
+        {
+            weaponSystem.StopRightWeapon();
         }
     }
 }

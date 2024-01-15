@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface Item
+[CreateAssetMenu(fileName = "Item", menuName = "Transporter System/Item", order = 0)]
+public class Item : ScriptableObject
 {
-    public string Name
-    {
-        get;
-        set;
-    }
-
-    public float Weight
-    {
-        get;
-        set;
-    }
+    public string Name;
+    public float Weight;
+    public bool isDelivered;
 }

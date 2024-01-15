@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DropoffPod : MonoBehaviour
 {
+    public bool itemTransported = false;
+    public Item itemToCheck;
 
     // Start is called before the first frame update
     void Start()
@@ -15,5 +17,17 @@ public class DropoffPod : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public Item GetDropoffItem()
+    {
+        if(itemToCheck == null) return null;
+
+        return itemToCheck;
+    }
+
+    public void TransportDropoffItem()
+    {
+        itemTransported = true;
     }
 }

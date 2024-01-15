@@ -1745,9 +1745,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propulsionSystem: {fileID: 0}
+  weaponSystem: {fileID: 0}
   stickAction: {fileID: 0}
-  strafeInputSource: {fileID: -7577099679577552092, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  upDownInputSource: {fileID: -2051955438127998867, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  strafeInputSource: {fileID: 0}
+  upDownInputSource: {fileID: 0}
+  leftFireAction: {fileID: 0}
+  rightFireAction: {fileID: 0}
   thrustSide: 0
   resetWhenLetGo: 1
   useRoll: 0

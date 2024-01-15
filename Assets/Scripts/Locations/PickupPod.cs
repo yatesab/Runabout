@@ -5,17 +5,22 @@ using UnityEngine;
 public class PickupPod : MonoBehaviour
 {
 
-    public Item setItem;
+    public Item pickupItem;
+
+    public bool itemTransported = false;
 
     private void Start() {
-        setItem = new AlienGoo();
     }
 
-    public Item GetSetItem()
+    public Item GetPickupItem()
     {
-        if(setItem == null) return null;
+        if(pickupItem == null) return null;
 
-        setItem = null;
-        return setItem;
+        return pickupItem;
+    }
+
+    public void TransportItem()
+    {
+        itemTransported = true;
     }
 }
