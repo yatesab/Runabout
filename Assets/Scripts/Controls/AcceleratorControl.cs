@@ -12,214 +12,209 @@ public class AcceleratorControl : MonoBehaviour
     public WeaponSystem weaponSystem;
 
     [Header("Input Actions")]
-    [SerializeField] private InputActionReference stickAction;
-    [SerializeField] private InputActionReference strafeInputSource;
+    [SerializeField] private InputActionReference _leftStickAction;
+    [SerializeField] private InputActionReference _rightStickAction;
+    [SerializeField] private InputActionReference _leftThrottleReset;
     [SerializeField] private InputActionReference upDownInputSource;
     [SerializeField] protected InputActionReference leftFireAction;
     [SerializeField] protected InputActionReference rightFireAction;
 
-    [Header("Throttle Settings")]
-    [SerializeField] private Transform leftAccelerator;
-    [SerializeField] private Transform rightAccelerator;
-    [SerializeField] private bool resetWhenLetGo = true;
+    [Header("Left Throttle Settings")]
+    [SerializeField] private Throttle leftThrottle;
 
-    [Header("Stick Settings")]
-    [SerializeField] private bool useRoll = false;
-    [SerializeField] private bool usePitch = false;
-
-    private bool switchToPitch = false;
-    private Transform thrustHandle;
-    private TMP_Text thrustPercentage;
-    private bool isGrabbed;
-
-    private float handlePercentage = 0f;
+    [Header("Right Throttle Settings")]
+    [SerializeField] private Throttle rightThrottle;
 
     // Start is called before the first frame update
     private void Start()
     {
-        // Get XRGrabInteractable for isGrabbing check
-        XRGrabInteractable grabInteractable = GetComponentInChildren<XRGrabInteractable>();
+        // Set up Stick Actions
+        _leftStickAction.action.performed += OnLeftStickPressed;
+        _leftStickAction.action.canceled += OnLeftStickStopped;
 
-        grabInteractable.selectEntered.AddListener(HandleStartGrab);
-        grabInteractable.selectExited.AddListener(HandleStopGrab);
-
-        // Pull Children Components
-        thrustHandle = GetComponentInChildren<Rigidbody>().transform;
-        thrustPercentage = GetComponentInChildren<TMP_Text>();
-
-        // Set up Roll Actions
-        stickAction.action.performed += OnStickPressed;
-        stickAction.action.canceled += OnStickStopped;
+        _rightStickAction.action.performed += OnRightStickPressed;
+        _rightStickAction.action.canceled += OnRightStickStopped;
 
         // Set up Strafe Left / Right Actions
-        strafeInputSource.action.performed += OnStrafePressed;
-        strafeInputSource.action.canceled += OnStrafeStopped;
+        _leftThrottleReset.action.performed += OnThrottleReset;
 
         // Set up Strage Up / Down Actions
         upDownInputSource.action.performed += OnUpDownPressed;
         upDownInputSource.action.canceled += OnUpDownStopped;
 
-        if(thrustSide == SIDES.Left)
-        {
-            leftFireAction.action.performed += OnLeftWeaponPressed;
-            leftFireAction.action.canceled += OnLeftWeaponStopped;
-        }
+        leftFireAction.action.performed += OnLeftWeaponPressed;
+        leftFireAction.action.canceled += OnLeftWeaponStopped;
 
-        if(thrustSide == SIDES.Right)
-        {
-            rightFireAction.action.performed += OnRightWeaponPressed;
-            rightFireAction.action.canceled += OnRightWeaponStopped;
-        }
+        rightFireAction.action.performed += OnRightWeaponPressed;
+        rightFireAction.action.canceled += OnRightWeaponStopped;
     }
 
     private void Update()
     {
-        leftHandlePercentage = leftAccelerator.InverseTransformPoint(thrustHandle.position).z / 0.2f;
-        rightHandlePercentage = rightAccelerator.InverseTransformPoint(thrustHandle.position).z / 0.2f;
-
-        if(handlePercentage > 0.1f || handlePercentage < -0.1f )
+        if(leftThrottle.throttleReset || rightThrottle.throttleReset)
         {
-            UpdateScreen(handlePercentage);
-            SetThrustPercentage(leftHandlePercentage, rightHandlePercentage);
-        }else {
-            UpdateScreen(0f, 0f);
-            SetThrustPercentage(0f, 0f);
+            UpdateThrottlePositions();
         }
+
+        CheckThrustPercentage(leftThrottle);
+        CheckYawPercentage(rightThrottle);
     }
 
-    private void UpdateScreen(float newPercentage)
+    private void CheckThrustPercentage(Throttle checkThrottle)
     {
-        thrustPercentage.text = Mathf.Round(newPercentage * 100).ToString() + " %";
+        propulsionSystem.SetThrustPercentage(checkThrottle.ThrottlePercentage);
     }
 
-    private void SetThrustPercentage(float percentage)
+    private void CheckYawPercentage(Throttle checkThrottle)
     {
-        if(switchToPitch)
+        float throttleDiff = leftThrottle.ThrottlePercentage - rightThrottle.ThrottlePercentage;
+
+        if(throttleDiff > 0.15f || throttleDiff < -0.15f)
         {
-            propulsionSystem.SetPitchRotation(percentage);
+            propulsionSystem.SetYawRotation(throttleDiff);
         } else 
         {
-            if(thrustSide == SIDES.Left){
-                propulsionSystem.SetLeftThrustPercentage(percentage);
-            } else {
-                propulsionSystem.SetRightThrustPercentage(percentage);
-            }
+            propulsionSystem.SetYawRotation(0f);
         }
     }
 
-    /**
-        Grab Interactable Actions
-    */
-    private void HandleStartGrab(SelectEnterEventArgs args)
+    private void UpdateThrottlePositions()
     {
-        isGrabbed = true;
-    }
-
-    private void HandleStopGrab(SelectExitEventArgs args)
-    {
-        isGrabbed = false;
-
-        // Reset handle Position when let go. Default Off
-        if(resetWhenLetGo){
-            thrustHandle.localPosition = Vector3.zero;
-        } else if(thrustHandle.localPosition.z < 0f) {
-            thrustHandle.localPosition = new Vector3(thrustHandle.localPosition.x, thrustHandle.localPosition.y, 0f);
-        }
     }
 
     /**
         Input Actions
     */
-    private void OnStickPressed(InputAction.CallbackContext obj)
+    private void OnLeftStickPressed(InputAction.CallbackContext obj)
     {
-        if(isGrabbed)
+        if(leftThrottle.Grabbed)
         {
-            if(useRoll)
+            if(leftThrottle.useRoll)
             {
                 propulsionSystem.SetRollRotation(obj.ReadValue<Vector2>().x);
             }
 
-            if(usePitch)
+            if(leftThrottle.usePitch)
             {
                 propulsionSystem.SetPitchRotation(-obj.ReadValue<Vector2>().y);
             }
         }
     }
 
-    private void OnStickStopped(InputAction.CallbackContext obj)
+    private void OnLeftStickStopped(InputAction.CallbackContext obj)
     {
-        if(isGrabbed)
+        if(leftThrottle.Grabbed)
         {
-            if(useRoll)
+            if(leftThrottle.useRoll)
             {
                 propulsionSystem.SetRollRotation(0f);
             }
 
-            if(usePitch)
+            if(leftThrottle.usePitch)
             {
                 propulsionSystem.SetPitchRotation(0f);
             }
         }
     }
 
-    private void OnStrafePressed(InputAction.CallbackContext obj)
+    private void OnRightStickPressed(InputAction.CallbackContext obj)
     {
-        if(isGrabbed)
+        if(rightThrottle.Grabbed)
         {
-            switchToPitch = !switchToPitch;
+            if(rightThrottle.useRoll)
+            {
+                propulsionSystem.SetRollRotation(obj.ReadValue<Vector2>().x);
+            }
+
+            if(rightThrottle.usePitch)
+            {
+                propulsionSystem.SetPitchRotation(-obj.ReadValue<Vector2>().y);
+            }
         }
     }
 
-    private void OnStrafeStopped(InputAction.CallbackContext obj)
+    private void OnRightStickStopped(InputAction.CallbackContext obj)
     {
-        // Nothing
+        if(rightThrottle.Grabbed)
+        {
+            if(rightThrottle.useRoll)
+            {
+                propulsionSystem.SetRollRotation(0f);
+            }
+
+            if(rightThrottle.usePitch)
+            {
+                propulsionSystem.SetPitchRotation(0f);
+            }
+        }
+    }
+
+    private void OnThrottleReset(InputAction.CallbackContext obj)
+    {
+        if(leftThrottle.Grabbed)
+        {
+            if(!rightThrottle.Grabbed)
+            {
+                rightThrottle.throttleReset = true;
+            }
+        } else if(rightThrottle.Grabbed)
+        {
+            if(!leftThrottle.Grabbed)
+            {
+                leftThrottle.throttleReset = true;
+            }
+        } else 
+        {
+            leftThrottle.SetThrottlePercentage(0f);
+            rightThrottle.SetThrottlePercentage(0f);
+        }
     }
 
     private void OnUpDownPressed(InputAction.CallbackContext obj)
     {
-        if(isGrabbed)
-        {
-            propulsionSystem.SetUpDownStarted(true);
-        }
+        // if(isGrabbed)
+        // {
+        //     propulsionSystem.SetUpDownStarted(true);
+        // }
     }
 
     private void OnUpDownStopped(InputAction.CallbackContext obj)
     {
-        if(isGrabbed)
-        {
-            propulsionSystem.SetUpDownStarted(false);
-        }
+        // if(isGrabbed)
+        // {
+        //     propulsionSystem.SetUpDownStarted(false);
+        // }
     }
     
     private void OnLeftWeaponPressed(InputAction.CallbackContext obj)
     {
-        if(isGrabbed)
-        {
-            weaponSystem.FireLeftWeapon();
-        }
+        // if(isGrabbed)
+        // {
+        //     weaponSystem.FireLeftWeapon();
+        // }
     }
 
     private void OnLeftWeaponStopped(InputAction.CallbackContext obj)
     {
-        if(isGrabbed)
-        {
-            weaponSystem.StopLeftWeapon();
-        }
+        // if(isGrabbed)
+        // {
+        //     weaponSystem.StopLeftWeapon();
+        // }
     }
 
     private void OnRightWeaponPressed(InputAction.CallbackContext obj)
     {
-        if(isGrabbed)
-        {
-            weaponSystem.FireRightWeapon();
-        }
+        // if(isGrabbed)
+        // {
+        //     weaponSystem.FireRightWeapon();
+        // }
     }
 
     private void OnRightWeaponStopped(InputAction.CallbackContext obj)
     {
-        if(isGrabbed)
-        {
-            weaponSystem.StopRightWeapon();
-        }
+        // if(isGrabbed)
+        // {
+        //     weaponSystem.StopRightWeapon();
+        // }
     }
 }

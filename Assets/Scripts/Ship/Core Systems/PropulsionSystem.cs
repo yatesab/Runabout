@@ -7,16 +7,15 @@ public class PropulsionSystem : CoreSystem
     [Header("Thrust Settings")]
     [SerializeField] private float thrust = 300f;
     [SerializeField] private float thrustGlideReduction = -0.01f;
-    [SerializeField] private float minThrustDistance = 0.10f;
 
     [Header("Pitch / Yaw / Roll Settings")]
     [SerializeField] private float pitchTorque = 1000f;
-    [SerializeField] private float pitchGlideReduction = 0.1f;
+    // [SerializeField] private float pitchGlideReduction = 0.1f;
     [SerializeField] private float yawTorque = 1000f;
-    [SerializeField] private float yawGlideReduction = 0.1f;
+    // [SerializeField] private float yawGlideReduction = 0.1f;
 
     [SerializeField] private float rollTorque = 1000f;
-    [SerializeField] private float rollGlideReduction = 0.1f;
+    // [SerializeField] private float rollGlideReduction = 0.1f;
 
 
     [Header("Strafe Settings")]
@@ -34,9 +33,9 @@ public class PropulsionSystem : CoreSystem
     private float highestPercentage = 0f;
     private float thrustDiff = 0f;
     private float glide = 0f;
-    private float pitchGlide = 0f;
-    private float yawGlide = 0f;
-    private float rollGlide = 0f;
+    // private float pitchGlide = 0f;
+    // private float yawGlide = 0f;
+    // private float rollGlide = 0f;
     private float horizontalGlide = 0f;
     private float verticalGlide = 0f;
 
@@ -67,21 +66,13 @@ public class PropulsionSystem : CoreSystem
     {
         if(highestPercentage > 0.1f || highestPercentage < -0.1f)
         {
-            float currentThrust = thrust * highestPercentage;
+            float currentThrust = thrust * highestPercentage * PowerLevel;
 
-            body.AddForce(body.transform.forward * currentThrust * PowerLevel * Time.fixedDeltaTime, ForceMode.Impulse);
+            body.AddForce(body.transform.forward * currentThrust * Time.fixedDeltaTime, ForceMode.Impulse);
             glide = currentThrust;
         } else {
             body.AddForce(Vector3.back * glide * Time.deltaTime, ForceMode.Force);
             glide *= thrustGlideReduction;
-        }
-
-        if(thrustDiff > minThrustDistance || thrustDiff < -minThrustDistance)
-        {
-            yawRotation = thrustDiff / 2;
-        } else
-        {
-            yawRotation = 0f;
         }
     }
 
@@ -155,6 +146,11 @@ public class PropulsionSystem : CoreSystem
             body.AddRelativeForce(Vector3.up * verticalGlide * Time.fixedDeltaTime);
             verticalGlide *= upDownGlideReduction;
         }
+    }
+
+    public void SetThrustPercentage(float newPercentage)
+    {
+        highestPercentage = newPercentage;
     }
 
     public void SetLeftThrustPercentage(float newPercentage)
