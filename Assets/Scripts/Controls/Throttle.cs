@@ -14,9 +14,11 @@ public enum ThrottleSide
 public class Throttle : MonoBehaviour
 {
     public ThrottleSide throttleLocation;
-    public bool throttleReset = true;
+    public float _throttleDeadZone = 0.02f;
+    public bool isSynced = true;
     public bool useRoll = false;
     public bool usePitch = false;
+    public bool useYaw = false;
 
     public float ThrottlePercentage {set;get;}
     public bool Grabbed {set;get;}
@@ -40,7 +42,16 @@ public class Throttle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ThrottlePercentage = transform.InverseTransformPoint(_throttleHandle.position).z / 0.2f;
+        float handlePosition = transform.InverseTransformPoint(_throttleHandle.position).z;
+
+        if(handlePosition > _throttleDeadZone || handlePosition < -_throttleDeadZone)
+        {
+            ThrottlePercentage = (handlePosition - _throttleDeadZone) / (0.2f - _throttleDeadZone);
+        } else 
+        {
+            ThrottlePercentage = 0f;
+        }
+        
         UpdateScreen();
     }
 
@@ -55,7 +66,7 @@ public class Throttle : MonoBehaviour
     private void HandleStartGrab(SelectEnterEventArgs args)
     {
         Grabbed = true;
-        throttleReset = false;
+        isSynced = false;
     }
 
     private void HandleStopGrab(SelectExitEventArgs args)

@@ -547,9 +547,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throttleLocation: 0
+  _throttleDeadZone: 0.02
+  isSynced: 1
   useRoll: 0
   usePitch: 1
-  resetWhenLetGo: 0
+  useYaw: 1
 --- !u!1 &1486174789635762659
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,13 +2330,12 @@ MonoBehaviour:
   weaponSystem: {fileID: 0}
   _leftStickAction: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _rightStickAction: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _leftThrottleSwitch: {fileID: 7344893335393891952, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  upDownInputSource: {fileID: -7577099679577552092, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  leftFireAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  rightFireAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _leftThrottleReset: {fileID: 7344893335393891952, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _rightThrottleReset: {fileID: -7577099679577552092, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _leftFireAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _rightFireAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   leftThrottle: {fileID: 7945008254251960804}
   rightThrottle: {fileID: 5633827233788733363}
-  throttlePitchControl: 0
 --- !u!1 &4549763098827647383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,9 +2732,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throttleLocation: 1
+  _throttleDeadZone: 0.02
+  isSynced: 1
   useRoll: 1
   usePitch: 0
-  resetWhenLetGo: 0
+  useYaw: 0
 --- !u!1 &5832572584203130597
 GameObject:
   m_ObjectHideFlags: 0

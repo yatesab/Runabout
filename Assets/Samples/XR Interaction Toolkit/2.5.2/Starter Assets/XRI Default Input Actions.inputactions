@@ -783,7 +783,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Strafe Left",
+                    "name": "Clear Throttle",
                     "type": "Button",
                     "id": "27f80e57-1d02-4c77-b317-18362a684cbe",
                     "expectedControlType": "Button",
@@ -974,7 +974,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Strafe Left",
+                    "action": "Clear Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1619,7 +1619,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Strafe",
+                    "name": "Clear Throttle",
                     "type": "Button",
                     "id": "a23fcb5c-2ad5-433d-8d74-8d70930b6e25",
                     "expectedControlType": "Button",
@@ -1810,7 +1810,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Strafe",
+                    "action": "Clear Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PropulsionSystem : CoreSystem
 {
+    public Rigidbody _shipBody;
+    public Transform _shipModel;
+
     [Header("Thrust Settings")]
     [SerializeField] private float thrust = 300f;
     [SerializeField] private float thrustGlideReduction = -0.01f;
@@ -22,8 +25,6 @@ public class PropulsionSystem : CoreSystem
     [SerializeField] private float strafeThrust = 50f;
     [SerializeField] private float leftRightGlideReduction = 0.111f;
     [SerializeField] private float upDownGlideReduction = 0.05f;
-
-    private Rigidbody body;
 
     private float yawRotation = 0f;
     private float pitchRotation = 0f;
@@ -45,7 +46,7 @@ public class PropulsionSystem : CoreSystem
     // Start is called before the first frame update
     void Start()
     {
-        body = GetComponentInParent<Rigidbody>();
+
     }
 
     private void FixedUpdate()
@@ -68,10 +69,10 @@ public class PropulsionSystem : CoreSystem
         {
             float currentThrust = thrust * highestPercentage * PowerLevel;
 
-            body.AddForce(body.transform.forward * currentThrust * Time.fixedDeltaTime, ForceMode.Impulse);
+            _shipBody.AddForce(_shipBody.transform.forward * currentThrust * Time.fixedDeltaTime, ForceMode.Impulse);
             glide = currentThrust;
         } else {
-            body.AddForce(Vector3.back * glide * Time.deltaTime, ForceMode.Force);
+            _shipBody.AddForce(Vector3.back * glide * Time.deltaTime, ForceMode.Force);
             glide *= thrustGlideReduction;
         }
     }
@@ -79,21 +80,21 @@ public class PropulsionSystem : CoreSystem
     private void OnRotateShip()
     {
         // Pitch
-        body.AddRelativeTorque(Vector3.right * pitchRotation * pitchTorque * PowerLevel * Time.deltaTime);
+        _shipBody.AddRelativeTorque(Vector3.right * pitchRotation * pitchTorque * PowerLevel * Time.deltaTime);
         // Yaw
-        body.AddRelativeTorque(Vector3.up * yawRotation * yawTorque * PowerLevel * Time.deltaTime);
+        _shipBody.AddRelativeTorque(Vector3.up * yawRotation * yawTorque * PowerLevel * Time.deltaTime);
         // Roll
-        body.AddRelativeTorque(Vector3.back * rollRotation * rollTorque * PowerLevel * Time.deltaTime);
+        _shipBody.AddRelativeTorque(Vector3.back * rollRotation * rollTorque * PowerLevel * Time.deltaTime);
 
         // if(pitchRotation > 0.1f || pitchRotation < -0.1f)
         // {
         //     float currentPitch = pitchRotation * pitchTorque;
 
-        //     body.AddTorque(body.transform.right * currentPitch * Time.fixedDeltaTime, ForceMode.Force);
+        //     _shipBody.AddTorque(_shipBody.transform.right * currentPitch * Time.fixedDeltaTime, ForceMode.Force);
         //     pitchGlide = currentPitch;
         // } else
         // {
-        //     body.AddTorque(body.transform.right * pitchGlide * Time.fixedDeltaTime, ForceMode.Force);
+        //     _shipBody.AddTorque(_shipBody.transform.right * pitchGlide * Time.fixedDeltaTime, ForceMode.Force);
         //     pitchGlide *= pitchGlideReduction;
         // }
 
@@ -101,11 +102,11 @@ public class PropulsionSystem : CoreSystem
         // {
         //     float currentYaw = yawRotation * yawTorque;
 
-        //     body.AddTorque(body.transform.up * currentYaw * Time.fixedDeltaTime, ForceMode.Force);
+        //     _shipBody.AddTorque(_shipBody.transform.up * currentYaw * Time.fixedDeltaTime, ForceMode.Force);
         //     yawGlide = currentYaw;
         // } else
         // {
-        //     body.AddTorque(body.transform.up * yawGlide * Time.fixedDeltaTime, ForceMode.Force);
+        //     _shipBody.AddTorque(_shipBody.transform.up * yawGlide * Time.fixedDeltaTime, ForceMode.Force);
         //     yawGlide *= yawGlideReduction;
         // }
 
@@ -113,11 +114,11 @@ public class PropulsionSystem : CoreSystem
         // {
         //     float currentRoll = rollRotation * rollTorque;
 
-        //     body.AddTorque(body.transform.forward * currentRoll * Time.fixedDeltaTime, ForceMode.Force);
+        //     _shipBody.AddTorque(_shipBody.transform.forward * currentRoll * Time.fixedDeltaTime, ForceMode.Force);
         //     rollGlide = currentRoll;
         // } else
         // {
-        //     body.AddTorque(body.transform.forward * rollGlide * Time.fixedDeltaTime, ForceMode.Force);
+        //     _shipBody.AddTorque(_shipBody.transform.forward * rollGlide * Time.fixedDeltaTime, ForceMode.Force);
         //     rollGlide *= rollGlideReduction;
         // }
     }
@@ -126,11 +127,11 @@ public class PropulsionSystem : CoreSystem
     {
         if(startStrafing)
         {
-            body.AddRelativeForce(Vector3.right * strafeThrust * PowerLevel * Time.fixedDeltaTime);
+            _shipBody.AddRelativeForce(Vector3.right * strafeThrust * PowerLevel * Time.fixedDeltaTime);
             horizontalGlide = strafeThrust;
         } else 
         {
-            body.AddRelativeForce(Vector3.right * horizontalGlide * Time.fixedDeltaTime);
+            _shipBody.AddRelativeForce(Vector3.right * horizontalGlide * Time.fixedDeltaTime);
             horizontalGlide *= leftRightGlideReduction;
         }
     }
@@ -139,11 +140,11 @@ public class PropulsionSystem : CoreSystem
     {
         if(startUpDown)
         {
-            body.AddRelativeForce(Vector3.up * strafeThrust * PowerLevel * Time.fixedDeltaTime);
+            _shipBody.AddRelativeForce(Vector3.up * strafeThrust * PowerLevel * Time.fixedDeltaTime);
             verticalGlide = strafeThrust;
         } else 
         {
-            body.AddRelativeForce(Vector3.up * verticalGlide * Time.fixedDeltaTime);
+            _shipBody.AddRelativeForce(Vector3.up * verticalGlide * Time.fixedDeltaTime);
             verticalGlide *= upDownGlideReduction;
         }
     }
