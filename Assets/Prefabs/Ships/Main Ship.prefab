@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 6684194705348002466}
   m_Layer: 0
   m_Name: Main Ship
-  m_TagString: Untagged
+  m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1230,6 +1230,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxLength: 100
   _beam: {fileID: 3027375288127347694}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  laserDamage: 0.25
+  laserHeatThreshold: 20
+  laserHeatRate: 0.25
+  laserCoolRate: 0.5
+  currentLaserHeat: 0
 --- !u!120 &3027375288127347694
 LineRenderer:
   serializedVersion: 2
@@ -2413,6 +2421,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxLength: 100
   _beam: {fileID: 5933950024519490345}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  laserDamage: 0.25
+  laserHeatThreshold: 20
+  laserHeatRate: 0.25
+  laserCoolRate: 0.5
+  currentLaserHeat: 0
 --- !u!120 &5933950024519490345
 LineRenderer:
   serializedVersion: 2

@@ -13,7 +13,7 @@ public class FlightControl : MonoBehaviour
 
     private float stickPercentageX = 0f;
     private float stickPercentageY = 0f;
-    private bool isGrabbed;
+    protected bool isGrabbed;
 
     // Start is called before the first frame update
     private void Start()
