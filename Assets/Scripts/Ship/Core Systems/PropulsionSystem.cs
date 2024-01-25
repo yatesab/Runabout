@@ -67,11 +67,19 @@ public class PropulsionSystem : CoreSystem
     {
         if(highestPercentage > 0.1f || highestPercentage < -0.1f)
         {
+            if(!AudioManager.instance.GetSource("Ship Engines").isPlaying)
+            {
+                AudioManager.instance.Play("Ship Engines");
+            }
+
+            AudioManager.instance.GetSource("Ship Engines").volume = 0.4f * highestPercentage;
+
             float currentThrust = thrust * highestPercentage * PowerLevel;
 
             _shipBody.AddForce(_shipBody.transform.forward * currentThrust * Time.fixedDeltaTime, ForceMode.Impulse);
             glide = currentThrust;
         } else {
+            AudioManager.instance.Stop("Ship Engines");
             _shipBody.AddForce(Vector3.back * glide * Time.deltaTime, ForceMode.Force);
             glide *= thrustGlideReduction;
         }
@@ -80,7 +88,7 @@ public class PropulsionSystem : CoreSystem
     private void OnRotateShip()
     {
         // Pitch
-        _shipBody.AddRelativeTorque(Vector3.right * pitchRotation * pitchTorque * PowerLevel * Time.deltaTime);
+        _shipBody.AddRelativeTorque(Vector3.right * -pitchRotation * pitchTorque * PowerLevel * Time.deltaTime);
         // Yaw
         _shipBody.AddRelativeTorque(Vector3.up * yawRotation * yawTorque * PowerLevel * Time.deltaTime);
         // Roll

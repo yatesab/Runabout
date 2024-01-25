@@ -20,11 +20,12 @@ public class Throttle : MonoBehaviour
     public bool usePitch = false;
     public bool useYaw = false;
 
+    public Vector3 MirrorLocalPosition { get { return transform.InverseTransformPoint(_throttleHandle.position); } }
     public float ThrottlePercentage {set;get;}
     public bool Grabbed {set;get;}
 
     private Transform _throttleHandle;
-    private TMP_Text _screenPercentage;
+    public TMP_Text _screenPercentage;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,6 @@ public class Throttle : MonoBehaviour
         _grabInteractable.selectExited.AddListener(HandleStopGrab);
 
         _throttleHandle = GetComponentInChildren<Rigidbody>().transform;
-        _screenPercentage = GetComponentInChildren<TMP_Text>();
     }
 
     // Update is called once per frame

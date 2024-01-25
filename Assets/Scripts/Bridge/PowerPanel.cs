@@ -16,20 +16,22 @@ public class PowerPanel : MonoBehaviour
     [Header("Propulsion System")]
     [SerializeField] private Button propulsionButton;
     [SerializeField] private Button propulsionPatchButton;
-    [SerializeField] private Button propulsionRemoveButton;
     [SerializeField] private TMP_Text propulsionPowerLevel;
+    [SerializeField] private TMP_Text propulsionPatchButtonText;
 
     [Header("Shields System")]
     [SerializeField] private Button shieldButton;
     [SerializeField] private Button shieldPatchButton;
-    [SerializeField] private Button shieldRemoveButton;
     [SerializeField] private TMP_Text shieldPowerLevel;
+    [SerializeField] private TMP_Text shieldPatchButtonText;
 
     [Header("Weapons System")]
     [SerializeField] private Button weaponButton;
     [SerializeField] private Button weaponPatchButton;
-    [SerializeField] private Button weaponRemoveButton;
     [SerializeField] private TMP_Text weaponPowerLevel;
+    [SerializeField] private TMP_Text weaponPatchButtonText;
+
+    private TMP_Text selectedPatchButton;
 
     // Start is called before the first frame update
     void Start()
@@ -38,15 +40,12 @@ public class PowerPanel : MonoBehaviour
 
         propulsionButton.onClick.AddListener(PatchToPropulsionSystem);
         propulsionPatchButton.onClick.AddListener(PatchFromPropulsionSystem);
-        propulsionRemoveButton.onClick.AddListener(RemovePropulsionPatch);
 
         shieldButton.onClick.AddListener(PatchToShieldSystem);
         shieldPatchButton.onClick.AddListener(PatchFromShieldSystem);
-        shieldRemoveButton.onClick.AddListener(RemoveShieldPatch);
 
         weaponButton.onClick.AddListener(PatchToWeaponSystem);
         weaponPatchButton.onClick.AddListener(PatchFromWeaponSystem);
-        weaponRemoveButton.onClick.AddListener(RemoveWeaponPatch);
     }
 
     // Update is called once per frame
@@ -62,18 +61,63 @@ public class PowerPanel : MonoBehaviour
 
         propulsionPowerLevel.text = powerCore.PropulsionPower.ToString();
         propulsionButton.interactable  = powerCore.PatchFrom != null;
-        propulsionPatchButton.interactable  = !powerCore.PropulsionIsPatched;
-        propulsionRemoveButton.interactable  = powerCore.PropulsionIsPatched;
 
         shieldPowerLevel.text = powerCore.ShieldPower.ToString();
         shieldButton.interactable  = powerCore.PatchFrom != null;
-        shieldPatchButton.interactable  = !powerCore.ShieldIsPatched;
-        shieldRemoveButton.interactable  = powerCore.ShieldIsPatched;
 
         weaponPowerLevel.text = powerCore.WeaponPower.ToString();
         weaponButton.interactable  = powerCore.PatchFrom != null;
-        weaponPatchButton.interactable  = !powerCore.WeaponIsPatched;
-        weaponRemoveButton.interactable  = powerCore.WeaponIsPatched;
+    }
+
+    private void PatchSystems(PowerCore.SystemType systemType)
+    {
+        Debug.Log(systemType.ToString());
+        if (powerCore.SetPatchToSystem(systemType))
+        {
+            // After setting patch to system try to patch systems together.
+            if (powerCore.PatchSelectedSystems())
+            {
+                // Display Success in Patching systems
+                AudioManager.instance.Play("Button Success");
+
+                selectedPatchButton.text = "Remove Patch";
+                selectedPatchButton = null;
+            }
+            else
+            {
+                powerCore.ClearSelectedSystems();
+
+                // Display Error with color or message
+                Debug.Log("Error with Patching Systems Together");
+            }
+        }
+        else
+        {
+            powerCore.ClearSelectedSystems();
+
+            // Display Error with color or message
+            Debug.Log("Error with Patch To System");
+        }
+
+    }
+
+    private void PatchFrom(PowerCore.SystemType systemType, bool systemIsPatched, TMP_Text buttonText)
+    {
+        Debug.Log(systemType.ToString());
+
+        if (systemIsPatched)
+        {
+            powerCore.RemoveSystemPatch(systemType);
+            AudioManager.instance.Play("Button Success");
+            buttonText.text = "Patch";
+        }
+        else
+        {
+            powerCore.SetPatchFromSystem(systemType);
+            AudioManager.instance.Play("Button Select");
+            buttonText.text = "Patching To";
+            selectedPatchButton = buttonText;
+        }
     }
 
     /*
@@ -82,28 +126,7 @@ public class PowerPanel : MonoBehaviour
 
     private void PatchToAuxSystem()
     {
-        if(powerCore.SetPatchToSystem(PowerCore.SystemType.Aux))
-        {
-            // After setting patch to system try to patch systems together.
-            if(powerCore.PatchSelectedSystems())
-            {
-                // Display Success in Patching systems
-            }
-            else
-            {
-                powerCore.ClearSelectedSystems();
-
-                // Display Error with color or message
-                Debug.Log("Error with Patching Systems Together");
-            }
-        }
-        else
-        {
-            powerCore.ClearSelectedSystems();
-
-            // Display Error with color or message
-            Debug.Log("Error with Patch To System");
-        }
+        PatchSystems(PowerCore.SystemType.Aux);
     }
 
     /*
@@ -112,38 +135,12 @@ public class PowerPanel : MonoBehaviour
 
     private void PatchToPropulsionSystem()
     {
-        if(powerCore.SetPatchToSystem(PowerCore.SystemType.Propulsion))
-        {
-            // After setting patch to system try to patch systems together.
-            if(powerCore.PatchSelectedSystems())
-            {
-                // Display Success in Patching systems
-            }
-            else
-            {
-                powerCore.ClearSelectedSystems();
-                
-                // Display Error with color or message
-                Debug.Log("Error with Patching Systems Together");
-            }
-        }
-        else
-        {
-            powerCore.ClearSelectedSystems();
-                
-            // Display Error with color or message
-            Debug.Log("Error with Patch To System");
-        }
+        PatchSystems(PowerCore.SystemType.Propulsion);
     }
 
     private void PatchFromPropulsionSystem()
     {
-        powerCore.SetPatchFromSystem(PowerCore.SystemType.Propulsion);
-    }
-
-    private void RemovePropulsionPatch()
-    {
-        powerCore.RemoveSystemPatch(PowerCore.SystemType.Propulsion);
+        PatchFrom(PowerCore.SystemType.Propulsion, powerCore.PropulsionIsPatched, propulsionPatchButtonText);
     }
 
     /*
@@ -152,38 +149,12 @@ public class PowerPanel : MonoBehaviour
 
     private void PatchToShieldSystem()
     {
-        if(powerCore.SetPatchToSystem(PowerCore.SystemType.Shield))
-        {
-            // After setting patch to system try to patch systems together.
-            if(powerCore.PatchSelectedSystems())
-            {
-                // Display Success in Patching systems
-            }
-            else
-            {
-                powerCore.ClearSelectedSystems();
-                
-                // Display Error with color or message
-                Debug.Log("Error with Patching Systems Together");
-            }
-        }
-        else
-        {
-            powerCore.ClearSelectedSystems();
-                
-            // Display Error with color or message
-            Debug.Log("Error with Patch To System");
-        } 
+        PatchSystems(PowerCore.SystemType.Shield);
     }
 
     private void PatchFromShieldSystem()
     {
-        powerCore.SetPatchFromSystem(PowerCore.SystemType.Shield);
-    }
-
-    private void RemoveShieldPatch()
-    {
-        powerCore.RemoveSystemPatch(PowerCore.SystemType.Shield);
+        PatchFrom(PowerCore.SystemType.Shield, powerCore.ShieldIsPatched, shieldPatchButtonText);
     }
 
     /*
@@ -191,37 +162,11 @@ public class PowerPanel : MonoBehaviour
     **/
     private void PatchToWeaponSystem()
     {
-        if(powerCore.SetPatchToSystem(PowerCore.SystemType.Weapon))
-        {
-            // After setting patch to system try to patch systems together.
-            if(powerCore.PatchSelectedSystems())
-            {
-                // Display Success in Patching systems
-            }
-            else
-            {
-                powerCore.ClearSelectedSystems();
-                
-                // Display Error with color or message
-                Debug.Log("Error with Patching Systems Together");
-            }
-        }
-        else
-        {
-            powerCore.ClearSelectedSystems();
-                
-            // Display Error with color or message
-            Debug.Log("Error with Patch To System");
-        } 
+        PatchSystems(PowerCore.SystemType.Weapon); 
     }
 
     private void PatchFromWeaponSystem()
     {
-        powerCore.SetPatchFromSystem(PowerCore.SystemType.Weapon);
-    }
-
-    private void RemoveWeaponPatch()
-    {
-        powerCore.RemoveSystemPatch(PowerCore.SystemType.Weapon);
+        PatchFrom(PowerCore.SystemType.Weapon, powerCore.WeaponIsPatched, weaponPatchButtonText);
     }
 }

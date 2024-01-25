@@ -1474,11 +1474,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shipBody: {fileID: 6684194705348002466}
   _shipModel: {fileID: 4103559678393226727}
-  thrust: 100
+  thrust: 250
   thrustGlideReduction: 0.01
-  pitchTorque: 1000
-  yawTorque: 2000
-  rollTorque: 1000
+  pitchTorque: 2000
+  yawTorque: 3000
+  rollTorque: 2000
   strafeThrust: 1000
   leftRightGlideReduction: 0.111
   upDownGlideReduction: 0.01

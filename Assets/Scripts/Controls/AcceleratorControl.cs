@@ -20,10 +20,12 @@ public class AcceleratorControl : MonoBehaviour
     [SerializeField] protected InputActionReference _rightFireAction;
 
     [Header("Left Throttle Settings")]
-    [SerializeField] private Throttle leftThrottle;
+    public Throttle leftThrottlePhysics;
+    public Transform leftThrottleBody;
 
     [Header("Right Throttle Settings")]
-    [SerializeField] private Throttle rightThrottle;
+    public Throttle rightThrottlePhysics;
+    public Transform rightThrottleBody;
 
     private Vector2 _pitchYaw;
     private float _roll;
@@ -64,30 +66,34 @@ public class AcceleratorControl : MonoBehaviour
 
     private void SyncLeftThrottle()
     {
-        if(leftThrottle.isSynced && rightThrottle.Grabbed)
+        if(leftThrottlePhysics.isSynced && rightThrottlePhysics.Grabbed)
         {
-            leftThrottle.SetThrottlePercentage(rightThrottle.ThrottlePercentage);
+            leftThrottlePhysics.SetThrottlePercentage(rightThrottlePhysics.ThrottlePercentage);
         }
+
+        leftThrottleBody.localPosition = leftThrottlePhysics.MirrorLocalPosition;
     }
 
     private void SyncRightThrottle()
     {
-        if(rightThrottle.isSynced && leftThrottle.Grabbed)
+        if(rightThrottlePhysics.isSynced && leftThrottlePhysics.Grabbed)
         {
-            rightThrottle.SetThrottlePercentage(leftThrottle.ThrottlePercentage);
+            rightThrottlePhysics.SetThrottlePercentage(leftThrottlePhysics.ThrottlePercentage);
         }
+        
+        rightThrottleBody.localPosition = rightThrottlePhysics.MirrorLocalPosition;
     }
 
     private void SetThrustPercentage()
     {
-        float newThrust = Mathf.Max(leftThrottle.ThrottlePercentage, rightThrottle.ThrottlePercentage);
+        float newThrust = Mathf.Max(leftThrottlePhysics.ThrottlePercentage, rightThrottlePhysics.ThrottlePercentage);
 
         propulsionSystem.SetThrustPercentage(newThrust);
     }
 
     private void SetShipRotation()
     {
-        float _throttleDiff = leftThrottle.ThrottlePercentage - rightThrottle.ThrottlePercentage;
+        float _throttleDiff = leftThrottlePhysics.ThrottlePercentage - rightThrottlePhysics.ThrottlePercentage;
         float newYaw = _throttleDiff > 0.15f || _throttleDiff < 0.15f ? _throttleDiff / 2 : 0f;
 
         propulsionSystem.SetYawRotation(_pitchYaw.x + newYaw);
@@ -100,10 +106,7 @@ public class AcceleratorControl : MonoBehaviour
     */
     private void OnLeftStickPressed(InputAction.CallbackContext obj)
     {
-        if(leftThrottle.Grabbed)
-        {
-            _pitchYaw = obj.ReadValue<Vector2>();
-        }
+        _pitchYaw = obj.ReadValue<Vector2>();
     }
 
     private void OnLeftStickStopped(InputAction.CallbackContext obj)
@@ -113,10 +116,7 @@ public class AcceleratorControl : MonoBehaviour
 
     private void OnRightStickPressed(InputAction.CallbackContext obj)
     {
-        if(rightThrottle.Grabbed)
-        {
-            _roll = obj.ReadValue<Vector2>().x;
-        }
+        _roll = obj.ReadValue<Vector2>().x;
     }
 
     private void OnRightStickStopped(InputAction.CallbackContext obj)
@@ -126,34 +126,31 @@ public class AcceleratorControl : MonoBehaviour
 
     private void OnThrottleReset(InputAction.CallbackContext obj)
     {
-        if(leftThrottle.Grabbed)
+        if(leftThrottlePhysics.Grabbed)
         {
-            if(!rightThrottle.Grabbed)
+            if(!rightThrottlePhysics.Grabbed)
             {
-                rightThrottle.isSynced = true;
+                rightThrottlePhysics.isSynced = true;
             }
-        } else if(rightThrottle.Grabbed)
+        } else if(rightThrottlePhysics.Grabbed)
         {
-            if(!leftThrottle.Grabbed)
+            if(!leftThrottlePhysics.Grabbed)
             {
-                leftThrottle.isSynced = true;
+                leftThrottlePhysics.isSynced = true;
             }
         } else 
         {
-            leftThrottle.isSynced = true;
-            rightThrottle.isSynced = true;
+            leftThrottlePhysics.isSynced = true;
+            rightThrottlePhysics.isSynced = true;
 
-            leftThrottle.SetThrottlePercentage(0f);
-            rightThrottle.SetThrottlePercentage(0f);
+            leftThrottlePhysics.SetThrottlePercentage(0f);
+            rightThrottlePhysics.SetThrottlePercentage(0f);
         }
     }
     
     private void OnLeftWeaponPressed(InputAction.CallbackContext obj)
     {
-        if(leftThrottle.Grabbed)
-        {
-            weaponSystem.FireLeftWeapon();
-        }
+        weaponSystem.FireLeftWeapon();
     }
 
     private void OnLeftWeaponStopped(InputAction.CallbackContext obj)
@@ -163,10 +160,7 @@ public class AcceleratorControl : MonoBehaviour
 
     private void OnRightWeaponPressed(InputAction.CallbackContext obj)
     {
-        if(rightThrottle.Grabbed)
-        {
-            weaponSystem.FireRightWeapon();
-        }
+        weaponSystem.FireRightWeapon();
     }
 
     private void OnRightWeaponStopped(InputAction.CallbackContext obj)
