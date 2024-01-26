@@ -26,7 +26,6 @@ public class Throttle : MonoBehaviour
     [SerializeField] private Transform _throttleHandle;
     [SerializeField] private Transform _throttleCeiling;
     [SerializeField] private Transform _throttleFloor;
-    [SerializeField] private TMP_Text _screenPercentage;
 
     private float maxDistance;
     private Vector3 handlePosition;
@@ -48,14 +47,7 @@ public class Throttle : MonoBehaviour
     {
         float currentDistance = maxDistance - Vector3.Distance(_throttleHandle.position, _throttleCeiling.position);
 
-        ThrottlePercentage = (currentDistance) / (maxDistance);
-        
-        UpdateScreen();
-    }
-
-    private void UpdateScreen()
-    {
-        _screenPercentage.text = Mathf.Round(ThrottlePercentage * 100).ToString() + " %";
+        ThrottlePercentage = (currentDistance) / (maxDistance);        
     }
 
     /**
