@@ -5,7 +5,7 @@ using UnityEngine;
 public class PropulsionSystem : CoreSystem
 {
     public Rigidbody _shipBody;
-    public Transform _shipModel;
+    public FlipSwitch _reverseSwitch;
 
     [Header("Thrust Settings")]
     [SerializeField] private float thrust = 300f;
@@ -73,6 +73,12 @@ public class PropulsionSystem : CoreSystem
             }
 
             AudioManager.instance.GetSource("Ship Engines").volume = 0.4f * highestPercentage;
+
+            // If reverse switch is flipped then make the percentage negative
+            if(_reverseSwitch.switchOn)
+            {
+                highestPercentage *= -1;
+            }
 
             float currentThrust = thrust * highestPercentage * PowerLevel;
 

@@ -15,7 +15,6 @@ public class Throttle : MonoBehaviour
 {
     public ThrottleSide throttleLocation;
     public float _throttleDeadZone = 0.02f;
-    public bool isSynced = true;
     public bool useRoll = false;
     public bool usePitch = false;
     public bool useYaw = false;
@@ -24,8 +23,13 @@ public class Throttle : MonoBehaviour
     public float ThrottlePercentage {set;get;}
     public bool Grabbed {set;get;}
 
-    private Transform _throttleHandle;
-    public TMP_Text _screenPercentage;
+    [SerializeField] private Transform _throttleHandle;
+    [SerializeField] private Transform _throttleCeiling;
+    [SerializeField] private Transform _throttleFloor;
+    [SerializeField] private TMP_Text _screenPercentage;
+
+    private float maxDistance;
+    private Vector3 handlePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -36,21 +40,15 @@ public class Throttle : MonoBehaviour
         _grabInteractable.selectEntered.AddListener(HandleStartGrab);
         _grabInteractable.selectExited.AddListener(HandleStopGrab);
 
-        _throttleHandle = GetComponentInChildren<Rigidbody>().transform;
+        maxDistance = Vector3.Distance(_throttleFloor.position, _throttleCeiling.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float handlePosition = transform.InverseTransformPoint(_throttleHandle.position).z;
+        float currentDistance = maxDistance - Vector3.Distance(_throttleHandle.position, _throttleCeiling.position);
 
-        if(handlePosition > _throttleDeadZone || handlePosition < -_throttleDeadZone)
-        {
-            ThrottlePercentage = (handlePosition - _throttleDeadZone) / (0.2f - _throttleDeadZone);
-        } else 
-        {
-            ThrottlePercentage = 0f;
-        }
+        ThrottlePercentage = (currentDistance) / (maxDistance);
         
         UpdateScreen();
     }
@@ -66,7 +64,6 @@ public class Throttle : MonoBehaviour
     private void HandleStartGrab(SelectEnterEventArgs args)
     {
         Grabbed = true;
-        isSynced = false;
     }
 
     private void HandleStopGrab(SelectExitEventArgs args)
@@ -74,8 +71,13 @@ public class Throttle : MonoBehaviour
         Grabbed = false;
     }
 
-    public void SetThrottlePercentage(float newPercentage)
+    public void SyncThrottlePosition(float newLocalPositionZ)
     {
-        _throttleHandle.localPosition = new Vector3(_throttleHandle.localPosition.x, _throttleHandle.localPosition.y, newPercentage * 0.2f);
+        _throttleHandle.localPosition = new Vector3(_throttleHandle.localPosition.x, _throttleHandle.localPosition.y, newLocalPositionZ);
+    }
+
+    public void ResetThrottle()
+    {
+        _throttleHandle.localPosition = _throttleFloor.localPosition;
     }
 }

@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Events;
 
 public class FlipSwitch : MonoBehaviour
 {
     public bool switchOn = false;
-    public Transform switchMirror;
-    public ViewFinder activateObject;
+    public FlipSwitchMirror flipSwitchMirror;
+
+    [Header("Flip Actions")]
+    public UnityEvent FlipOnAction;
+    public UnityEvent FlipOffAction;
+
+    private Material originalMaterial;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +22,14 @@ public class FlipSwitch : MonoBehaviour
         XRSimpleInteractable switchInteractable = GetComponent<XRSimpleInteractable>();
 
         switchInteractable.selectEntered.AddListener(HandleFlipSwitch);
+        switchInteractable.hoverEntered.AddListener(HandleHoverEnter);
+        switchInteractable.hoverExited.AddListener(HandleHoverExit);
     }
 
     // Update is called once per frame
     void Update()
     {
-        switchMirror.localRotation = transform.localRotation;
+        flipSwitchMirror.MirrorObject(transform);
     }
 
     public void HandleFlipSwitch(SelectEnterEventArgs args)
@@ -32,9 +40,9 @@ public class FlipSwitch : MonoBehaviour
             transform.Rotate(-90f, 0f, 0f);
             switchOn = false;
 
-            if(activateObject != null)
+            if(FlipOffAction != null)
             {
-                activateObject.FlipSwitchOffEvent();
+                FlipOffAction.Invoke();
             }
         }
         else
@@ -42,15 +50,28 @@ public class FlipSwitch : MonoBehaviour
             transform.Rotate(90f, 0f, 0f);
             switchOn = true;
 
-            if (activateObject != null)
+            if (FlipOnAction != null)
             {
-                activateObject.FlipSwitchOnEvent();
+                FlipOnAction.Invoke();
             }
         }
     }
 
-    public void HandleHoverSwitch(HoverEnterEventArgs args)
+    public void HandleHoverEnter(HoverEnterEventArgs args)
     {
         // Do hover things here
+        if(flipSwitchMirror.hasHover)
+        {
+            flipSwitchMirror.ActivateHover();
+        }
+    }
+
+    public void HandleHoverExit(HoverExitEventArgs args)
+    {
+        // Do hover things here
+        if (flipSwitchMirror.hasHover)
+        {
+            flipSwitchMirror.DeactivateHover();
+        }
     }
 }

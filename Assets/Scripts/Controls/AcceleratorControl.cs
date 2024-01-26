@@ -10,20 +10,19 @@ public class AcceleratorControl : MonoBehaviour
 {
     public PropulsionSystem propulsionSystem;
     public WeaponSystem weaponSystem;
-
-    [Header("Input Actions")]
-    [SerializeField] private InputActionReference _leftStickAction;
-    [SerializeField] private InputActionReference _rightStickAction;
-    [SerializeField] private InputActionReference _leftThrottleReset;
-    [SerializeField] private InputActionReference _rightThrottleReset;
-    [SerializeField] protected InputActionReference _leftFireAction;
-    [SerializeField] protected InputActionReference _rightFireAction;
+    public FlipSwitch _syncSwitch;
 
     [Header("Left Throttle Settings")]
+    [SerializeField] private InputActionReference _leftStickAction;
+    [SerializeField] private InputActionReference _leftThrottleReset;
+    [SerializeField] protected InputActionReference _leftFireAction;
     public Throttle leftThrottlePhysics;
     public Transform leftThrottleBody;
 
     [Header("Right Throttle Settings")]
+    [SerializeField] private InputActionReference _rightStickAction;
+    [SerializeField] private InputActionReference _rightThrottleReset;
+    [SerializeField] protected InputActionReference _rightFireAction;
     public Throttle rightThrottlePhysics;
     public Transform rightThrottleBody;
 
@@ -52,10 +51,9 @@ public class AcceleratorControl : MonoBehaviour
     }
 
     private void Update()
-    { 
+    {
         // Sync Throttles if set to sync and oposite throttle is grabbed
-        SyncLeftThrottle();
-        SyncRightThrottle();
+        SyncThrottles();
 
         // Set Thrust and Yaw on propulsion system based on throttle percentage
         SetThrustPercentage();
@@ -64,24 +62,19 @@ public class AcceleratorControl : MonoBehaviour
         SetShipRotation();
     }
 
-    private void SyncLeftThrottle()
+    private void SyncThrottles()
     {
-        if(leftThrottlePhysics.isSynced && rightThrottlePhysics.Grabbed)
+        if(_syncSwitch.switchOn && leftThrottlePhysics.Grabbed && !rightThrottlePhysics.Grabbed)
         {
-            leftThrottlePhysics.SetThrottlePercentage(rightThrottlePhysics.ThrottlePercentage);
+            rightThrottlePhysics.SyncThrottlePosition(leftThrottlePhysics.MirrorLocalPosition.z);
+        }else if (_syncSwitch.switchOn && rightThrottlePhysics.Grabbed && !leftThrottlePhysics.Grabbed)
+        {
+            leftThrottlePhysics.SyncThrottlePosition(rightThrottlePhysics.MirrorLocalPosition.z);
         }
 
-        leftThrottleBody.localPosition = leftThrottlePhysics.MirrorLocalPosition;
-    }
-
-    private void SyncRightThrottle()
-    {
-        if(rightThrottlePhysics.isSynced && leftThrottlePhysics.Grabbed)
-        {
-            rightThrottlePhysics.SetThrottlePercentage(leftThrottlePhysics.ThrottlePercentage);
-        }
-        
+        // Sync Mesh to the physics location
         rightThrottleBody.localPosition = rightThrottlePhysics.MirrorLocalPosition;
+        leftThrottleBody.localPosition = leftThrottlePhysics.MirrorLocalPosition;
     }
 
     private void SetThrustPercentage()
@@ -94,7 +87,7 @@ public class AcceleratorControl : MonoBehaviour
     private void SetShipRotation()
     {
         float _throttleDiff = leftThrottlePhysics.ThrottlePercentage - rightThrottlePhysics.ThrottlePercentage;
-        float newYaw = _throttleDiff > 0.15f || _throttleDiff < 0.15f ? _throttleDiff / 2 : 0f;
+        float newYaw = _throttleDiff > 0.15f || _throttleDiff < 0.15f ? _throttleDiff : 0f;
 
         propulsionSystem.SetYawRotation(_pitchYaw.x + newYaw);
         propulsionSystem.SetPitchRotation(_pitchYaw.y);
@@ -126,26 +119,8 @@ public class AcceleratorControl : MonoBehaviour
 
     private void OnThrottleReset(InputAction.CallbackContext obj)
     {
-        if(leftThrottlePhysics.Grabbed)
-        {
-            if(!rightThrottlePhysics.Grabbed)
-            {
-                rightThrottlePhysics.isSynced = true;
-            }
-        } else if(rightThrottlePhysics.Grabbed)
-        {
-            if(!leftThrottlePhysics.Grabbed)
-            {
-                leftThrottlePhysics.isSynced = true;
-            }
-        } else 
-        {
-            leftThrottlePhysics.isSynced = true;
-            rightThrottlePhysics.isSynced = true;
-
-            leftThrottlePhysics.SetThrottlePercentage(0f);
-            rightThrottlePhysics.SetThrottlePercentage(0f);
-        }
+        leftThrottlePhysics.ResetThrottle();
+        rightThrottlePhysics.ResetThrottle();
     }
     
     private void OnLeftWeaponPressed(InputAction.CallbackContext obj)
