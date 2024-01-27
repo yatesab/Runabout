@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TransporterSystem : MonoBehaviour
 {
-
     private SphereCollider transporterCollider;
     public bool canTransport = false;
 

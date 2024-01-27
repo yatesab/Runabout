@@ -5,22 +5,21 @@ using UnityEngine;
 public abstract class CoreSystem : MonoBehaviour, ShipSystem
 {
     public bool isPatched {get;set;} = false;
-    public float PowerLevel {get;set;} = 1f;
+    public float PowerLevel {get;set;} = 0f;
+    public float HeatLevel { get; set; } = 0f;
     public ShipSystem PatchedToSystem {get;set;}
 
-    public void PatchToSystem(float powerUpgrade)
+    public virtual void PatchToSystem(float powerUpgrade)
     {
         PowerLevel += powerUpgrade;
-        
     }
 
-    public void RemovePatchToSystem(float powerUpgrade)
+    public virtual void RemovePatchToSystem(float powerUpgrade)
     {
         PowerLevel -= powerUpgrade;
-
     }
 
-    public void PatchFromSystem(ShipSystem InSystem, float powerDowngrade)
+    public virtual void PatchFromSystem(ShipSystem InSystem, float powerDowngrade)
     {
         PatchedToSystem = InSystem;
         PowerLevel -= powerDowngrade;
@@ -28,7 +27,7 @@ public abstract class CoreSystem : MonoBehaviour, ShipSystem
         isPatched = true;
     }
 
-    public void RemovePatchFromSystem(float powerDowngrade)
+    public virtual void RemovePatchFromSystem(float powerDowngrade)
     {
         PatchedToSystem = null;
         PowerLevel += powerDowngrade;

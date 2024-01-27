@@ -6,7 +6,8 @@ public class PowerCore : MonoBehaviour
 {
     [Header("Aux System")]
     [SerializeField] private AuxSystem auxSystem;
-    public float AuxPower { 
+    public float AuxPower 
+    { 
         get { return auxSystem.PowerLevel; } 
     }
 
@@ -50,6 +51,13 @@ public class PowerCore : MonoBehaviour
 
     private float patchFromUpgrade = 0.5f;
     private float patchToDowngrade = 0.25f;
+
+    public void Awake()
+    {
+        propulsionSystem.PowerLevel = 1f;
+        weaponSystem.PowerLevel = 1f;
+        shieldSystem.PowerLevel = 1f;
+    }
 
     public bool PatchSelectedSystems()
     {

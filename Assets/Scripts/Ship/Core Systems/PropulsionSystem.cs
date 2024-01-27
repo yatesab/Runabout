@@ -34,9 +34,6 @@ public class PropulsionSystem : CoreSystem
     private float highestPercentage = 0f;
     private float thrustDiff = 0f;
     private float glide = 0f;
-    // private float pitchGlide = 0f;
-    // private float yawGlide = 0f;
-    // private float rollGlide = 0f;
     private float horizontalGlide = 0f;
     private float verticalGlide = 0f;
 
@@ -99,42 +96,6 @@ public class PropulsionSystem : CoreSystem
         _shipBody.AddRelativeTorque(Vector3.up * yawRotation * yawTorque * PowerLevel * Time.deltaTime);
         // Roll
         _shipBody.AddRelativeTorque(Vector3.back * rollRotation * rollTorque * PowerLevel * Time.deltaTime);
-
-        // if(pitchRotation > 0.1f || pitchRotation < -0.1f)
-        // {
-        //     float currentPitch = pitchRotation * pitchTorque;
-
-        //     _shipBody.AddTorque(_shipBody.transform.right * currentPitch * Time.fixedDeltaTime, ForceMode.Force);
-        //     pitchGlide = currentPitch;
-        // } else
-        // {
-        //     _shipBody.AddTorque(_shipBody.transform.right * pitchGlide * Time.fixedDeltaTime, ForceMode.Force);
-        //     pitchGlide *= pitchGlideReduction;
-        // }
-
-        // if(yawRotation > 0.1f || yawRotation < -0.1f)
-        // {
-        //     float currentYaw = yawRotation * yawTorque;
-
-        //     _shipBody.AddTorque(_shipBody.transform.up * currentYaw * Time.fixedDeltaTime, ForceMode.Force);
-        //     yawGlide = currentYaw;
-        // } else
-        // {
-        //     _shipBody.AddTorque(_shipBody.transform.up * yawGlide * Time.fixedDeltaTime, ForceMode.Force);
-        //     yawGlide *= yawGlideReduction;
-        // }
-
-        // if(rollRotation > 0.1f || rollRotation < -0.1f)
-        // {
-        //     float currentRoll = rollRotation * rollTorque;
-
-        //     _shipBody.AddTorque(_shipBody.transform.forward * currentRoll * Time.fixedDeltaTime, ForceMode.Force);
-        //     rollGlide = currentRoll;
-        // } else
-        // {
-        //     _shipBody.AddTorque(_shipBody.transform.forward * rollGlide * Time.fixedDeltaTime, ForceMode.Force);
-        //     rollGlide *= rollGlideReduction;
-        // }
     }
 
     private void OnStrafeShip()

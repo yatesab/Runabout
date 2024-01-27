@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class ViewFinder : MonoBehaviour
 {
-    public Material cameraMaterial;
+    public Material forwardCameraMaterial;
+    public Material reverseCameraMaterial;
     public Material glassMaterial;
 
+
     private MeshRenderer meshRenderer;
+    private bool _screenOn = false;
+    private Material cameraToUse;
+
+    void Awake()
+    {
+        cameraToUse = forwardCameraMaterial;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -21,19 +30,43 @@ public class ViewFinder : MonoBehaviour
 
     }
 
-    public void FlipSwitchOnEvent()
+    public void TurnOnScreen()
     {
         // Change material to camera material
         Material[] materialsCopy = meshRenderer.materials;
-        materialsCopy[0] = cameraMaterial;
+        materialsCopy[0] = cameraToUse;
         meshRenderer.materials = materialsCopy;
+
+        _screenOn = true;
     }
 
-    public void FlipSwitchOffEvent()
+    public void TurnOffScreen()
     {
         // Change material back to glass
         Material[] materialsCopy = meshRenderer.materials;
         materialsCopy[0] = glassMaterial;
         meshRenderer.materials = materialsCopy;
+
+        _screenOn = false;
+    }
+
+    public void ChangeToReverseCamera()
+    {
+        cameraToUse = reverseCameraMaterial;
+
+        if (_screenOn)
+        {
+            TurnOnScreen();
+        }
+    }
+
+    public void ChangeToForwardCamera()
+    {
+        cameraToUse = forwardCameraMaterial;
+
+        if (_screenOn)
+        {
+            TurnOnScreen();
+        }
     }
 }
