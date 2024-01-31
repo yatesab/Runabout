@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PropulsionSystem : CoreSystem
+public class PropulsionSystem : StationSystem
 {
     public Rigidbody _shipBody;
     public FlipSwitch _reverseSwitch;
@@ -10,16 +10,12 @@ public class PropulsionSystem : CoreSystem
     [Header("Thrust Settings")]
     [SerializeField] private float thrust = 300f;
     [SerializeField] private float thrustGlideReduction = -0.01f;
+    [SerializeField] private float thrusterHeatThreshold = 0.75f;
 
     [Header("Pitch / Yaw / Roll Settings")]
     [SerializeField] private float pitchTorque = 1000f;
-    // [SerializeField] private float pitchGlideReduction = 0.1f;
     [SerializeField] private float yawTorque = 1000f;
-    // [SerializeField] private float yawGlideReduction = 0.1f;
-
     [SerializeField] private float rollTorque = 1000f;
-    // [SerializeField] private float rollGlideReduction = 0.1f;
-
 
     [Header("Strafe Settings")]
     [SerializeField] private float strafeThrust = 50f;
@@ -41,9 +37,16 @@ public class PropulsionSystem : CoreSystem
     private bool startUpDown = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-
+        if(highestPercentage > thrusterHeatThreshold)
+        {
+            isHeating = true;
+            AddHeat(Time.deltaTime * PowerLevel);
+        } else
+        {
+            isHeating = false;
+        }
     }
 
     private void FixedUpdate()
@@ -60,6 +63,28 @@ public class PropulsionSystem : CoreSystem
     /**
         Thrust Handle Methods
     */
+    private void AddForceToShip()
+    {
+        // If reverse switch is flipped then make the percentage negative
+        float currentThrustPercentage = highestPercentage;
+        if (_reverseSwitch.switchOn)
+        {
+            currentThrustPercentage *= -1;
+        }
+
+        // Need to correct power level if system is overheated
+        float currentPowerLevel = PowerLevel;
+        if (isOverheated)
+        {
+            currentPowerLevel -= 0.5f;
+        }
+
+        float currentThrust = thrust * currentThrustPercentage * currentPowerLevel;
+
+        _shipBody.AddForce(_shipBody.transform.forward * currentThrust * Time.fixedDeltaTime, ForceMode.Impulse);
+        glide = currentThrust;
+    }
+
     private void OnThrustShip()
     {
         if(highestPercentage > 0.1f || highestPercentage < -0.1f)
@@ -71,18 +96,12 @@ public class PropulsionSystem : CoreSystem
 
             AudioManager.instance.GetSource("Ship Engines").volume = 0.4f * highestPercentage;
 
-            // If reverse switch is flipped then make the percentage negative
-            if(_reverseSwitch.switchOn)
-            {
-                highestPercentage *= -1;
-            }
-
-            float currentThrust = thrust * highestPercentage * PowerLevel;
-
-            _shipBody.AddForce(_shipBody.transform.forward * currentThrust * Time.fixedDeltaTime, ForceMode.Impulse);
-            glide = currentThrust;
+            AddForceToShip();
         } else {
+            // Stop Sound from engines
             AudioManager.instance.Stop("Ship Engines");
+
+            // Slow forces on ship
             _shipBody.AddForce(Vector3.back * glide * Time.deltaTime, ForceMode.Force);
             glide *= thrustGlideReduction;
         }

@@ -9,10 +9,6 @@ public class PowerPanel : MonoBehaviour
     [Header("Power Core")]
     [SerializeField] private PowerCore powerCore;
 
-    [Header("Aux System")]
-    [SerializeField] private Button auxButton;
-    [SerializeField] private TMP_Text auxPowerLevel;
-
     [Header("Propulsion System")]
     [SerializeField] private Button propulsionButton;
     [SerializeField] private Button propulsionPatchButton;
@@ -36,8 +32,6 @@ public class PowerPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        auxButton.onClick.AddListener(PatchToAuxSystem);
-
         propulsionButton.onClick.AddListener(PatchToPropulsionSystem);
         propulsionPatchButton.onClick.AddListener(PatchFromPropulsionSystem);
 
@@ -56,55 +50,30 @@ public class PowerPanel : MonoBehaviour
 
     public void UpdateScreen()
     {
-        auxPowerLevel.text = powerCore.AuxPower.ToString();
-        auxButton.interactable  = powerCore.PatchFrom != null;
-
         propulsionPowerLevel.text = powerCore.PropulsionPower.ToString();
-        propulsionButton.interactable  = powerCore.PatchFrom != null;
+        propulsionButton.interactable  = powerCore.PatchFrom != PowerCore.SystemType.None;
 
         shieldPowerLevel.text = powerCore.ShieldPower.ToString();
-        shieldButton.interactable  = powerCore.PatchFrom != null;
+        shieldButton.interactable  = powerCore.PatchFrom != PowerCore.SystemType.None;
 
         weaponPowerLevel.text = powerCore.WeaponPower.ToString();
-        weaponButton.interactable  = powerCore.PatchFrom != null;
+        weaponButton.interactable  = powerCore.PatchFrom != PowerCore.SystemType.None;
     }
 
     private void PatchSystems(PowerCore.SystemType systemType)
     {
-        Debug.Log(systemType.ToString());
-        if (powerCore.SetPatchToSystem(systemType))
-        {
-            // After setting patch to system try to patch systems together.
-            if (powerCore.PatchSelectedSystems())
-            {
-                // Display Success in Patching systems
-                AudioManager.instance.Play("Button Success");
+        powerCore.SetPatchToSystem(systemType);
+        powerCore.PatchSelectedSystems();
 
-                selectedPatchButton.text = "Remove Patch";
-                selectedPatchButton = null;
-            }
-            else
-            {
-                powerCore.ClearSelectedSystems();
+        // Display Success in Patching systems
+        AudioManager.instance.Play("Button Success");
 
-                // Display Error with color or message
-                Debug.Log("Error with Patching Systems Together");
-            }
-        }
-        else
-        {
-            powerCore.ClearSelectedSystems();
-
-            // Display Error with color or message
-            Debug.Log("Error with Patch To System");
-        }
-
+        selectedPatchButton.text = "Remove Patch";
+        selectedPatchButton = null;
     }
 
     private void PatchFrom(PowerCore.SystemType systemType, bool systemIsPatched, TMP_Text buttonText)
     {
-        Debug.Log(systemType.ToString());
-
         if (systemIsPatched)
         {
             powerCore.RemoveSystemPatch(systemType);
@@ -113,20 +82,13 @@ public class PowerPanel : MonoBehaviour
         }
         else
         {
-            powerCore.SetPatchFromSystem(systemType);
-            AudioManager.instance.Play("Button Select");
-            buttonText.text = "Patching To";
-            selectedPatchButton = buttonText;
+            if(powerCore.SetPatchFromSystem(systemType))
+            {
+                AudioManager.instance.Play("Button Select");
+                buttonText.text = "Patching To";
+                selectedPatchButton = buttonText;
+            }
         }
-    }
-
-    /*
-    * Aux System
-    **/
-
-    private void PatchToAuxSystem()
-    {
-        PatchSystems(PowerCore.SystemType.Aux);
     }
 
     /*

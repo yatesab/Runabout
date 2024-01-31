@@ -10,7 +10,7 @@ public class AcceleratorControl : MonoBehaviour
 {
     public PropulsionSystem propulsionSystem;
     public WeaponSystem weaponSystem;
-    public FlipSwitch _syncSwitch;
+    public FlipSwitch _syncOffSwitch;
 
     [Header("Left Throttle Settings")]
     [SerializeField] private InputActionReference _leftStickAction;
@@ -64,10 +64,10 @@ public class AcceleratorControl : MonoBehaviour
 
     private void SyncThrottles()
     {
-        if(_syncSwitch.switchOn && leftThrottlePhysics.Grabbed && !rightThrottlePhysics.Grabbed)
+        if(!_syncOffSwitch.switchOn && leftThrottlePhysics.Grabbed && !rightThrottlePhysics.Grabbed)
         {
             rightThrottlePhysics.SyncThrottlePosition(leftThrottlePhysics.MirrorLocalPosition.z);
-        }else if (_syncSwitch.switchOn && rightThrottlePhysics.Grabbed && !leftThrottlePhysics.Grabbed)
+        }else if (!_syncOffSwitch.switchOn && rightThrottlePhysics.Grabbed && !leftThrottlePhysics.Grabbed)
         {
             leftThrottlePhysics.SyncThrottlePosition(rightThrottlePhysics.MirrorLocalPosition.z);
         }

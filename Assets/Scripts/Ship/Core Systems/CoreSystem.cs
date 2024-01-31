@@ -2,36 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CoreSystem : MonoBehaviour, ShipSystem
+public class CoreSystem : MonoBehaviour
 {
-    public bool isPatched {get;set;} = false;
-    public float PowerLevel {get;set;} = 0f;
-    public float HeatLevel { get; set; } = 0f;
-    public ShipSystem PatchedToSystem {get;set;}
+    [Header("Aux System")]
+    [SerializeField] protected AuxSystem auxSystem;
 
-    public virtual void PatchToSystem(float powerUpgrade)
+    [Header("Propulsion System")]
+    [SerializeField] protected PropulsionSystem propulsionSystem;
+
+    [Header("Shield System")]
+    [SerializeField] protected ShieldSystem shieldSystem;
+
+    [Header("Weapon System")]
+    [SerializeField] protected WeaponSystem weaponSystem;
+
+    public enum SystemType
     {
-        PowerLevel += powerUpgrade;
+        None,
+        Propulsion,
+        Shield,
+        Weapon
     }
 
-    public virtual void RemovePatchToSystem(float powerUpgrade)
+    // Start is called before the first frame update
+    void Start()
     {
-        PowerLevel -= powerUpgrade;
-    }
-
-    public virtual void PatchFromSystem(ShipSystem InSystem, float powerDowngrade)
-    {
-        PatchedToSystem = InSystem;
-        PowerLevel -= powerDowngrade;
         
-        isPatched = true;
     }
 
-    public virtual void RemovePatchFromSystem(float powerDowngrade)
+    // Update is called once per frame
+    void Update()
     {
-        PatchedToSystem = null;
-        PowerLevel += powerDowngrade;
-
-        isPatched = false;
+        
     }
 }

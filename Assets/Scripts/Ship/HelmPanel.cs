@@ -11,6 +11,10 @@ public class HelmPanel : MonoBehaviour
     public Throttle throttleRight;
     public TMP_Text rightPercentage;
 
+    public PropulsionSystem propulsionSystem;
+    public TMP_Text heatLevel;
+    public TMP_Text overheated;
+
     public PowerCore powerCore;
     public TMP_Text propulsionPowerLevel;
     public TMP_Text weaponsPowerLevel;
@@ -29,9 +33,10 @@ public class HelmPanel : MonoBehaviour
         propulsionPowerLevel.text = powerCore.PropulsionPower.ToString();
         shieldPowerLevel.text = powerCore.ShieldPower.ToString();
         weaponsPowerLevel.text = powerCore.WeaponPower.ToString();
-        auxPowerLevel.text = powerCore.AuxPower.ToString();
 
         leftPercentage.text = Mathf.Round(throttleLeft.ThrottlePercentage * 100).ToString() + " %";
         rightPercentage.text = Mathf.Round(throttleRight.ThrottlePercentage * 100).ToString() + " %";
+        heatLevel.text = Mathf.Round(propulsionSystem.HeatLevel).ToString();
+        overheated.text = "Overheated: " + propulsionSystem.isOverheated.ToString();
     }
 }

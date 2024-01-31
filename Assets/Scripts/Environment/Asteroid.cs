@@ -9,7 +9,7 @@ public class Asteroid : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        float randomScale = Random.Range(1f, 20f);
+        float randomScale = Random.Range(1f, 40f);
         transform.localScale = Vector3.one * randomScale;
 
         rb = GetComponent<Rigidbody>();

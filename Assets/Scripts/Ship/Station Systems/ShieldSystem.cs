@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldSystem : CoreSystem
+public class ShieldSystem : StationSystem
 {
     [SerializeField] private float maxHealth = 1000f;
     public float Health {get;set;} = 0f;
@@ -15,11 +15,6 @@ public class ShieldSystem : CoreSystem
     {
         Shield = maxShield;
         Health = maxHealth;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     public void ShieldTakeDamage(float damage)
