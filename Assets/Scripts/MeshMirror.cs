@@ -23,10 +23,14 @@ public class MeshMirror : MonoBehaviour
         }
     }
 
-    public virtual void MirrorObject(Transform transformToMirror)
+    public virtual void MirrorPosition(Vector3 positionToMirror)
     {
-        _objectToMirror.localPosition = transformToMirror.localPosition;
-        _objectToMirror.localRotation = transformToMirror.localRotation;
+        _objectToMirror.localPosition = positionToMirror;
+    }
+
+    public virtual void MirrorRotation(Quaternion rotationToMirror)
+    {
+        _objectToMirror.localRotation = rotationToMirror;
     }
 
     public virtual void ActivateHover()

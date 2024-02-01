@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class FlipSwitch : MonoBehaviour
 {
     public bool switchOn = false;
-    public FlipSwitchMirror flipSwitchMirror;
+    public MeshMirror flipSwitchMirror;
 
     [Header("Flip Actions")]
     public UnityEvent FlipOnAction;
@@ -29,7 +29,7 @@ public class FlipSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        flipSwitchMirror.MirrorObject(transform);
+        flipSwitchMirror.MirrorPosition(transform.localPosition);
     }
 
     public void HandleFlipSwitch(SelectEnterEventArgs args)

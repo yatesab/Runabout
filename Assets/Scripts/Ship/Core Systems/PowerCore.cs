@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PowerCore : CoreSystem
 {
-    public CoolingSystem coolingSystem;
-
     public float PropulsionPower { get { return propulsionSystem.PowerLevel; } }
     public bool PropulsionIsPatched { get; set; } = false;
     public SystemType PropulsionPatchSystem { get; set; }
@@ -83,17 +81,17 @@ public class PowerCore : CoreSystem
             switch (PatchFrom)
             {
                 case SystemType.Propulsion:
-                    propulsionSystem.PatchFromSystem(patchToDowngrade);
+                    propulsionSystem.RemovePower(patchToDowngrade);
                     PropulsionIsPatched = true;
                     PropulsionPatchSystem = PatchTo;
                     break;
                 case SystemType.Shield:
-                    shieldSystem.PatchFromSystem(patchToDowngrade);
+                    shieldSystem.RemovePower(patchToDowngrade);
                     ShieldIsPatched = true;
                     ShieldPatchSystem = PatchTo;
                     break;
                 case SystemType.Weapon:
-                    weaponSystem.PatchFromSystem(patchToDowngrade);
+                    weaponSystem.RemovePower(patchToDowngrade);
                     WeaponIsPatched = true;
                     WeaponPatchSystem = PatchTo;
                     break;
@@ -104,13 +102,13 @@ public class PowerCore : CoreSystem
             switch (PatchTo)
             {
                 case SystemType.Propulsion:
-                    propulsionSystem.PatchToSystem(patchFromUpgrade);
+                    propulsionSystem.AddPower(patchFromUpgrade);
                     break;
                 case SystemType.Shield:
-                    shieldSystem.PatchToSystem(patchFromUpgrade);
+                    shieldSystem.AddPower(patchFromUpgrade);
                     break;
                 case SystemType.Weapon:
-                    weaponSystem.PatchToSystem(patchFromUpgrade);
+                    weaponSystem.AddPower(patchFromUpgrade);
                     break;
                 default:
                     break;
@@ -128,19 +126,19 @@ public class PowerCore : CoreSystem
         switch(systemToRemove)
         {
             case SystemType.Propulsion:
-                propulsionSystem.RemovePatchFromSystem(patchToDowngrade);
+                propulsionSystem.AddPower(patchToDowngrade);
                 PropulsionIsPatched = false;
                 patchToRemove = PropulsionPatchSystem;
                 PropulsionPatchSystem = SystemType.None;
                 break;
             case SystemType.Shield:
-                shieldSystem.RemovePatchFromSystem(patchToDowngrade);
+                shieldSystem.AddPower(patchToDowngrade);
                 ShieldIsPatched = false;
                 patchToRemove = ShieldPatchSystem;
                 ShieldPatchSystem = SystemType.None;
                 break;
             case SystemType.Weapon:
-                weaponSystem.RemovePatchFromSystem(patchToDowngrade);
+                weaponSystem.AddPower(patchToDowngrade);
                 WeaponIsPatched = false;
                 patchToRemove = WeaponPatchSystem;
                 WeaponPatchSystem = SystemType.None;
@@ -153,13 +151,13 @@ public class PowerCore : CoreSystem
         switch (patchToRemove)
         {
             case SystemType.Propulsion:
-                propulsionSystem.RemovePatchToSystem(patchFromUpgrade);
+                propulsionSystem.RemovePower(patchFromUpgrade);
                 break;
             case SystemType.Shield:
-                shieldSystem.RemovePatchToSystem(patchFromUpgrade);
+                shieldSystem.RemovePower(patchFromUpgrade);
                 break;
             case SystemType.Weapon:
-                weaponSystem.RemovePatchToSystem(patchFromUpgrade);
+                weaponSystem.RemovePower(patchFromUpgrade);
                 break;
             case SystemType.None:
             default:

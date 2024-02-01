@@ -21,43 +21,46 @@ public class CoolingSystem : CoreSystem
 
     public float PropulsionHeatLevel { get; set; } = 0f;
     public bool PropulsionIsOverheated { get; set; } = false;
-    public bool _propulsionValveOpen = false;
 
     public float ShieldHeatLevel { get; set; } = 0f;
     public bool ShieldIsOverheated { get; set; } = false;
-    public bool _shieldValveOpen = false;
 
     public float WeaponHeatLevel {  get; set; } = 0f;
     public bool WeaponIsOverheated { get; set; } = false;
-    public bool _weaponValveOpen = false;
+
+    private bool _propulsionValveOpen = true;
+    private bool _shieldValveOpen = false;
+    private bool _weaponValveOpen = false;
+    private int _valvesOpen = 0;
 
     // Update is called once per frame
     void Update()
     {
-        UpdateCoolingMode();
-
         CoolSystems();
+        UpdateCoolingMode();
     }
 
-    private float GetHeatRemoval(StationSystem station, bool stationValve)
+    private float GetHeatRemoval(StationSystem station, bool stationValveOpen)
     {
-        float heatRemoval = 1f;
+        float heatRemovalPercentage = 1f;
 
         if (waterTemperatureMode == WaterTemperatureMode.Danger)
         {
-            heatRemoval -= 0.5f;
+            heatRemovalPercentage -= 0.5f;
         } else if (waterTemperatureMode == WaterTemperatureMode.Critical)
         {
-            heatRemoval -= 0.8f;
+            heatRemovalPercentage -= 0.8f;
         }
 
-        if (!stationValve)
+        float heatValue = Time.deltaTime;
+        heatValue = (heatValue / (3 + _valvesOpen));
+
+        if(stationValveOpen)
         {
-            // Lower Heat Removal
-            heatRemoval = heatRemoval / 2f;
+            heatValue *= 2;
         }
 
-        return heatRemoval;
+        return heatValue * heatRemovalPercentage;
     }
 
     private void CoolSystems()
@@ -65,45 +68,37 @@ public class CoolingSystem : CoreSystem
         // Propulsion heating and cooling
         if (!propulsionSystem.isHeating && propulsionSystem.HeatLevel > 0f)
         {
-            propulsionSystem.RemoveHeat(Time.deltaTime * GetHeatRemoval(propulsionSystem, _propulsionValveOpen));
+            float heat = GetHeatRemoval(propulsionSystem, _propulsionValveOpen);
+
+            propulsionSystem.RemoveHeat(heat);
+            waterTemperature += heat;
         }
 
         // Weapon heating and cooling
         if (!weaponSystem.isHeating && weaponSystem.HeatLevel > 0f)
         {
-            weaponSystem.RemoveHeat(Time.deltaTime * GetHeatRemoval(weaponSystem, _weaponValveOpen));
+            float heat = GetHeatRemoval(weaponSystem, _weaponValveOpen);
+
+            weaponSystem.RemoveHeat(heat);
+            waterTemperature += heat;
         }
 
         // Shield heating and cooling
         if (!shieldSystem.isHeating && shieldSystem.HeatLevel > 0f)
         {
-            shieldSystem.RemoveHeat(Time.deltaTime * GetHeatRemoval(shieldSystem, _shieldValveOpen));
+            float heat = GetHeatRemoval(shieldSystem, _shieldValveOpen);
+
+            shieldSystem.RemoveHeat(heat);
+            waterTemperature += heat;
         }
     }
 
     private void UpdateCoolingMode()
     {
-        if(!_propulsionValveOpen || !_shieldValveOpen || !_weaponValveOpen)
+        if (waterTemperature > 0f)
         {
             waterTemperature -= Time.deltaTime;
-        } else
-        {
-            // For each system valve open we add extra heat to the system.
-            // If this reatches a certain level then all systems get less cooling.
-            if (_propulsionValveOpen)
-            {
-                waterTemperature += Time.deltaTime;
-            }
-            if (_shieldValveOpen)
-            {
-                waterTemperature += Time.deltaTime;
-            }
-            if (_weaponValveOpen)
-            {
-                waterTemperature += Time.deltaTime;
-            }
         }
-
 
         // If no valves open then cool water
         
@@ -127,12 +122,36 @@ public class CoolingSystem : CoreSystem
         {
             case SystemType.Propulsion:
                 _propulsionValveOpen = true;
+                _valvesOpen += 1;
                 break;
             case SystemType.Shield:
-                _shieldValveOpen = true; 
+                _shieldValveOpen = true;
+                _valvesOpen += 1;
                 break;
             case SystemType.Weapon:
-                _weaponValveOpen = true; 
+                _weaponValveOpen = true;
+                _valvesOpen += 1;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void CloseSystemValve(SystemType systemType)
+    {
+        switch (systemType)
+        {
+            case SystemType.Propulsion:
+                _propulsionValveOpen = false;
+                _valvesOpen -= 1;
+                break;
+            case SystemType.Shield:
+                _shieldValveOpen = false;
+                _valvesOpen -= 1;
+                break;
+            case SystemType.Weapon:
+                _weaponValveOpen = false;
+                _valvesOpen -= 1;
                 break;
             default:
                 break;

@@ -39,13 +39,18 @@ public class PropulsionSystem : StationSystem
     // Start is called before the first frame update
     void Update()
     {
-        if(highestPercentage > thrusterHeatThreshold)
+        if(highestPercentage > thrusterHeatThreshold && HeatLevel < maxHeatLevel)
         {
             isHeating = true;
             AddHeat(Time.deltaTime * PowerLevel);
         } else
         {
             isHeating = false;
+        }
+
+        if(!isOverheated && HeatLevel >= maxHeatLevel)
+        {
+            isOverheated = true;
         }
     }
 

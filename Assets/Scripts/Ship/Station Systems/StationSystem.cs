@@ -6,7 +6,7 @@ public abstract class StationSystem : MonoBehaviour
 {
     public float PowerLevel { get; set; } = 1f;
 
-    public bool isOverheated { get { return HeatLevel >= maxHeatLevel; } }
+    public bool isOverheated {  get; set; }
     public bool isHeating { get; set; }
 
     public float HeatLevel { get; set; } = 0f;
@@ -29,23 +29,13 @@ public abstract class StationSystem : MonoBehaviour
         }
     }
 
-    public virtual void PatchToSystem(float powerUpgrade)
+    public virtual void AddPower(float powerUpgrade)
     {
         PowerLevel += powerUpgrade;
     }
 
-    public virtual void RemovePatchToSystem(float powerUpgrade)
+    public virtual void RemovePower(float powerUpgrade)
     {
         PowerLevel -= powerUpgrade;
-    }
-
-    public virtual void PatchFromSystem(float powerDowngrade)
-    {
-        PowerLevel -= powerDowngrade;
-    }
-
-    public virtual void RemovePatchFromSystem(float powerDowngrade)
-    {
-        PowerLevel += powerDowngrade;
     }
 }
