@@ -126,22 +126,31 @@ public class PowerCore : CoreSystem
         switch(systemToRemove)
         {
             case SystemType.Propulsion:
-                propulsionSystem.AddPower(patchToDowngrade);
-                PropulsionIsPatched = false;
-                patchToRemove = PropulsionPatchSystem;
-                PropulsionPatchSystem = SystemType.None;
+                if (PropulsionIsPatched)
+                {
+                    propulsionSystem.AddPower(patchToDowngrade);
+                    PropulsionIsPatched = false;
+                    patchToRemove = PropulsionPatchSystem;
+                    PropulsionPatchSystem = SystemType.None;
+                }
                 break;
             case SystemType.Shield:
-                shieldSystem.AddPower(patchToDowngrade);
-                ShieldIsPatched = false;
-                patchToRemove = ShieldPatchSystem;
-                ShieldPatchSystem = SystemType.None;
+                if (ShieldIsPatched)
+                {
+                    shieldSystem.AddPower(patchToDowngrade);
+                    ShieldIsPatched = false;
+                    patchToRemove = ShieldPatchSystem;
+                    ShieldPatchSystem = SystemType.None;
+                }
                 break;
             case SystemType.Weapon:
-                weaponSystem.AddPower(patchToDowngrade);
-                WeaponIsPatched = false;
-                patchToRemove = WeaponPatchSystem;
-                WeaponPatchSystem = SystemType.None;
+                if (WeaponIsPatched)
+                {
+                    weaponSystem.AddPower(patchToDowngrade);
+                    WeaponIsPatched = false;
+                    patchToRemove = WeaponPatchSystem;
+                    WeaponPatchSystem = SystemType.None;
+                }
                 break;
             case SystemType.None:
             default:

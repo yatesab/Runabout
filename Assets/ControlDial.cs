@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class ControlDialEvent : UnityEvent<int>
+{
+}
 
 public class ControlDial : MonoBehaviour
 {
@@ -9,7 +15,13 @@ public class ControlDial : MonoBehaviour
 
     [SerializeField] private int snapRotationAmount = 90;
     [SerializeField] private float angleTolerance;
+    [SerializeField] private Transform dial;
+    [SerializeField] private int upperRotationLimit = 1;
+    [SerializeField] private int lowerRotationLimit = -1;
 
+    public ControlDialEvent DialEvent;
+
+    private int currentRotationAmount = 0;
     private IXRSelectInteractor interactor;
     private float startAngle;
     private bool requiresStartAngle = true;
@@ -18,7 +30,7 @@ public class ControlDial : MonoBehaviour
     
     void Start()
     {
-        _grabInteractable = GetComponent<XRGrabInteractable>();
+        _grabInteractable = GetComponentInChildren<XRGrabInteractable>();
 
         _grabInteractable.hoverEntered.AddListener(HandleHoverEnter);
         _grabInteractable.hoverExited.AddListener(HandleHoverExit);
@@ -32,7 +44,7 @@ public class ControlDial : MonoBehaviour
         if(shouldGetHandRotation)
         {
             var rotationAngle = GetInteractorRotation();
-            
+
             GetRotationDistance(rotationAngle);
         }
     }
@@ -54,29 +66,29 @@ public class ControlDial : MonoBehaviour
             if(angleDifference > 270f)
             {
                 float angleCheck = CheckAngle(currentAngle, startAngle);
-                
+
                 if (angleCheck < angleTolerance) return;
                 else if (startAngle < currentAngle)
                 {
-                    RotateDialCounterClockwise();
+                    RotateDialClockwise();
+                    startAngle = currentAngle;
                 }
                 else if(startAngle > currentAngle) 
                 {
-                    RotateDialClockwise();
+                    RotateDialCounterClockwise();
+                    startAngle = currentAngle;
                 }
-
-                startAngle = currentAngle;
             } else
             {
                 if (startAngle < currentAngle)
                 {
-                    RotateDialClockwise();
-                } else if (startAngle > currentAngle)
-                {
                     RotateDialCounterClockwise();
+                    startAngle = currentAngle;
+                } else
+                {
+                    RotateDialClockwise();
+                    startAngle = currentAngle;
                 }
-                    
-                startAngle = currentAngle;
             }
         }
     }
@@ -85,18 +97,36 @@ public class ControlDial : MonoBehaviour
 
     private void RotateDialClockwise()
     {
-        // Rotate Dial Clockwise and the mirror
-        transform.Rotate(0f, 0f, snapRotationAmount);
+        if(currentRotationAmount < upperRotationLimit)
+        {         
+            // Rotate Dial Clockwise and the mirror
+            dial.Rotate(0f, 0f, -snapRotationAmount);
+            controlDialMirror.MirrorRotation(Quaternion.Inverse(transform.rotation) * dial.rotation);
+            currentRotationAmount += 1;
 
-        controlDialMirror.MirrorRotation(transform.localRotation);
+            DialEvent.Invoke(currentRotationAmount);
+        }
+        else
+        {
+            Debug.Log("Can't Turn Clockwise Anymore");
+        }
     }
 
     private void RotateDialCounterClockwise()
     {
-        // Rotate dial counter clockwise and the mirror
-        transform.Rotate(0f, 0f, -snapRotationAmount);
+        if (currentRotationAmount > lowerRotationLimit)
+        {
+            // Rotate dial counter clockwise and the mirror
+            dial.Rotate(0f, 0f, snapRotationAmount);
+            controlDialMirror.MirrorRotation(Quaternion.Inverse(transform.rotation) * dial.rotation);
+            currentRotationAmount -= 1;
 
-        controlDialMirror.transform.localEulerAngles = transform.localEulerAngles;
+            DialEvent.Invoke(currentRotationAmount);
+        }
+        else
+        {
+            Debug.Log("Can't Turn Counter Clockwise Anymore");
+        }
     }
 
     private void HandleHoverEnter(HoverEnterEventArgs args)
