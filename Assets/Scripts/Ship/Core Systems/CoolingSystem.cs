@@ -10,6 +10,10 @@ public class CoolingSystem : CoreSystem
 
     public float criticalTemperature = 30.0f;
 
+    public Lever propulsionLever;
+    public Lever shieldLever;
+    public Lever weaponLever;
+
     public enum WaterTemperatureMode
     {
         Cool,
@@ -40,25 +44,28 @@ public class CoolingSystem : CoreSystem
         UpdateCoolingMode();
     }
 
-    private float GetHeatRemoval(StationSystem station, bool stationValveOpen)
+    private float GetHeatRemovalPercentage()
     {
         float heatRemovalPercentage = 1f;
 
         if (waterTemperatureMode == WaterTemperatureMode.Danger)
         {
             heatRemovalPercentage -= 0.5f;
-        } else if (waterTemperatureMode == WaterTemperatureMode.Critical)
+        }
+        else if (waterTemperatureMode == WaterTemperatureMode.Critical)
         {
             heatRemovalPercentage -= 0.8f;
         }
 
-        float heatValue = Time.deltaTime;
-        heatValue = (heatValue / (3 + _valvesOpen));
+        return heatRemovalPercentage;
+    }
 
-        if(stationValveOpen)
-        {
-            heatValue *= 2;
-        }
+    private float GetHeatRemoval(StationSystem station, float valvePercentage)
+    {
+        float heatRemovalPercentage = GetHeatRemovalPercentage();
+
+        float heatValue = Time.deltaTime / 3;
+        heatValue *= 1f + valvePercentage;
 
         return heatValue * heatRemovalPercentage;
     }
@@ -68,7 +75,7 @@ public class CoolingSystem : CoreSystem
         // Propulsion heating and cooling
         if (!propulsionSystem.isHeating && propulsionSystem.HeatLevel > 0f)
         {
-            float heat = GetHeatRemoval(propulsionSystem, _propulsionValveOpen);
+            float heat = GetHeatRemoval(propulsionSystem, propulsionLever.leverPercentage);
 
             propulsionSystem.RemoveHeat(heat);
             waterTemperature += heat;
@@ -77,7 +84,7 @@ public class CoolingSystem : CoreSystem
         // Weapon heating and cooling
         if (!weaponSystem.isHeating && weaponSystem.HeatLevel > 0f)
         {
-            float heat = GetHeatRemoval(weaponSystem, _weaponValveOpen);
+            float heat = GetHeatRemoval(weaponSystem, weaponLever.leverPercentage);
 
             weaponSystem.RemoveHeat(heat);
             waterTemperature += heat;
@@ -86,7 +93,7 @@ public class CoolingSystem : CoreSystem
         // Shield heating and cooling
         if (!shieldSystem.isHeating && shieldSystem.HeatLevel > 0f)
         {
-            float heat = GetHeatRemoval(shieldSystem, _shieldValveOpen);
+            float heat = GetHeatRemoval(shieldSystem, shieldLever.leverPercentage);
 
             shieldSystem.RemoveHeat(heat);
             waterTemperature += heat;
