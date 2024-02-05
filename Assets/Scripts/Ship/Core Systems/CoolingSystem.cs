@@ -64,7 +64,7 @@ public class CoolingSystem : CoreSystem
     {
         float heatRemovalPercentage = GetHeatRemovalPercentage();
 
-        float heatValue = Time.deltaTime / 3;
+        float heatValue = Time.deltaTime;
         heatValue *= 1f + valvePercentage;
 
         return heatValue * heatRemovalPercentage;
@@ -73,7 +73,7 @@ public class CoolingSystem : CoreSystem
     private void CoolSystems()
     {
         // Propulsion heating and cooling
-        if (!propulsionSystem.isHeating && propulsionSystem.HeatLevel > 0f)
+        if (propulsionSystem.HeatLevel > 0f)
         {
             float heat = GetHeatRemoval(propulsionSystem, propulsionLever.leverPercentage);
 
@@ -82,7 +82,7 @@ public class CoolingSystem : CoreSystem
         }
 
         // Weapon heating and cooling
-        if (!weaponSystem.isHeating && weaponSystem.HeatLevel > 0f)
+        if (weaponSystem.HeatLevel > 0f)
         {
             float heat = GetHeatRemoval(weaponSystem, weaponLever.leverPercentage);
 
@@ -91,7 +91,7 @@ public class CoolingSystem : CoreSystem
         }
 
         // Shield heating and cooling
-        if (!shieldSystem.isHeating && shieldSystem.HeatLevel > 0f)
+        if (shieldSystem.HeatLevel > 0f)
         {
             float heat = GetHeatRemoval(shieldSystem, shieldLever.leverPercentage);
 

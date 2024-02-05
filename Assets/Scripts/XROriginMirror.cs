@@ -6,6 +6,9 @@ public class XROriginMirror : MonoBehaviour
 {
     public Transform XROrigin;
 
+    public Transform CameraOffset;
+    public Transform CameraOffsetMirror;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +20,8 @@ public class XROriginMirror : MonoBehaviour
     {
         transform.localPosition = XROrigin.localPosition;
         transform.localRotation = XROrigin.localRotation;
+
+        CameraOffsetMirror.localPosition = CameraOffset.localPosition;
+        CameraOffsetMirror.localRotation = CameraOffset.localRotation;
     }
 }
