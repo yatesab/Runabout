@@ -33,11 +33,11 @@ public class AcceleratorControl : MonoBehaviour
     private void Start()
     {
         // Set up Stick Actions
-        //_leftStickAction.action.performed += OnLeftStickPressed;
-        //_leftStickAction.action.canceled += OnLeftStickStopped;
+        _leftStickAction.action.performed += OnLeftStickPressed;
+        _leftStickAction.action.canceled += OnLeftStickStopped;
 
-        //_rightStickAction.action.performed += OnRightStickPressed;
-        //_rightStickAction.action.canceled += OnRightStickStopped;
+        _rightStickAction.action.performed += OnRightStickPressed;
+        _rightStickAction.action.canceled += OnRightStickStopped;
 
         _leftFireAction.action.performed += OnLeftWeaponPressed;
         _leftFireAction.action.canceled += OnLeftWeaponStopped;

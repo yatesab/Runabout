@@ -3,20 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.Events;
-using TMPro;
 
-public class Lever : MonoBehaviour
+public class Turret : MonoBehaviour
 {
-    public MeshMirror leverMirror;
-
-    [SerializeField] private Transform lever;
-    [SerializeField] private TMP_Text leverPercentageText;
-    public float leverPercentage = 0f;
+    public MeshMirror turretMirror;
+    public Transform turret;
     public bool Grabbed { set; get; }
-    public Transform handlePoint;
-    public Transform endPoint;
 
-    private float maxDistance;
     private XRGrabInteractable _grabInteractable;
 
     // Start is called before the first frame update
@@ -28,41 +21,32 @@ public class Lever : MonoBehaviour
         _grabInteractable.hoverExited.AddListener(HandleHoverExit);
         _grabInteractable.selectEntered.AddListener(HandleStartGrab);
         _grabInteractable.selectExited.AddListener(HandleStopGrab);
-
-        maxDistance = Vector3.Distance(handlePoint.position, endPoint.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        leverMirror.MirrorRotation(Quaternion.Inverse(transform.rotation) * lever.rotation);
-
-        if (Grabbed)
-        {
-            float currentDistance = maxDistance - Vector3.Distance(handlePoint.position, endPoint.position);
-            leverPercentage = currentDistance / maxDistance;
-            leverPercentageText.text = Mathf.Round(leverPercentage * 100).ToString() + " %";
-        }
+        turretMirror.MirrorRotation(Quaternion.Inverse(transform.rotation) * turret.rotation);
     }
 
     private void HandleHoverEnter(HoverEnterEventArgs args)
     {
         // Do hover things here
-        if (leverMirror.hasHover)
+        if (turretMirror.hasHover)
         {
-            leverMirror.ActivateHover();
+            turretMirror.ActivateHover();
         }
     }
 
     private void HandleHoverExit(HoverExitEventArgs args)
     {
         // Do hover things here
-        if (leverMirror.hasHover)
+        if (turretMirror.hasHover)
         {
-            leverMirror.DeactivateHover();
+            turretMirror.DeactivateHover();
         }
     }
-    
+
     private void HandleStartGrab(SelectEnterEventArgs args)
     {
         Grabbed = true;
