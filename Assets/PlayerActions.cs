@@ -13,15 +13,19 @@ public class PlayerActions : MonoBehaviour
     public Transform playerPhysics;
     public Transform helmPhysics;
     public Transform engineeringPhysics;
+    public Transform weaponsPhysics;
+
     public Transform helmSeatMesh;
     public Transform engineeringSeatMesh;
+    public Transform weaponsMesh;
 
-    private enum PlayerStation
+    public enum PlayerStation
     {
         Helm,
-        Engineering
+        Engineering,
+        Weapons
     }
-    private PlayerStation _CurrentStation = PlayerStation.Helm;
+    public PlayerStation _CurrentStation = PlayerStation.Helm;
 
     private bool isSwitching = false;
 
@@ -43,22 +47,30 @@ public class PlayerActions : MonoBehaviour
         if(currentSwitchTime >= switchSeatTime)
         {
             //Switch Seats
-            if(_CurrentStation == PlayerStation.Engineering)
+            switch (_CurrentStation)
             {
-                transform.parent = helmSeatMesh;
-                playerPhysics.parent = helmPhysics;
-                _CurrentStation = PlayerStation.Helm;
+                case PlayerStation.Helm:
+                    transform.parent = engineeringSeatMesh;
+                    playerPhysics.parent = engineeringPhysics;
+                    _CurrentStation = PlayerStation.Engineering;
 
-                ResetPlayerPositionAndRotation();
-            } else
-            {
-                transform.parent = engineeringSeatMesh;
-                playerPhysics.parent = engineeringPhysics;
-                _CurrentStation = PlayerStation.Engineering;
+                    ResetPlayerPositionAndRotation();
+                    break;
+                case PlayerStation.Engineering:
+                    transform.parent = weaponsMesh;
+                    playerPhysics.parent = weaponsPhysics;
+                    _CurrentStation = PlayerStation.Weapons;
 
-                ResetPlayerPositionAndRotation();
+                    ResetPlayerPositionAndRotation();
+                    break;
+                case PlayerStation.Weapons:
+                    transform.parent = helmSeatMesh;
+                    playerPhysics.parent = helmPhysics;
+                    _CurrentStation = PlayerStation.Helm;
+
+                    ResetPlayerPositionAndRotation();
+                    break;
             }
-
         }
     }
 

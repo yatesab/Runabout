@@ -9,20 +9,17 @@ using TMPro;
 public class AcceleratorControl : MonoBehaviour
 {
     public PropulsionSystem propulsionSystem;
-    public WeaponSystem weaponSystem;
     public FlipSwitch _syncOffSwitch;
 
     [Header("Left Throttle Settings")]
     [SerializeField] private InputActionReference _leftStickAction;
     [SerializeField] private InputActionReference _leftThrottleReset;
-    [SerializeField] protected InputActionReference _leftFireAction;
     public Throttle leftThrottlePhysics;
     public Transform leftThrottleBody;
 
     [Header("Right Throttle Settings")]
     [SerializeField] private InputActionReference _rightStickAction;
     [SerializeField] private InputActionReference _rightThrottleReset;
-    [SerializeField] protected InputActionReference _rightFireAction;
     public Throttle rightThrottlePhysics;
     public Transform rightThrottleBody;
 
@@ -38,12 +35,6 @@ public class AcceleratorControl : MonoBehaviour
 
         _rightStickAction.action.performed += OnRightStickPressed;
         _rightStickAction.action.canceled += OnRightStickStopped;
-
-        _leftFireAction.action.performed += OnLeftWeaponPressed;
-        _leftFireAction.action.canceled += OnLeftWeaponStopped;
-
-        _rightFireAction.action.performed += OnRightWeaponPressed;
-        _rightFireAction.action.canceled += OnRightWeaponStopped;
     }
 
     private void Update()
@@ -111,25 +102,5 @@ public class AcceleratorControl : MonoBehaviour
     private void OnRightStickStopped(InputAction.CallbackContext obj)
     {
         _roll = 0f;
-    }
-    
-    private void OnLeftWeaponPressed(InputAction.CallbackContext obj)
-    {
-        weaponSystem.FireLeftWeapon();
-    }
-
-    private void OnLeftWeaponStopped(InputAction.CallbackContext obj)
-    {
-        weaponSystem.StopLeftWeapon();
-    }
-
-    private void OnRightWeaponPressed(InputAction.CallbackContext obj)
-    {
-        weaponSystem.FireRightWeapon();
-    }
-
-    private void OnRightWeaponStopped(InputAction.CallbackContext obj)
-    {
-        weaponSystem.StopRightWeapon();
     }
 }
