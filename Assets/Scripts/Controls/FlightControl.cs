@@ -28,22 +28,6 @@ public class FlightControl : MonoBehaviour
     {
         stickPercentageX = _flightStick.localRotation.x / 0.7f;
         stickPercentageY = _flightStick.localRotation.y / 0.7f;
-
-        if(stickPercentageX > 0.1f || stickPercentageX < -0.1f )
-        {
-            propulsionSystem.SetPitchRotation(stickPercentageX);
-        } else 
-        {
-            propulsionSystem.SetPitchRotation(0f);
-        }
-
-        if(stickPercentageY > 0.1f || stickPercentageY < -0.1f )
-        {
-            propulsionSystem.SetYawRotation(stickPercentageY);
-        } else 
-        {
-            propulsionSystem.SetYawRotation(0f);
-        }
     }
 
     /**

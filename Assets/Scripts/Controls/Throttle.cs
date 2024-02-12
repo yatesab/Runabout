@@ -11,33 +11,42 @@ public enum ThrottleSide
     Right
 }
 
-public class Throttle : MonoBehaviour
+public class Throttle : GrabPhysics
 {
-    public ThrottleSide throttleLocation;
     public float _throttleDeadZone = 0.02f;
-    public bool useRoll = false;
-    public bool usePitch = false;
-    public bool useYaw = false;
+    public enum StickMovementDirection
+    {
+        PitchYaw,
+        Roll
+    }
+    public StickMovementDirection stickMovementSetting;
 
-    public Vector3 MirrorLocalPosition { get { return transform.InverseTransformPoint(_throttleHandle.position); } }
-    public float ThrottlePercentage {set;get;}
-    public bool Grabbed {set;get;}
+    public float ThrottlePercentage { set; get; }
+    public bool Grabbed { set; get; }
+    public Vector2 PitchYaw { set; get; }
+    public float Roll { set; get; }
 
     [SerializeField] private Transform _throttleHandle;
     [SerializeField] private Transform _throttleCeiling;
     [SerializeField] private Transform _throttleFloor;
 
+    [SerializeField] private InputActionReference _stickAction;
+
     private float maxDistance;
     private Vector3 handlePosition;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        // Get XRGrabInteractable for isGrabbing check
-        XRGrabInteractable _grabInteractable = GetComponentInChildren<XRGrabInteractable>();
+        base.Start();
 
-        _grabInteractable.selectEntered.AddListener(HandleStartGrab);
-        _grabInteractable.selectExited.AddListener(HandleStopGrab);
+        grabInteractable.selectEntered.AddListener(HandleStartGrab);
+        grabInteractable.selectExited.AddListener(HandleStopGrab);
+
+        // Set up Stick Actions
+        _stickAction.action.performed += OnStickPressed;
+        _stickAction.action.canceled += OnStickStopped;
 
         maxDistance = Vector3.Distance(_throttleFloor.position, _throttleCeiling.position);
     }
@@ -47,7 +56,9 @@ public class Throttle : MonoBehaviour
     {
         float currentDistance = maxDistance - Vector3.Distance(_throttleHandle.position, _throttleCeiling.position);
 
-        ThrottlePercentage = (currentDistance) / (maxDistance);        
+        ThrottlePercentage = (currentDistance) / (maxDistance);
+
+        base.Update();
     }
 
     /**
@@ -71,5 +82,28 @@ public class Throttle : MonoBehaviour
     public void ResetThrottle()
     {
         _throttleHandle.localPosition = _throttleFloor.localPosition;
+    }
+
+    private void OnStickPressed(InputAction.CallbackContext obj)
+    {
+        switch(stickMovementSetting)
+        {
+            case StickMovementDirection.PitchYaw:
+                PitchYaw = obj.ReadValue<Vector2>(); break;
+            case StickMovementDirection.Roll:
+                Roll = obj.ReadValue<Vector2>().x; break;
+        }
+       
+    }
+
+    private void OnStickStopped(InputAction.CallbackContext obj)
+    {
+        switch (stickMovementSetting)
+        {
+            case StickMovementDirection.PitchYaw:
+                PitchYaw = Vector2.zero; break;
+            case StickMovementDirection.Roll:
+                Roll = 0f; break;
+        }
     }
 }

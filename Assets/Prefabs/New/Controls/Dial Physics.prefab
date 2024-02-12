@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe7456b3c6baa4429fc111a596f2a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlDialMirror: {fileID: 0}
+  _grabbedObject: {fileID: 4600747567423556460}
+  meshMirror: {fileID: 0}
   snapRotationAmount: 90
   angleTolerance: 60
   dial: {fileID: 4600747567423556460}

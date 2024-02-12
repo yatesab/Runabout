@@ -32,11 +32,6 @@ public class CoolingSystem : CoreSystem
     public float WeaponHeatLevel {  get; set; } = 0f;
     public bool WeaponIsOverheated { get; set; } = false;
 
-    private bool _propulsionValveOpen = true;
-    private bool _shieldValveOpen = false;
-    private bool _weaponValveOpen = false;
-    private int _valvesOpen = 0;
-
     // Update is called once per frame
     void Update()
     {
@@ -120,48 +115,6 @@ public class CoolingSystem : CoreSystem
         else if (waterTemperatureMode != WaterTemperatureMode.Normal)
         { 
             waterTemperatureMode = WaterTemperatureMode.Normal; 
-        }
-    }
-
-    public void OpenSystemValve(SystemType systemType)
-    {
-        switch (systemType)
-        {
-            case SystemType.Propulsion:
-                _propulsionValveOpen = true;
-                _valvesOpen += 1;
-                break;
-            case SystemType.Shield:
-                _shieldValveOpen = true;
-                _valvesOpen += 1;
-                break;
-            case SystemType.Weapon:
-                _weaponValveOpen = true;
-                _valvesOpen += 1;
-                break;
-            default:
-                break;
-        }
-    }
-
-    public void CloseSystemValve(SystemType systemType)
-    {
-        switch (systemType)
-        {
-            case SystemType.Propulsion:
-                _propulsionValveOpen = false;
-                _valvesOpen -= 1;
-                break;
-            case SystemType.Shield:
-                _shieldValveOpen = false;
-                _valvesOpen -= 1;
-                break;
-            case SystemType.Weapon:
-                _weaponValveOpen = false;
-                _valvesOpen -= 1;
-                break;
-            default:
-                break;
         }
     }
 }

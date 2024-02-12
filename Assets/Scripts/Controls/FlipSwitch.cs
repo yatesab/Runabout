@@ -30,6 +30,7 @@ public class FlipSwitch : MonoBehaviour
     void Update()
     {
         flipSwitchMirror.MirrorPosition(transform.localPosition);
+        flipSwitchMirror.MirrorRotation(transform.localRotation);
     }
 
     public void HandleFlipSwitch(SelectEnterEventArgs args)

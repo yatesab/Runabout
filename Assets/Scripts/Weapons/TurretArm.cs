@@ -4,32 +4,30 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.Events;
 
-public class TurretArm : MonoBehaviour
+public class TurretArm : GrabPhysics
 {
 
     public TurretArmMirror turretArmMirror;
     public GameObject laserBolt;
 
-    public Transform handle;
     public Transform turretArm;
-    public Vector3 MirrorLocalPosition { get { return transform.InverseTransformPoint(handle.position); } }
-
-    private XRGrabInteractable _grabInteractable;
 
     // Start is called before the first frame update
     void Start()
     {
-        _grabInteractable = GetComponentInChildren<XRGrabInteractable>();
+        base.Start();
 
-        _grabInteractable.activated.AddListener(HandleFireTurret);
+        grabInteractable.activated.AddListener(HandleFireTurret);
     }
 
     // Update is called once per frame
     void Update()
     {
-        turretArmMirror.MirrorPosition(MirrorLocalPosition);
-        turretArmMirror.MirrorTurretPosition(turretArm.localPosition);
+        //Update Handle Position
+        base.Update();
 
+        //Update Turret Position
+        turretArmMirror.MirrorTurretPosition(turretArm.localPosition);
         turretArmMirror.MirrorTurretRotation(turretArm.localRotation);
     }
 

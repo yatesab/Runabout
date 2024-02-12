@@ -9,10 +9,8 @@ public class ControlDialEvent : UnityEvent<int>
 {
 }
 
-public class ControlDial : MonoBehaviour
+public class ControlDial : GrabPhysics
 {
-    public MeshMirror controlDialMirror;
-
     [SerializeField] private int snapRotationAmount = 90;
     [SerializeField] private float angleTolerance;
     [SerializeField] private Transform dial;
@@ -26,20 +24,17 @@ public class ControlDial : MonoBehaviour
     private float startAngle;
     private bool requiresStartAngle = true;
     private bool shouldGetHandRotation = false;
-    private XRGrabInteractable _grabInteractable;
     
-    void Start()
+    public void Start()
     {
-        _grabInteractable = GetComponentInChildren<XRGrabInteractable>();
+        base.Start();
 
-        _grabInteractable.hoverEntered.AddListener(HandleHoverEnter);
-        _grabInteractable.hoverExited.AddListener(HandleHoverExit);
-        _grabInteractable.selectEntered.AddListener(HandleGrab);
-        _grabInteractable.selectExited.AddListener(HandleLetgo);
+        grabInteractable.selectEntered.AddListener(HandleGrab);
+        grabInteractable.selectExited.AddListener(HandleLetgo);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if(shouldGetHandRotation)
         {
@@ -101,7 +96,7 @@ public class ControlDial : MonoBehaviour
         {         
             // Rotate Dial Clockwise and the mirror
             dial.Rotate(0f, 0f, -snapRotationAmount);
-            controlDialMirror.MirrorRotation(Quaternion.Inverse(transform.rotation) * dial.rotation);
+            meshMirror.MirrorRotation(Quaternion.Inverse(transform.rotation) * dial.rotation);
             currentRotationAmount += 1;
 
             DialEvent.Invoke(currentRotationAmount);
@@ -118,7 +113,7 @@ public class ControlDial : MonoBehaviour
         {
             // Rotate dial counter clockwise and the mirror
             dial.Rotate(0f, 0f, snapRotationAmount);
-            controlDialMirror.MirrorRotation(Quaternion.Inverse(transform.rotation) * dial.rotation);
+            meshMirror.MirrorRotation(Quaternion.Inverse(transform.rotation) * dial.rotation);
             currentRotationAmount -= 1;
 
             DialEvent.Invoke(currentRotationAmount);
@@ -129,27 +124,9 @@ public class ControlDial : MonoBehaviour
         }
     }
 
-    private void HandleHoverEnter(HoverEnterEventArgs args)
-    {
-        // Do hover things here
-        if (controlDialMirror.hasHover)
-        {
-            controlDialMirror.ActivateHover();
-        }
-    }
-
-    private void HandleHoverExit(HoverExitEventArgs args)
-    {
-        // Do hover things here
-        if (controlDialMirror.hasHover)
-        {
-            controlDialMirror.DeactivateHover();
-        }
-    }
-
     private void HandleGrab(SelectEnterEventArgs args)
     {
-        interactor = _grabInteractable.interactorsSelecting[0];
+        interactor = grabInteractable.interactorsSelecting[0];
 
         shouldGetHandRotation = true;
         startAngle = 0f;

@@ -5,10 +5,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.Events;
 using TMPro;
 
-public class Lever : MonoBehaviour
+public class Lever : GrabPhysics
 {
-    public MeshMirror leverMirror;
-
     [SerializeField] private Transform lever;
     [SerializeField] private TMP_Text leverPercentageText;
     public float leverPercentage = 0f;
@@ -17,17 +15,14 @@ public class Lever : MonoBehaviour
     public Transform endPoint;
 
     private float maxDistance;
-    private XRGrabInteractable _grabInteractable;
 
     // Start is called before the first frame update
     void Start()
     {
-        _grabInteractable = GetComponentInChildren<XRGrabInteractable>();
+        base.Start();
 
-        _grabInteractable.hoverEntered.AddListener(HandleHoverEnter);
-        _grabInteractable.hoverExited.AddListener(HandleHoverExit);
-        _grabInteractable.selectEntered.AddListener(HandleStartGrab);
-        _grabInteractable.selectExited.AddListener(HandleStopGrab);
+        grabInteractable.selectEntered.AddListener(HandleStartGrab);
+        grabInteractable.selectExited.AddListener(HandleStopGrab);
 
         maxDistance = Vector3.Distance(handlePoint.position, endPoint.position);
     }
@@ -35,31 +30,13 @@ public class Lever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        leverMirror.MirrorRotation(Quaternion.Inverse(transform.rotation) * lever.rotation);
+        base.Update();
 
         if (Grabbed)
         {
             float currentDistance = maxDistance - Vector3.Distance(handlePoint.position, endPoint.position);
             leverPercentage = currentDistance / maxDistance;
             leverPercentageText.text = Mathf.Round(leverPercentage * 100).ToString() + " %";
-        }
-    }
-
-    private void HandleHoverEnter(HoverEnterEventArgs args)
-    {
-        // Do hover things here
-        if (leverMirror.hasHover)
-        {
-            leverMirror.ActivateHover();
-        }
-    }
-
-    private void HandleHoverExit(HoverExitEventArgs args)
-    {
-        // Do hover things here
-        if (leverMirror.hasHover)
-        {
-            leverMirror.DeactivateHover();
         }
     }
     

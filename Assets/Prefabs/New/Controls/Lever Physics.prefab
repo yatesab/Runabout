@@ -214,7 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db42eb709e5143439d28dbf329e79f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leverMirror: {fileID: 0}
+  _grabbedObject: {fileID: 219962381160086469}
+  meshMirror: {fileID: 0}
   lever: {fileID: 219962381160086469}
   leverPercentageText: {fileID: 0}
   leverPercentage: 0

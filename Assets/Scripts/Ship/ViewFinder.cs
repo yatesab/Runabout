@@ -6,7 +6,6 @@ public class ViewFinder : MonoBehaviour
 {
     public Material forwardCameraMaterial;
     public Material reverseCameraMaterial;
-    public Material glassMaterial;
 
 
     private MeshRenderer meshRenderer;
@@ -38,16 +37,13 @@ public class ViewFinder : MonoBehaviour
         meshRenderer.materials = materialsCopy;
 
         _screenOn = true;
+        meshRenderer.enabled = true;
     }
 
     public void TurnOffScreen()
     {
-        // Change material back to glass
-        Material[] materialsCopy = meshRenderer.materials;
-        materialsCopy[0] = glassMaterial;
-        meshRenderer.materials = materialsCopy;
-
         _screenOn = false;
+        meshRenderer.enabled = false;
     }
 
     public void ChangeToReverseCamera()
