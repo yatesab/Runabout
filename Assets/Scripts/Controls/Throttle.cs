@@ -86,24 +86,29 @@ public class Throttle : GrabPhysics
 
     private void OnStickPressed(InputAction.CallbackContext obj)
     {
-        switch(stickMovementSetting)
+        if (Grabbed)
         {
-            case StickMovementDirection.PitchYaw:
-                PitchYaw = obj.ReadValue<Vector2>(); break;
-            case StickMovementDirection.Roll:
-                Roll = obj.ReadValue<Vector2>().x; break;
+            switch (stickMovementSetting)
+            {
+                case StickMovementDirection.PitchYaw:
+                    PitchYaw = obj.ReadValue<Vector2>(); break;
+                case StickMovementDirection.Roll:
+                    Roll = obj.ReadValue<Vector2>().x; break;
+            }
         }
-       
     }
 
     private void OnStickStopped(InputAction.CallbackContext obj)
     {
-        switch (stickMovementSetting)
+        if (Grabbed)
         {
-            case StickMovementDirection.PitchYaw:
-                PitchYaw = Vector2.zero; break;
-            case StickMovementDirection.Roll:
-                Roll = 0f; break;
+            switch (stickMovementSetting)
+            {
+                case StickMovementDirection.PitchYaw:
+                    PitchYaw = Vector2.zero; break;
+                case StickMovementDirection.Roll:
+                    Roll = 0f; break;
+            }
         }
     }
 }

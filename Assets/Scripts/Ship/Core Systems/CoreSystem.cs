@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class CoreSystem : MonoBehaviour
 {
-    [Header("Aux System")]
-    [SerializeField] protected AuxSystem auxSystem;
-
     [Header("Propulsion System")]
     [SerializeField] protected PropulsionSystem propulsionSystem;
 

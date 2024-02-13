@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class XROriginMirror : MonoBehaviour
 {
-    public Transform XROrigin;
+    public Transform _cameraOffset;
 
-    public Transform CameraOffset;
-    public Transform CameraOffsetMirror;
+    public Transform _originMirror;
+    public Transform _cameraOffsetMirror;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +18,10 @@ public class XROriginMirror : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition = XROrigin.localPosition;
-        transform.localRotation = XROrigin.localRotation;
+        _originMirror.localPosition = transform.localPosition;
+        _originMirror.localRotation = transform.localRotation;
 
-        CameraOffsetMirror.localPosition = CameraOffset.localPosition;
-        CameraOffsetMirror.localRotation = CameraOffset.localRotation;
+        _cameraOffsetMirror.localPosition = _cameraOffset.localPosition;
+        _cameraOffsetMirror.localRotation = _cameraOffset.localRotation;
     }
 }
