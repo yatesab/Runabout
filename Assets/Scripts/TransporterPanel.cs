@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TransporterPanel : MonoBehaviour
 {
-    public CargoHold cargoHold;
+   /* public CargoHold cargoHold;
     public TransporterSystem transporterSystem;
 
     public TMP_Text cargoList;
@@ -50,5 +50,5 @@ public class TransporterPanel : MonoBehaviour
         {
             Debug.Log("Issue with Transport");
         }
-    }
+    }*/
 }

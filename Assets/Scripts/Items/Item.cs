@@ -7,5 +7,4 @@ public class Item : ScriptableObject
 {
     public string Name;
     public float Weight;
-    public bool isDelivered;
 }

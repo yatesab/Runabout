@@ -1,18 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class TransporterSystem : MonoBehaviour
 {
-    private SphereCollider transporterCollider;
     public bool canTransport = false;
+    public Button scanButton;
+    public Transform transportListContainer;
+    public GameObject toggleObject;
 
-    public CargoHold cargoHold;
+    public LayerMask transportLayer;
 
-    private PickupPod pickupPod;
-    private DropoffPod dropoffPod;
+    private ToggleGroup _toggleGroup;
+    private float startingYPosition = 130f;
 
-    public bool InitiateTransport()
+    public void Start()
+    {
+        scanButton.onClick.AddListener(ScanAreaForTransportItems);
+        _toggleGroup = transportListContainer.GetComponent<ToggleGroup>();
+    }
+
+    public void Update()
+    {
+    }
+
+    public void ScanAreaForTransportItems()
+    {
+        foreach(Transform child in transportListContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 50, transportLayer);
+
+        float yPosition = startingYPosition;
+        foreach (Collider collider in colliders)
+        {
+            TransportItem[] transportItems = collider.GetComponents<TransportItem>();
+            foreach (TransportItem transportItem in transportItems)
+            {
+                GameObject listItem = Instantiate(toggleObject, transportListContainer);
+                RectTransform test = listItem.GetComponent<RectTransform>();
+
+                test.anchoredPosition = new Vector2(test.anchoredPosition.x, yPosition);
+                yPosition -= 20f;
+
+                Toggle itemToggle = listItem.GetComponent<Toggle>();
+                itemToggle.group = _toggleGroup;
+                itemToggle.isOn = false;
+
+                Item pickupItem = transportItem.GetItem();
+                listItem.GetComponentInChildren<Text>().text = pickupItem.Name;
+            }
+        }
+    }
+
+    /*public bool InitiateTransport()
     {
         if(pickupPod != null){
             PickupTransport();
@@ -88,5 +133,5 @@ public class TransporterSystem : MonoBehaviour
         pickupPod = null;
         dropoffPod = null;
         canTransport = false;
-    }
+    }*/
 }

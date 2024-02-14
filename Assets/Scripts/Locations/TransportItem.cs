@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupPod : MonoBehaviour
+public class TransportItem : MonoBehaviour
 {
 
     public Item pickupItem;
@@ -12,14 +12,14 @@ public class PickupPod : MonoBehaviour
     private void Start() {
     }
 
-    public Item GetPickupItem()
+    public Item GetItem()
     {
         if(pickupItem == null) return null;
 
         return pickupItem;
     }
 
-    public void TransportItem()
+    public void HandleTransportItem()
     {
         itemTransported = true;
     }
