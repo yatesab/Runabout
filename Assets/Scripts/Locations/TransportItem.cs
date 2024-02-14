@@ -5,8 +5,8 @@ using UnityEngine;
 public class TransportItem : MonoBehaviour
 {
 
-    public Item pickupItem;
-
+    public Item item;
+    public GameObject itemPrefab;
     public bool itemTransported = false;
 
     private void Start() {
@@ -14,13 +14,14 @@ public class TransportItem : MonoBehaviour
 
     public Item GetItem()
     {
-        if(pickupItem == null) return null;
+        if(item == null) return null;
 
-        return pickupItem;
+        return item;
     }
 
-    public void HandleTransportItem()
+    public GameObject HandleTransportItem(Transform parentForItem)
     {
         itemTransported = true;
+        return Instantiate(itemPrefab);
     }
 }

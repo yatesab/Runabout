@@ -25,7 +25,7 @@ public class AsteroidSpawner : MonoBehaviour
             
             Vector3 randomSpawnPoint = new Vector3 (transform.position.x + randomX, transform.position.y + randomY, transform.position.z + randomZ);
 
-            GameObject tempObj = Instantiate(asteroidObjects[0], randomSpawnPoint, Quaternion.identity);
+            GameObject tempObj = Instantiate(asteroidObjects[Random.Range(0, asteroidObjects.Length - 1)], randomSpawnPoint, Quaternion.identity);
             tempObj.transform.parent = this.transform;
         }
     }

@@ -7,18 +7,26 @@ using TMPro;
 public class TransporterSystem : MonoBehaviour
 {
     public bool canTransport = false;
+
     public Button scanButton;
+    public Button engageButton;
+
+    public Transform transporterPad;
     public Transform transportListContainer;
+    public Transform cargoHold;
+
     public GameObject toggleObject;
 
     public LayerMask transportLayer;
 
     private ToggleGroup _toggleGroup;
     private float startingYPosition = 130f;
+    private TransportItem _itemToTransport;
 
     public void Start()
     {
         scanButton.onClick.AddListener(ScanAreaForTransportItems);
+        engageButton.onClick.AddListener(InitiateTransport);
         _toggleGroup = transportListContainer.GetComponent<ToggleGroup>();
     }
 
@@ -41,20 +49,39 @@ public class TransporterSystem : MonoBehaviour
             TransportItem[] transportItems = collider.GetComponents<TransportItem>();
             foreach (TransportItem transportItem in transportItems)
             {
-                GameObject listItem = Instantiate(toggleObject, transportListContainer);
-                RectTransform test = listItem.GetComponent<RectTransform>();
+                if(!transportItem.itemTransported)
+                {
+                    GameObject listItem = Instantiate(toggleObject, transportListContainer);
+                    RectTransform test = listItem.GetComponent<RectTransform>();
 
-                test.anchoredPosition = new Vector2(test.anchoredPosition.x, yPosition);
-                yPosition -= 20f;
+                    test.anchoredPosition = new Vector2(test.anchoredPosition.x, yPosition);
+                    yPosition -= 25f;
 
-                Toggle itemToggle = listItem.GetComponent<Toggle>();
-                itemToggle.group = _toggleGroup;
-                itemToggle.isOn = false;
+                    Toggle itemToggle = listItem.GetComponent<Toggle>();
+                    itemToggle.group = _toggleGroup;
+                    itemToggle.isOn = false;
+                    itemToggle.onValueChanged.AddListener(delegate { SetSelectedItem(transportItem); });
 
-                Item pickupItem = transportItem.GetItem();
-                listItem.GetComponentInChildren<Text>().text = pickupItem.Name;
+                    Item pickupItem = transportItem.GetItem();
+                    listItem.GetComponentInChildren<Text>().text = pickupItem.Name;
+                }
             }
         }
+    }
+
+    public void SetSelectedItem(TransportItem selectedItem)
+    {
+        _itemToTransport = selectedItem;
+    }
+
+    public void InitiateTransport()
+    {
+        GameObject transportedItem = _itemToTransport.HandleTransportItem(transform);
+        transportedItem.transform.parent = cargoHold.transform;
+        transportedItem.transform.position = new Vector3(transporterPad.position.x, transporterPad.position.y + 1, transporterPad.position.z);
+
+        // Update and rescan the list of transport items
+        ScanAreaForTransportItems();
     }
 
     /*public bool InitiateTransport()
