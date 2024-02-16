@@ -42,5 +42,21 @@ public class Mine : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         Destroy(this.gameObject);
+
+        // Access the Rigidbody of the other object
+        Rigidbody otherRigidbody = other.gameObject.GetComponent<Rigidbody>();
+        if (otherRigidbody == null)
+        {
+            Debug.LogWarning("Colliding object has no Rigidbody!");
+            return;
+        }
+        // Get the first contact point (adjust if you need multiple)
+        Vector3 contactPoint = other.contacts[0].point;
+
+        // Calculate force direction based on collision normal
+        Vector3 forceDirection = other.contacts[0].normal.normalized;
+
+        // Apply force with adjustable magnitude and mode
+        otherRigidbody.AddForceAtPosition(forceDirection * 1000f, contactPoint, ForceMode.Impulse);
     }
 }
