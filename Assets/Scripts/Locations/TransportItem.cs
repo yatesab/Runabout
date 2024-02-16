@@ -6,7 +6,8 @@ public class TransportItem : MonoBehaviour
 {
 
     public Item item;
-    public GameObject itemPrefab;
+    public GameObject itemPhysics;
+    public GameObject itemMesh;
     public bool itemTransported = false;
 
     private void Start() {
@@ -22,6 +23,6 @@ public class TransportItem : MonoBehaviour
     public GameObject HandleTransportItem(Transform parentForItem)
     {
         itemTransported = true;
-        return Instantiate(itemPrefab);
+        return Instantiate(itemPhysics);
     }
 }

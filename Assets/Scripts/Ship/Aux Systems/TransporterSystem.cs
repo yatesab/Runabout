@@ -7,19 +7,21 @@ using TMPro;
 public class TransporterSystem : MonoBehaviour
 {
     public bool canTransport = false;
+    public LayerMask transportLayer;
 
+    [Header("Buttons")]
     public Button scanButton;
     public Button engageButton;
 
+    [Header("Transporter Pad")]
     public Transform transporterPad;
-    public Transform transportListContainer;
     public Transform cargoHold;
 
+    [Header("Panel Objects")]
     public GameObject toggleObject;
+    public Transform transportListContainer;
+    public ToggleGroup _toggleGroup;
 
-    public LayerMask transportLayer;
-
-    private ToggleGroup _toggleGroup;
     private float startingYPosition = 130f;
     private TransportItem _itemToTransport;
 
@@ -27,11 +29,13 @@ public class TransporterSystem : MonoBehaviour
     {
         scanButton.onClick.AddListener(ScanAreaForTransportItems);
         engageButton.onClick.AddListener(InitiateTransport);
+
         _toggleGroup = transportListContainer.GetComponent<ToggleGroup>();
     }
 
     public void Update()
     {
+        engageButton.enabled = _itemToTransport != null;
     }
 
     public void ScanAreaForTransportItems()
