@@ -5,28 +5,14 @@ using UnityEngine.InputSystem;
 
 public class WeaponSystem : StationSystem
 {
-    public Weapon leftWeapon;
-    public Weapon rightWeapon;
+    public TurretArm leftTurretArm;
+    public float leftTurretHeat;
 
-    public void FireLeftWeapon()
-    {
-        //Launch projectile based on weapon choice
-        leftWeapon.FireWeapon();
-    }
+    public TurretArm rightTurretArm;
+    public float rightTurretHeat;
 
-    public void StopLeftWeapon()
+    public void Start()
     {
-        leftWeapon.StopFireWeapon();
-    }
 
-    public void FireRightWeapon()
-    {
-        //Launch projectile based on weapon choice
-        rightWeapon.FireWeapon();
-    }
-
-    public void StopRightWeapon()
-    {
-        rightWeapon.StopFireWeapon();
     }
 }

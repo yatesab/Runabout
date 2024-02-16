@@ -7,6 +7,7 @@ public class BasicLaser : Weapon
     [SerializeField] private float _maxLength;
     [SerializeField] private LineRenderer _beam;
     [SerializeField] private LayerMask layerMask;
+    public GameObject laserHitParticles;
 
     public float laserDamage = 0.25f;
     public float laserHeatThreshold = 20f;
@@ -21,7 +22,6 @@ public class BasicLaser : Weapon
 
     private void Update() 
     {
-        HandleLaserFiring();
         CoolLaser();
     }
 
@@ -34,36 +34,6 @@ public class BasicLaser : Weapon
             currentTimeBetweenDamage = 0f;
             healthComponent.TakeDamage(laserDamage);
         }
-    }
-
-    private void HandleLaserFiring()
-    {
-        if(isFireing && !overHeated)
-        {
-            // Cast ray and create laser line
-            RaycastHit hit;
-
-            if(TargetInfo.IsTargetInRange(transform.position, transform.TransformDirection(Vector3.forward), out hit, _maxLength, layerMask))
-            {
-                HealthComponent healthComponent = hit.collider.GetComponent<HealthComponent>();
-
-                if(healthComponent)
-                {
-                    ApplyDamage(healthComponent);
-
-                    _beam.SetPosition(0, transform.position);
-                    _beam.SetPosition(1,  hit.point);
-                }
-            } else 
-            {
-                Vector3 hitPosition = transform.position + transform.forward * _maxLength;
-                
-                _beam.SetPosition(0, transform.position);
-                _beam.SetPosition(1, hitPosition);
-            }
-        }
-
-        HeatLaser();
     }
 
     void HeatLaser()
@@ -96,17 +66,46 @@ public class BasicLaser : Weapon
         }
     }
 
-    public override void FireWeapon()
+    public override void FireWeapon(TurretArmMirror turretArmMirror)
     {
-        isFireing = true;
-        _beam.enabled = true;
+        if (!overHeated)
+        {
+            _beam.enabled = true;
+
+            // Cast ray and create laser line
+            RaycastHit hit;
+
+            if (TargetInfo.IsTargetInRange(turretArmMirror.muzzle.position, turretArmMirror.muzzle.TransformDirection(Vector3.forward), out hit, _maxLength, layerMask))
+            {
+                Instantiate(laserHitParticles, hit.point, Quaternion.LookRotation(hit.normal));
+
+                HealthComponent healthComponent = hit.collider.GetComponent<HealthComponent>();
+
+                if (healthComponent)
+                {
+                    ApplyDamage(healthComponent);
+
+                    _beam.SetPosition(0, turretArmMirror.muzzle.position);
+                    _beam.SetPosition(1, hit.point);
+                }
+            }
+            else
+            {
+                Vector3 hitPosition = turretArmMirror.muzzle.position + turretArmMirror.muzzle.forward * _maxLength;
+
+                _beam.SetPosition(0, turretArmMirror.muzzle.position);
+                _beam.SetPosition(1, hitPosition);
+            }
+
+            HeatLaser();
+        }
     }
 
-    public override void StopFireWeapon()
+    public override void StopFireWeapon(TurretArmMirror turretArmMirror)
     {
         isFireing = false;
         _beam.enabled = false;
-        _beam.SetPosition(0, transform.position);
-        _beam.SetPosition(1, transform.position);
+        _beam.SetPosition(0, turretArmMirror.muzzle.position);
+        _beam.SetPosition(1, turretArmMirror.muzzle.position);
     }
 }

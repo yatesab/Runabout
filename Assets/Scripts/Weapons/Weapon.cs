@@ -8,6 +8,6 @@ public abstract class Weapon : MonoBehaviour
 
     public int CurrentAmmo {get;set;}
 
-    public abstract void FireWeapon();
-    public abstract void StopFireWeapon();
+    public abstract void FireWeapon(TurretArmMirror turretArmMirror);
+    public abstract void StopFireWeapon(TurretArmMirror turretArmMirror);
 }

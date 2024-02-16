@@ -6,18 +6,20 @@ using UnityEngine.Events;
 
 public class TurretArm : GrabPhysics
 {
-
+    public Weapon turretWeapon;
     public TurretArmMirror turretArmMirror;
-    public GameObject laserBolt;
 
     public Transform turretArm;
+
+    private bool turretActive;
 
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
 
-        grabInteractable.activated.AddListener(HandleFireTurret);
+        grabInteractable.activated.AddListener(ActivatePulled);
+        grabInteractable.deactivated.AddListener(ActivateReleased);
     }
 
     // Update is called once per frame
@@ -29,10 +31,21 @@ public class TurretArm : GrabPhysics
         //Update Turret Position
         turretArmMirror.MirrorTurretPosition(turretArm.localPosition);
         turretArmMirror.MirrorTurretRotation(turretArm.localRotation);
+
+        if(turretActive)
+        {
+            turretWeapon.FireWeapon(turretArmMirror);
+        }
     }
 
-    private void HandleFireTurret(ActivateEventArgs args)
+    public void ActivatePulled(ActivateEventArgs args)
     {
-        GameObject bolt = Instantiate(laserBolt, turretArmMirror.muzzle.position, turretArmMirror.muzzle.rotation);
+        turretActive = true;
+    }
+
+    public void ActivateReleased(DeactivateEventArgs args)
+    {
+        turretActive = false;
+        turretWeapon.StopFireWeapon(turretArmMirror);
     }
 }
