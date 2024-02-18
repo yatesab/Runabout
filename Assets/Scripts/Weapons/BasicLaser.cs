@@ -84,7 +84,7 @@ public class BasicLaser : Weapon
                 if (healthComponent)
                 {
                     ApplyDamage(healthComponent);
-
+                    Debug.Log("Test");
                     _beam.SetPosition(0, turretArmMirror.muzzle.position);
                     _beam.SetPosition(1, hit.point);
                 }

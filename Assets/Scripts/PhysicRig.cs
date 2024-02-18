@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PhysicRig : MonoBehaviour
 {
-
     public Transform playerHead;
     public Transform leftController;
     public Transform rightController;
 
-    public CharacterController characterController;
     public Transform bodyHead;
     public Transform bodyLeftHand;
     public Transform bodyRightHand;
@@ -17,6 +15,13 @@ public class PhysicRig : MonoBehaviour
     [Header("Height Settings")]
     public float bodyHeightMin = 0.5f;
     public float bodyHeightMax = 2;
+
+    private CharacterController characterController;
+
+    void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
 
     // Update is called once per frame
     void Update()

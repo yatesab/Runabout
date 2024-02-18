@@ -5,14 +5,17 @@ using UnityEngine;
 public class Mine : MonoBehaviour
 {
     public float speed = 1f;
+    public GameObject explosionParticles;
 
     private bool isTriggered;
 
     private Transform _target;
     private Rigidbody rb;
+    private AudioSource explosionSound;
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
+        explosionSound = GetComponent<AudioSource>();
     }
 
     private void Update() 
@@ -57,6 +60,12 @@ public class Mine : MonoBehaviour
         Vector3 forceDirection = other.contacts[0].normal.normalized;
 
         // Apply force with adjustable magnitude and mode
-        otherRigidbody.AddForceAtPosition(forceDirection * 1000f, contactPoint, ForceMode.Impulse);
+        if (!AudioManager.instance.GetSource("Mine Explosion").isPlaying)
+        {
+            AudioManager.instance.Play("Mine Explosion");
+        }
+
+        Instantiate(explosionParticles, contactPoint, Quaternion.LookRotation(forceDirection));
+        otherRigidbody.AddForceAtPosition(forceDirection * 500f, contactPoint, ForceMode.Impulse);
     }
 }

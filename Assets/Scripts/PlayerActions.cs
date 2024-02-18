@@ -6,167 +6,128 @@ using UnityEngine.InputSystem;
 
 public class PlayerActions : MonoBehaviour
 {
-    [SerializeField] private InputActionReference _cycleSeatsForward;
-    [SerializeField] private InputActionReference _cycleSeatsBack;
+    [SerializeField] private InputActionReference _takeSeatLeft;
+    [SerializeField] private InputActionReference _takeSeatRight;
 
     public float switchSeatTime = 5f;
 
-    public Transform playerPhysics;
+    public Transform playerMesh;
 
-    public Transform helmPhysics;
-    public Transform engineeringPhysics;
-    public Transform weaponsPhysics;
-    public Transform cargoPhysics;
-
-    public Transform helmMesh;
-    public Transform engineeringMesh;
-    public Transform weaponsMesh;
-    public Transform cargoMesh;
+    public PlayerSeat helmSeat;
+    public PlayerSeat engineeringSeat;
+    public PlayerSeat weaponsSeat;
+    public PlayerSeat cargoSeat;
 
     public enum PlayerStation
     {
+        None,
         Helm,
         Engineering,
         Weapons,
         Cargo
     }
-    public PlayerStation _CurrentStation = PlayerStation.Helm;
+    public PlayerStation _CurrentStation = PlayerStation.None;
 
-    private bool isCyclingForward = false;
-    private float currentCycleForwardTime = 0f;
+    public LayerMask seatLayer;
+    public Transform shipPhysicsCenter;
+    public Transform shipMeshCenter;
+    public GameObject shipSeatMesh;
 
-    private bool isCyclingBack = false;
-    private float currentCycleBackTime = 0f;
+    private PlayerSeat _currentSeat;
+    private bool isHoldingSitButton = false;
+    private float currentSitHoldTime = 0f;
+    private Collider[] seatColliders;
+
+    private ActionBasedContinuousMoveProvider continuousMoveProvider;
+    private TeleportationProvider teleportationProvider;
+    private ShipMoveProvider shipMoveProvider;
+    private SnapTurnProvider snapTurnProvider;
 
     // Start is called before the first frame update
     void Start()
     {
-        _cycleSeatsForward.action.started += HandleStartCycleForward;
-        _cycleSeatsForward.action.canceled += HandleEndCycleForward;
+        continuousMoveProvider = GetComponentInChildren<ActionBasedContinuousMoveProvider>();
+        teleportationProvider = GetComponentInChildren<TeleportationProvider>();
+        shipMoveProvider = GetComponentInChildren<ShipMoveProvider>();
+        snapTurnProvider = GetComponentInChildren<SnapTurnProvider>();
 
-        _cycleSeatsBack.action.started += HandleStartCycleBack;
-        _cycleSeatsBack.action.canceled += HandleEndCycleBack;
+        _takeSeatLeft.action.started += HandleHoldSeatButton;
+        _takeSeatLeft.action.canceled += HandleReleaseSeatButton;
+
+        _takeSeatRight.action.started += HandleHoldSeatButton;
+        _takeSeatRight.action.canceled += HandleReleaseSeatButton;
     }
 
     // Update is called once per frame
     void Update()
     {
         // update cycle time if butten is being held
-        if(isCyclingForward && currentCycleForwardTime < switchSeatTime)
+        if(isHoldingSitButton && currentSitHoldTime < switchSeatTime)
         {
-            currentCycleForwardTime += Time.deltaTime;
-        }
-        else if (isCyclingBack && currentCycleBackTime < switchSeatTime)
-        {
-            currentCycleBackTime += Time.deltaTime;
-        }
+            currentSitHoldTime += Time.deltaTime;
 
-        // if one of the times is over the threshold then change seats
-        if (currentCycleForwardTime >= switchSeatTime)
-        {
-            switch (_CurrentStation)
+            // if one of the times is over the threshold then change seats
+            if (seatColliders.Length > 0 && currentSitHoldTime >= switchSeatTime)
             {
-                case PlayerStation.Helm:
-                    ChangePlayerSeat(PlayerStation.Weapons); break;
-                case PlayerStation.Weapons:
-                    ChangePlayerSeat(PlayerStation.Engineering); break;
-                case PlayerStation.Engineering:
-                    ChangePlayerSeat(PlayerStation.Cargo); break;
-                case PlayerStation.Cargo:
-                    ChangePlayerSeat(PlayerStation.Helm); break;
+                if (_currentSeat == null)
+                {
+                    PlayerSeat selectedSeat = seatColliders[0].GetComponent<PlayerSeat>();
+
+                    if (selectedSeat != null)
+                    {
+                        selectedSeat.AddPlayerToSeat(playerMesh, transform);
+                        shipSeatMesh.SetActive(true);
+
+                        shipMoveProvider.enabled = true;
+                        DisableMovement();
+
+                        _currentSeat = selectedSeat;
+
+                        isHoldingSitButton = false;
+                        currentSitHoldTime = 0f;
+                    }
+                }
+                else
+                {
+                    shipSeatMesh.SetActive(false);
+
+                    EnableMovement();
+                    shipMoveProvider.enabled = false;
+
+                    playerMesh.parent = shipMeshCenter;
+                    transform.parent = shipPhysicsCenter;
+
+                    _currentSeat = null;
+
+                    isHoldingSitButton = false;
+                    currentSitHoldTime = 0f;
+                }
+
             }
-
-            // reset bool and time
-            currentCycleForwardTime = 0f;
-            isCyclingForward = false;
-        } else if (currentCycleBackTime >= switchSeatTime)
-        {
-            switch (_CurrentStation)
-            {
-                case PlayerStation.Helm:
-                    ChangePlayerSeat(PlayerStation.Cargo); break;
-                case PlayerStation.Weapons:
-                    ChangePlayerSeat(PlayerStation.Helm); break;
-                case PlayerStation.Engineering:
-                    ChangePlayerSeat(PlayerStation.Weapons); break;
-                case PlayerStation.Cargo:
-                    ChangePlayerSeat(PlayerStation.Engineering); break;
-            }
-
-            // reset bool and time
-            currentCycleBackTime = 0f;
-            isCyclingBack = false;
         }
     }
 
-    private void ChangePlayerSeat(PlayerStation selectedStation)
+    private void EnableMovement()
     {
-        //Switch Seats
-        switch (selectedStation)
-        {
-            case PlayerStation.Helm:
-                transform.parent = helmMesh;
-                playerPhysics.parent = helmPhysics;
-                _CurrentStation = PlayerStation.Helm;
-
-                break;
-            case PlayerStation.Weapons:
-                transform.parent = weaponsMesh;
-                playerPhysics.parent = weaponsPhysics;
-                _CurrentStation = PlayerStation.Weapons;
-
-                break;
-            case PlayerStation.Engineering:
-                transform.parent = engineeringMesh;
-                playerPhysics.parent = engineeringPhysics;
-                _CurrentStation = PlayerStation.Engineering;
-
-                break;
-            case PlayerStation.Cargo:
-                transform.parent = cargoMesh;
-                playerPhysics.parent = cargoPhysics;
-                _CurrentStation = PlayerStation.Cargo;
-
-                break;
-        }
-
-        ResetPlayerPositionAndRotation();
+        snapTurnProvider.enabled = true;
+        continuousMoveProvider.enabled = true;
     }
 
-    private void ResetPlayerPositionAndRotation()
+    private void DisableMovement()
     {
-        transform.localPosition = Vector3.zero;
-        transform.localEulerAngles = Vector3.zero;
-
-        playerPhysics.localPosition = Vector3.zero;
-        playerPhysics.localEulerAngles = Vector3.zero;
+        continuousMoveProvider.enabled = false;
+        snapTurnProvider.enabled = false;
     }
 
-    private void HandleStartCycleForward(InputAction.CallbackContext obj)
+    private void HandleHoldSeatButton(InputAction.CallbackContext obj)
     {
-        if(!isCyclingBack)
-        {
-            isCyclingForward = true;
-        }
+        isHoldingSitButton = true;
+        seatColliders = Physics.OverlapSphere(transform.position, 1.5f, seatLayer, QueryTriggerInteraction.Collide);
     }
 
-    private void HandleEndCycleForward(InputAction.CallbackContext obj)
+    private void HandleReleaseSeatButton(InputAction.CallbackContext obj)
     {
-        isCyclingForward = false;
-        currentCycleForwardTime = 0f;
-    }
-
-    private void HandleStartCycleBack(InputAction.CallbackContext obj)
-    {
-        if (!isCyclingForward)
-        {
-            isCyclingBack = true;
-        }
-    }
-
-    private void HandleEndCycleBack(InputAction.CallbackContext obj)
-    {
-        isCyclingBack = false;
-        currentCycleBackTime = 0f;
+        isHoldingSitButton = false;
+        currentSitHoldTime = 0f;
     }
 }

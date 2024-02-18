@@ -7,6 +7,9 @@ public class PropulsionSystem : StationSystem
     public Rigidbody _shipBody;
     public FlipSwitch _reverseSwitch;
 
+    public Vector2 PitchYaw { set; get; }
+    public float Roll { set; get; }
+
     [Header("Thrust Settings")]
     [SerializeField] private float thrust = 300f;
     [SerializeField] private float thrustGlideReduction = -0.01f;
@@ -181,25 +184,9 @@ public class PropulsionSystem : StationSystem
 
     public void SetRotationThrust()
     {
-        if(leftThrottle.stickMovementSetting == Throttle.StickMovementDirection.PitchYaw)
-        {
-            yawRotation = leftThrottle.PitchYaw.x + thrustYaw * 2;
-            pitchRotation = leftThrottle.PitchYaw.y;
-        }
-        else
-        {
-            rollRotation = leftThrottle.Roll;
-        }
-
-        if (rightThrottle.stickMovementSetting == Throttle.StickMovementDirection.PitchYaw)
-        {
-            yawRotation = rightThrottle.PitchYaw.x + thrustYaw * 2;
-            pitchRotation = rightThrottle.PitchYaw.y;
-        }
-        else
-        {
-            rollRotation = rightThrottle.Roll;
-        }
+        yawRotation = PitchYaw.x + thrustYaw * 2;
+        pitchRotation = PitchYaw.y;
+        rollRotation = Roll;
     }
 
     public void SetStrafingStarted(bool isStrafing)
