@@ -12,6 +12,8 @@ public class Mine : MonoBehaviour
     private Transform _target;
     private Rigidbody rb;
     private AudioSource explosionSound;
+    private float trackingTimeLimit = 10f;
+    private float trackingTime = 0f;
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
@@ -23,18 +25,9 @@ public class Mine : MonoBehaviour
         TrackTarget();    
     }
 
-    private void TrackTarget()
-    {
-        if(isTriggered)
-        {
-            transform.LookAt(_target);
-            rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Ship")
+        if(other.tag == "Ship" && _target == null)
         {
             Debug.Log("Mine In Proximity");
             isTriggered = true;
@@ -44,11 +37,9 @@ public class Mine : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Destroy(this.gameObject);
-
-        // Access the Rigidbody of the other object
-        Rigidbody otherRigidbody = other.gameObject.GetComponent<Rigidbody>();
-        if (otherRigidbody == null)
+        // Access the Rigidbody of the explosionCollider object
+        Rigidbody colliderRigidbody = other.gameObject.GetComponent<Rigidbody>();
+        if (colliderRigidbody == null)
         {
             Debug.LogWarning("Colliding object has no Rigidbody!");
             return;
@@ -59,13 +50,33 @@ public class Mine : MonoBehaviour
         // Calculate force direction based on collision normal
         Vector3 forceDirection = other.contacts[0].normal.normalized;
 
+        Instantiate(explosionParticles, contactPoint, Quaternion.LookRotation(forceDirection));
+        DestoryMine();
+    }
+
+    private void TrackTarget()
+    {
+        if (isTriggered)
+        {
+            trackingTime = Time.deltaTime;
+            transform.LookAt(_target);
+            rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Impulse);
+
+            if (trackingTime > trackingTimeLimit)
+            {
+                DestoryMine();
+            }
+        }
+    }
+
+    private void DestoryMine()
+    {
         // Apply force with adjustable magnitude and mode
         if (!AudioManager.instance.GetSource("Mine Explosion").isPlaying)
         {
             AudioManager.instance.Play("Mine Explosion");
         }
 
-        Instantiate(explosionParticles, contactPoint, Quaternion.LookRotation(forceDirection));
-        otherRigidbody.AddForceAtPosition(forceDirection * 500f, contactPoint, ForceMode.Impulse);
+        Destroy(this.gameObject);
     }
 }

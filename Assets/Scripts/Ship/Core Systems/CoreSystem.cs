@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SystemType
+{
+    None,
+    Propulsion,
+    Shield,
+    Weapon
+}
+
 public class CoreSystem : MonoBehaviour
 {
     [Header("Propulsion System")]
@@ -12,14 +20,6 @@ public class CoreSystem : MonoBehaviour
 
     [Header("Weapon System")]
     [SerializeField] protected WeaponSystem weaponSystem;
-
-    public enum SystemType
-    {
-        None,
-        Propulsion,
-        Shield,
-        Weapon
-    }
 
     // Start is called before the first frame update
     void Start()

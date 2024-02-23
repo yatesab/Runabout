@@ -4,173 +4,107 @@ using UnityEngine;
 
 public class PowerCore : CoreSystem
 {
-    public float PropulsionPower { get { return propulsionSystem.PowerLevel; } }
-    public bool PropulsionIsPatched { get; set; } = false;
-    public SystemType PropulsionPatchSystem { get; set; }
+    public StationPower propulsionPower;
 
-    public float ShieldPower { get { return shieldSystem.PowerLevel; } }
-    public bool ShieldIsPatched { get; set; } = false;
-    public SystemType ShieldPatchSystem { get; set; }
+    public StationPower shieldPower;
 
-    public float WeaponPower { get { return weaponSystem.PowerLevel; } }
-    public bool WeaponIsPatched { get; set; } = false;
-    public SystemType WeaponPatchSystem { get; set; }
+    public StationPower weaponPower;
 
     public SystemType PatchFrom { get; set; }
     public SystemType PatchTo { get; set; }
 
-    private float patchFromUpgrade = 0.5f;
-    private float patchToDowngrade = 0.25f;
+    public SystemType DialOneLeft;
+    public SystemType DialOneRight;
+    public SystemType DialTwoLeft;
+    public SystemType DialTwoRight;
+    public SystemType DialThreeLeft;
+    public SystemType DialThreeRight;
 
-    public void ClearSelectedSystems()
+    public StationPower GetPowerSystem(SystemType system)
     {
-        PatchFrom = SystemType.None;
-        PatchTo = SystemType.None;
-    }
-
-    public bool SetPatchFromSystem(SystemType system)
-    {
-        PatchFrom = system;
-        switch (system)
+        switch(system)
         {
             case SystemType.Propulsion:
-                if (PropulsionIsPatched)
-                {
-                    return false;
-                }
-                else
-                {
-                    PatchFrom = system;
-                    return true;
-                }
+                return propulsionPower;
             case SystemType.Shield:
-                if (ShieldIsPatched)
-                {
-                    return false;
-                }
-                else
-                {
-                    PatchFrom = system;
-                    return true;
-                }
+                return shieldPower;
             case SystemType.Weapon:
-                if (WeaponIsPatched)
-                {
-                    return false;
-                }
-                else
-                {
-                    PatchFrom = system;
-                    return true;
-                }
-            case SystemType.None:
             default:
-                return false;
+                return weaponPower;
         }
     }
 
-    public void SetPatchToSystem(SystemType system)
+    public void PatchSystemAuxPower(SystemType patchFrom, SystemType patchTo)
     {
-        PatchTo = system;
+        StationPower patchFromSystem = GetPowerSystem(patchFrom);
+        StationPower patchToSystem = GetPowerSystem(patchTo);
+
+        patchFromSystem.IsPatched = true;
+        patchToSystem.PatchedSystem = patchFromSystem;
     }
 
-    public void PatchSelectedSystems()
+    public void RemoveSystemAuxPatch(SystemType dialLeft, SystemType dialRight)
     {
-        if(PatchTo != SystemType.None && PatchFrom != SystemType.None)
-        {
-            switch (PatchFrom)
-            {
-                case SystemType.Propulsion:
-                    propulsionSystem.RemovePower(patchToDowngrade);
-                    PropulsionIsPatched = true;
-                    PropulsionPatchSystem = PatchTo;
-                    break;
-                case SystemType.Shield:
-                    shieldSystem.RemovePower(patchToDowngrade);
-                    ShieldIsPatched = true;
-                    ShieldPatchSystem = PatchTo;
-                    break;
-                case SystemType.Weapon:
-                    weaponSystem.RemovePower(patchToDowngrade);
-                    WeaponIsPatched = true;
-                    WeaponPatchSystem = PatchTo;
-                    break;
-                default:
-                    break;
-            }
+        StationPower leftSystem = GetPowerSystem(dialLeft);
+        StationPower rightSystem = GetPowerSystem(dialRight);
 
-            switch (PatchTo)
-            {
-                case SystemType.Propulsion:
-                    propulsionSystem.AddPower(patchFromUpgrade);
-                    break;
-                case SystemType.Shield:
-                    shieldSystem.AddPower(patchFromUpgrade);
-                    break;
-                case SystemType.Weapon:
-                    weaponSystem.AddPower(patchFromUpgrade);
-                    break;
-                default:
-                    break;
-            }
+        if(leftSystem.IsPatched)
+        {
+            leftSystem.IsPatched = false;
+            rightSystem.PatchedSystem = null;
+        } else
+        {
+            rightSystem.IsPatched = false;
+            leftSystem.PatchedSystem = null;
         }
     }
 
-    /**
-    * Removes a specific systems patch using its reference to the system its patched to
-    **/
-    public void RemoveSystemPatch(SystemType systemToRemove)
+    public void HandleDialOneUpdate(int selection)
     {
-        SystemType patchToRemove = SystemType.None;
-
-        switch(systemToRemove)
+        if (selection == -1)
         {
-            case SystemType.Propulsion:
-                if (PropulsionIsPatched)
-                {
-                    propulsionSystem.AddPower(patchToDowngrade);
-                    PropulsionIsPatched = false;
-                    patchToRemove = PropulsionPatchSystem;
-                    PropulsionPatchSystem = SystemType.None;
-                }
-                break;
-            case SystemType.Shield:
-                if (ShieldIsPatched)
-                {
-                    shieldSystem.AddPower(patchToDowngrade);
-                    ShieldIsPatched = false;
-                    patchToRemove = ShieldPatchSystem;
-                    ShieldPatchSystem = SystemType.None;
-                }
-                break;
-            case SystemType.Weapon:
-                if (WeaponIsPatched)
-                {
-                    weaponSystem.AddPower(patchToDowngrade);
-                    WeaponIsPatched = false;
-                    patchToRemove = WeaponPatchSystem;
-                    WeaponPatchSystem = SystemType.None;
-                }
-                break;
-            case SystemType.None:
-            default:
-                break;
+            PatchSystemAuxPower(DialOneRight, DialOneLeft);
         }
-
-        switch (patchToRemove)
+        else if (selection == 1)
         {
-            case SystemType.Propulsion:
-                propulsionSystem.RemovePower(patchFromUpgrade);
-                break;
-            case SystemType.Shield:
-                shieldSystem.RemovePower(patchFromUpgrade);
-                break;
-            case SystemType.Weapon:
-                weaponSystem.RemovePower(patchFromUpgrade);
-                break;
-            case SystemType.None:
-            default:
-                break;
+            PatchSystemAuxPower(DialOneLeft, DialOneRight);
+        }
+        else
+        {
+            RemoveSystemAuxPatch(DialOneLeft, DialOneRight);
+        }
+    }
+
+    public void HandleDialOTwoUpdate(int selection)
+    {
+        if (selection == -1)
+        {
+            PatchSystemAuxPower(DialTwoRight, DialTwoLeft);
+        }
+        else if (selection == 1)
+        {
+            PatchSystemAuxPower(DialTwoLeft, DialTwoRight);
+        }
+        else
+        {
+            RemoveSystemAuxPatch(DialTwoLeft, DialTwoRight);
+        }
+    }
+    public void HandleDialOThreeUpdate(int selection)
+    {
+        if (selection == -1)
+        {
+            PatchSystemAuxPower(DialThreeRight, DialThreeLeft);
+
+        }
+        else if (selection == 1)
+        {
+            PatchSystemAuxPower(DialThreeLeft, DialThreeRight);
+
+        }
+        else
+        {
+            RemoveSystemAuxPatch(DialThreeLeft, DialThreeRight);
         }
     }
 }

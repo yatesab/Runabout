@@ -29,11 +29,11 @@ public class PhysicRig : MonoBehaviour
         characterController.height = Mathf.Clamp(bodyHead.localPosition.y, bodyHeightMin, bodyHeightMax);
         characterController.center = new Vector3(bodyHead.localPosition.x, characterController.height / 2, bodyHead.localPosition.z);
 
-        leftController.localPosition = bodyLeftHand.localPosition;
-        leftController.localRotation = bodyLeftHand.localRotation;
+        //leftController.localPosition = bodyLeftHand.localPosition;
+        //leftController.localRotation = bodyLeftHand.localRotation;
 
-        rightController.localPosition = bodyRightHand.localPosition;
-        rightController.localRotation = bodyRightHand.localRotation;
+        //rightController.localPosition = bodyRightHand.localPosition;
+        //rightController.localRotation = bodyRightHand.localRotation;
 
         bodyHead.localPosition = playerHead.localPosition;
         bodyHead.localRotation = playerHead.localRotation;

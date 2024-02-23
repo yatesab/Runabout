@@ -723,16 +723,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947262bcc296b4743a889b1a4c60398f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throttleLocation: 0
+  _grabbedObject: {fileID: 3606724080004918954}
+  meshMirror: {fileID: 0}
   _throttleDeadZone: 0.02
-  isSynced: 1
-  useRoll: 0
-  usePitch: 1
-  useYaw: 1
   _throttleHandle: {fileID: 3606724080004918954}
   _throttleCeiling: {fileID: 4808045917960583798}
   _throttleFloor: {fileID: 215627044918583445}
-  _screenPercentage: {fileID: 0}
 --- !u!1 &5050851261412625743
 GameObject:
   m_ObjectHideFlags: 0

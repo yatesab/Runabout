@@ -4,8 +4,6 @@ using UnityEngine;
 
 public abstract class StationSystem : MonoBehaviour
 {
-    public float PowerLevel { get; set; } = 1f;
-
     public bool isOverheated {  get; set; }
     public bool isHeating { get; set; }
 
@@ -27,15 +25,5 @@ public abstract class StationSystem : MonoBehaviour
         {
             HeatLevel -= timePassed;
         }
-    }
-
-    public virtual void AddPower(float powerUpgrade)
-    {
-        PowerLevel += powerUpgrade;
-    }
-
-    public virtual void RemovePower(float powerUpgrade)
-    {
-        PowerLevel -= powerUpgrade;
     }
 }

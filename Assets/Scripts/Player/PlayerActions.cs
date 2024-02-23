@@ -4,6 +4,15 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
 
+public enum PlayerStation
+{
+    None,
+    Helm,
+    Engineering,
+    Weapons,
+    Cargo
+}
+
 public class PlayerActions : MonoBehaviour
 {
     [SerializeField] private InputActionReference _takeSeatLeft;
@@ -18,14 +27,6 @@ public class PlayerActions : MonoBehaviour
     public PlayerSeat weaponsSeat;
     public PlayerSeat cargoSeat;
 
-    public enum PlayerStation
-    {
-        None,
-        Helm,
-        Engineering,
-        Weapons,
-        Cargo
-    }
     public PlayerStation _CurrentStation = PlayerStation.None;
 
     public LayerMask seatLayer;
@@ -75,13 +76,9 @@ public class PlayerActions : MonoBehaviour
 
                     if (selectedSeat != null)
                     {
-                        selectedSeat.AddPlayerToSeat(playerMesh, transform);
-                        shipSeatMesh.SetActive(true);
+                        LockIntoSeat(selectedSeat);
 
-                        shipMoveProvider.enabled = true;
-                        DisableMovement();
-
-                        _currentSeat = selectedSeat;
+                        _currentSeat = selectedSeat;    
 
                         isHoldingSitButton = false;
                         currentSitHoldTime = 0f;
@@ -89,13 +86,7 @@ public class PlayerActions : MonoBehaviour
                 }
                 else
                 {
-                    shipSeatMesh.SetActive(false);
-
-                    EnableMovement();
-                    shipMoveProvider.enabled = false;
-
-                    playerMesh.parent = shipMeshCenter;
-                    transform.parent = shipPhysicsCenter;
+                    RemoveFromSeat();
 
                     _currentSeat = null;
 
@@ -105,6 +96,56 @@ public class PlayerActions : MonoBehaviour
 
             }
         }
+    }
+    
+    private void LockIntoSeat(PlayerSeat selectedSeat)
+    {
+        selectedSeat.AddPlayerToSeat(playerMesh, transform);
+        shipSeatMesh.SetActive(true);
+        DisableMovement();
+
+        switch (selectedSeat.stationType)
+        {
+            case PlayerStation.Helm:
+                shipMoveProvider.enabled = true;
+                _CurrentStation = PlayerStation.Helm;
+
+                break;
+            case PlayerStation.Weapons:
+                shipMoveProvider.enabled = true;
+                _CurrentStation = PlayerStation.Weapons;
+
+                break;
+            case PlayerStation.Engineering:
+                break;
+            case PlayerStation.Cargo:
+                break;
+        }
+    }
+
+    private void RemoveFromSeat()
+    {
+        switch (_CurrentStation)
+        {
+            case PlayerStation.Helm:
+                shipMoveProvider.enabled = false;
+
+                break;
+            case PlayerStation.Weapons:
+                shipMoveProvider.enabled = false;
+
+                break;
+            case PlayerStation.Engineering:
+                break;
+            case PlayerStation.Cargo:
+                break;
+        }
+
+        _CurrentStation = PlayerStation.None;
+        playerMesh.parent = shipMeshCenter;
+        transform.parent = shipPhysicsCenter;
+        shipSeatMesh.SetActive(false);
+        EnableMovement();
     }
 
     private void EnableMovement()
@@ -122,7 +163,7 @@ public class PlayerActions : MonoBehaviour
     private void HandleHoldSeatButton(InputAction.CallbackContext obj)
     {
         isHoldingSitButton = true;
-        seatColliders = Physics.OverlapSphere(transform.position, 1.5f, seatLayer, QueryTriggerInteraction.Collide);
+        seatColliders = Physics.OverlapSphere(transform.position, 1f, seatLayer, QueryTriggerInteraction.Collide);
     }
 
     private void HandleReleaseSeatButton(InputAction.CallbackContext obj)

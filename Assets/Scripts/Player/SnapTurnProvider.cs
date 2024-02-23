@@ -258,7 +258,7 @@ public class SnapTurnProvider : LocomotionProvider
     /// <inheritdoc />
     protected Vector2 ReadInput()
     {
-        var leftHandValue = m_LeftHandSnapTurnAction.action?.ReadValue<Vector2>() ?? Vector2.zero;
+        var leftHandValue = Vector2.zero;
         var rightHandValue = m_RightHandSnapTurnAction.action?.ReadValue<Vector2>() ?? Vector2.zero;
 
         return leftHandValue + rightHandValue;

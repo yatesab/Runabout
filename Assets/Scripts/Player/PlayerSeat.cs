@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerSeat : MonoBehaviour
 {
     public Transform meshCenter;
+    public PlayerStation stationType;
 
     // Start is called before the first frame update
     void Start()

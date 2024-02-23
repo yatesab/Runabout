@@ -48,7 +48,7 @@ public class PropulsionSystem : StationSystem
         if(thrustPercentage > thrusterHeatThreshold && HeatLevel < maxHeatLevel)
         {
             isHeating = true;
-            AddHeat(Time.deltaTime * PowerLevel);
+            AddHeat(Time.deltaTime);
         } else
         {
             isHeating = false;
@@ -102,13 +102,13 @@ public class PropulsionSystem : StationSystem
         }
 
         // Need to correct power level if system is overheated
-        float currentPowerLevel = PowerLevel;
-        if (isOverheated)
-        {
-            currentPowerLevel -= 0.5f;
-        }
+        //float currentPowerLevel = GetCurrentPowerLevels();
+        //if (isOverheated)
+       // {
+        //    currentPowerLevel -= 0.5f;
+        //}
 
-        float currentThrust = thrust * currentThrustPercentage * currentPowerLevel;
+        float currentThrust = thrust * currentThrustPercentage;
 
         _shipBody.AddForce(_shipBody.transform.forward * currentThrust * Time.fixedDeltaTime, ForceMode.Impulse);
         glide = currentThrust;
@@ -138,12 +138,13 @@ public class PropulsionSystem : StationSystem
 
     private void OnRotateShip()
     {
+        //float powerLevel = GetCurrentPowerLevels();
         // Pitch
-        _shipBody.AddRelativeTorque(Vector3.right * -pitchRotation * pitchTorque * PowerLevel * Time.fixedDeltaTime);
+        _shipBody.AddRelativeTorque(Vector3.right * -pitchRotation * pitchTorque * Time.fixedDeltaTime);
         // Yaw
-        _shipBody.AddRelativeTorque(Vector3.up * yawRotation * yawTorque * PowerLevel * Time.fixedDeltaTime);
+        _shipBody.AddRelativeTorque(Vector3.up * yawRotation * yawTorque * Time.fixedDeltaTime);
         // Roll
-        _shipBody.AddRelativeTorque(Vector3.back * rollRotation * rollTorque * PowerLevel * Time.fixedDeltaTime);
+        _shipBody.AddRelativeTorque(Vector3.back * rollRotation * rollTorque * Time.fixedDeltaTime);
     }
 
     //private void OnStrafeShip()

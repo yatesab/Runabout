@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7316333535365235228}
-  - component: {fileID: 64623667865194841}
   m_Layer: 0
   m_Name: Power Controls Physics
   m_TagString: Untagged
@@ -35,28 +34,6 @@ Transform:
   - {fileID: 1893852268845622634}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &64623667865194841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4436202584663965002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843ae4ce5e17fc6428a1a486786db046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerCore: {fileID: 0}
-  propulsionPowerLevel: {fileID: 0}
-  shieldPowerLevel: {fileID: 0}
-  weaponPowerLevel: {fileID: 0}
-  DialOneLeft: 1
-  DialOneRight: 3
-  DialTwoLeft: 3
-  DialTwoRight: 2
-  DialThreeLeft: 1
-  DialThreeRight: 2
 --- !u!1001 &433278039247877852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,10 +90,6 @@ PrefabInstance:
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8597560416244655672, guid: 56e72628fc8b0124f973861a5078bf5c, type: 3}
-      propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 64623667865194841}
     - target: {fileID: 8597560416244655672, guid: 56e72628fc8b0124f973861a5078bf5c, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -216,10 +189,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8597560416244655672, guid: 56e72628fc8b0124f973861a5078bf5c, type: 3}
-      propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 64623667865194841}
-    - target: {fileID: 8597560416244655672, guid: 56e72628fc8b0124f973861a5078bf5c, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -313,10 +282,6 @@ PrefabInstance:
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8597560416244655672, guid: 56e72628fc8b0124f973861a5078bf5c, type: 3}
-      propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 64623667865194841}
     - target: {fileID: 8597560416244655672, guid: 56e72628fc8b0124f973861a5078bf5c, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
