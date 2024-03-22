@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class BasicLaser : Weapon
 {
-    [SerializeField] private float _maxLength;
-    [SerializeField] private LineRenderer _beam;
-    [SerializeField] private LayerMask layerMask;
     public GameObject laserHitParticles;
 
     public float laserDamage = 0.25f;
@@ -19,6 +16,12 @@ public class BasicLaser : Weapon
     private bool overHeated = false;
     private float timeBetweenDamage = 0.25f;
     private float currentTimeBetweenDamage = 0f;
+    private LineRenderer _beam;
+
+    public void Start()
+    {
+        _beam = GetComponent<LineRenderer>();
+    }
 
     private void Update() 
     {
@@ -66,46 +69,52 @@ public class BasicLaser : Weapon
         }
     }
 
-    public override void FireWeapon(TurretArmMirror turretArmMirror)
+    public override void FireWeapon(Transform muzzle)
     {
         if (!overHeated)
         {
+            isFireing = true;
+
+            if (!AudioManager.instance.GetSource("Laser Beam").isPlaying)
+            {
+                AudioManager.instance.Play("Laser Beam");
+            }
+
             _beam.enabled = true;
 
-            // Cast ray and create laser line
-            RaycastHit hit;
-
-            if (TargetInfo.IsTargetInRange(turretArmMirror.muzzle.position, turretArmMirror.muzzle.TransformDirection(Vector3.forward), out hit, _maxLength, layerMask))
+            if (TargetHit)
             {
-                Instantiate(laserHitParticles, hit.point, Quaternion.LookRotation(hit.normal));
+                Instantiate(laserHitParticles, TargetPosition, Quaternion.LookRotation(HitPoint.normal));
 
-                HealthComponent healthComponent = hit.collider.GetComponent<HealthComponent>();
+                HealthComponent healthComponent = HitPoint.collider.GetComponent<HealthComponent>();
 
                 if (healthComponent)
                 {
                     ApplyDamage(healthComponent);
                     
-                    _beam.SetPosition(0, turretArmMirror.muzzle.position);
-                    _beam.SetPosition(1, hit.point);
+                    _beam.SetPosition(0, muzzle.position);
+                    _beam.SetPosition(1, TargetPosition);
                 }
             }
             else
             {
-                Vector3 hitPosition = turretArmMirror.muzzle.position + turretArmMirror.muzzle.forward * _maxLength;
-
-                _beam.SetPosition(0, turretArmMirror.muzzle.position);
-                _beam.SetPosition(1, hitPosition);
+                _beam.SetPosition(0, muzzle.position);
+                _beam.SetPosition(1, TargetPosition);
             }
 
             HeatLaser();
         }
     }
 
-    public override void StopFireWeapon(TurretArmMirror turretArmMirror)
+    public override void StopFireWeapon(Transform muzzle)
     {
+        base.StopFireWeapon(muzzle);
+
+        AudioManager.instance.Stop("Laser Beam");
+
         isFireing = false;
         _beam.enabled = false;
-        _beam.SetPosition(0, turretArmMirror.muzzle.position);
-        _beam.SetPosition(1, turretArmMirror.muzzle.position);
+        _beam.SetPosition(0, muzzle.position);
+        _beam.SetPosition(1, muzzle.position);
     }
 }

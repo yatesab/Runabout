@@ -34,7 +34,7 @@ public class TurretArm : GrabPhysics
 
         if(turretActive)
         {
-            turretWeapon.FireWeapon(turretArmMirror);
+            //turretWeapon.TriggerStateChanged(true);
         }
     }
 
@@ -46,6 +46,6 @@ public class TurretArm : GrabPhysics
     public void ActivateReleased(DeactivateEventArgs args)
     {
         turretActive = false;
-        turretWeapon.StopFireWeapon(turretArmMirror);
+        //turretWeapon.TriggerStateChanged(false);
     }
 }

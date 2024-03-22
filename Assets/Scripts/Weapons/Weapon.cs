@@ -8,6 +8,21 @@ public abstract class Weapon : MonoBehaviour
 
     public int CurrentAmmo {get;set;}
 
-    public abstract void FireWeapon(TurretArmMirror turretArmMirror);
-    public abstract void StopFireWeapon(TurretArmMirror turretArmMirror);
+    public float MaxDistance;
+
+    public bool TargetHit { get; set; }
+
+    public RaycastHit HitPoint { get; set; }
+
+    public Vector3 TargetPosition { get; set; }
+
+    public virtual void FireWeapon(Transform muzzle)
+    {
+        //Fire weapon
+    }
+
+    public virtual void StopFireWeapon(Transform muzzle)
+    {
+        //Stop weapon
+    }
 }

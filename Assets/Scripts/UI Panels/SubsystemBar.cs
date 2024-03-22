@@ -42,10 +42,10 @@ public class SubsystemBar : MonoBehaviour
         {
             if(i < 4)
             {
-                defaultBars[i].SetActive(i < power ? true : false);
+                defaultBars[i].SetActive(i < power);
             } else
             {
-                extraBars[i - 4].SetActive(i < power ? true : false);
+                extraBars[i - 4].SetActive(i < power);
             }
         }
     }

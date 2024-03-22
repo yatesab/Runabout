@@ -50,7 +50,7 @@ public class SubsystemPower : MonoBehaviour
             else if (stationPower.AddPower(_powerChangeAmount))
             {
                 CurrentPower -= _powerChangeAmount;
-                
+
                 return true;
             }
         }

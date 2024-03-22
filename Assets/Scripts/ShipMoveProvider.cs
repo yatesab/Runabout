@@ -19,7 +19,7 @@ public class ShipMoveProvider : MonoBehaviour
     [SerializeField] private InputActionReference _rightStickAction;
 
     // Start is called before the first frame update
-    void OnEnable()
+    void Start()
     {
         // Set up Stick Actions
         _leftStickAction.action.performed += OnLeftStickPressed;
@@ -29,16 +29,6 @@ public class ShipMoveProvider : MonoBehaviour
         _rightStickAction.action.canceled += OnRightStickStopped;
     }
 
-    // Start is called before the first frame update
-    void OnDisable()
-    {
-        // Set up Stick Actions
-        _leftStickAction.action.performed -= OnLeftStickPressed;
-        _leftStickAction.action.canceled -= OnLeftStickStopped;
-
-        _rightStickAction.action.performed -= OnRightStickPressed;
-        _rightStickAction.action.canceled -= OnRightStickStopped;
-    }
 
     private void OnLeftStickPressed(InputAction.CallbackContext obj)
     {

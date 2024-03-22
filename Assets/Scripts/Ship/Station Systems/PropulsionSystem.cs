@@ -33,6 +33,8 @@ public class PropulsionSystem : StationSystem
     private float yawRotation = 0f;
     private float pitchRotation = 0f;
     private float rollRotation = 0f;
+    private float portThrottle;
+    private float starboardThrottle;
     private float thrustPercentage = 0f;
     private float glide = 0f;
     private float horizontalGlide = 0f;
@@ -188,6 +190,16 @@ public class PropulsionSystem : StationSystem
         yawRotation = PitchYaw.x + thrustYaw * 2;
         pitchRotation = PitchYaw.y;
         rollRotation = Roll;
+    }
+
+    public void UpdatePortThrusterValue(float value)
+    {
+        portThrottle = value;
+    }
+
+    public void UpdateStarboardThrusterValue(float value)
+    {
+        starboardThrottle = value;
     }
 
     public void SetStrafingStarted(bool isStrafing)

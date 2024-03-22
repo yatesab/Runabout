@@ -41,6 +41,7 @@ public class PowerCore : CoreSystem
 
         patchFromSystem.IsPatched = true;
         patchToSystem.PatchedSystem = patchFromSystem;
+        patchToSystem.UpdateExtraBars();
     }
 
     public void RemoveSystemAuxPatch(SystemType dialLeft, SystemType dialRight)
@@ -52,10 +53,12 @@ public class PowerCore : CoreSystem
         {
             leftSystem.IsPatched = false;
             rightSystem.PatchedSystem = null;
+            rightSystem.UpdateExtraBars();
         } else
         {
             rightSystem.IsPatched = false;
             leftSystem.PatchedSystem = null;
+            leftSystem.UpdateExtraBars();
         }
     }
 

@@ -18,24 +18,23 @@ public class Disrupter : Weapon
     // Update is called once per frame
     void Update()
     {
-        if(disrupterCooldownTime > 0)
+
+        if (currentCooldown > 0)
         {
             currentCooldown -= Time.deltaTime;
         }
     }
 
-    public override void FireWeapon(TurretArmMirror turretArmMirror)
+    public override void FireWeapon(Transform muzzle)
     {
         if (currentCooldown <= 0)
         {
-            GameObject bolt = Instantiate(laserBolt, turretArmMirror.muzzle.position, turretArmMirror.muzzle.rotation);
+            AudioManager.instance.Play("Laser Bolt");
+
+            GameObject bolt = Instantiate(laserBolt, muzzle.position, muzzle.rotation);
 
             currentCooldown = disrupterCooldownTime;
         }
     }
 
-    public override void StopFireWeapon(TurretArmMirror turretArmMirror)
-    {
-        //Stop weapon
-    }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MineHealth : HealthComponent
 {
+    public GameObject explosionParticles;
+
     public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
@@ -12,5 +14,6 @@ public class MineHealth : HealthComponent
     protected override void OnDestroy()
     {
         base.OnDestroy();
+        Instantiate(explosionParticles);
     }
 }

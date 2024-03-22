@@ -23,7 +23,7 @@ public class TransporterSystem : MonoBehaviour
     public ToggleGroup _toggleGroup;
 
     private float startingYPosition = 130f;
-    private TransportItem _itemToTransport;
+    private int _itemToTransportIndex;
 
     public void Start()
     {
@@ -35,7 +35,7 @@ public class TransporterSystem : MonoBehaviour
 
     public void Update()
     {
-        engageButton.enabled = _itemToTransport != null;
+        engageButton.enabled = _itemToTransportIndex != null;
     }
 
     public void ScanAreaForTransportItems()
@@ -50,10 +50,13 @@ public class TransporterSystem : MonoBehaviour
         float yPosition = startingYPosition;
         foreach (Collider collider in colliders)
         {
-            TransportItem[] transportItems = collider.GetComponents<TransportItem>();
-            foreach (TransportItem transportItem in transportItems)
+            TransportLocation transportLocation = collider.GetComponent<TransportLocation>();
+            TransportItem[] transportItems = transportLocation.transporterItems;
+
+            for (int i = 0; i < transportItems.Length; i++)
             {
-                if(!transportItem.itemTransported)
+                TransportItem transportItem = transportItems[i];
+                if (!transportItem.itemTransported)
                 {
                     GameObject listItem = Instantiate(toggleObject, transportListContainer);
                     RectTransform test = listItem.GetComponent<RectTransform>();
@@ -64,25 +67,24 @@ public class TransporterSystem : MonoBehaviour
                     Toggle itemToggle = listItem.GetComponent<Toggle>();
                     itemToggle.group = _toggleGroup;
                     itemToggle.isOn = false;
-                    itemToggle.onValueChanged.AddListener(delegate { SetSelectedItem(transportItem); });
+                    itemToggle.onValueChanged.AddListener(delegate { SetSelectedItem(i); });
 
-                    Item pickupItem = transportItem.GetItem();
-                    listItem.GetComponentInChildren<Text>().text = pickupItem.Name;
+                    listItem.GetComponentInChildren<Text>().text = transportItem.item.name;
                 }
             }
         }
     }
 
-    public void SetSelectedItem(TransportItem selectedItem)
+    public void SetSelectedItem(int index)
     {
-        _itemToTransport = selectedItem;
+        _itemToTransportIndex = index;
     }
 
     public void InitiateTransport()
     {
-        GameObject transportedItem = _itemToTransport.HandleTransportItem(transform);
-        transportedItem.transform.parent = cargoHold.transform;
-        transportedItem.transform.position = new Vector3(transporterPad.position.x, transporterPad.position.y + 1, transporterPad.position.z);
+        //_itemToTransportIndex.HandleCreateItem(transform);
+        //transportedItem.transform.parent = cargoHold.transform;
+        //transportedItem.transform.position = new Vector3(transporterPad.position.x, transporterPad.position.y + 1, transporterPad.position.z);
 
         // Update and rescan the list of transport items
         ScanAreaForTransportItems();

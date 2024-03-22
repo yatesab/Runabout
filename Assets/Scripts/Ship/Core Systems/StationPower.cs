@@ -18,9 +18,14 @@ public class StationPower : MonoBehaviour
     public StationPowerBar auxBar;
     public StationPowerBar extraBar;
 
-    public void UpdateBars()
+    public void UpdateAuxBars()
     {
         auxBar.UpdateBar(AuxPower);
+    }
+
+    public void UpdateExtraBars()
+    {
+        Debug.Log(ExtraPower);
         extraBar.UpdateBar(ExtraPower);
     }
 
@@ -30,7 +35,7 @@ public class StationPower : MonoBehaviour
         {
             AuxPower -= requestAmount;
 
-            UpdateBars();
+            UpdateAuxBars();
             return true;
         }
 
@@ -43,7 +48,7 @@ public class StationPower : MonoBehaviour
 
         if (ExtraPower > 0 && assignedExtraPower < ExtraPower)
         {
-            UpdateBars();
+            UpdateAuxBars();
             return true;
         }
 
@@ -56,7 +61,7 @@ public class StationPower : MonoBehaviour
         {
             AuxPower += suppliedAmount;
 
-            UpdateBars();
+            UpdateAuxBars();
             return true;
         }
 
