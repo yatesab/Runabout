@@ -7,6 +7,8 @@ public class WeaponStick : MonoBehaviour
     public WeaponControl mainWeapon;
     public WeaponControl secondaryWeapon;
 
+    public bool StickGrabbed { get; set; }
+
     private Transform interactable;
 
     // Start is called before the first frame update
@@ -18,13 +20,22 @@ public class WeaponStick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mainWeapon.UpdateRotation(interactable.localRotation);
-        secondaryWeapon.UpdateRotation(interactable.localRotation);
+        if(StickGrabbed)
+        {
+            mainWeapon.UpdateRotation(interactable.localRotation);
+            secondaryWeapon.UpdateRotation(interactable.localRotation);
+        }
     }
 
     public void ResetPosition()
     {
-        interactable.localPosition = new Vector3(0, 0, 0);
-        interactable.localRotation = new Quaternion(0, 0, 0, 0);
+        Vector3 newPosition = new Vector3(0, 0, 0);
+        Quaternion newRotation = new Quaternion(0, 0, 0, 0);
+
+        interactable.localPosition = newPosition;
+        interactable.localRotation = newRotation;
+
+        mainWeapon.UpdateRotation(newRotation);
+        secondaryWeapon.UpdateRotation(newRotation);
     }
 }

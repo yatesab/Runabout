@@ -32,7 +32,7 @@ public class MainWeapon : WeaponControl
         starboardTurret.TargetPosition = newTargetPosition;
     }
 
-    public void StopFiringWeapon()
+    public override void StopFiringWeapon()
     {
         portTurret.StopSelectedWeapon();
         starboardTurret.StopSelectedWeapon();

@@ -48,20 +48,6 @@ public class Torpedo : MonoBehaviour
         Destroy(mesh);
     }
 
-    protected void AddForceToCollider(Collider collider)
-    {
-        distance = Vector3.Distance(transform.position, collider.transform.position) / explosionRadius;
-
-        collider.attachedRigidbody.AddExplosionForce(explosionForce * (1 - distance), transform.position, explosionRadius);
-
-        HealthComponent healthComponent = collider.GetComponent<HealthComponent>();
-
-        if (healthComponent)
-        {
-            healthComponent.TakeDamage(torpedoDamage);
-        }
-    }
-
     protected void HandleExplodeTorpedo()
     {
         // Play Explosion Sound
@@ -78,5 +64,37 @@ public class Torpedo : MonoBehaviour
 
         // Destroy this game object
         Destroy(gameObject);
+    }
+
+    protected Collider[] GetCollidersInRadius(float checkRadius)
+    {
+        return Physics.OverlapSphere(transform.position, checkRadius);
+    }
+
+    protected void AddForceToCollider(Collider collider)
+    {
+        distance = Vector3.Distance(transform.position, collider.transform.position) / explosionRadius;
+
+        collider.attachedRigidbody.AddExplosionForce(explosionForce * (1 - distance), transform.position, explosionRadius);
+
+        HealthComponent healthComponent = collider.GetComponent<HealthComponent>();
+
+        if (healthComponent)
+        {
+            healthComponent.TakeDamage(torpedoDamage);
+        }
+    }
+
+    protected void AddForceToColliders()
+    {
+        Collider[] hitColliders = GetCollidersInRadius(explosionRadius);
+
+        foreach (Collider collider in hitColliders)
+        {
+            if (collider.attachedRigidbody)
+            {
+                AddForceToCollider(collider);
+            }
+        }
     }
 }

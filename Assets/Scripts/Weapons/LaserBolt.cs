@@ -5,11 +5,11 @@ using UnityEngine;
 public class LaserBolt : MonoBehaviour
 {
     public float boltDamage = 10f;
+    public Vector3 TargetPosition { get; set; }
 
     private Rigidbody laserBody;
     private Vector3 startLocation;
-    private Vector3 currentLocation;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +22,9 @@ public class LaserBolt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentLocation = transform.position;
-        float distance = Vector3.Distance(currentLocation, startLocation);
+        float distance = Vector3.Distance(transform.position, TargetPosition);
 
-        if(distance > 500f)
+        if(distance < 1f)
         {
             Destroy(gameObject);
         }

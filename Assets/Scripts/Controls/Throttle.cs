@@ -25,7 +25,7 @@ public class Throttle : GrabPhysics
     private Vector3 handlePosition;
 
     // Start is called before the first frame update
-    void Start()
+    public new void Start()
     {
         base.Start();
 
@@ -36,7 +36,7 @@ public class Throttle : GrabPhysics
     }
 
     // Update is called once per frame
-    void Update()
+    public new void Update()
     {
         float currentDistance = maxDistance - Vector3.Distance(_throttleHandle.position, _throttleCeiling.position);
 

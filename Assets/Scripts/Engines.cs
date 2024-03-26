@@ -25,12 +25,8 @@ public class Engines : MonoBehaviour
     [SerializeField] private float yawTorque = 1000f;
     [SerializeField] private float rollTorque = 1000f;
 
-    private float yawRotation = 0f;
-    private float pitchRotation = 0f;
-    private float rollRotation = 0f;
     private float thrustPercentage = 0f;
     private float glide = 0f;
-    private float thrustYaw = 0f;
 
     public void Update()
     {

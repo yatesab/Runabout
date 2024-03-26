@@ -14,7 +14,7 @@ public class GravityTorpedo : Torpedo
     private float currentPullTime = 0f;
 
     // Update is called once per frame
-    void Update()
+    public new void Update()
     {
         if(!pullActive)
         {
@@ -22,9 +22,7 @@ public class GravityTorpedo : Torpedo
 
             if (distance < distanceFromTarget)
             {
-                //Pull In objects before explosion
-                pullActive = true;
-                Instantiate(gravityWellParticles, TargetPosition, transform.rotation);
+                CreateGravityWell();
             }
         }
     }
@@ -44,7 +42,7 @@ public class GravityTorpedo : Torpedo
             }
             else
             {
-                AddForceToCollisions();
+                AddForceToColliders();
 
                 HandleExplodeTorpedo();
             }
@@ -53,17 +51,18 @@ public class GravityTorpedo : Torpedo
 
     private void OnTriggerEnter(Collider other)
     {
+        TargetPosition = other.ClosestPoint(transform.position);
+
+        CreateGravityWell();
+        PullCollidersWithForce();
+    }
+
+    private void CreateGravityWell()
+    {
         pullActive = true;
         Instantiate(gravityWellParticles, TargetPosition, transform.rotation);
 
-        TargetPosition = other.ClosestPoint(transform.position);
-
         // Destroy rigidbody and stop all movement
-        DestroyTorpedoRigidbody();
-    }
-
-    private void DestroyTorpedoRigidbody()
-    {
         Rigidbody torpedoBody = GetComponent<Rigidbody>();
         Destroy(torpedoBody);
 
@@ -71,29 +70,10 @@ public class GravityTorpedo : Torpedo
         Destroy(mesh);
     }
 
-    private void AddForceToCollisions()
-    {
-        Collider[] hitColliders = GetExplosionRadiusColliders(explosionRadius);
-
-        foreach(Collider collider in hitColliders)
-        {
-            if (collider.attachedRigidbody)
-            {
-                AddForceToCollider(collider);
-            }
-        }
-    }
-
-    private Collider[] GetExplosionRadiusColliders(float checkRadius)
-    {
-        RaycastHit hit;
-
-        return Physics.OverlapSphere(transform.position, checkRadius);
-    }
 
     private void PullCollidersWithForce()
     {
-        Collider[] hitColliders = GetExplosionRadiusColliders(pullRadius);
+        Collider[] hitColliders = GetCollidersInRadius(pullRadius);
 
         foreach (Collider collider in hitColliders)
         {

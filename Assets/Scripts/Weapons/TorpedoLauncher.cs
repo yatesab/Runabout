@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class TorpedoLauncher : Weapon
 {
-    public GameObject[] torpedoList;
-    public int selectedWeapon = 0;
+    [SerializeField] private PhysicsShip physicsShip;
+    [SerializeField] private GameObject[] torpedoList;
+    [SerializeField] private int selectedWeapon = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +30,9 @@ public class TorpedoLauncher : Weapon
         AudioManager.instance.Play("Torpedo");
 
         GameObject torpedo = Instantiate(torpedoList[selectedWeapon], muzzle.position, muzzle.rotation);
-        Torpedo torpedoComponent = torpedo.GetComponent<Torpedo>();
+        torpedo.GetComponent<Rigidbody>().velocity = physicsShip.Velocity;
 
+        Torpedo torpedoComponent = torpedo.GetComponent<Torpedo>();
         torpedoComponent.Target = HitPoint.transform;
         torpedoComponent.TargetPosition = TargetPosition;
     }

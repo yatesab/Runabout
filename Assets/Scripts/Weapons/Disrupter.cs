@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Disrupter : Weapon
 {
-    public GameObject laserBolt;
-    public float disrupterCooldownTime = 2f;
+    [SerializeField] private PhysicsShip physicsShip;
 
-    public float currentCooldown = 0f;
+    [SerializeField] private GameObject laserBolt;
+    [SerializeField] private float disrupterCooldownTime = 2f;
+
+    [SerializeField] private float currentCooldown = 0f;
     
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,9 @@ public class Disrupter : Weapon
             AudioManager.instance.Play("Laser Bolt");
 
             GameObject bolt = Instantiate(laserBolt, muzzle.position, muzzle.rotation);
+            bolt.GetComponent<Rigidbody>().velocity = physicsShip.Velocity;
 
+            bolt.GetComponent<LaserBolt>().TargetPosition = TargetPosition;
             currentCooldown = disrupterCooldownTime;
         }
     }
