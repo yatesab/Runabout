@@ -24,7 +24,7 @@ public class StandardTorpedo : Torpedo
 
     private void OnTriggerEnter(Collider other)
     {
-        AddForceToCollider(other);
+        AddForceToColliders();
 
         HandleExplodeTorpedo();
     }

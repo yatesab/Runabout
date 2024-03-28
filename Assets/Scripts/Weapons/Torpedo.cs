@@ -73,9 +73,9 @@ public class Torpedo : MonoBehaviour
 
     protected void AddForceToCollider(Collider collider)
     {
-        distance = Vector3.Distance(transform.position, collider.transform.position) / explosionRadius;
+        float colliderDistance = Vector3.Distance(transform.position, collider.transform.position) / explosionRadius;
 
-        collider.attachedRigidbody.AddExplosionForce(explosionForce * (1 - distance), transform.position, explosionRadius);
+        collider.attachedRigidbody.AddExplosionForce(explosionForce * (1 - colliderDistance), transform.position, explosionRadius);
 
         HealthComponent healthComponent = collider.GetComponent<HealthComponent>();
 

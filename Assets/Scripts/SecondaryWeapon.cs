@@ -5,7 +5,10 @@ using UnityEngine;
 public class SecondaryWeapon : WeaponControl
 {
     [SerializeField] private TorpedoLauncher torpedoLauncher;
+    [SerializeField] private BombLauncher bombLauncher;
+
     [SerializeField] private Transform muzzle;
+    [SerializeField] private Transform launchSite;
 
     // Start is called before the first frame update
     void Start()
@@ -27,5 +30,10 @@ public class SecondaryWeapon : WeaponControl
     public void FireSecondaryWeapon()
     {
         torpedoLauncher.FireWeapon(muzzle);
+    }
+
+    public void LaunchBomb()
+    {
+        bombLauncher.LaunchBomb(launchSite);
     }
 }
