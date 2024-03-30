@@ -16,7 +16,7 @@ public abstract class Weapon : MonoBehaviour
 
     public Vector3 TargetPosition { get; set; }
 
-    public virtual void FireWeapon(Transform muzzle)
+    public virtual void FireWeapon(int selectedWeaponType, LayerMask layerMask, Transform muzzle)
     {
         //Fire weapon
     }

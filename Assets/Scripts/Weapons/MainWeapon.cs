@@ -7,34 +7,31 @@ public class MainWeapon : WeaponControl
     [SerializeField] private Turret portTurret;
     [SerializeField] private Turret starboardTurret;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    public bool TriggerActivated { get; set; }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        float maxDistance = portTurret.weaponList[portTurret.selectedWeapon].MaxDistance;
+        GetTargetHitInfo(portTurret.GetMaxDistance(selectedWeapon));
 
-        GetTargetHitInfo(maxDistance);
+        UpdateTurretPosition();
 
         if (TriggerActivated)
         {
-            portTurret.FireSelectedWeapon(layerMask);
-            starboardTurret.FireSelectedWeapon(layerMask);
+            portTurret.FireSelectedWeapon(selectedWeapon, selectedWeaponType, layerMask);
+            starboardTurret.FireSelectedWeapon(selectedWeapon, selectedWeaponType, layerMask);
         }
     }
 
-    protected override void UpdateTargetPosition(Vector3 newTargetPosition)
+    private void UpdateTurretPosition()
     {
-        portTurret.TargetPosition = newTargetPosition;
-        starboardTurret.TargetPosition = newTargetPosition;
+        portTurret.TargetPosition = predictionPoint.transform.position;
+        starboardTurret.TargetPosition = predictionPoint.transform.position;
     }
 
-    public override void StopFiringWeapon()
+    public void StopFiringWeapon()
     {
-        portTurret.StopSelectedWeapon();
-        starboardTurret.StopSelectedWeapon();
+        portTurret.StopSelectedWeapon(selectedWeapon, selectedWeaponType);
+        starboardTurret.StopSelectedWeapon(selectedWeapon, selectedWeaponType);
     }
 }

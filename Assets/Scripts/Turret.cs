@@ -4,55 +4,45 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    public Weapon[] weaponList;
-    public int selectedWeapon = 0;
-
-    public Transform meshOffset;
-    public Transform muzzle;
+    [SerializeField] private Transform meshOffset;
+    [SerializeField] private Transform muzzle;
+    [SerializeField] private LaserTurret laserTurret;
 
     public Vector3 TargetPosition { get; set; }
 
-    // Update is called once per frame
-    void Update()
+    public new void Update()
     {
         // Look at current target
         meshOffset.LookAt(TargetPosition);
     }
 
-    public void ChangeWeaponType(float stage)
+    public void FireSelectedWeapon(int selectedWeaponGroup, int selectedWeaponType, LayerMask layerMask)
     {
-        selectedWeapon = (int) stage;
-    }
-
-    public void FireSelectedWeapon(LayerMask layerMask)
-    {
-        GetTargetHitInfo(layerMask);
-    }
-
-    private void GetTargetHitInfo(LayerMask layerMask)
-    {
-        RaycastHit hit;
-
-        if (TargetInfo.IsTargetInRange(muzzle.position, muzzle.TransformDirection(Vector3.forward), out hit, weaponList[selectedWeapon].MaxDistance, layerMask))
+        switch(selectedWeaponGroup)
         {
-            weaponList[selectedWeapon].TargetHit = true;
-            weaponList[selectedWeapon].HitPoint = hit;
-            weaponList[selectedWeapon].TargetPosition = hit.point;
+            case 0:
+                laserTurret.FireWeapon(selectedWeaponType, layerMask, muzzle);
+                break;
         }
-        else
-        {
-            // Get location in world space
-            Vector3 newLocation = muzzle.position + muzzle.forward * weaponList[selectedWeapon].MaxDistance;
-
-            weaponList[selectedWeapon].TargetHit = false;
-            weaponList[selectedWeapon].TargetPosition = newLocation;
-        }
-
-        weaponList[selectedWeapon].FireWeapon(muzzle);
     }
 
-    public void StopSelectedWeapon()
+    public void StopSelectedWeapon(int selectedWeaponGroup, int selectedWeaponType)
     {
-        weaponList[selectedWeapon].StopFireWeapon(muzzle);
+        switch (selectedWeaponGroup)
+        {
+            case 0:
+                laserTurret.StopFireWeapon(selectedWeaponType, muzzle);
+                break;
+        }
+    }
+
+    public float GetMaxDistance(int selectedWeaponGroup)
+    {
+        switch (selectedWeaponGroup)
+        {
+            case 0:
+            default:
+                return laserTurret.MaxDistance;
+        }
     }
 }

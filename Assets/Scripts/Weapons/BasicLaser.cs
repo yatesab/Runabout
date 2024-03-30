@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicLaser : Weapon
+public class BasicLaser : MonoBehaviour
 {
     public GameObject laserHitParticles;
 
@@ -69,46 +69,13 @@ public class BasicLaser : Weapon
         }
     }
 
-    public override void FireWeapon(Transform muzzle)
+    public void FireWeapon(Transform muzzle)
     {
-        if (!overHeated)
-        {
-            isFireing = true;
-
-            if (!AudioManager.instance.GetSource("Laser Beam").isPlaying)
-            {
-                AudioManager.instance.Play("Laser Beam");
-            }
-
-            _beam.enabled = true;
-
-            if (TargetHit)
-            {
-                Instantiate(laserHitParticles, TargetPosition, Quaternion.LookRotation(HitPoint.normal));
-
-                HealthComponent healthComponent = HitPoint.collider.GetComponent<HealthComponent>();
-
-                if (healthComponent)
-                {
-                    ApplyDamage(healthComponent);
-                    
-                    _beam.SetPosition(0, muzzle.position);
-                    _beam.SetPosition(1, TargetPosition);
-                }
-            }
-            else
-            {
-                _beam.SetPosition(0, muzzle.position);
-                _beam.SetPosition(1, TargetPosition);
-            }
-
-            HeatLaser();
-        }
+        
     }
 
-    public override void StopFireWeapon(Transform muzzle)
+    public void StopFireWeapon(Transform muzzle)
     {
-        base.StopFireWeapon(muzzle);
 
         AudioManager.instance.Stop("Laser Beam");
 

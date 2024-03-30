@@ -11,7 +11,6 @@ public class Torpedo : MonoBehaviour
     public float explosionForce = 100f;
     public float distanceFromTarget = 2f;
 
-    public Transform Target { get; set; }
     public Vector3 TargetPosition { get; set; }
 
     protected Rigidbody missleBody;

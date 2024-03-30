@@ -4,27 +4,16 @@ using UnityEngine;
 
 public class BombLauncher : MonoBehaviour
 {
-    [SerializeField] private GameObject[] bombList;
     [SerializeField] private PhysicsShip physicsShip;
-    [SerializeField] private int selectedWeapon = 0;
+    [SerializeField] private Transform launchSite;
+    [SerializeField] private GameObject projectile;
+    public float MaxDistance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void LaunchBomb(Transform launchSite)
+    public void FireWeapon(int selectedWeaponType)
     {
         AudioManager.instance.Play("Torpedo");
 
-        GameObject bomb = Instantiate(bombList[selectedWeapon], launchSite.position, launchSite.rotation);
+        GameObject bomb = Instantiate(projectile, launchSite.position, launchSite.rotation);
         bomb.GetComponent<Rigidbody>().velocity = physicsShip.Velocity;
     }
 }

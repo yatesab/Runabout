@@ -4,36 +4,32 @@ using UnityEngine;
 
 public class SecondaryWeapon : WeaponControl
 {
-    [SerializeField] private TorpedoLauncher torpedoLauncher;
-    [SerializeField] private BombLauncher bombLauncher;
+    [SerializeField] protected TorpedoLauncher torpedoLauncher;
+    [SerializeField] protected BombLauncher bombLauncher;
 
-    [SerializeField] private Transform muzzle;
-    [SerializeField] private Transform launchSite;
-
-    // Start is called before the first frame update
-    void Start()
+    public void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        GetTargetHitInfo(torpedoLauncher.MaxDistance);
-    }
-
-    protected override void UpdateTargetPosition(Vector3 newTargetPosition)
-    {
-        torpedoLauncher.TargetPosition = newTargetPosition;
+        switch (selectedWeapon)
+        {
+            case 0:
+                GetTargetHitInfo(torpedoLauncher.MaxDistance);
+                break;
+            case 1:
+                break;
+        }
     }
 
     public void FireSecondaryWeapon()
     {
-        torpedoLauncher.FireWeapon(muzzle);
+        switch(selectedWeapon)
+        {
+            case 0:
+                torpedoLauncher.FireWeapon(selectedWeaponType, predictionPoint.transform.position);
+                break;
+            case 1:
+                bombLauncher.FireWeapon(selectedWeaponType);
+                break;
+        }
     }
 
-    public void LaunchBomb()
-    {
-        bombLauncher.LaunchBomb(launchSite);
-    }
 }

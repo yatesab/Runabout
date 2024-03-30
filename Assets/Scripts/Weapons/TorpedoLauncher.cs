@@ -2,38 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TorpedoLauncher : Weapon
+public class TorpedoLauncher : MonoBehaviour
 {
     [SerializeField] private PhysicsShip physicsShip;
-    [SerializeField] private GameObject[] torpedoList;
-    [SerializeField] private int selectedWeapon = 0;
+    [SerializeField] private Transform muzzle;
+    [SerializeField] private GameObject[] projectile;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    public float MaxDistance;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void ChangeTorpedoType(float stage)
-    {
-        selectedWeapon = (int)stage;
-    }
-
-    public override void FireWeapon(Transform muzzle)
+    public void FireWeapon(int selectedWeaponType, Vector3 targetPosition)
     {
         AudioManager.instance.Play("Torpedo");
 
-        GameObject torpedo = Instantiate(torpedoList[selectedWeapon], muzzle.position, muzzle.rotation);
+        GameObject torpedo = Instantiate(projectile[selectedWeaponType], muzzle.position, muzzle.rotation);
         torpedo.GetComponent<Rigidbody>().velocity = physicsShip.Velocity;
 
         Torpedo torpedoComponent = torpedo.GetComponent<Torpedo>();
-        torpedoComponent.Target = HitPoint.transform;
-        torpedoComponent.TargetPosition = TargetPosition;
+        torpedoComponent.TargetPosition = targetPosition;
     }
 }

@@ -8,18 +8,17 @@ public class WeaponControl : MonoBehaviour
     [SerializeField] protected LayerMask layerMask;
     [SerializeField] protected GameObject predictionPoint;
 
-    public bool TriggerActivated { get; set; }
+    protected int selectedWeapon = 0;
+    protected int selectedWeaponType = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    public void ChangeWeapon(float stage)
     {
-        
+        selectedWeapon = (int)stage;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeWeaponType(float stage)
     {
-        
+        selectedWeaponType = (int)stage;
     }
 
     public void UpdateRotation(Quaternion rotation)
@@ -33,7 +32,6 @@ public class WeaponControl : MonoBehaviour
 
         if (TargetInfo.IsTargetInRange(centerPoint.position, centerPoint.TransformDirection(Vector3.forward), out hit, maxDistance, layerMask))
         {
-            UpdateTargetPosition(hit.point);
             predictionPoint.transform.position = hit.point;
         }
         else
@@ -41,12 +39,7 @@ public class WeaponControl : MonoBehaviour
             // Get location in world space
             Vector3 newLocation = centerPoint.position + centerPoint.forward * maxDistance;
 
-            UpdateTargetPosition(newLocation);
             predictionPoint.transform.position = newLocation;
         }
     }
-
-    protected virtual void UpdateTargetPosition(Vector3 newTargetPosition) { }
-
-    public virtual void StopFiringWeapon() {}
 }

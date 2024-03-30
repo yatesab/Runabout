@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Disrupter : Weapon
+public class Disrupter : MonoBehaviour
 {
     [SerializeField] private PhysicsShip physicsShip;
 
@@ -27,7 +27,7 @@ public class Disrupter : Weapon
         }
     }
 
-    public override void FireWeapon(Transform muzzle)
+    public void FireWeapon(Transform muzzle)
     {
         if (currentCooldown <= 0)
         {
@@ -36,7 +36,6 @@ public class Disrupter : Weapon
             GameObject bolt = Instantiate(laserBolt, muzzle.position, muzzle.rotation);
             bolt.GetComponent<Rigidbody>().velocity = physicsShip.Velocity;
 
-            bolt.GetComponent<LaserBolt>().TargetPosition = TargetPosition;
             currentCooldown = disrupterCooldownTime;
         }
     }
