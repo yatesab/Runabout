@@ -9,7 +9,7 @@ public class StandardTorpedo : Torpedo
     {
         base.Update();
 
-        if (distance < distanceFromTarget)
+        if (distance >= MaxDistance)
         {
             AddForceToColliders();
 

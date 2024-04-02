@@ -62,7 +62,7 @@ public class PowerCore : CoreSystem
         }
     }
 
-    public void HandleDialOneUpdate(int selection)
+    public void HandleDialOneUpdate(float selection)
     {
         if (selection == -1)
         {
@@ -78,7 +78,7 @@ public class PowerCore : CoreSystem
         }
     }
 
-    public void HandleDialOTwoUpdate(int selection)
+    public void HandleDialOTwoUpdate(float selection)
     {
         if (selection == -1)
         {
@@ -93,7 +93,7 @@ public class PowerCore : CoreSystem
             RemoveSystemAuxPatch(DialTwoLeft, DialTwoRight);
         }
     }
-    public void HandleDialOThreeUpdate(int selection)
+    public void HandleDialOThreeUpdate(float selection)
     {
         if (selection == -1)
         {

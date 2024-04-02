@@ -19,5 +19,6 @@ public class TorpedoLauncher : MonoBehaviour
 
         Torpedo torpedoComponent = torpedo.GetComponent<Torpedo>();
         torpedoComponent.TargetPosition = targetPosition;
+        torpedoComponent.MaxDistance = MaxDistance;
     }
 }

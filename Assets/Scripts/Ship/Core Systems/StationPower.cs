@@ -25,7 +25,6 @@ public class StationPower : MonoBehaviour
 
     public void UpdateExtraBars()
     {
-        Debug.Log(ExtraPower);
         extraBar.UpdateBar(ExtraPower);
     }
 

@@ -9,31 +9,33 @@ public class Torpedo : MonoBehaviour
     public float torpedoSpeed = 200f;
     public float torpedoDamage = 50f;
     public float explosionForce = 100f;
-    public float distanceFromTarget = 2f;
+    public float MaxDistance { get; set; } = 100f;
 
     public Vector3 TargetPosition { get; set; }
 
     protected Rigidbody missleBody;
-    protected Vector3 currentLocation;
+    protected Vector3 startLocation;
     protected float distance;
 
     // Start is called before the first frame update
     protected void Start()
     {
         missleBody = GetComponent<Rigidbody>();
-
-        distance = Vector3.Distance(transform.position, TargetPosition);
+        startLocation = transform.position;
+        distance = 0f;
     }
 
     // Update is called once per frame
     protected void Update()
     {
-        // Need to add something for when your target is a transform that is moving. TODO
-        transform.LookAt(TargetPosition);
+        if(TargetPosition != null)
+        {
+            transform.LookAt(TargetPosition);
+        }
 
-        distance = Vector3.Distance(transform.position, TargetPosition);
+        distance = Vector3.Distance(transform.position, startLocation);
 
-        if (distance < distanceFromTarget && missleBody)
+        if (distance >= MaxDistance && missleBody)
         {
             DestroyTorpedoRigidbody();
         }
@@ -56,7 +58,7 @@ public class Torpedo : MonoBehaviour
         }
 
         // Create the explosion effect at the targetPosition
-        GameObject explosion = Instantiate(explosionParticles, TargetPosition, transform.rotation);
+        GameObject explosion = Instantiate(explosionParticles, transform.position, transform.rotation);
 
         // Scaleing up the explosion for effect right now
         explosion.transform.localScale = new Vector3(10, 10, 10);

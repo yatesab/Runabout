@@ -20,7 +20,7 @@ public class GravityTorpedo : Torpedo
         {
             base.Update();
 
-            if (distance < distanceFromTarget)
+            if (distance >= MaxDistance)
             {
                 CreateGravityWell();
             }
