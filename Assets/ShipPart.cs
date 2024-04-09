@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhysicsShip : MonoBehaviour
+public class ShipPart : HealthComponent
 {
-    public Vector3 Velocity { get { return shipRigidbody.velocity; } }
-
-    private Rigidbody shipRigidbody;
+    private float maxPartHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-        shipRigidbody = GetComponent<Rigidbody>();
+        maxPartHealth = health;
     }
 
     // Update is called once per frame

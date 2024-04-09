@@ -5,15 +5,15 @@ using Tilia.Interactions.Controllables.LinearDriver;
 
 public class Engines : MonoBehaviour
 {
-
-    public Rigidbody _shipBody;
-
     public float Pitch { set; get; }
     public float Yaw { set; get; }
     public float Roll { set; get; }
     public float PortThrottle { get; set; }
     public float StarboardThrottle { get; set; }
     public float YawThrottle {  get; set; }
+
+    [SerializeField] private Rigidbody _shipBody;
+    [SerializeField] private PowerSystem powerSystem;
 
     [Header("Thrust Settings")]
     [SerializeField] private float thrust = 200f;
@@ -35,33 +35,39 @@ public class Engines : MonoBehaviour
 
     public void FixedUpdate()
     {
-        OnRotateShip();
-        OnThrustShip();
+        if(powerSystem.EngineTotalPower > 0)
+        {
+            OnRotateShip();
+            OnThrustShip();
+        }
     }
 
     private void AddForceToShip()
     {
-        _shipBody.AddForce(_shipBody.transform.forward * thrustPercentage * thrust * Time.fixedDeltaTime, ForceMode.Force);
-        glide = thrustPercentage;
+        _shipBody.AddForce(_shipBody.transform.forward * thrust * powerSystem.EngineTotalPower * Time.fixedDeltaTime * thrustPercentage, ForceMode.Force);
+        glide = thrust * thrustPercentage;
     }
 
     private void OnThrustShip()
     {
-        if (thrustPercentage > 0.1f)
+        if (thrustPercentage >= 0.1f)
         {
             if (!AudioManager.instance.GetSource("Ship Engines").isPlaying)
             {
                 AudioManager.instance.Play("Ship Engines");
             }
 
-            //AudioManager.instance.GetSource("Ship Engines").volume = 0.4f * thrustPercentage;
+            AudioManager.instance.GetSource("Ship Engines").volume = 0.4f * thrustPercentage;
 
             AddForceToShip();
         }
         else
         {
-            // Stop Sound from engines
-            AudioManager.instance.Stop("Ship Engines");
+            if (AudioManager.instance.GetSource("Ship Engines").isPlaying)
+            {
+                // Stop Sound from engines
+                AudioManager.instance.Stop("Ship Engines");
+            }
 
             // Slow forces on ship
             _shipBody.AddForce(Vector3.back * glide * Time.fixedDeltaTime, ForceMode.Force);

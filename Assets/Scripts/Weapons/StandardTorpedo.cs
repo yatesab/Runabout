@@ -9,7 +9,7 @@ public class StandardTorpedo : Torpedo
     {
         base.Update();
 
-        if (distance >= MaxDistance)
+        if (distance >= maxDistance)
         {
             AddForceToColliders();
 
@@ -17,12 +17,12 @@ public class StandardTorpedo : Torpedo
         }
     }
 
-    void FixedUpdate()
+    public new void FixedUpdate()
     {
-        missleBody.AddForce(transform.forward * torpedoSpeed);
+        base.FixedUpdate();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         AddForceToColliders();
 

@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Torpedo : MonoBehaviour
+public class Torpedo : Projectile
 {
     public GameObject explosionParticles;
     public float explosionRadius = 20f;
-    public float torpedoSpeed = 200f;
-    public float torpedoDamage = 50f;
     public float explosionForce = 100f;
-    public float MaxDistance { get; set; } = 100f;
 
     public Vector3 TargetPosition { get; set; }
 
@@ -35,10 +32,15 @@ public class Torpedo : MonoBehaviour
 
         distance = Vector3.Distance(transform.position, startLocation);
 
-        if (distance >= MaxDistance && missleBody)
+        if (distance >= maxDistance && missleBody)
         {
             DestroyTorpedoRigidbody();
         }
+    }
+
+    public void FixedUpdate()
+    {
+        missleBody.AddForce(transform.forward * speed);
     }
 
     protected void DestroyTorpedoRigidbody()
@@ -77,13 +79,6 @@ public class Torpedo : MonoBehaviour
         float colliderDistance = Vector3.Distance(transform.position, collider.transform.position) / explosionRadius;
 
         collider.attachedRigidbody.AddExplosionForce(explosionForce * (1 - colliderDistance), transform.position, explosionRadius);
-
-        HealthComponent healthComponent = collider.GetComponent<HealthComponent>();
-
-        if (healthComponent)
-        {
-            healthComponent.TakeDamage(torpedoDamage);
-        }
     }
 
     protected void AddForceToColliders()

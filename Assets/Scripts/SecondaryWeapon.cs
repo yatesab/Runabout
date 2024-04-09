@@ -6,6 +6,7 @@ public class SecondaryWeapon : WeaponControl
 {
     [SerializeField] protected TorpedoLauncher torpedoLauncher;
     [SerializeField] protected BombLauncher bombLauncher;
+    [SerializeField] private PowerSystem powerSystem;
 
     public void Update()
     {
@@ -21,14 +22,17 @@ public class SecondaryWeapon : WeaponControl
 
     public void FireSecondaryWeapon()
     {
-        switch(selectedWeapon)
+        if(powerSystem.WeaponTotalPower > 0)
         {
-            case 0:
-                torpedoLauncher.FireWeapon(selectedWeaponType, predictionPoint.transform.position);
-                break;
-            case 1:
-                bombLauncher.FireWeapon(selectedWeaponType);
-                break;
+            switch (selectedWeapon)
+            {
+                case 0:
+                    torpedoLauncher.FireWeapon(selectedWeaponType, predictionPoint.transform.position);
+                    break;
+                case 1:
+                    bombLauncher.FireWeapon(selectedWeaponType);
+                    break;
+            }
         }
     }
 

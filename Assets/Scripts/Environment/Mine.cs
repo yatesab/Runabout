@@ -4,34 +4,33 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour
 {
-    public float speed = 1f;
-    public GameObject explosionParticles;
+    [SerializeField] private GameObject explosionParticles;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private float trackingTimeLimit = 10f;
 
     private bool isTriggered;
-
     private Transform _target;
-    private Rigidbody rb;
-    private AudioSource explosionSound;
-    private float trackingTimeLimit = 10f;
     private float trackingTime = 0f;
+    private Collider mineCollider;
+    private Rigidbody mineBody;
 
-    private void Start() {
-        rb = GetComponent<Rigidbody>();
-        explosionSound = GetComponent<AudioSource>();
+    public new void Start()
+    {
+        mineBody = GetComponent<Rigidbody>();
+        mineCollider = GetComponent<Collider>();
     }
 
-    private void Update() 
+    public void Update() 
     {
         TrackTarget();    
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
-        if(other.tag == "Ship" && _target == null)
+        if(_target == null)
         {
-            Debug.Log("Mine In Proximity");
             isTriggered = true;
-            _target = other.transform;
+            _target = collider.transform;
         }
     }
 
@@ -39,28 +38,34 @@ public class Mine : MonoBehaviour
     {
         // Access the Rigidbody of the explosionCollider object
         Rigidbody colliderRigidbody = other.gameObject.GetComponent<Rigidbody>();
+
         if (colliderRigidbody == null)
         {
             Debug.LogWarning("Colliding object has no Rigidbody!");
             return;
         }
-        // Get the first contact point (adjust if you need multiple)
-        Vector3 contactPoint = other.contacts[0].point;
 
-        // Calculate force direction based on collision normal
-        Vector3 forceDirection = other.contacts[0].normal.normalized;
-
-        Instantiate(explosionParticles, contactPoint, Quaternion.LookRotation(forceDirection));
         DestoryMine();
+    }
+
+    public void StartMineExplosion()
+    {
+        DestoryMine();
+    }
+
+    private void PhysicsMovement()
+    {
+        transform.LookAt(_target);
+        mineBody.AddRelativeForce(Vector3.forward * speed, ForceMode.Impulse);
     }
 
     private void TrackTarget()
     {
-        if (isTriggered)
+        if (isTriggered && mineBody != null)
         {
             trackingTime = Time.deltaTime;
-            transform.LookAt(_target);
-            rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Impulse);
+
+            PhysicsMovement();
 
             if (trackingTime > trackingTimeLimit)
             {
@@ -71,12 +76,18 @@ public class Mine : MonoBehaviour
 
     private void DestoryMine()
     {
-        // Apply force with adjustable magnitude and mode
+        // Play Explosion Sound
         if (!AudioManager.instance.GetSource("Mine Explosion").isPlaying)
         {
             AudioManager.instance.Play("Mine Explosion");
         }
 
-        Destroy(this.gameObject);
+        // Create the explosion effect at the targetPosition
+        GameObject explosion = Instantiate(explosionParticles, transform.position, transform.rotation);
+
+        // Scaleing up the explosion for effect right now
+        explosion.transform.localScale = new Vector3(10, 10, 10);
+
+        Destroy(gameObject);
     }
 }

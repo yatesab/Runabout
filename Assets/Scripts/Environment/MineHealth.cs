@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MineHealth : HealthComponent
 {
-    public GameObject explosionParticles;
+    public Mine mine;
 
     public override void TakeDamage(float damage)
     {
@@ -12,23 +12,12 @@ public class MineHealth : HealthComponent
 
         if (health <= 0)
         {
-            ExplodeMine();
-
-            Destroy(this.gameObject);
+            mine.StartMineExplosion();
         }
     }
     
     protected override void OnDestroy()
     {
         base.OnDestroy();
-    }
-
-    private void ExplodeMine()
-    {
-        AudioManager.instance.Play("Mine Explosion");
-
-        GameObject explosion = Instantiate(explosionParticles, transform.position, transform.rotation);
-
-        explosion.transform.localScale = new Vector3(5, 5, 5);
     }
 }

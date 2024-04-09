@@ -20,18 +20,18 @@ public class GravityTorpedo : Torpedo
         {
             base.Update();
 
-            if (distance >= MaxDistance)
+            if (distance >= maxDistance)
             {
                 CreateGravityWell();
             }
         }
     }
 
-    void FixedUpdate()
+    public new void FixedUpdate()
     {
         if(!pullActive)
         {
-            missleBody.AddForce(transform.forward * torpedoSpeed);
+            base.FixedUpdate();
         } else
         {
             if (currentPullTime < pullTimeAmount)
@@ -49,12 +49,11 @@ public class GravityTorpedo : Torpedo
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        TargetPosition = other.ClosestPoint(transform.position);
+        TargetPosition = collision.collider.ClosestPoint(transform.position);
 
         CreateGravityWell();
-        PullCollidersWithForce();
     }
 
     private void CreateGravityWell()

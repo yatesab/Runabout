@@ -92,7 +92,7 @@ public class LaserTurret : MonoBehaviour
 
             GameObject bolt = Instantiate(laserBolt, muzzle.position, muzzle.rotation);
             bolt.GetComponent<Rigidbody>().velocity = physicsShip.Velocity;
-            bolt.GetComponent<LaserBolt>().MaxDistance = MaxDistance;
+            bolt.GetComponent<LaserBolt>().maxDistance = MaxDistance;
 
             currentDisruptorCooldown = disrupterCooldownTime;
         }

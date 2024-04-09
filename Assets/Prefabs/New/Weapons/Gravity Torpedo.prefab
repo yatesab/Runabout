@@ -235,10 +235,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6f4d43d6ac8cc43ae49178b8344e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 150
+  damage: 50
   explosionParticles: {fileID: 7211109051478047978, guid: 05473dca7729d6742ba4e79c2ab445f1, type: 3}
   explosionRadius: 40
-  torpedoSpeed: 500
-  torpedoDamage: 10
   explosionForce: 800
   gravityWellParticles: {fileID: 797443810167428431, guid: e78d5efb54a36394a9122da450205b4b, type: 3}
   pullRadius: 60
@@ -316,7 +316,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 9728
+    m_Bits: 9216
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0

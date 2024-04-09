@@ -27,7 +27,7 @@ public class ShieldSystem : StationSystem
         Health -= damage;
     }
 
-    private void OnCollisionEnter(Collision other) {
+    public void HandleCollisionEvent(Collision other) {
         if(Shield > 0)
         {
             // Remove shiled from the ship

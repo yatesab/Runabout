@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-    public float health = 100f;
+    public float health;
 
     public virtual void TakeDamage(float damage)
     {
         health -= damage;
+    }
+
+    public virtual void HealDamage(float healAmount)
+    {
+        health += healAmount;
     }
 
     protected virtual void OnDestroy()

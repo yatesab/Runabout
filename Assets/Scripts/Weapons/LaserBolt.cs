@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserBolt : MonoBehaviour
+public class LaserBolt : Projectile
 {
-    public float boltDamage = 10f;
-    public float MaxDistance { get; set; }
-
     private Rigidbody laserBody;
     private Vector3 startLocation;
     
@@ -16,7 +13,7 @@ public class LaserBolt : MonoBehaviour
         laserBody = GetComponent<Rigidbody>();
 
         startLocation = transform.position;
-        laserBody.AddForce(transform.forward * 500);
+        laserBody.AddForce(transform.forward * speed);
     }
 
     // Update is called once per frame
@@ -24,20 +21,15 @@ public class LaserBolt : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, startLocation);
 
-        if(distance > MaxDistance)
+        if(distance > maxDistance)
         {
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
-        HealthComponent healthComponent = other.GetComponent<HealthComponent>();
-
-        if (healthComponent)
-        {
-            healthComponent.TakeDamage(5f);
-        }
+        HandleDamage(collider);
 
         Destroy(gameObject);
     }

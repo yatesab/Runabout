@@ -6,6 +6,7 @@ public class MainWeapon : WeaponControl
 {
     [SerializeField] private Turret portTurret;
     [SerializeField] private Turret starboardTurret;
+    [SerializeField] private PowerSystem powerSystem;
 
     public bool TriggerActivated { get; set; }
 
@@ -16,7 +17,7 @@ public class MainWeapon : WeaponControl
 
         UpdateTurretPosition();
 
-        if (TriggerActivated)
+        if (powerSystem.WeaponTotalPower > 0 && TriggerActivated)
         {
             portTurret.FireSelectedWeapon(selectedWeapon, selectedWeaponType, layerMask);
             starboardTurret.FireSelectedWeapon(selectedWeapon, selectedWeaponType, layerMask);

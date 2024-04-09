@@ -4,51 +4,27 @@ using UnityEngine;
 
 public class PowerSystem : MonoBehaviour
 {
-    protected float weaponPowerLevel = 4f;
+    public float WeaponPower { get; set; } = 4f;
+    public float WeaponTotalPower { get; set; }
+
+    public float EnginePower { get; set; } = 4f;
+    public float EngineTotalPower { get; set; }
+
+    public float ShieldPower { get; set; } = 4f;
+    public float ShieldTotalPower { get; set; }
+
     protected float weaponExtraPower = 0f;
     protected int weaponPatchedSystems = 0;
 
-    protected float enginePowerLevel = 4f;
     protected float engineExtraPower = 0f;
     protected int enginePatchedSystems = 0;
 
-    protected float shieldPowerLevel = 4f;
     protected float shieldExtraPower = 0f;
     protected int shieldPatchedSystems = 0;
 
     protected float dialOneSetting = 0f;
     protected float dialTwoSetting = 0f;
     protected float dialThreeSetting = 0f;
-
-    public void Update()
-    {
-        Debug.Log("Weapon Power: " + WeaponPower);
-        Debug.Log("Engine Power: " + EnginePower);
-        Debug.Log("Shield Power: " + ShieldPower);
-    }
-
-    public float WeaponPower
-    {
-        get { 
-            return GetPowerLevel(weaponPowerLevel, dialTwoSetting, engineExtraPower, enginePatchedSystems, dialThreeSetting, shieldExtraPower, shieldPatchedSystems); 
-        }
-    }
-
-    public float EnginePower
-    {
-        get
-        {
-            return GetPowerLevel(enginePowerLevel, dialOneSetting, shieldExtraPower, shieldPatchedSystems, dialTwoSetting, weaponExtraPower, weaponPatchedSystems);
-        }
-    }
-
-    public float ShieldPower
-    {
-        get
-        {
-            return GetPowerLevel(shieldPowerLevel, dialOneSetting, engineExtraPower, enginePatchedSystems, dialThreeSetting, weaponExtraPower, weaponPatchedSystems);
-        }
-    }
 
     public float GetPowerLevel(float startingPowerLevel, float dialOne, float extraPowerOne, float patchedSystemsOne, float dialTwo, float extraPowerTwo, float patchedSystemTwo)
     {
@@ -69,6 +45,13 @@ public class PowerSystem : MonoBehaviour
         return power;
     }
 
+    protected void UpdateAllPowerLevels()
+    {
+        WeaponTotalPower = GetPowerLevel(WeaponPower, dialTwoSetting, engineExtraPower, enginePatchedSystems, dialThreeSetting, shieldExtraPower, shieldPatchedSystems);
+        EngineTotalPower = GetPowerLevel(EnginePower, dialOneSetting, shieldExtraPower, shieldPatchedSystems, dialTwoSetting, weaponExtraPower, weaponPatchedSystems);
+        ShieldTotalPower = GetPowerLevel(ShieldPower, dialThreeSetting, weaponExtraPower, weaponPatchedSystems, dialOneSetting, engineExtraPower, enginePatchedSystems);
+    }
+
     public void ChangeDialOne(float newDialSetting)
     {
         dialOneSetting = newDialSetting;
@@ -87,6 +70,8 @@ public class PowerSystem : MonoBehaviour
                 enginePatchedSystems = 0;
                 break;
         }
+
+        UpdateAllPowerLevels();
     }
 
     public void ChangeDialTwo(float newDialSetting)
@@ -107,6 +92,8 @@ public class PowerSystem : MonoBehaviour
                 enginePatchedSystems = 0;
                 break;
         }
+
+        UpdateAllPowerLevels();
     }
 
     public void ChangeDialThree(float newDialSetting)
@@ -127,23 +114,31 @@ public class PowerSystem : MonoBehaviour
                 weaponPatchedSystems = 0;
                 break;
         }
+
+        UpdateAllPowerLevels();
     }
 
     public void ChangeEnginePowerLevel(float newEnginePowerLevel)
     {
-        enginePowerLevel = newEnginePowerLevel;
-        engineExtraPower = 4f - enginePowerLevel;
+        EnginePower = newEnginePowerLevel;
+        engineExtraPower = 4f - newEnginePowerLevel;
+
+        UpdateAllPowerLevels();
     }
 
     public void ChangeWeaponPowerLevel(float newWeaponPowerLevel)
     {
-        weaponPowerLevel = newWeaponPowerLevel;
-        weaponExtraPower = 4f - weaponPowerLevel;
+        WeaponPower = newWeaponPowerLevel;
+        weaponExtraPower = 4f - newWeaponPowerLevel;
+
+        UpdateAllPowerLevels();
     }
 
     public void ChangeShieldPowerLevel(float newShieldPowerLevel)
     {
-        shieldPowerLevel = newShieldPowerLevel;
-        shieldExtraPower = 4f - shieldPowerLevel;
+        ShieldPower = newShieldPowerLevel;
+        shieldExtraPower = 4f - newShieldPowerLevel;
+
+        UpdateAllPowerLevels();
     }
 }
