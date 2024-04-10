@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class AsteroidHealth : HealthComponent
 {
-    private Rigidbody shipBody;
+    private Rigidbody asteroidBody;
 
     public void Start()
     {
-        shipBody = GetComponent<Rigidbody>();
+        asteroidBody = GetComponent<Rigidbody>();
 
-        health = health * shipBody.mass;
+        float generalScale = transform.localScale.x / 2;
+
+        asteroidBody.mass = generalScale;
+        health = generalScale / 2;
     }
 
     public override void TakeDamage(float damage)

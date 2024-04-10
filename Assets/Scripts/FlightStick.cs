@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class FlightStick : MonoBehaviour
 {
-    private Transform interactable;
     public Engines engines;
+    public float stickDeadZone = 0.1f;
+
+    private Transform interactable;
 
     public bool StickGrabbed { get; set; }
     public bool canControlEngines = true;
@@ -21,9 +23,32 @@ public class FlightStick : MonoBehaviour
     {
         if (StickGrabbed && canControlEngines)
         {
-            engines.Pitch = interactable.localRotation.x;
-            engines.Yaw = interactable.localRotation.y;
-            engines.Roll = interactable.localRotation.z;
+            if(interactable.localRotation.x > stickDeadZone || interactable.localRotation.x < stickDeadZone * -1)
+            {
+                engines.Pitch = interactable.localRotation.x - stickDeadZone;
+            }
+            else
+            {
+                engines.Pitch = 0f;
+            }
+
+            if (interactable.localRotation.y > stickDeadZone || interactable.localRotation.y < stickDeadZone * -1)
+            {
+                engines.Yaw = interactable.localRotation.y - stickDeadZone;
+            }
+            else
+            {
+                engines.Yaw = 0f;
+            }
+
+            if (interactable.localRotation.z > stickDeadZone || interactable.localRotation.z < stickDeadZone * -1)
+            {
+                engines.Roll = (interactable.localRotation.z - stickDeadZone) * -1;
+            }
+            else
+            {
+                engines.Roll = 0f;
+            }
         }
     }
 

@@ -79,6 +79,8 @@ public class Torpedo : Projectile
         float colliderDistance = Vector3.Distance(transform.position, collider.transform.position) / explosionRadius;
 
         collider.attachedRigidbody.AddExplosionForce(explosionForce * (1 - colliderDistance), transform.position, explosionRadius);
+
+        HandleDamage(collider);
     }
 
     protected void AddForceToColliders()

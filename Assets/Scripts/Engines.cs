@@ -79,11 +79,11 @@ public class Engines : MonoBehaviour
     {
         //float powerLevel = GetCurrentPowerLevels();
         // Pitch
-        _shipBody.AddRelativeTorque(Vector3.right * -Pitch * pitchTorque * Time.fixedDeltaTime);
+        _shipBody.AddRelativeTorque(Vector3.right * pitchTorque * powerSystem.EngineTotalPower * Time.fixedDeltaTime * Pitch);
         // Yaw
-        _shipBody.AddRelativeTorque(Vector3.up * (Yaw + YawThrottle) * yawTorque * Time.fixedDeltaTime);
+        _shipBody.AddRelativeTorque(Vector3.up * yawTorque * powerSystem.EngineTotalPower * Time.fixedDeltaTime * (Yaw + YawThrottle));
         // Roll
-        _shipBody.AddRelativeTorque(Vector3.back * Roll * rollTorque * Time.fixedDeltaTime);
+        _shipBody.AddRelativeTorque(Vector3.back * rollTorque * powerSystem.EngineTotalPower * Time.fixedDeltaTime * Roll);
     }
 
     public void SetThrustPercentage()

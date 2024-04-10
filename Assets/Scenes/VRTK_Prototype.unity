@@ -131,10 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (147)
@@ -204,10 +200,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (8)
@@ -564,10 +556,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (19)
@@ -642,10 +630,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (119)
@@ -784,10 +768,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (159)
@@ -937,10 +917,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (67)
@@ -1015,10 +991,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (69)
@@ -1135,10 +1107,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (95)
@@ -1341,10 +1309,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (151)
@@ -1548,10 +1512,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (126)
@@ -1621,10 +1581,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (15)
@@ -1699,10 +1655,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (83)
@@ -1782,10 +1734,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (57)
@@ -1865,10 +1813,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (93)
@@ -2022,10 +1966,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (140)
@@ -3276,10 +3216,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (68)
@@ -3364,10 +3300,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (123)
@@ -3437,10 +3369,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (139)
@@ -3510,10 +3438,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (99)
@@ -3583,10 +3507,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (105)
@@ -4360,17 +4280,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6209447787549027195, guid: ee72545fa9afddd4894ea6d844bc892e, type: 3}
   m_PrefabInstance: {fileID: 247851613}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &248035727 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8374857299536994460, guid: 03464b42a529d2b4dad5bb403db2f043, type: 3}
-  m_PrefabInstance: {fileID: 5556417869216592592}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 906c6376972e44f469330df394172abd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &256450508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4379,10 +4288,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (130)
@@ -4605,10 +4510,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (121)
@@ -4678,10 +4579,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (41)
@@ -4861,10 +4758,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (152)
@@ -5003,10 +4896,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (60)
@@ -5081,10 +4970,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (20)
@@ -5159,10 +5044,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (9)
@@ -6032,10 +5913,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (27)
@@ -6110,10 +5987,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (75)
@@ -6188,10 +6061,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (2)
@@ -6266,10 +6135,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (22)
@@ -6349,10 +6214,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (11)
@@ -6494,10 +6355,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (32)
@@ -6572,10 +6429,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (1)
@@ -6650,10 +6503,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (71)
@@ -6723,10 +6572,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (13)
@@ -6801,10 +6646,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (155)
@@ -7091,10 +6932,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (72)
@@ -7298,10 +7135,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (39)
@@ -7425,10 +7258,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (81)
@@ -7498,10 +7327,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (94)
@@ -7571,10 +7396,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (145)
@@ -7791,10 +7612,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (29)
@@ -7913,10 +7730,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (24)
@@ -8045,10 +7858,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (23)
@@ -8123,10 +7932,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (84)
@@ -8234,6 +8039,10 @@ PrefabInstance:
       propertyPath: mine
       value: 
       objectReference: {fileID: 1865961210}
+    - target: {fileID: 6213043485977023364, guid: 6c15a8ac5602af04c96eadde2121532e, type: 3}
+      propertyPath: health
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 7322112723580034598, guid: 6c15a8ac5602af04c96eadde2121532e, type: 3}
       propertyPath: m_Mass
       value: 0.1
@@ -8435,10 +8244,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (33)
@@ -8513,10 +8318,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (80)
@@ -8622,10 +8423,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (37)
@@ -8773,10 +8570,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (96)
@@ -9252,10 +9045,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (21)
@@ -9471,10 +9260,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (122)
@@ -9549,10 +9334,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (44)
@@ -9818,10 +9599,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (87)
@@ -9891,10 +9668,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (117)
@@ -10069,10 +9842,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (141)
@@ -10142,10 +9911,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (55)
@@ -10294,10 +10059,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (18)
@@ -10372,10 +10133,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (118)
@@ -10445,10 +10202,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (17)
@@ -10528,10 +10281,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (51)
@@ -10606,10 +10355,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (146)
@@ -10684,10 +10429,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (12)
@@ -10901,10 +10642,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (113)
@@ -10979,10 +10716,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (120)
@@ -11052,10 +10785,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (112)
@@ -11338,10 +11067,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (138)
@@ -11416,10 +11141,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (31)
@@ -11494,10 +11215,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (97)
@@ -14040,10 +13757,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (154)
@@ -14274,10 +13987,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (100)
@@ -14352,10 +14061,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (46)
@@ -14435,10 +14140,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (153)
@@ -14642,10 +14343,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (136)
@@ -16157,10 +15854,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (70)
@@ -16382,10 +16075,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (58)
@@ -16460,10 +16149,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (48)
@@ -16553,10 +16238,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (78)
@@ -17974,10 +17655,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (90)
@@ -18131,10 +17808,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (45)
@@ -18209,10 +17882,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (132)
@@ -18287,10 +17956,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (114)
@@ -18494,10 +18159,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (125)
@@ -18567,10 +18228,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (63)
@@ -19884,10 +19541,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (116)
@@ -20303,10 +19956,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (158)
@@ -20460,10 +20109,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (64)
@@ -20778,10 +20423,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (135)
@@ -20851,10 +20492,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (54)
@@ -21003,10 +20640,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (124)
@@ -22288,10 +21921,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (98)
@@ -22492,10 +22121,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (35)
@@ -22592,10 +22217,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (49)
@@ -22675,10 +22296,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (66)
@@ -22969,10 +22586,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (131)
@@ -23068,39 +22681,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1247070367692532501, guid: b5e3fc604ffbe7c44a5954484539d6e7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.990047
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1247070367692532501, guid: b5e3fc604ffbe7c44a5954484539d6e7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.044625465
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1247070367692532501, guid: b5e3fc604ffbe7c44a5954484539d6e7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0045233974
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1247070367692532501, guid: b5e3fc604ffbe7c44a5954484539d6e7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.13339867
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1247070367692532501, guid: b5e3fc604ffbe7c44a5954484539d6e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1247070367692532501, guid: b5e3fc604ffbe7c44a5954484539d6e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 1.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1247070367692532501, guid: b5e3fc604ffbe7c44a5954484539d6e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 15.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2716893728569231254, guid: b5e3fc604ffbe7c44a5954484539d6e7, type: 3}
-      propertyPath: health
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3133584240176260701, guid: b5e3fc604ffbe7c44a5954484539d6e7, type: 3}
-      propertyPath: m_Mass
-      value: 20
+      propertyPath: m_ImplicitCom
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5324853948477955263, guid: b5e3fc604ffbe7c44a5954484539d6e7, type: 3}
       propertyPath: m_Name
@@ -23198,10 +22807,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (6)
@@ -23410,10 +23015,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (101)
@@ -25289,10 +24890,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (128)
@@ -25735,10 +25332,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (91)
@@ -25808,10 +25401,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (77)
@@ -25891,10 +25480,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (149)
@@ -25974,10 +25559,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (34)
@@ -26052,10 +25633,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (106)
@@ -26397,10 +25974,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (10)
@@ -26490,10 +26063,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (150)
@@ -26563,10 +26132,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (104)
@@ -26765,10 +26330,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (53)
@@ -26949,10 +26510,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (56)
@@ -27027,10 +26584,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (16)
@@ -27105,10 +26658,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (59)
@@ -27421,10 +26970,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (92)
@@ -27504,10 +27049,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (144)
@@ -27577,10 +27118,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (52)
@@ -27855,10 +27392,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (148)
@@ -28067,10 +27600,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (133)
@@ -28150,10 +27679,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (142)
@@ -28482,10 +28007,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (107)
@@ -28633,10 +28154,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (127)
@@ -28711,10 +28228,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (76)
@@ -29166,10 +28679,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (28)
@@ -29270,10 +28779,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (30)
@@ -29388,10 +28893,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (7)
@@ -30612,10 +30113,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (79)
@@ -30893,10 +30390,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (65)
@@ -30966,10 +30459,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (14)
@@ -31044,10 +30533,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (47)
@@ -31196,10 +30681,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (129)
@@ -31342,10 +30823,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (42)
@@ -32278,10 +31755,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (143)
@@ -32351,10 +31824,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (156)
@@ -32522,10 +31991,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (40)
@@ -33841,10 +33306,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (157)
@@ -33914,10 +33375,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (102)
@@ -33997,10 +33454,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (137)
@@ -34070,10 +33523,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (25)
@@ -34148,10 +33597,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (26)
@@ -34242,10 +33687,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (134)
@@ -34320,10 +33761,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (82)
@@ -34679,10 +34116,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (160)
@@ -34752,10 +34185,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (85)
@@ -34973,10 +34402,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (115)
@@ -35083,10 +34508,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1531657429}
     m_Modifications:
-    - target: {fileID: 1157414407735246271, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
-      propertyPath: m_Mass
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7814616459974031085, guid: dac0cf23d7907744c9c16609c0d1cda5, type: 3}
       propertyPath: m_Name
       value: Asteroid Red (43)
@@ -43999,10 +43420,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 2669436703208994541, guid: ee72545fa9afddd4894ea6d844bc892e, type: 3}
-      propertyPath: targetInteractable
-      value: 
-      objectReference: {fileID: 248035727}
     - target: {fileID: 2669436703234016627, guid: ee72545fa9afddd4894ea6d844bc892e, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -44291,6 +43708,10 @@ PrefabInstance:
       propertyPath: engines
       value: 
       objectReference: {fileID: 4114964909558227096}
+    - target: {fileID: 8020910561755706021, guid: ee72545fa9afddd4894ea6d844bc892e, type: 3}
+      propertyPath: stickDeadZone
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8050634948057607115, guid: ee72545fa9afddd4894ea6d844bc892e, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -48742,12 +48163,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shipBody: {fileID: 84583635}
   powerSystem: {fileID: 2088602431}
-  thrust: 5000
+  thrust: 3000
   thrustGlideReduction: 0.1
   thrusterHeatThreshold: 0.75
-  pitchTorque: 2500
-  yawTorque: 5000
-  rollTorque: 2500
+  pitchTorque: 2000
+  yawTorque: 4000
+  rollTorque: 2000
 --- !u!1 &4117138031861644818
 GameObject:
   m_ObjectHideFlags: 0
@@ -53924,18 +53345,6 @@ PrefabInstance:
       propertyPath: physicsShip
       value: 
       objectReference: {fileID: 484832213}
-    - target: {fileID: 4494717039720459067, guid: 68f78155d3d1ae1419578f853191c9a9, type: 3}
-      propertyPath: projectile.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494717039720459067, guid: 68f78155d3d1ae1419578f853191c9a9, type: 3}
-      propertyPath: projectile.Array.data[0]
-      value: 
-      objectReference: {fileID: 8249937094399101431, guid: 872b9d3f40ed1b445bbaa37efbaf568b, type: 3}
-    - target: {fileID: 4494717039720459067, guid: 68f78155d3d1ae1419578f853191c9a9, type: 3}
-      propertyPath: projectile.Array.data[1]
-      value: 
-      objectReference: {fileID: 8249937094399101431, guid: 2de2bcda07ba1df4baf50e5265076d11, type: 3}
     - target: {fileID: 5995354586826693903, guid: 68f78155d3d1ae1419578f853191c9a9, type: 3}
       propertyPath: m_LocalPosition.z
       value: 2
@@ -57283,6 +56692,10 @@ PrefabInstance:
       propertyPath: starboardEngine
       value: 
       objectReference: {fileID: 760800865}
+    - target: {fileID: 8021625769596030440, guid: 468e02ac1adfc3b49975dc2eafeba8c3, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9019089120638234359, guid: 468e02ac1adfc3b49975dc2eafeba8c3, type: 3}
       propertyPath: m_Name
       value: Physics Ship

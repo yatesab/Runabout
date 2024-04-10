@@ -85,10 +85,7 @@ MonoBehaviour:
   predictionPoint: {fileID: 7298647066763553062}
   torpedoLauncher: {fileID: 4494717039720459067}
   bombLauncher: {fileID: 3708027204080781683}
-  weaponList:
-  - {fileID: 8249937094399101431, guid: 872b9d3f40ed1b445bbaa37efbaf568b, type: 3}
-  - {fileID: 8249937094399101431, guid: 2de2bcda07ba1df4baf50e5265076d11, type: 3}
-  selectedWeapon: 0
+  powerSystem: {fileID: 0}
 --- !u!1 &3208731743179217575
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,9 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d42e5124d2eef645a08074f5d424951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxDistance: 0
   physicsShip: {fileID: 0}
   launchSite: {fileID: 9166168853188749984}
+  projectile: {fileID: 0}
+  MaxDistance: 0
 --- !u!1 &5499930353274291049
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,9 +180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03d2d46e9524634c9096982729ab700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxDistance: 200
   physicsShip: {fileID: 0}
   muzzle: {fileID: 5995354586826693903}
+  projectile:
+  - {fileID: 8249937094399101431, guid: 872b9d3f40ed1b445bbaa37efbaf568b, type: 3}
+  - {fileID: 8249937094399101431, guid: 2de2bcda07ba1df4baf50e5265076d11, type: 3}
+  MaxDistance: 200
 --- !u!1 &5975041608519382073
 GameObject:
   m_ObjectHideFlags: 0

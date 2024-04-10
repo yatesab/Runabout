@@ -236,13 +236,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 150
-  damage: 50
+  damage: 40
   explosionParticles: {fileID: 7211109051478047978, guid: 05473dca7729d6742ba4e79c2ab445f1, type: 3}
-  explosionRadius: 40
-  explosionForce: 800
+  explosionRadius: 25
+  explosionForce: 3000
   gravityWellParticles: {fileID: 797443810167428431, guid: e78d5efb54a36394a9122da450205b4b, type: 3}
-  pullRadius: 60
-  pullForce: 250
+  pullRadius: 50
+  pullForce: 1500
   pullTimeAmount: 2
 --- !u!54 &4607627943970284393
 Rigidbody:
@@ -318,7 +318,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 9216
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

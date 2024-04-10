@@ -265,8 +265,8 @@ MonoBehaviour:
   speed: 300
   damage: 50
   explosionParticles: {fileID: 7211109051478047978, guid: 05473dca7729d6742ba4e79c2ab445f1, type: 3}
-  explosionRadius: 50
-  explosionForce: 2000
+  explosionRadius: 25
+  explosionForce: 3000
 --- !u!1 &9056636024796586395
 GameObject:
   m_ObjectHideFlags: 0
