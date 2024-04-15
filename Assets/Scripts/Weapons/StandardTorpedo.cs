@@ -17,11 +17,6 @@ public class StandardTorpedo : Torpedo
         }
     }
 
-    public new void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         AddForceToColliders();

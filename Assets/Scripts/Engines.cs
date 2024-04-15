@@ -18,7 +18,6 @@ public class Engines : MonoBehaviour
     [Header("Thrust Settings")]
     [SerializeField] private float thrust = 200f;
     [SerializeField] private float thrustGlideReduction = -0.01f;
-    [SerializeField] private float thrusterHeatThreshold = 0.75f;
 
     [Header("Pitch / Yaw / Roll Settings")]
     [SerializeField] private float pitchTorque = 1000f;
@@ -44,7 +43,8 @@ public class Engines : MonoBehaviour
 
     private void AddForceToShip()
     {
-        _shipBody.AddForce(_shipBody.transform.forward * thrust * powerSystem.EngineTotalPower * Time.fixedDeltaTime * thrustPercentage, ForceMode.Force);
+        float totalThrust = thrust * powerSystem.EngineTotalPower;
+        _shipBody.AddForce(_shipBody.transform.forward * totalThrust * thrustPercentage * Time.fixedDeltaTime, ForceMode.Force);
         glide = thrust * thrustPercentage;
     }
 
@@ -77,13 +77,17 @@ public class Engines : MonoBehaviour
 
     private void OnRotateShip()
     {
-        //float powerLevel = GetCurrentPowerLevels();
         // Pitch
-        _shipBody.AddRelativeTorque(Vector3.right * pitchTorque * powerSystem.EngineTotalPower * Time.fixedDeltaTime * Pitch);
+        float pitchAmount = pitchTorque * powerSystem.EngineTotalPower;
+        _shipBody.AddRelativeTorque(Vector3.right * pitchAmount * Pitch * Time.fixedDeltaTime);
+
         // Yaw
-        _shipBody.AddRelativeTorque(Vector3.up * yawTorque * powerSystem.EngineTotalPower * Time.fixedDeltaTime * (Yaw + YawThrottle));
+        float yawAmount = yawTorque * powerSystem.EngineTotalPower;
+        _shipBody.AddRelativeTorque(Vector3.up * yawAmount * (Yaw + YawThrottle) * Time.fixedDeltaTime);
+
         // Roll
-        _shipBody.AddRelativeTorque(Vector3.back * rollTorque * powerSystem.EngineTotalPower * Time.fixedDeltaTime * Roll);
+        float rollAmount = rollTorque * powerSystem.EngineTotalPower;
+        _shipBody.AddRelativeTorque(Vector3.back * rollAmount * Roll * Time.fixedDeltaTime);
     }
 
     public void SetThrustPercentage()

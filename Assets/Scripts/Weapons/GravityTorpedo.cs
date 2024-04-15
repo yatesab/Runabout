@@ -22,6 +22,7 @@ public class GravityTorpedo : Torpedo
 
             if (distance >= maxDistance)
             {
+                DestroyTorpedoRigidbody();
                 CreateGravityWell();
             }
         }
@@ -55,18 +56,20 @@ public class GravityTorpedo : Torpedo
 
         CreateGravityWell();
     }
+    protected void DestroyTorpedoRigidbody()
+    {
+        Destroy(projectileBody);
+
+        MeshRenderer mesh = GetComponent<MeshRenderer>();
+        Destroy(mesh);
+    }
 
     private void CreateGravityWell()
     {
         pullActive = true;
         Instantiate(gravityWellParticles, TargetPosition, transform.rotation);
 
-        // Destroy rigidbody and stop all movement
-        Rigidbody torpedoBody = GetComponent<Rigidbody>();
-        Destroy(torpedoBody);
-
-        MeshRenderer mesh = GetComponent<MeshRenderer>();
-        Destroy(mesh);
+        DestroyTorpedoRigidbody();
     }
 
 

@@ -10,14 +10,14 @@ public class Torpedo : Projectile
 
     public Vector3 TargetPosition { get; set; }
 
-    protected Rigidbody missleBody;
     protected Vector3 startLocation;
     protected float distance;
 
     // Start is called before the first frame update
-    protected void Start()
+    protected new void Start()
     {
-        missleBody = GetComponent<Rigidbody>();
+        base.Start();
+
         startLocation = transform.position;
         distance = 0f;
     }
@@ -31,24 +31,11 @@ public class Torpedo : Projectile
         }
 
         distance = Vector3.Distance(transform.position, startLocation);
-
-        if (distance >= maxDistance && missleBody)
-        {
-            DestroyTorpedoRigidbody();
-        }
     }
 
     public void FixedUpdate()
     {
-        missleBody.AddForce(transform.forward * speed);
-    }
-
-    protected void DestroyTorpedoRigidbody()
-    {
-        Destroy(missleBody);
-
-        MeshRenderer mesh = GetComponent<MeshRenderer>();
-        Destroy(mesh);
+        ApplyForceToBody(transform.forward);
     }
 
     protected void HandleExplodeTorpedo()

@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class LaserBolt : Projectile
 {
-    private Rigidbody laserBody;
     private Vector3 startLocation;
     
     // Start is called before the first frame update
-    void Start()
+    public new void Start()
     {
-        laserBody = GetComponent<Rigidbody>();
+        base.Start();
 
         startLocation = transform.position;
-        laserBody.AddForce(transform.forward * speed);
+        projectileBody.AddForce(transform.forward * speed);
     }
 
     // Update is called once per frame

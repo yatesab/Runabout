@@ -14,7 +14,7 @@ public class Mine : MonoBehaviour
     private Collider mineCollider;
     private Rigidbody mineBody;
 
-    public new void Start()
+    public void Start()
     {
         mineBody = GetComponent<Rigidbody>();
         mineCollider = GetComponent<Collider>();

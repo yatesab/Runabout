@@ -35,7 +35,7 @@ public class TransporterSystem : MonoBehaviour
 
     public void Update()
     {
-        engageButton.enabled = _itemToTransportIndex != null;
+        engageButton.enabled = false;
     }
 
     public void ScanAreaForTransportItems()

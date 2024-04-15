@@ -6,37 +6,43 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
     public float damage;
+   
+    protected Rigidbody projectileBody;
 
     public float maxDistance { get; set; }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        projectileBody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void ApplyForceToBody(Vector3 forceDirection)
     {
-        
+        projectileBody.AddForce(forceDirection * speed);
     }
 
     protected void HandleDamage(Collider collider)
     {
-        HealthComponent healthComponent = collider.GetComponent<HealthComponent>();
+        if(collider.CompareTag("Ship"))
+        {
+            // This is for hitting the ship which has its health component in the parent
+            HealthComponent healthComponent = collider.GetComponentInParent<HealthComponent>();
 
-        if (healthComponent)
+            if (healthComponent)
+            {
+                healthComponent.TakeDamage(damage);
+            }
+        } else
         {
-            healthComponent.TakeDamage(damage);
-        }
-        else
-        {
-            healthComponent = collider.GetComponentInParent<HealthComponent>();
-            
+            HealthComponent healthComponent = collider.GetComponent<HealthComponent>();
+
             if (healthComponent)
             {
                 healthComponent.TakeDamage(damage);
             }
         }
     }
+
+
 }
