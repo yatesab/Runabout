@@ -10,6 +10,13 @@ public class MainWeapon : WeaponControl
 
     public bool TriggerActivated { get; set; }
 
+    private AudioControl audioControl;
+
+    public void Start()
+    {
+        audioControl = GetComponent<AudioControl>();
+    }
+
     // Update is called once per frame
     public void Update()
     {
@@ -19,6 +26,7 @@ public class MainWeapon : WeaponControl
 
         if (powerSystem.WeaponTotalPower > 0 && TriggerActivated)
         {
+
             portTurret.FireSelectedWeapon(selectedWeapon, selectedWeaponType, layerMask);
             starboardTurret.FireSelectedWeapon(selectedWeapon, selectedWeaponType, layerMask);
         }

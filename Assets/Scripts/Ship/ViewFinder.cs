@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ViewFinder : MonoBehaviour
 {
@@ -21,12 +23,6 @@ public class ViewFinder : MonoBehaviour
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void TurnOnScreen()

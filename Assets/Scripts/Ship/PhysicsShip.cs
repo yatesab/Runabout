@@ -6,6 +6,8 @@ public class PhysicsShip : MonoBehaviour
 {
     public Vector3 Velocity { get { return shipRigidbody.velocity; } }
 
+    public Vector3 AngularVelocity { get {  return shipRigidbody.angularVelocity; } }
+
     private Rigidbody shipRigidbody;
 
     // Start is called before the first frame update

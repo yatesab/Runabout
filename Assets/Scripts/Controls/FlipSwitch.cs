@@ -7,38 +7,17 @@ using UnityEngine.Events;
 public class FlipSwitch : MonoBehaviour
 {
     public bool switchOn = false;
-    public MeshMirror flipSwitchMirror;
 
     [Header("Flip Actions")]
     public UnityEvent FlipOnAction;
     public UnityEvent FlipOffAction;
 
-    private Material originalMaterial;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Get XRSimpleInteractable for isGrabbing check
-        XRSimpleInteractable switchInteractable = GetComponent<XRSimpleInteractable>();
-
-        switchInteractable.selectEntered.AddListener(HandleFlipSwitch);
-        switchInteractable.hoverEntered.AddListener(HandleHoverEnter);
-        switchInteractable.hoverExited.AddListener(HandleHoverExit);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        flipSwitchMirror.MirrorPosition(transform.localPosition);
-        flipSwitchMirror.MirrorRotation(transform.localRotation);
-    }
-
-    public void HandleFlipSwitch(SelectEnterEventArgs args)
+    public void HandleFlipSwitch()
     {
         // Check current state and then change based on that.
         if (switchOn)
         {
-            transform.Rotate(-90f, 0f, 0f);
+            transform.Rotate(-60f, 0f, 0f);
             switchOn = false;
 
             if(FlipOffAction != null)
@@ -48,31 +27,13 @@ public class FlipSwitch : MonoBehaviour
         }
         else
         {
-            transform.Rotate(90f, 0f, 0f);
+            transform.Rotate(60f, 0f, 0f);
             switchOn = true;
 
             if (FlipOnAction != null)
             {
                 FlipOnAction.Invoke();
             }
-        }
-    }
-
-    public void HandleHoverEnter(HoverEnterEventArgs args)
-    {
-        // Do hover things here
-        if(flipSwitchMirror.hasHover)
-        {
-            flipSwitchMirror.ActivateHover();
-        }
-    }
-
-    public void HandleHoverExit(HoverExitEventArgs args)
-    {
-        // Do hover things here
-        if (flipSwitchMirror.hasHover)
-        {
-            flipSwitchMirror.DeactivateHover();
         }
     }
 }

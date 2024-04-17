@@ -14,13 +14,16 @@ public class LaserTurret : MonoBehaviour
     [SerializeField] private float currentDisruptorCooldown = 0f;
 
     [Header("Phaser Settings")]
-    public GameObject laserHitParticles;
+    [SerializeField] private GameObject laserHitParticles;
 
     public float laserDamage = 0.25f;
     public float laserHeatThreshold = 20f;
     public float laserHeatRate = 0.25f;
     public float laserCoolRate = 0.5f;
     public float currentLaserHeat = 0f;
+
+    [Header("Audio Settings")]
+    [SerializeField] private AudioControl audioControl;
 
     private float timeBetweenDamage = 0.25f;
     private float currentTimeBetweenDamage = 0f;
@@ -61,7 +64,7 @@ public class LaserTurret : MonoBehaviour
             case 0:
                 break;
             case 1:
-                AudioManager.instance.Stop("Laser Beam");
+                audioControl.Stop("Laser Beam");
 
                 _beam.enabled = false;
                 _beam.SetPosition(0, muzzle.position);
@@ -85,7 +88,7 @@ public class LaserTurret : MonoBehaviour
     {
         if (currentDisruptorCooldown <= 0)
         {
-            AudioManager.instance.Play("Laser Bolt");
+            audioControl.Play("Laser Bolt");
 
             GameObject bolt = Instantiate(laserBolt, muzzle.position, muzzle.rotation);
             bolt.GetComponent<Rigidbody>().velocity = physicsShip.Velocity;
@@ -97,9 +100,9 @@ public class LaserTurret : MonoBehaviour
 
     public void FirePhaser(LayerMask layerMask, Transform muzzle)
     {
-        if (!AudioManager.instance.GetSource("Laser Beam").isPlaying)
+        if (!audioControl.GetSource("Laser Beam").isPlaying)
         {
-            AudioManager.instance.Play("Laser Beam");
+            audioControl.Play("Laser Beam");
         }
 
         _beam.enabled = true;
