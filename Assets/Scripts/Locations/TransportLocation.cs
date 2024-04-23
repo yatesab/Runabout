@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TransportLocation : MonoBehaviour
 {
-    public TransportItem[] transporterItems;
+    public Item[] transporterItems;
 
     void Update()
     {

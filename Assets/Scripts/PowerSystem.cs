@@ -141,4 +141,16 @@ public class PowerSystem : MonoBehaviour
 
         UpdateAllPowerLevels();
     }
+
+    public void ShutOffPower()
+    {
+        EngineTotalPower = 0f;
+        ShieldTotalPower = 0f;
+        WeaponTotalPower = 0f;
+    }
+
+    public void TurnOnPower()
+    {
+        UpdateAllPowerLevels();
+    }
 }
