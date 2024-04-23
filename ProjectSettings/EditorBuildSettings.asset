@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main_Menu.unity
+    guid: 035acd81fd6c88c48b570297514562ab
+  - enabled: 1
     path: Assets/Scenes/VRTK_Prototype.unity
     guid: 85874cab65eb15d4881713971fb37d78
   m_configObjects:

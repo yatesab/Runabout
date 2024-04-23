@@ -13,6 +13,8 @@ public class GameConditionManager : MonoBehaviour
 
     [SerializeField] private Item winItem;
 
+    [SerializeField] private GameObject victoryCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,18 @@ public class GameConditionManager : MonoBehaviour
         playerRig.transform.localRotation = new Quaternion(0,0,0,0);
     }
 
+    public void ActivateGameVictory()
+    {
+        physicsShip.ShutOffPower();
+        victoryCanvas.SetActive(true);
+
+        playerRig.ActivateXRInteractors();
+        playerRig.transform.SetParent(transform);
+
+        playerRig.transform.localPosition = new Vector3(0, 0, 0);
+        playerRig.transform.localRotation = new Quaternion(0, 0, 0, 0);
+    }
+
     public void ResetGameScene()
     {
         playerRig.DeactivateXRInteractors();
@@ -45,11 +59,21 @@ public class GameConditionManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
+    }
+
+    public void QuitApplication()
+    {
+        Application.Quit();
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (cargoHold.itemsInCargoHold[0].Name == winItem.Name)
         {
-            ActivateGameOver();
+            ActivateGameVictory();
         }
     }
 }
