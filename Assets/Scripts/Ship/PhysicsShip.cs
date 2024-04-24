@@ -13,6 +13,10 @@ public class PhysicsShip : MonoBehaviour
     [SerializeField] private ShipPart starboardEngine;
     [SerializeField] private ShipPart shipBody;
 
+    [SerializeField] private Transform environment;
+    [SerializeField] private Transform meshShip;
+    [SerializeField] private Transform skyboxCamera;
+
     public Vector3 Velocity { get { return shipRigidbody.velocity; } }
 
     public Vector3 AngularVelocity { get {  return shipRigidbody.angularVelocity; } }

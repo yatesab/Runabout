@@ -24,9 +24,9 @@ public class FlightStick : MonoBehaviour
     {
         if (StickGrabbed && canControlEngines)
         {
-            engines.Pitch = GetStickMovement(interactable.localRotation.x) * -1;
-            engines.Yaw = GetStickMovement(interactable.localRotation.y) * -1;
-            engines.Roll = GetStickMovement(interactable.localRotation.z);
+            engines.Pitch = GetStickMovement(interactable.localRotation.x);
+            engines.Yaw = GetStickMovement(interactable.localRotation.y);
+            engines.Roll = GetStickMovement(interactable.localRotation.z) * -1;
         }
     }
 

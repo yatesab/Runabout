@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
 
-public class MainMenu : Menu
+public class OptionsMenu : Menu
 {
     // Start is called before the first frame update
     void Start()
@@ -16,15 +14,5 @@ public class MainMenu : Menu
     void Update()
     {
         
-    }
-
-    public void StartScene()
-    {
-        SceneManager.LoadScene("VRTK_Prototype");
-    }
-
-    public void QuitApplication()
-    {
-        Application.Quit();
     }
 }
