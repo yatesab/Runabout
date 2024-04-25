@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CargoHold : MonoBehaviour
 {
+    [SerializeField] private CargoPanel cargoPanel;
 
     public float maxWeight = 120f;
     public float currentWeight = 0f;
@@ -16,6 +17,8 @@ public class CargoHold : MonoBehaviour
         {
             currentWeight += _item.Weight;
             itemsInCargoHold.Add(_item);
+
+            cargoPanel.UpdateList(itemsInCargoHold);
 
             return true;
         } else 

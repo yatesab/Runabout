@@ -194,8 +194,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.5, y: 4.25, z: 12.25}
-  m_Center: {x: 0, y: 2.05, z: 0}
+  m_Size: {x: 4, y: 4.15, z: 12.25}
+  m_Center: {x: 0, y: 0.075, z: 1}
 --- !u!114 &228007718251089004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,3 +623,8 @@ MonoBehaviour:
   portEngine: {fileID: 0}
   starboardEngine: {fileID: 0}
   shipBody: {fileID: 0}
+  shipPlayarea: {fileID: 0}
+  shipCamera: {fileID: 0}
+  playerPlayarea: {fileID: 0}
+  playerCamera: {fileID: 0}
+  shipParent: {fileID: 0}

@@ -71,7 +71,7 @@ public class GameConditionManager : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (cargoHold.itemsInCargoHold[0].Name == winItem.Name)
+        if (cargoHold.itemsInCargoHold.Count > 0 && cargoHold.itemsInCargoHold[0].Name == winItem.Name)
         {
             ActivateGameVictory();
         }

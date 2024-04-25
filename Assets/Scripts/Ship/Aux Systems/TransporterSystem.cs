@@ -9,10 +9,11 @@ public class TransporterSystem : MonoBehaviour
     public LayerMask transportLayer;
 
     [SerializeField] private CargoHold cargoHold;
+    [SerializeField] private Transform shipLocation;
 
     public void ScanAreaForTransportItems()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 100, transportLayer);
+        Collider[] colliders = Physics.OverlapSphere(shipLocation.position, 100, transportLayer);
 
         foreach (Collider collider in colliders)
         {

@@ -13,9 +13,11 @@ public class PhysicsShip : MonoBehaviour
     [SerializeField] private ShipPart starboardEngine;
     [SerializeField] private ShipPart shipBody;
 
-    [SerializeField] private Transform environment;
-    [SerializeField] private Transform meshShip;
-    [SerializeField] private Transform skyboxCamera;
+    [SerializeField] private Transform shipPlayarea;
+    [SerializeField] private Transform shipCamera;
+    [SerializeField] private Transform playerPlayarea;
+    [SerializeField] private Transform playerCamera;
+    [SerializeField] private Transform shipParent;
 
     public Vector3 Velocity { get { return shipRigidbody.velocity; } }
 
@@ -36,6 +38,14 @@ public class PhysicsShip : MonoBehaviour
         {
             gameConditionManager.ActivateGameOver();
         }
+    }
+    void LateUpdate()
+    {
+        shipPlayarea.localPosition = shipParent.InverseTransformPoint(playerPlayarea.position);
+        shipPlayarea.localRotation = playerPlayarea.localRotation;
+
+        shipCamera.localPosition = playerCamera.localPosition;
+        //shipCamera.localRotation = playerCamera.localRotation;
     }
 
     public void ShutOffPower()

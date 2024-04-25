@@ -301,7 +301,7 @@ QualitySettings:
     terrainMaxTrees: 50
     excludedTargetPlatforms: []
   - serializedVersion: 3
-    name: Standalone VR
+    name: Quest 2
     pixelLightCount: 4
     shadows: 2
     shadowResolution: 2
@@ -315,16 +315,16 @@ QualitySettings:
     skinWeights: 4
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
-    anisotropicTextures: 0
+    anisotropicTextures: 1
     antiAliasing: 4
     softParticles: 1
     softVegetation: 1
-    realtimeReflectionProbes: 0
-    billboardsFaceCameraPosition: 0
+    realtimeReflectionProbes: 1
+    billboardsFaceCameraPosition: 1
     useLegacyDetailDistribution: 1
-    vSyncCount: 0
-    realtimeGICPUUsage: 25
-    lodBias: 0.3
+    vSyncCount: 1
+    realtimeGICPUUsage: 100
+    lodBias: 2
     maximumLODLevel: 0
     enableLODCrossFade: 0
     streamingMipmapsActive: 0
@@ -351,7 +351,7 @@ QualitySettings:
     excludedTargetPlatforms: []
   m_TextureMipmapLimitGroupNames: []
   m_PerPlatformDefaultQuality:
-    Android: 6
+    Android: 0
     Lumin: 5
     Nintendo 3DS: 5
     Nintendo Switch: 5
@@ -360,8 +360,8 @@ QualitySettings:
     PSP2: 2
     Server: 0
     Stadia: 5
-    Standalone: 5
-    WebGL: 6
+    Standalone: 0
+    WebGL: 5
     Windows Store Apps: 5
     XboxOne: 5
     iPhone: 2
