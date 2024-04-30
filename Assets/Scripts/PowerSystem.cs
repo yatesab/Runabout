@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerSystem : MonoBehaviour
@@ -52,7 +50,7 @@ public class PowerSystem : MonoBehaviour
         ShieldTotalPower = GetPowerLevel(ShieldPower, dialThreeSetting, weaponExtraPower, weaponPatchedSystems, dialOneSetting, engineExtraPower, enginePatchedSystems);
     }
 
-    public void ChangeDialOne(float newDialSetting)
+    public void ChangeDialOne(int newDialSetting)
     {
         dialOneSetting = newDialSetting;
 
@@ -74,7 +72,7 @@ public class PowerSystem : MonoBehaviour
         UpdateAllPowerLevels();
     }
 
-    public void ChangeDialTwo(float newDialSetting)
+    public void ChangeDialTwo(int newDialSetting)
     {
         dialTwoSetting = newDialSetting;
 
@@ -96,7 +94,7 @@ public class PowerSystem : MonoBehaviour
         UpdateAllPowerLevels();
     }
 
-    public void ChangeDialThree(float newDialSetting)
+    public void ChangeDialThree(int newDialSetting)
     {
         dialThreeSetting = newDialSetting;
 

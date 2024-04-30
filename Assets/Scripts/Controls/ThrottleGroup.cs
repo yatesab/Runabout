@@ -5,16 +5,14 @@ using Tilia.Interactions.Controllables.LinearDriver;
 
 public class ThrottleGroup : MonoBehaviour
 {
+    public float LeftThrottlePercentage { get { return leftThrottle.ThrottlePercentage; } }
+    public float RightThrottlePercentage { get { return rightThrottle.ThrottlePercentage; } }
+
     [SerializeField] private Engines engines;
-    [SerializeField] private LinearDriveFacade leftThrottle;
-    [SerializeField] private LinearDriveFacade rightThrottle;
+    [SerializeField] private Throttle leftThrottle;
+    [SerializeField] private Throttle rightThrottle;
 
     public bool canControlEngines = true;
-
-    public float LeftPercentage { get; set; }
-    public float RightPercentage { get; set; }
-    public bool LeftThrottleGrabbed { get; set; } = false;
-    public bool RightThrottleGrabbed { get; set; } = false;
 
     // Update is called once per frame
     void Update()
@@ -25,14 +23,14 @@ public class ThrottleGroup : MonoBehaviour
 
     private void SyncThrottles()
     {
-        if(LeftThrottleGrabbed && !RightThrottleGrabbed)
+        if(leftThrottle.Grabbed && !rightThrottle.Grabbed)
         {
-            rightThrottle.TargetValue = LeftPercentage;
+            rightThrottle.SyncThrottlePosition(leftThrottle.ThrottlePosition);
         }
         
-        if(RightThrottleGrabbed && !LeftThrottleGrabbed)
+        if(rightThrottle.Grabbed && !leftThrottle.Grabbed)
         {
-            leftThrottle.TargetValue = RightPercentage;
+            leftThrottle.SyncThrottlePosition(rightThrottle.ThrottlePosition);
         }
     }
 
@@ -40,12 +38,12 @@ public class ThrottleGroup : MonoBehaviour
     {
         if(canControlEngines)
         {
-            engines.PortThrottle = leftThrottle.TargetValue;
-            engines.StarboardThrottle = rightThrottle.TargetValue;
+            engines.PortThrottle = leftThrottle.ThrottlePercentage;
+            engines.StarboardThrottle = rightThrottle.ThrottlePercentage;
 
-            if(LeftThrottleGrabbed && RightThrottleGrabbed)
+            if(leftThrottle.Grabbed && rightThrottle.Grabbed)
             {
-                float _throttleDiff = LeftPercentage - RightPercentage;
+                float _throttleDiff = leftThrottle.ThrottlePercentage - rightThrottle.ThrottlePercentage;
                 engines.YawThrottle = (_throttleDiff > 0.15f || _throttleDiff < 0.15f ? _throttleDiff : 0f) / 2;
             } else
             {
@@ -56,47 +54,33 @@ public class ThrottleGroup : MonoBehaviour
 
     public void GrabLeftThrottle()
     {
-        LeftThrottleGrabbed = true;
-        leftThrottle.MoveToTargetValue = false;
+        leftThrottle.Grabbed = true;
     }
 
     public void GrabRightThrottle()
     {
-        RightThrottleGrabbed = true;
-        rightThrottle.MoveToTargetValue = false;
+        rightThrottle.Grabbed = true;
     }
 
     public void ReleaseLeftThrottle()
     {
-        LeftThrottleGrabbed = false;
+        leftThrottle.Grabbed = false;
 
-        leftThrottle.MoveToTargetValue = true;
-
-        //Find a value to use for this
-        leftThrottle.TargetValue = LeftPercentage;
-
-        if (!RightThrottleGrabbed )
+        if (!rightThrottle.Grabbed)
         {
             // Set It to the same as this one
-            rightThrottle.TargetValue = LeftPercentage;
-            RightPercentage = LeftPercentage;
+            rightThrottle.SyncThrottlePosition(leftThrottle.ThrottlePosition);
         }
     }
 
     public void ReleaseRightThrottle()
     {
-        RightThrottleGrabbed = false;
-
-        rightThrottle.MoveToTargetValue = true;
+        rightThrottle.Grabbed = false;
         
-        //Find a value to use for this
-        rightThrottle.TargetValue = RightPercentage;
-        
-        if (!LeftThrottleGrabbed)
+        if (!leftThrottle.Grabbed)
         {
             // Set It to the same as this one
-            leftThrottle.TargetValue = RightPercentage;
-            LeftPercentage = RightPercentage;
+            leftThrottle.SyncThrottlePosition(rightThrottle.ThrottlePosition);
         }
     }
 }

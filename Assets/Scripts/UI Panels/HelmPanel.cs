@@ -22,8 +22,8 @@ public class HelmPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        portPercentage.text = Mathf.Round(throttleGroup.LeftPercentage * 100).ToString() + " %";
-        starboardPercentage.text = Mathf.Round(throttleGroup.RightPercentage * 100).ToString() + " %";
+        portPercentage.text = Mathf.Round(throttleGroup.LeftThrottlePercentage * 100).ToString() + " %";
+        starboardPercentage.text = Mathf.Round(throttleGroup.RightThrottlePercentage * 100).ToString() + " %";
         velocity.text = physicsShip.Velocity.ToString();
         rotation.text = physicsShip.AngularVelocity.ToString();
     }

@@ -55,11 +55,11 @@ public class FlightStick : MonoBehaviour
     {
         StickGrabbed = false;
 
+        interactable.localPosition = new Vector3(0, 0, 0);
+        interactable.localRotation = new Quaternion(0, 0, 0, 0);
+
         if (canControlEngines)
         {
-            interactable.localPosition = new Vector3(0, 0, 0);
-            interactable.localRotation = new Quaternion(0, 0, 0, 0);
-
             engines.Pitch = 0;
             engines.Yaw = 0;
             engines.Roll = 0;

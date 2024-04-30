@@ -1,28 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.XR.LegacyInputHelpers;
+using Unity.XR.CoreUtils;
+using static Unity.XR.CoreUtils.XROrigin;
 
 public class PlayerRecenter : MonoBehaviour
 {
-    private CameraOffset cameraOffset;
+    private XROrigin xrOrigin;
 
     // Start is called before the first frame update
     void Start()
     {
-        cameraOffset = GetComponent<CameraOffset>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        xrOrigin = GetComponent<XROrigin>();
     }
 
     public void RecenterPlayerRig()
     {
-        cameraOffset.requestedTrackingMode = UserRequestedTrackingMode.Device;
+        xrOrigin.RequestedTrackingOriginMode = TrackingOriginMode.Device;
 
-        cameraOffset.requestedTrackingMode = UserRequestedTrackingMode.Floor;
+        xrOrigin.RequestedTrackingOriginMode = TrackingOriginMode.Floor;
     }
 }

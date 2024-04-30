@@ -15,12 +15,12 @@ TagManager:
   - Water
   - UI
   - Pickup
-  - Dropoff
+  - Player
   - Shootable
   - Ship Exterior
   - Ship Interier
   - Weapon Control
-  - Seat
+  - 
   - Projectile
   - Proximity Sensor
   - 

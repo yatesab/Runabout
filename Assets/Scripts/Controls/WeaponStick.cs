@@ -27,8 +27,15 @@ public class WeaponStick : MonoBehaviour
         }
     }
 
-    public void ResetPosition()
+    public void HandleGrabStick()
     {
+        StickGrabbed = true;
+    }
+
+    public void HandleReleaseStick()
+    {
+        StickGrabbed = false;
+
         Vector3 newPosition = new Vector3(0, 0, 0);
         Quaternion newRotation = new Quaternion(0, 0, 0, 0);
 
