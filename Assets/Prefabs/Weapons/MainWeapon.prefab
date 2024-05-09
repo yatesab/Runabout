@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6748985195309023018}
   - component: {fileID: 4227871322933831498}
   - component: {fileID: 8288662852163138903}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 32770107618342483}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 27321593666734067}
   - component: {fileID: 5642881611911059504}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Starboard Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2214796510069385224}
   - component: {fileID: 1650254171546937014}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Port Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 5469047840322518935}
   - component: {fileID: 8871611826368773111}
   - component: {fileID: 2552556593591858575}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 4960590191208167591}
   - component: {fileID: 713227351284864518}
   - component: {fileID: 4409460139148157283}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6027905727623117116}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1451024895506048160}
   - component: {fileID: 3524776797385633513}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Center Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,7 +736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7230963064064411003}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,7 +770,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1567105008631331254}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 1729062587804254213}
   - component: {fileID: 7691114175465670958}
   - component: {fileID: 175504990159393083}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,7 +907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7861601053246634954}
   - component: {fileID: 598215077248749696}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: MainWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,7 +947,7 @@ MonoBehaviour:
   centerPoint: {fileID: 1451024895506048160}
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   predictionPoint: {fileID: 8395178340091271148}
   portTurret: {fileID: 1650254171546937014}
   starboardTurret: {fileID: 5642881611911059504}
@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 7462840947089764016}
   - component: {fileID: 5453809339006366428}
   - component: {fileID: 2981584347163967320}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1101,7 +1101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5731010267658197747, guid: bb0dcfc33256099499beab1781b0d40a, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8832806770582232484, guid: bb0dcfc33256099499beab1781b0d40a, type: 3}
       propertyPath: m_Name
@@ -1109,7 +1109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8832806770582232484, guid: bb0dcfc33256099499beab1781b0d40a, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1135,7 +1135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5454589110726511007, guid: 5fcee70427c45b0479f21b97546e2dc2, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6922426283463153713, guid: 5fcee70427c45b0479f21b97546e2dc2, type: 3}
       propertyPath: m_LocalScale.x
@@ -1191,7 +1191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7964297377303133473, guid: 5fcee70427c45b0479f21b97546e2dc2, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7964297377303133487, guid: 5fcee70427c45b0479f21b97546e2dc2, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits

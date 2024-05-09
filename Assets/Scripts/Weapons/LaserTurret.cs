@@ -64,7 +64,7 @@ public class LaserTurret : MonoBehaviour
             case 0:
                 break;
             case 1:
-                audioControl.Stop("Laser Beam");
+                audioControl.Stop("Beam");
 
                 _beam.enabled = false;
                 _beam.SetPosition(0, muzzle.position);
@@ -88,7 +88,10 @@ public class LaserTurret : MonoBehaviour
     {
         if (currentDisruptorCooldown <= 0)
         {
-            audioControl.Play("Laser Bolt");
+            if (!audioControl.GetSource("Blast").isPlaying)
+            {
+                audioControl.Play("Blast");
+            }
 
             GameObject bolt = Instantiate(laserBolt, muzzle.position, muzzle.rotation);
             bolt.GetComponent<Rigidbody>().velocity = physicsShip.Velocity;
@@ -100,9 +103,9 @@ public class LaserTurret : MonoBehaviour
 
     public void FirePhaser(LayerMask layerMask, Transform muzzle)
     {
-        if (!audioControl.GetSource("Laser Beam").isPlaying)
+        if (!audioControl.GetSource("Beam").isPlaying)
         {
-            audioControl.Play("Laser Beam");
+            audioControl.Play("Beam");
         }
 
         _beam.enabled = true;

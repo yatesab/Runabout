@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tilia.Interactions.Controllables.LinearDriver;
 
 public class Engines : MonoBehaviour
 {
@@ -52,22 +51,22 @@ public class Engines : MonoBehaviour
     {
         if (thrustPercentage >= 0.1f)
         {
-            if (!AudioManager.instance.GetSource("Ship Engines").isPlaying)
-            {
-                AudioManager.instance.Play("Ship Engines");
-            }
+            //if (!AudioManager.instance.GetSource("Ship Engines").isPlaying)
+            //{
+            //    AudioManager.instance.Play("Ship Engines");
+            //}
 
-            AudioManager.instance.GetSource("Ship Engines").volume = 0.4f * thrustPercentage;
+            //AudioManager.instance.GetSource("Ship Engines").volume = 0.4f * thrustPercentage;
 
             AddForceToShip();
         }
         else
         {
-            if (AudioManager.instance.GetSource("Ship Engines").isPlaying)
-            {
+            //if (AudioManager.instance.GetSource("Ship Engines").isPlaying)
+            //{
                 // Stop Sound from engines
-                AudioManager.instance.Stop("Ship Engines");
-            }
+                //AudioManager.instance.Stop("Ship Engines");
+            //}
 
             // Slow forces on ship
             _shipBody.AddForce(Vector3.back * glide * Time.fixedDeltaTime, ForceMode.Force);

@@ -41,10 +41,10 @@ public class Torpedo : Projectile
     protected void HandleExplodeTorpedo()
     {
         // Play Explosion Sound
-        if (!AudioManager.instance.GetSource("Mine Explosion").isPlaying)
-        {
-            AudioManager.instance.Play("Mine Explosion");
-        }
+        //if (!AudioManager.instance.GetSource("Mine Explosion").isPlaying)
+        //{
+        //    AudioManager.instance.Play("Mine Explosion");
+        //}
 
         // Create the explosion effect at the targetPosition
         GameObject explosion = Instantiate(explosionParticles, transform.position, transform.rotation);

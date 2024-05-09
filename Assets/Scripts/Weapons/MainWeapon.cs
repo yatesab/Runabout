@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class MainWeapon : WeaponControl
 {
@@ -38,8 +39,15 @@ public class MainWeapon : WeaponControl
         starboardTurret.TargetPosition = predictionPoint.transform.position;
     }
 
-    public void StopFiringWeapon()
+    public void StartFireingWeapon(ActivateEventArgs args)
     {
+        TriggerActivated = true;
+    }
+
+    public void StopFiringWeapon(DeactivateEventArgs args)
+    {
+        TriggerActivated = false;
+
         portTurret.StopSelectedWeapon(selectedWeapon, selectedWeaponType);
         starboardTurret.StopSelectedWeapon(selectedWeapon, selectedWeaponType);
     }

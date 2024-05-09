@@ -1,32 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class FlightStick : MonoBehaviour
 {
-    public Engines engines;
-    public float stickDeadZoneUpper = 0.1f;
-    public float stickDeadZoneLower = -0.1f;
-
-    private Transform interactable;
-
     public bool StickGrabbed { get; set; }
-    public bool canControlEngines = true;
+
+    [SerializeField] private Engines engines;
+    [SerializeField] private float stickDeadZoneUpper = 0.1f;
+    [SerializeField] private float stickDeadZoneLower = -0.1f;
+
+    private XRGrabInteractable interactable;
 
     // Start is called before the first frame update
     void Start()
     {
-        interactable = transform.GetChild(0);
+        interactable = GetComponentInChildren<XRGrabInteractable>();
+
+        interactable.selectExited.AddListener(HandleReleaseStick);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (StickGrabbed && canControlEngines)
+        if (StickGrabbed)
         {
-            engines.Pitch = GetStickMovement(interactable.localRotation.x);
-            engines.Yaw = GetStickMovement(interactable.localRotation.y);
-            engines.Roll = GetStickMovement(interactable.localRotation.z) * -1;
+            engines.Pitch = GetStickMovement(interactable.transform.localRotation.x);
+            engines.Yaw = GetStickMovement(interactable.transform.localRotation.y);
+            engines.Roll = GetStickMovement(interactable.transform.localRotation.z) * -1;
         }
     }
 
@@ -46,23 +48,13 @@ public class FlightStick : MonoBehaviour
         }
     }
 
-    public void HandleGrabStick()
+    public void HandleReleaseStick(SelectExitEventArgs args)
     {
-        StickGrabbed = true;
-    }
+        interactable.transform.localPosition = new Vector3(0, 0, 0);
+        interactable.transform.localRotation = new Quaternion(0, 0, 0, 0);
 
-    public void HandleReleaseStick()
-    {
-        StickGrabbed = false;
-
-        interactable.localPosition = new Vector3(0, 0, 0);
-        interactable.localRotation = new Quaternion(0, 0, 0, 0);
-
-        if (canControlEngines)
-        {
-            engines.Pitch = 0;
-            engines.Yaw = 0;
-            engines.Roll = 0;
-        }
+        engines.Pitch = 0;
+        engines.Yaw = 0;
+        engines.Roll = 0;
     }
 }

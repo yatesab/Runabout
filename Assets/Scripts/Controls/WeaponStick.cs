@@ -1,20 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Events;
 
 public class WeaponStick : MonoBehaviour
 {
-    public WeaponControl mainWeapon;
-    public WeaponControl secondaryWeapon;
+    public InputActionReference primaryLeftActionReference;
+    public InputActionReference primaryRightActionReference;
+
+    public MainWeapon mainWeapon;
+    public SecondaryWeapon secondaryWeapon;
 
     public bool StickGrabbed { get; set; }
 
-    private Transform interactable;
+    private XRGrabInteractable interactable;
 
     // Start is called before the first frame update
     void Start()
     {
-        interactable = transform.GetChild(0);
+        interactable = GetComponentInChildren<XRGrabInteractable>();
+
+        interactable.selectExited.AddListener(HandleReleaseStick);
+
+        primaryLeftActionReference.action.started += HandlePrimaryButton;
+        primaryRightActionReference.action.started += HandlePrimaryButton;
     }
 
     // Update is called once per frame
@@ -22,27 +33,28 @@ public class WeaponStick : MonoBehaviour
     {
         if(StickGrabbed)
         {
-            mainWeapon.UpdateRotation(interactable.localRotation);
-            secondaryWeapon.UpdateRotation(interactable.localRotation);
+            mainWeapon.UpdateRotation(interactable.transform.localRotation);
+            secondaryWeapon.UpdateRotation(interactable.transform.localRotation);
         }
     }
 
-    public void HandleGrabStick()
+    public void HandleReleaseStick(SelectExitEventArgs args)
     {
-        StickGrabbed = true;
-    }
-
-    public void HandleReleaseStick()
-    {
-        StickGrabbed = false;
-
         Vector3 newPosition = new Vector3(0, 0, 0);
         Quaternion newRotation = new Quaternion(0, 0, 0, 0);
 
-        interactable.localPosition = newPosition;
-        interactable.localRotation = newRotation;
+        interactable.transform.localPosition = newPosition;
+        interactable.transform.localRotation = newRotation;
 
         mainWeapon.UpdateRotation(newRotation);
         secondaryWeapon.UpdateRotation(newRotation);
+    }
+
+    private void HandlePrimaryButton(InputAction.CallbackContext obj)
+    {
+        if(StickGrabbed)
+        {
+            secondaryWeapon.FireSecondaryWeapon();
+        }
     }
 }

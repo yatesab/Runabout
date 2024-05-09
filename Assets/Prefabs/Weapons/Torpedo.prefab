@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4463893463785439384}
   - component: {fileID: 1215370157973625568}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 1152101446004346145}
   - component: {fileID: 4607627943970284393}
   - component: {fileID: 26545656740613199}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Torpedo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1446693532262897589}
   - component: {fileID: 5286751597263600984}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tilia.Interactions.Controllables.LinearDriver;
 
 public class ThrottleGroup : MonoBehaviour
 {

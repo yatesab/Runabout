@@ -5,24 +5,23 @@ TagManager:
   serializedVersion: 2
   tags:
   - Anchor
-  - Asteroid
   - Ship
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Pickup
   - Player
-  - Shootable
   - Ship Exterior
-  - Ship Interier
-  - Weapon Control
+  - Ship Interior
+  - Target
+  - Transport
   - 
-  - Projectile
-  - Proximity Sensor
+  - 
+  - 
+  - 
   - 
   - 
   - 

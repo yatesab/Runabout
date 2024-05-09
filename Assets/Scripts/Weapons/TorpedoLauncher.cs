@@ -12,7 +12,7 @@ public class TorpedoLauncher : MonoBehaviour
 
     public void FireWeapon(int selectedWeaponType, Vector3 targetPosition)
     {
-        AudioManager.instance.Play("Torpedo");
+        //AudioManager.instance.Play("Torpedo");
 
         GameObject torpedo = Instantiate(projectile[selectedWeaponType], muzzle.position, muzzle.rotation);
         torpedo.GetComponent<Rigidbody>().velocity = physicsShip.Velocity;

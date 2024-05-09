@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 149571601176292067}
   - component: {fileID: 3754852683308783033}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 3451244881547125913}
   - component: {fileID: -5460436087149116482}
   - component: {fileID: -1327268625792481488}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Laser Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 9216
+    m_Bits: 9344
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 8006601270587813900}
   - component: {fileID: 6009854461502938875}
   - component: {fileID: 1152298014392343187}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

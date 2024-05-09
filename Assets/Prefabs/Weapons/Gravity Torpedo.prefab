@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5299443819311931321}
   - component: {fileID: 3179597331244515949}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 1152101446004346145}
   - component: {fileID: 1521683360961937070}
   - component: {fileID: 4607627943970284393}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Gravity Torpedo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1446693532262897589}
   - component: {fileID: 5286751597263600984}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

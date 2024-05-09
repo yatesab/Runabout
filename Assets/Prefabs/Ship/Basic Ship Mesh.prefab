@@ -2290,27 +2290,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6409254, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 512
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 6415996, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 512
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 6434740, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 512
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 6464802, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 512
+      value: 352
       objectReference: {fileID: 0}
     - target: {fileID: 6475516, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 512
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 6502966, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 512
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 6505218, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
@@ -2318,7 +2318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6532994, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 512
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 6561504, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
@@ -2331,6 +2331,14 @@ PrefabInstance:
     - target: {fileID: 6590676, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 10891694, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
+      propertyPath: m_Range
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 10891694, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
+      propertyPath: m_Intensity
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 19930300, guid: 5f8552cfeac0c29428f4d3d1362bacae, type: 3}
       propertyPath: m_Materials.Array.size

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9166168853188749984}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: LaunchSite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4346160210307343336}
   - component: {fileID: 8391602171687161256}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: SecondaryWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ MonoBehaviour:
   centerPoint: {fileID: 4824334822082141454}
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   predictionPoint: {fileID: 7298647066763553062}
   torpedoLauncher: {fileID: 4494717039720459067}
   bombLauncher: {fileID: 3708027204080781683}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5362188597871453273}
   - component: {fileID: 3708027204080781683}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: BombLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicsShip: {fileID: 0}
   launchSite: {fileID: 9166168853188749984}
-  projectile: {fileID: 0}
+  projectile:
+  - {fileID: 0}
   MaxDistance: 0
 --- !u!1 &5499930353274291049
 GameObject:
@@ -145,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3016409184436412077}
   - component: {fileID: 4494717039720459067}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: TorpedoLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4824334822082141454}
   - component: {fileID: 6719420384107971216}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Center Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5995354586826693903}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +366,7 @@ GameObject:
   - component: {fileID: 1631560281341360272}
   - component: {fileID: 4865306143719649574}
   - component: {fileID: 3910647515580219154}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

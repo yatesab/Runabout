@@ -5,17 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Main_Menu.unity
-    guid: 035acd81fd6c88c48b570297514562ab
   - enabled: 1
-    path: Assets/Scenes/VRTK_Prototype.unity
-    guid: 85874cab65eb15d4881713971fb37d78
+    path: Assets/Scenes/Turbo Lift.unity
+    guid: d5eb9a545fa991345924929012e58c2d
+  - enabled: 1
+    path: Assets/Scenes/Ship.unity
+    guid: f50a2ffa1ff602d43bed4c86a5221af8
+  - enabled: 1
+    path: Assets/Scenes/Hanger.unity
+    guid: e1aa97b0eb7e9e74e90bcd282c68fff3
+  - enabled: 1
+    path: Assets/Scenes/Asteroid Field 1.unity
+    guid: 7e778c479ad2d2745aa5ced2167264cb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 9bec1ce6a03ccba4b9a8215241b32e63, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: a49cadc1a815591479693b955ccf08c1, type: 2}
-    com.unity.input.settings: {fileID: 11400000, guid: 800f7226d1299434e9f4c95341185e58, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1a4c68ca72a83449f938d669337cb305, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: a9a6963505ddf7f4d886008c6dc86122, type: 2}

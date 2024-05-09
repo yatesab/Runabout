@@ -24,6 +24,11 @@ public class PowerSystem : MonoBehaviour
     protected float dialTwoSetting = 0f;
     protected float dialThreeSetting = 0f;
 
+    public void Start()
+    {
+        UpdateAllPowerLevels();
+    }
+
     public float GetPowerLevel(float startingPowerLevel, float dialOne, float extraPowerOne, float patchedSystemsOne, float dialTwo, float extraPowerTwo, float patchedSystemTwo)
     {
         float power = startingPowerLevel;
