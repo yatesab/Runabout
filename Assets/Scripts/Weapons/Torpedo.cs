@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Torpedo : Projectile
 {
-    public GameObject explosionParticles;
-    public float explosionRadius = 20f;
-    public float explosionForce = 100f;
+    [SerializeField] private GameObject explosionParticles;
+    [SerializeField] private AudioSource explosionSound;
+    [SerializeField] private float explosionRadius = 20f;
+    [SerializeField] private float explosionForce = 100f;
 
     public Vector3 TargetPosition { get; set; }
 
@@ -41,10 +42,7 @@ public class Torpedo : Projectile
     protected void HandleExplodeTorpedo()
     {
         // Play Explosion Sound
-        //if (!AudioManager.instance.GetSource("Mine Explosion").isPlaying)
-        //{
-        //    AudioManager.instance.Play("Mine Explosion");
-        //}
+        explosionSound.Play(0);
 
         // Create the explosion effect at the targetPosition
         GameObject explosion = Instantiate(explosionParticles, transform.position, transform.rotation);

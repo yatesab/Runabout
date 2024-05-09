@@ -5,56 +5,61 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerTracker : MonoBehaviour
 {
-    [SerializeField] private Transform playerPlayareaParent;
     [SerializeField] private Transform playerPlayarea;
     [SerializeField] private Camera playerCamera;
 
-    [SerializeField] private Transform shipPlayareaParent;
-    [SerializeField] Transform shipPlayarea;
-    [SerializeField] private Camera shipCamera;
-
+    [Header("Player Camera Diverged Layer Mask")]
     [SerializeField] private LayerMask playerMask;
-    [SerializeField] private LayerMask shipMask;
-    private LayerMask originalPlayerMask;
-    private LayerMask originalShipMask;
 
+    private LayerMask originalPlayerMask;
+    private Transform playerPlayareaParent;
+    private GameObject shipPlayarea;
+    private Camera shipCamera;
     private bool isDiverged = false;
 
     void LateUpdate()
     {
         if (isDiverged)
         {
-            Vector3 playareaLocal = playerPlayareaParent.InverseTransformPoint(playerPlayarea.position);
-            shipPlayarea.position = shipPlayareaParent.TransformPoint(playareaLocal);
-        } else
-        {
-            shipPlayarea.position = playerPlayarea.position;
-
+            shipPlayarea.transform.localPosition = playerPlayareaParent.InverseTransformPoint(playerPlayarea.position);
+            shipPlayarea.transform.localRotation = playerPlayarea.localRotation;
         }
-
-        shipPlayarea.rotation = playerPlayarea.rotation;
-
-        //shipCamera.localPosition = playerCamera.localPosition;
-        //shipCamera.localRotation = playerCamera.localRotation;
     }
 
-    public void DivergeCamera()
+    public void DivergeCamera(CameraSpliter cameraSpliter)
     {
+        playerPlayareaParent = cameraSpliter.playerParent;
+        shipPlayarea = cameraSpliter.shipPlayarea;
+        shipCamera = cameraSpliter.shipCamera;
+
+        shipPlayarea.SetActive(true);
+
         // Add limited culling mask settings
         originalPlayerMask = playerCamera.cullingMask;
         playerCamera.cullingMask = playerMask;
 
-        originalShipMask = playerCamera.cullingMask;
-        shipCamera.cullingMask = shipMask;
+        UniversalAdditionalCameraData playerCameraData = playerCamera.GetUniversalAdditionalCameraData();
+        playerCameraData.renderType = CameraRenderType.Overlay;
+
+        UniversalAdditionalCameraData shipCameraData = shipCamera.GetUniversalAdditionalCameraData();
+        shipCameraData.cameraStack.Add(playerCamera);
 
         isDiverged = true;
     }
 
-    public void ConvergeCamera()
+    public void ConvergeCamera(CameraSpliter cameraSpliter)
     {
+        shipPlayarea.SetActive(false);
+
         // Remove limited culling mask settings
         playerCamera.cullingMask = originalPlayerMask;
-        shipCamera.cullingMask = originalShipMask;
+
+        UniversalAdditionalCameraData playerCameraData = playerCamera.GetUniversalAdditionalCameraData();
+        playerCameraData.renderType = CameraRenderType.Base;
+
+        shipCamera = null;
+        shipPlayarea = null;
+        playerPlayareaParent = null;
 
         isDiverged = false;
     }
@@ -63,8 +68,23 @@ public class PlayerTracker : MonoBehaviour
     {
         if (!isDiverged && other.tag == "Ship")
         {
-            DivergeCamera();
+            CameraSpliter cameraSpliter = other.GetComponent<CameraSpliter>();
+            DivergeCamera(cameraSpliter);
         } 
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Ship")
+        {
+            Vector3 direction = playerCamera.transform.position - other.transform.position;
+
+            if(direction.z < 0)
+            {
+                CameraSpliter cameraSpliter = other.GetComponent<CameraSpliter>();
+                ConvergeCamera(cameraSpliter);
+            }
+        }
     }
 
 }

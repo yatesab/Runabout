@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7636285574167874809}
-  - component: {fileID: 2092975156246720344}
   m_Layer: 7
   m_Name: ShipPlayArea
   m_TagString: Untagged
@@ -33,22 +32,6 @@ Transform:
   - {fileID: 4850154643261683117}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2092975156246720344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88093281576365348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2f14178851c1e4dba506d390d369de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipCamera: {fileID: 4850154643261683117}
-  playerPlayarea: {fileID: 0}
-  playerCamera: {fileID: 0}
-  shipParent: {fileID: 0}
 --- !u!1 &7123468953601113443
 GameObject:
   m_ObjectHideFlags: 0
