@@ -8,6 +8,8 @@ public class AutomaticDoor : MonoBehaviour
 
     public bool forceClosed = true;
 
+    public bool Open = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +19,12 @@ public class AutomaticDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void UpdateForceClose(bool forceClosedUpdate)
     {
-        if (_animator != null)
-        {
-            forceClosed = forceClosedUpdate;
-        }
+        forceClosed = forceClosedUpdate;
     }
 
     public void OpenDoor()

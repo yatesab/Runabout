@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class FlightStick : MonoBehaviour
@@ -11,13 +13,17 @@ public class FlightStick : MonoBehaviour
     [SerializeField] private float stickDeadZoneUpper = 0.1f;
     [SerializeField] private float stickDeadZoneLower = -0.1f;
 
-    private XRGrabInteractable interactable;
+    [Header("Strafe Action")]
+    [SerializeField] private InputActionReference strafeStickAction;
 
+    private XRGrabInteractable interactable;
+     
     // Start is called before the first frame update
     void Start()
     {
         interactable = GetComponentInChildren<XRGrabInteractable>();
 
+        interactable.selectEntered.AddListener(HandleGrabStick);
         interactable.selectExited.AddListener(HandleReleaseStick);
     }
 
@@ -48,13 +54,31 @@ public class FlightStick : MonoBehaviour
         }
     }
 
+    public void HandleGrabStick(SelectEnterEventArgs args)
+    {
+        StickGrabbed = true;
+
+        strafeStickAction.action.performed += HandleStrafeStick;
+    }
+
+    private void HandleStrafeStick(InputAction.CallbackContext obj)
+    {
+        engines.LeftRightStrafe = obj.ReadValue<Vector2>().x;
+        engines.UpDownStrafe = obj.ReadValue<Vector2>().y;
+    }
+
     public void HandleReleaseStick(SelectExitEventArgs args)
     {
+        StickGrabbed = false;
         interactable.transform.localPosition = new Vector3(0, 0, 0);
         interactable.transform.localRotation = new Quaternion(0, 0, 0, 0);
 
         engines.Pitch = 0;
         engines.Yaw = 0;
         engines.Roll = 0;
+        engines.LeftRightStrafe = 0;
+        engines.UpDownStrafe = 0;
+
+        strafeStickAction.action.performed -= HandleStrafeStick;
     }
 }

@@ -11,13 +11,24 @@ public class PlayerTracker : MonoBehaviour
     [Header("Player Camera Diverged Layer Mask")]
     [SerializeField] private LayerMask playerMask;
 
+    [Header("Startup Settings")]
+    [SerializeField] private bool startDiverged;
+    [SerializeField] private Transform playerPlayareaParent;
+    [SerializeField] private GameObject shipPlayarea;
+    [SerializeField] private Camera shipCamera;
+
     private LayerMask originalPlayerMask;
-    private Transform playerPlayareaParent;
-    private GameObject shipPlayarea;
-    private Camera shipCamera;
     private bool isDiverged = false;
 
-    void LateUpdate()
+    public void Start()
+    {
+        if(startDiverged)
+        {
+            DivergeCamera();
+        }
+    }
+
+    public void LateUpdate()
     {
         if (isDiverged)
         {
@@ -26,12 +37,15 @@ public class PlayerTracker : MonoBehaviour
         }
     }
 
-    public void DivergeCamera(CameraSpliter cameraSpliter)
+    private void SetCameraObjects(CameraSpliter cameraSpliter)
     {
         playerPlayareaParent = cameraSpliter.playerParent;
         shipPlayarea = cameraSpliter.shipPlayarea;
         shipCamera = cameraSpliter.shipCamera;
+    }
 
+    public void DivergeCamera()
+    {
         shipPlayarea.SetActive(true);
 
         // Add limited culling mask settings
@@ -47,7 +61,7 @@ public class PlayerTracker : MonoBehaviour
         isDiverged = true;
     }
 
-    public void ConvergeCamera(CameraSpliter cameraSpliter)
+    public void ConvergeCamera()
     {
         shipPlayarea.SetActive(false);
 
@@ -69,7 +83,9 @@ public class PlayerTracker : MonoBehaviour
         if (!isDiverged && other.tag == "Ship")
         {
             CameraSpliter cameraSpliter = other.GetComponent<CameraSpliter>();
-            DivergeCamera(cameraSpliter);
+            SetCameraObjects(cameraSpliter);
+
+            DivergeCamera();
         } 
     }
 
@@ -82,7 +98,9 @@ public class PlayerTracker : MonoBehaviour
             if(direction.z < 0)
             {
                 CameraSpliter cameraSpliter = other.GetComponent<CameraSpliter>();
-                ConvergeCamera(cameraSpliter);
+                SetCameraObjects(cameraSpliter);
+
+                ConvergeCamera();
             }
         }
     }

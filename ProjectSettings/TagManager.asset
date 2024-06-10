@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Anchor
   - Ship
+  - Landing
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - Player
   - Ship Exterior
   - Ship Interior
+  - Space Station
   - Target
   - Transport
-  - 
   - 
   - 
   - 

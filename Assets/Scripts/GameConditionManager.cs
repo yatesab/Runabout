@@ -1,40 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameConditionManager : MonoBehaviour
 {
-    [SerializeField] private PhysicsShip physicsShip;
-    [SerializeField] private Transform playerRig;
-    [SerializeField] private Transform PlayerPositionGameOver;
+    [SerializeField] private SceneGroup startingScenes;
 
-    [SerializeField] private GameObject PlayerMenuCanvas;
-
-    [Header("Win Condition")]
-    [SerializeField] private CargoHold cargoHold;
-    [SerializeField] private Item winItem;
-
-    private void ReparentPlayerRig(Transform newParent)
+    public void Awake()
     {
-        playerRig.SetParent(newParent);
+        foreach(SceneField scene in startingScenes.scenes)
+        {
+            SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+        }
 
-        playerRig.localPosition = new Vector3(0, 0, 0);
-        playerRig.localRotation = new Quaternion(0, 0, 0, 0);
-    }
-
-    public void ActivateGameOver()
-    {
-        physicsShip.ShutOffPower();
-        PlayerMenuCanvas.SetActive(true);
-
-        ReparentPlayerRig(PlayerPositionGameOver);
-    }
-
-    public void ActivateGameVictory()
-    {
-        physicsShip.ShutOffPower();
-        PlayerMenuCanvas.SetActive(true);
+        Application.runInBackground = true;
     }
 
     public void ResetGameScene()
@@ -50,13 +31,5 @@ public class GameConditionManager : MonoBehaviour
     public void QuitApplication()
     {
         Application.Quit();
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (cargoHold.itemsInCargoHold.Count > 0 && cargoHold.itemsInCargoHold[0].Name == winItem.Name)
-        {
-            ActivateGameVictory();
-        }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,21 +11,31 @@ public class Engines : MonoBehaviour
     public float PortThrottle { get; set; }
     public float StarboardThrottle { get; set; }
     public float YawThrottle {  get; set; }
+    public float LeftRightStrafe { get; set; }
+    public float UpDownStrafe { get; set; }
 
     [SerializeField] private Rigidbody _shipBody;
     [SerializeField] private PowerSystem powerSystem;
 
     [Header("Thrust Settings")]
     [SerializeField] private float thrust = 200f;
-    [SerializeField] private float thrustGlideReduction = -0.01f;
 
     [Header("Pitch / Yaw / Roll Settings")]
     [SerializeField] private float pitchTorque = 1000f;
     [SerializeField] private float yawTorque = 1000f;
     [SerializeField] private float rollTorque = 1000f;
 
+    [Header("Strafe Settings")]
+    [SerializeField] private float strafeAmount;
+
+
     private float thrustPercentage = 0f;
-    private float glide = 0f;
+    private AudioControl audioControl;
+
+    public void Start()
+    {
+        audioControl = GetComponent<AudioControl>();
+    }
 
     public void Update()
     {
@@ -37,6 +48,7 @@ public class Engines : MonoBehaviour
         {
             OnRotateShip();
             OnThrustShip();
+            OnStrafeShip();
         }
     }
 
@@ -44,33 +56,40 @@ public class Engines : MonoBehaviour
     {
         float totalThrust = thrust * powerSystem.EngineTotalPower;
         _shipBody.AddForce(_shipBody.transform.forward * totalThrust * thrustPercentage * Time.fixedDeltaTime, ForceMode.Force);
-        glide = thrust * thrustPercentage;
+    }
+
+    private void OnStrafeShip()
+    {
+        
+        if(LeftRightStrafe > 0f)
+        {
+            _shipBody.AddForce(_shipBody.transform.right * strafeAmount * LeftRightStrafe * Time.fixedDeltaTime, ForceMode.Force);
+        } else if (UpDownStrafe > 0f)
+        {
+            _shipBody.AddForce(_shipBody.transform.up * strafeAmount * UpDownStrafe * Time.fixedDeltaTime, ForceMode.Force);
+        }
     }
 
     private void OnThrustShip()
     {
         if (thrustPercentage >= 0.1f)
         {
-            //if (!AudioManager.instance.GetSource("Ship Engines").isPlaying)
-            //{
-            //    AudioManager.instance.Play("Ship Engines");
-            //}
+            if (!audioControl.GetSource("Engines").isPlaying)
+            {
+                audioControl.Play("Engines");
+            }
 
-            //AudioManager.instance.GetSource("Ship Engines").volume = 0.4f * thrustPercentage;
+            audioControl.GetSource("Engines").volume = 0.4f * thrustPercentage;
 
             AddForceToShip();
         }
         else
         {
-            //if (AudioManager.instance.GetSource("Ship Engines").isPlaying)
-            //{
-                // Stop Sound from engines
-                //AudioManager.instance.Stop("Ship Engines");
-            //}
-
-            // Slow forces on ship
-            _shipBody.AddForce(Vector3.back * glide * Time.fixedDeltaTime, ForceMode.Force);
-            glide *= thrustGlideReduction;
+            if (audioControl.GetSource("Engines").isPlaying)
+            {
+                //Stop Sound from engines
+                audioControl.Stop("Engines");
+            }
         }
     }
 

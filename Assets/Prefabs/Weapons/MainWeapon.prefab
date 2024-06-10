@@ -947,7 +947,7 @@ MonoBehaviour:
   centerPoint: {fileID: 1451024895506048160}
   layerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
   predictionPoint: {fileID: 8395178340091271148}
   portTurret: {fileID: 1650254171546937014}
   starboardTurret: {fileID: 5642881611911059504}

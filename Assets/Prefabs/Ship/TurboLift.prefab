@@ -1085,7 +1085,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1405400577936596936}
   - component: {fileID: 3623101430157925177}
-  - component: {fileID: 5169508550803586033}
   m_Layer: 0
   m_Name: TurboLift
   m_TagString: Untagged
@@ -1136,28 +1135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e7a3f94b790f04d9a7655a206f84de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 7531378536052490243}
---- !u!135 &5169508550803586033
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5864254497412510998}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 5
-  m_Center: {x: 0, y: 2, z: 0}
+  _automaticDoor: {fileID: 0}
 --- !u!1 &8214158454192816682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2319,11 +2297,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1413789477661092507}
   m_SourcePrefab: {fileID: 100100000, guid: ea798cfb4939d4441b95d1bd39d0767f, type: 3}
---- !u!95 &7531378536052490243 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9574882, guid: ea798cfb4939d4441b95d1bd39d0767f, type: 3}
-  m_PrefabInstance: {fileID: 7531378536062065121}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7531378536061972923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 174170, guid: ea798cfb4939d4441b95d1bd39d0767f, type: 3}
