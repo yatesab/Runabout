@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PowerSystem : MonoBehaviour
 {
+    [SerializeField] private bool powerCoreOn;
     public float WeaponPower { get; set; } = 4f;
     public float WeaponTotalPower { get; set; }
 
@@ -50,9 +51,12 @@ public class PowerSystem : MonoBehaviour
 
     protected void UpdateAllPowerLevels()
     {
-        WeaponTotalPower = GetPowerLevel(WeaponPower, dialTwoSetting, engineExtraPower, enginePatchedSystems, dialThreeSetting, shieldExtraPower, shieldPatchedSystems);
-        EngineTotalPower = GetPowerLevel(EnginePower, dialOneSetting, shieldExtraPower, shieldPatchedSystems, dialTwoSetting, weaponExtraPower, weaponPatchedSystems);
-        ShieldTotalPower = GetPowerLevel(ShieldPower, dialThreeSetting, weaponExtraPower, weaponPatchedSystems, dialOneSetting, engineExtraPower, enginePatchedSystems);
+        if (powerCoreOn)
+        {
+            WeaponTotalPower = GetPowerLevel(WeaponPower, dialTwoSetting, engineExtraPower, enginePatchedSystems, dialThreeSetting, shieldExtraPower, shieldPatchedSystems);
+            EngineTotalPower = GetPowerLevel(EnginePower, dialOneSetting, shieldExtraPower, shieldPatchedSystems, dialTwoSetting, weaponExtraPower, weaponPatchedSystems);
+            ShieldTotalPower = GetPowerLevel(ShieldPower, dialThreeSetting, weaponExtraPower, weaponPatchedSystems, dialOneSetting, engineExtraPower, enginePatchedSystems);
+        }
     }
 
     public void ChangeDialOne(int newDialSetting)
@@ -147,6 +151,8 @@ public class PowerSystem : MonoBehaviour
 
     public void ShutOffPower()
     {
+        powerCoreOn = false;
+
         EngineTotalPower = 0f;
         ShieldTotalPower = 0f;
         WeaponTotalPower = 0f;
@@ -154,6 +160,7 @@ public class PowerSystem : MonoBehaviour
 
     public void TurnOnPower()
     {
+        powerCoreOn = true;
         UpdateAllPowerLevels();
     }
 }

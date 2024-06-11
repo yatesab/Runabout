@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PhysicsShip : MonoBehaviour
@@ -9,7 +10,6 @@ public class PhysicsShip : MonoBehaviour
     [SerializeField] private ShipPart portEngine;
     [SerializeField] private ShipPart starboardEngine;
     [SerializeField] private ShipPart shipBody;
-    [SerializeField] private AutomaticDoor shipDoor;
 
     [SerializeField] private bool shipDocked;
     public Vector3 Velocity { get { return shipRigidbody.velocity; } }
@@ -21,7 +21,6 @@ public class PhysicsShip : MonoBehaviour
     private Vector3 moveToPosition;
     private Quaternion moveToRotation;
     private bool canDock = false;
-    private float lerpPercent;
 
     // Start is called before the first frame update
     void Start()
@@ -37,38 +36,37 @@ public class PhysicsShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(shipDocked)
-        {
-            SyncShip(shipInterior.position, shipInterior.rotation);
-        }
+        //if(shipDocked)
+        //{
+        //    SyncShip(shipInterior.position, shipInterior.rotation);
+        //}
 
-        if (initiateLiftOff)
-        {
-            SyncShip(Vector3.Slerp(transform.position, moveToPosition, 0.5f * Time.deltaTime), Quaternion.Slerp(transform.rotation, moveToRotation, 0.5f * Time.deltaTime));
-            float distance = Vector3.Distance(transform.position, moveToPosition);
+        //if (initiateLiftOff)
+        //{
+        //    SyncShip(Vector3.Slerp(transform.position, moveToPosition, 0.5f * Time.deltaTime), Quaternion.Slerp(transform.rotation, moveToRotation, 0.5f * Time.deltaTime));
+        //    float distance = Vector3.Distance(transform.position, moveToPosition);
+        //
+        //    if (distance <= 0f)
+        //    {
+        //        initiateLiftOff = false;
+        //
+        //        powerSystem.TurnOnPower();
+        //    }
+        //}
 
-            if (distance <= 0f)
-            {
-                initiateLiftOff = false;
 
-                powerSystem.TurnOnPower();
-            }
-        }
-
-
-        if (initiateDocking)
-        {
-            SyncShip(Vector3.Slerp(transform.position, moveToPosition, 0.5f * Time.deltaTime), Quaternion.Slerp(transform.rotation, moveToRotation, 0.5f * Time.deltaTime));
-            float distance = Vector3.Distance(transform.position, moveToPosition);
-
-            if (distance <= 0f)
-            {
-                shipDoor.forceClosed = false;
-                shipDocked = true;
-
-                initiateDocking = false;
-            }
-        }
+        //if (initiateDocking)
+        //{
+        //    SyncShip(Vector3.Slerp(transform.position, moveToPosition, 0.5f * Time.deltaTime), Quaternion.Slerp(transform.rotation, moveToRotation, 0.5f * Time.deltaTime));
+        //    float distance = Vector3.Distance(transform.position, moveToPosition);
+        //
+        //    if (distance <= 0f)
+        //    {
+        //        shipDocked = true;
+        //
+        //        initiateDocking = false;
+        //    }
+        //}
 
         if (portEngine.health <= 0 || starboardEngine.health <= 0 || shipBody.health <= 0)
         {
@@ -84,24 +82,31 @@ public class PhysicsShip : MonoBehaviour
 
     public void InitiateLiftOff()
     {
-        shipDoor.forceClosed = true;
-        shipDocked = false;
+        if (shipDocked)
+        {
+            shipDocked = false;
+            powerSystem.TurnOnPower();
+        }
 
-        initiateLiftOff = true;
+        //initiateLiftOff = true;
 
-        moveToPosition = transform.position;
-        moveToRotation = transform.rotation;
+        //moveToPosition = transform.position;
+        //moveToRotation = transform.rotation;
     }
 
     public void InitiateDockShip()
     {
         if(canDock)
         {
+            shipDocked = true;
+
+            shipRigidbody.velocity = Vector3.zero;
+            shipRigidbody.angularVelocity = Vector3.zero;
             powerSystem.ShutOffPower();
 
-            initiateDocking = true;
-            moveToPosition = shipInterior.position;
-            moveToRotation = shipInterior.rotation;
+            //initiateDocking = true;
+            //moveToPosition = shipInterior.position;
+            //moveToRotation = shipInterior.rotation;
         }
     }
 
@@ -110,6 +115,14 @@ public class PhysicsShip : MonoBehaviour
         if(other.tag == "Landing" && !shipDocked)
         {
             canDock = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Landing")
+        {
+            canDock = false;
         }
     }
 }

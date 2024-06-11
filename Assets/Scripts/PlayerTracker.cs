@@ -7,6 +7,10 @@ public class PlayerTracker : MonoBehaviour
 {
     [SerializeField] private Transform playerPlayarea;
     [SerializeField] private Camera playerCamera;
+    [SerializeField] private CharacterController characterController;
+    [SerializeField] private Transform characterBody;
+    [SerializeField] private Transform badge;
+    [SerializeField] private Transform badgeCollider;
 
     [Header("Player Camera Diverged Layer Mask")]
     [SerializeField] private LayerMask playerMask;
@@ -19,10 +23,19 @@ public class PlayerTracker : MonoBehaviour
 
     private LayerMask originalPlayerMask;
     private bool isDiverged = false;
+    private Vector3 characterCenter;
+    private Vector3 characterPosition;
+    private Vector3 characterRotation;
+    private Vector3 badgeLocation;
 
     public void Start()
     {
-        if(startDiverged)
+        characterCenter = new Vector3(playerCamera.transform.localPosition.x, characterController.height / 2, playerCamera.transform.localPosition.z);
+        characterPosition = new Vector3(playerCamera.transform.localPosition.x, 0f, playerCamera.transform.localPosition.z);
+        characterRotation = new Vector3(0f, playerCamera.transform.localEulerAngles.y, 0f);
+        badgeLocation = new Vector3(badgeCollider.localPosition.x, characterController.height - 0.3f, badgeCollider.localPosition.z);
+
+        if (startDiverged)
         {
             DivergeCamera();
         }
@@ -30,6 +43,23 @@ public class PlayerTracker : MonoBehaviour
 
     public void LateUpdate()
     {
+        characterController.height = Mathf.Clamp(playerCamera.transform.localPosition.y, 1f, 2f);
+
+        characterCenter.x = playerCamera.transform.localPosition.x;
+        characterCenter.z = playerCamera.transform.localPosition.z;
+        characterCenter.y = characterController.height / 2;
+        characterController.center = characterCenter;
+
+        characterPosition.x = playerCamera.transform.localPosition.x;
+        characterPosition.z = playerCamera.transform.localPosition.z;
+        characterBody.localPosition = characterPosition;
+
+        characterRotation.y = playerCamera.transform.localEulerAngles.y;
+        badge.localEulerAngles = characterRotation;
+
+        badgeLocation.y = characterController.height - 0.3f;
+        badgeCollider.localPosition = badgeLocation;
+
         if (isDiverged)
         {
             shipPlayarea.transform.localPosition = playerPlayareaParent.InverseTransformPoint(playerPlayarea.position);

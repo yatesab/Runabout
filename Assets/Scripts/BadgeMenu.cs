@@ -5,6 +5,7 @@ using UnityEngine;
 public class BadgeMenu : MonoBehaviour
 {
     [SerializeField] private GameObject playerMenu;
+    [SerializeField] private Transform characterBody;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +19,13 @@ public class BadgeMenu : MonoBehaviour
         
     }
 
-    public void OpenMenu()
+    public void ToggleMenu()
     {
-        playerMenu.SetActive(true);
+        playerMenu.SetActive(!playerMenu.activeSelf);
+
+        if(playerMenu.activeSelf)
+        {
+            playerMenu.transform.localEulerAngles = new Vector3(playerMenu.transform.localEulerAngles.x, characterBody.localEulerAngles.y, playerMenu.transform.localEulerAngles.z);
+        }
     }
 }
