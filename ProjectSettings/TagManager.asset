@@ -7,6 +7,7 @@ TagManager:
   - Anchor
   - Ship
   - Landing
+  - Grab
   layers:
   - Default
   - TransparentFX

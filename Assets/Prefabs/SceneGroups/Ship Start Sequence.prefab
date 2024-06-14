@@ -47,4 +47,4 @@ MonoBehaviour:
   scenes:
   - m_SceneAsset: {fileID: 102900000, guid: 7e778c479ad2d2745aa5ced2167264cb, type: 3}
     m_SceneName: Asteroid Field 1
-  groupName: Main Space Station
+  groupName: Ship Start Sequence

@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipRadar : MonoBehaviour
 {
-
+    public float RadarRadius { get { return radar.radius; } }
     private SphereCollider radar;
 
     public List<Collider> TriggerList;
@@ -14,11 +15,6 @@ public class ShipRadar : MonoBehaviour
     {
         TriggerList = new List<Collider>();
         radar = GetComponent<SphereCollider>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,7 +30,7 @@ public class ShipRadar : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         // Remove object from radar
-        if(!TriggerList.Contains(other))
+        if(TriggerList.Contains(other))
         {
             TriggerList.Remove(other);
         }
