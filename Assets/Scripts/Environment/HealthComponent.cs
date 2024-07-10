@@ -18,6 +18,6 @@ public class HealthComponent : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        
+
     }
 }

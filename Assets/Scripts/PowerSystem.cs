@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PowerSystem : MonoBehaviour
 {
     [SerializeField] private bool powerCoreOn;
+
+    public event Action onPowerLevelChange;
     public float WeaponPower { get; set; } = 4f;
     public float WeaponTotalPower { get; set; }
 
@@ -56,6 +59,11 @@ public class PowerSystem : MonoBehaviour
             WeaponTotalPower = GetPowerLevel(WeaponPower, dialTwoSetting, engineExtraPower, enginePatchedSystems, dialThreeSetting, shieldExtraPower, shieldPatchedSystems);
             EngineTotalPower = GetPowerLevel(EnginePower, dialOneSetting, shieldExtraPower, shieldPatchedSystems, dialTwoSetting, weaponExtraPower, weaponPatchedSystems);
             ShieldTotalPower = GetPowerLevel(ShieldPower, dialThreeSetting, weaponExtraPower, weaponPatchedSystems, dialOneSetting, engineExtraPower, enginePatchedSystems);
+        }
+
+        if(onPowerLevelChange !=  null)
+        {
+            onPowerLevelChange.Invoke();
         }
     }
 

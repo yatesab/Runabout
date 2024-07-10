@@ -8,7 +8,7 @@ public class Torpedo : Projectile
     [SerializeField] private AudioSource explosionSound;
     [SerializeField] private float explosionRadius = 20f;
     [SerializeField] private float explosionForce = 100f;
-
+    [SerializeField] private LayerMask includeExplosion;
     public Vector3 TargetPosition { get; set; }
 
     protected Vector3 startLocation;
@@ -56,7 +56,7 @@ public class Torpedo : Projectile
 
     protected Collider[] GetCollidersInRadius(float checkRadius)
     {
-        return Physics.OverlapSphere(transform.position, checkRadius);
+        return Physics.OverlapSphere(transform.position, checkRadius, includeExplosion, QueryTriggerInteraction.Ignore);
     }
 
     protected void AddForceToCollider(Collider collider)

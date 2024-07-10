@@ -8,6 +8,7 @@ TagManager:
   - Ship
   - Landing
   - Grab
+  - proximity
   layers:
   - Default
   - TransparentFX

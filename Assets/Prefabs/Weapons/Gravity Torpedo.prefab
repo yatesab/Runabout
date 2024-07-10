@@ -238,8 +238,12 @@ MonoBehaviour:
   speed: 200
   damage: 40
   explosionParticles: {fileID: 7211109051478047978, guid: 05473dca7729d6742ba4e79c2ab445f1, type: 3}
-  explosionRadius: 25
+  explosionSound: {fileID: 0}
+  explosionRadius: 1
   explosionForce: 3000
+  includeExplosion:
+    serializedVersion: 2
+    m_Bits: 0
   gravityWellParticles: {fileID: 797443810167428431, guid: e78d5efb54a36394a9122da450205b4b, type: 3}
   pullRadius: 50
   pullForce: 1500
@@ -263,7 +267,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 9728
+    m_Bits: 9120
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -316,7 +320,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 9216
+    m_Bits: 9120
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

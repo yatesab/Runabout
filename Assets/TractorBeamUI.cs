@@ -1,42 +1,52 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TractorBeamUI : MonoBehaviour
 {
-    [SerializeField] private GameObject grabItemPrefab;
-    
-    public ToggleGroup ToggleGroup { get; set; }
+    [SerializeField] private TractorBeam tractorBeam;
+    [SerializeField] private GameObject togglePrefab;
+    [SerializeField] private ToggleGroup toggleGroup;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        ToggleGroup = GetComponent<ToggleGroup>();
-    }
+    private List<GameObject> targets = new List<GameObject>();
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        tractorBeam.scanAction += UpdateUI;
     }
 
-    public void UpdateToggles(List<Collider> grabColliders)
+    private void DestoryOldTargets()
     {
-        DestroyAllToggles();
-
-        foreach(Collider col in grabColliders)
+        foreach (GameObject target in targets)
         {
-            GameObject item = Instantiate(grabItemPrefab, ToggleGroup.transform);
-            ToggleGroup.RegisterToggle(item.GetComponent<Toggle>());
+            Destroy(target);
+        }
+
+        targets.Clear();
+    }
+
+    private void UpdateUI()
+    {
+        DestoryOldTargets();
+
+        foreach (Collider col in tractorBeam.Targets)
+        {
+            GameObject toggleObject = Instantiate(togglePrefab, toggleGroup.transform);
+
+            toggleGroup.RegisterToggle(toggleObject.GetComponent<Toggle>());
+
+            toggleObject.GetComponentInChildren<TMP_Text>().text = col.name;
+
+            targets.Add(toggleObject);
         }
     }
 
-    private void DestroyAllToggles()
+    public void ActivateTractorBeam()
     {
-        while (ToggleGroup.transform.childCount != 0)
-        {
-            Destroy(ToggleGroup.transform.GetChild(0).gameObject);
-        }
+        Toggle firstActive = toggleGroup.GetFirstActiveToggle();
+        int index = targets.FindIndex(target => target == firstActive.gameObject);
+        tractorBeam.StartTractorBeam(index);
     }
 }

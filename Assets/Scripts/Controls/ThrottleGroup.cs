@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ThrottleGroup : MonoBehaviour
 {
-    public float LeftThrottlePercentage { get { return leftThrottle.ThrottlePercentage; } }
-    public float RightThrottlePercentage { get { return rightThrottle.ThrottlePercentage; } }
+    public Throttle LeftThrottle { get { return leftThrottle; } }
+    public Throttle RightThrottle { get { return rightThrottle; } }
 
     [SerializeField] private Engines engines;
     [SerializeField] private Throttle leftThrottle;

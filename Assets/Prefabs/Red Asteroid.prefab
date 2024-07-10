@@ -9,24 +9,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2499.9998
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2499.9998
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 87.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
       propertyPath: m_LocalRotation.w
@@ -64,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -74,6 +82,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9219562110382257726}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7096607800103992241}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6595092638526782179}
   m_SourcePrefab: {fileID: 100100000, guid: 0fbfe1c91abc14d498e850adc4b69422, type: 3}
 --- !u!1 &5324375708646526578 stripped
 GameObject:
@@ -129,3 +143,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &7096607800103992241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324375708646526578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0da9e2a9a8263f4cad7a1cb682c5266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6595092638526782179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324375708646526578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4edb12f82adaa3e4e8dbc2cae4303033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  crystal: {fileID: 3044755965202460967, guid: 683384fbebd50a947bbed21d4df51900, type: 3}

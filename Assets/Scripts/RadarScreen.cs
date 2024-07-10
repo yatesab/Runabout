@@ -11,33 +11,65 @@ public class RadarScreen : MonoBehaviour
 
     private List<GameObject> blipCollection = new List<GameObject>();
 
+    public void Start()
+    {
+        shipRadar.OnAddRadarTarget += AddBlip;
+        shipRadar.OnRemoveRadarTarget += RemoveBlip;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        float arrayCount = shipRadar.TriggerList.Count < blipCollection.Count ? blipCollection.Count : shipRadar.TriggerList.Count;
-
-        for (var i = 0; i < arrayCount; i++)
+        try
         {
-            if (shipRadar.TriggerList.Count <= i)
-            {
-                foreach(GameObject blip in blipCollection.Skip(i))
-                {
-                    Destroy(blip);
-                }
+            UpdateBlips();
+        } catch(System.Exception e)
+        {
+            Debug.Log(e.ToString());
+            
+            shipRadar.ScanRadius();
+            UpdateBlipList();
 
-                blipCollection = blipCollection.Take(i).ToList();
-                break;
-            }
-            else
-            {
-                if (blipCollection.Count <= i)
-                {
-                    blipCollection.Add(Object.Instantiate(radarBlip, transform, false));
-                }
-
-                blipCollection[i].transform.localPosition = CalculateLocation(shipRadar.transform.InverseTransformPoint(shipRadar.TriggerList[i].transform.position));
-            }
+            UpdateBlips();
         }
+    }
+
+    private void UpdateBlips()
+    {
+        for (var i = 0; i < shipRadar.TriggerList.Count; i++)
+        {
+            Vector3 newLocation = CalculateLocation(shipRadar.transform.InverseTransformPoint(shipRadar.TriggerList[i].transform.position));
+            blipCollection[i].transform.localPosition = newLocation;
+        }
+    }
+
+    private void UpdateBlipList()
+    {
+        foreach(GameObject blip in blipCollection)
+        {
+            Destroy(blip);
+        }
+
+        blipCollection.Clear();
+        foreach(Collider collider in shipRadar.TriggerList)
+        {
+            blipCollection.Add(Object.Instantiate(radarBlip, transform, false));
+        }
+    }
+
+    private void AddBlip()
+    {
+        blipCollection.Add(Object.Instantiate(radarBlip, transform, false));
+    }
+
+    private void RemoveBlip()
+    {
+        foreach (GameObject blip in blipCollection.Skip(shipRadar.TriggerList.Count))
+        {
+            Destroy(blip);
+        }
+
+        blipCollection = blipCollection.Take(shipRadar.TriggerList.Count).ToList();
     }
 
     private Vector3 CalculateLocation(Vector3 triggerPosition)

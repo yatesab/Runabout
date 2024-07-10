@@ -17,21 +17,20 @@ public class PowerPanel : MonoBehaviour
     public TMP_Text WeaponsPower;
     public TMP_Text ShieldPower;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        powerSystem.onPowerLevelChange += UpdatePowerLevels;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdatePowerLevels()
     {
         EngineTotalPower.text = powerSystem.EngineTotalPower.ToString();
-        WeaponsTotalPower.text = powerSystem.WeaponTotalPower.ToString();
-        ShieldTotalPower.text = powerSystem.ShieldTotalPower.ToString();
-
         EnginePower.text = powerSystem.EnginePower.ToString();
+
+        WeaponsTotalPower.text = powerSystem.WeaponTotalPower.ToString();
         WeaponsPower.text = powerSystem.WeaponPower.ToString();
+
+        ShieldTotalPower.text = powerSystem.ShieldTotalPower.ToString();
         ShieldPower.text = powerSystem.ShieldPower.ToString();
     }
 }

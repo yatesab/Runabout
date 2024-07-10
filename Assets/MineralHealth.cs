@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidHealth : HealthComponent
+public class MineralHealth : HealthComponent
 {
-    private Rigidbody asteroidBody;
     [SerializeField] private GameObject crystal;
 
-    public void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        float generalScale = transform.localScale.x / 2;
-
-        health = generalScale / 2;
+        
     }
 
     public override void TakeDamage(float damage)
@@ -25,7 +23,7 @@ public class AsteroidHealth : HealthComponent
             Destroy(this.gameObject);
         }
     }
-    
+
     protected override void OnDestroy()
     {
         base.OnDestroy();

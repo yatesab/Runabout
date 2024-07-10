@@ -3267,6 +3267,50 @@ PrefabInstance:
       propertyPath: sliderStartStep
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1852152595978666295}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeWeaponPowerLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateWeaponPower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PowerSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PowerPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9124685507021607060, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
       propertyPath: m_Anchor.z
       value: 0.1
@@ -3622,8 +3666,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -3634,11 +3690,67 @@ PrefabInstance:
       value: ChangeDialOne
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1852152595978666295}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1852152595978666295}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeDialOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateEnginePower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: UpdateShieldPower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PowerSystem, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PowerSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PowerPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PowerPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8160590649638493834, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
@@ -3774,6 +3886,50 @@ PrefabInstance:
     - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
       propertyPath: sliderStartStep
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1852152595978666295}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeShieldPowerLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateShieldPower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PowerSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PowerPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9124685507021607060, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
       propertyPath: m_Anchor.z
@@ -4100,6 +4256,50 @@ PrefabInstance:
     - target: {fileID: 7551423671207165149, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1852152595978666295}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeEnginePowerLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateEnginePower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PowerSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PowerPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771447405674196325, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
+      propertyPath: HandleChangeStep.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9124685507021607060, guid: 0c351accff308154e88c410eb5fcdcab, type: 3}
       propertyPath: m_Anchor.z
@@ -4447,8 +4647,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -4459,11 +4671,67 @@ PrefabInstance:
       value: ChangeDialThree
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1852152595978666295}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1852152595978666295}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeDialThree
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateShieldPower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: UpdateWeaponPower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PowerSystem, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PowerSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PowerPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PowerPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4557,8 +4825,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -4569,11 +4849,67 @@ PrefabInstance:
       value: ChangeDialTwo
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1852152595978666295}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1852152595978666295}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeDialTwo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateWeaponPower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: UpdateEnginePower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PowerSystem, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PowerSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PowerPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PowerPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
       propertyPath: DialEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178114785578924053, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}
+      propertyPath: DialStepEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8160590649638493834, guid: 798f9d8d183fe7442a7fc3222f18c605, type: 3}

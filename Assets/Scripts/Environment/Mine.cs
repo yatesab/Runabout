@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Mine : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [SerializeField] private float trackingTimeLimit = 10f;
     [SerializeField] private float damage;
+    [SerializeField] private AudioControl MineAudio;
 
     private bool isTriggered;
     private Transform _target;
@@ -30,7 +32,7 @@ public class Mine : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if(_target == null)
+        if(_target == null && collider.tag == "proximity")
         {
             isTriggered = true;
             _target = collider.transform;
@@ -59,7 +61,7 @@ public class Mine : MonoBehaviour
     {
         if (isTriggered && mineBody != null)
         {
-            trackingTime = Time.deltaTime;
+            trackingTime += Time.deltaTime;
 
             PhysicsMovement();
 
@@ -75,10 +77,10 @@ public class Mine : MonoBehaviour
     private void DestoryMine()
     {
         // Play Explosion Sound
-        //if (!AudioManager.instance.GetSource("Mine Explosion").isPlaying)
-        //{
-        //    AudioManager.instance.Play("Mine Explosion");
-        //}
+        if (!MineAudio.GetSource("Explosion").isPlaying)
+        {
+            MineAudio.Play("Explosion");
+        }
 
         // Create the explosion effect at the targetPosition
         GameObject explosion = Instantiate(explosionParticles, transform.position, transform.rotation);

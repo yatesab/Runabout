@@ -13,5 +13,7 @@ public class Asteroid : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
+
+        rb.mass = transform.localScale.x;
     }
 }

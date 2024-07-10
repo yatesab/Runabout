@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Throttle : MonoBehaviour
 {
+    public event Action onThrottleChange;
     public float ThrottlePercentage { set; get; }
     public bool Grabbed { set; get; }
     public Vector3 ThrottlePosition { get { return transform.InverseTransformPoint(throttle.position); } }
@@ -32,21 +32,38 @@ public class Throttle : MonoBehaviour
         joint.linearLimit = JointLimit;
 
         throttle.localPosition = new Vector3(throttle.localPosition.x, throttle.localPosition.y, lowerLimit);
+
+        CalculateThrottlePercentage();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float localZPosition = ThrottlePosition.z;
+        if (Grabbed)
+        {
+            CalculateThrottlePercentage();
+        }
+    }
 
-        float currentDistance = localZPosition - lowerLimit;
+    private void CalculateThrottlePercentage()
+    {
+        float newPercentage = (ThrottlePosition.z - lowerLimit) / (maxDistance);
 
-        ThrottlePercentage = (currentDistance) / (maxDistance);
+        if (newPercentage != ThrottlePercentage)
+        {
+            ThrottlePercentage = newPercentage;
+
+            if (onThrottleChange != null)
+            {
+                onThrottleChange.Invoke();
+            }
+        }
     }
 
     public void SyncThrottlePosition(Vector3 newHandlePosition)
     {
         throttle.localPosition = newHandlePosition;
+        CalculateThrottlePercentage();
     }
 
     public void ResetThrottle(SelectExitEventArgs args)

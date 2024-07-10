@@ -11,13 +11,6 @@ public class MainWeapon : WeaponControl
 
     public bool TriggerActivated { get; set; }
 
-    private AudioControl audioControl;
-
-    public void Start()
-    {
-        audioControl = GetComponent<AudioControl>();
-    }
-
     // Update is called once per frame
     public void Update()
     {

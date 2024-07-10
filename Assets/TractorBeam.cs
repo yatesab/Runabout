@@ -1,34 +1,66 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TractorBeam : MonoBehaviour
 {
     [SerializeField] private float tractorBeamScanRadius = 50f;
-    [SerializeField] private TractorBeamUI tractorBeamUI;
+    [SerializeField] private float tractorBeamStrength = 10f;
 
+    public event Action scanAction;
+    public List<Collider> Targets { get { return grabColliders; } }
     private List<Collider> grabColliders = new List<Collider>();
-    private Vector3 tractorItemPosition;
+    
+    private bool beamActivated = false;
+    private Collider currentTarget;
+    private Vector3 localTractorPosition;
+    private LineRenderer lineRenderer;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if(beamActivated)
+        {
+            currentTarget.transform.position = Vector3.Slerp(currentTarget.transform.position, transform.TransformPoint(localTractorPosition), tractorBeamStrength * Time.fixedDeltaTime);
+        }
     }
 
-    public void StartTractorBeam()
+    public void LateUpdate()
     {
-        IEnumerable<Toggle> toggles = tractorBeamUI.ToggleGroup.ActiveToggles();
+        if(beamActivated)
+        {
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, currentTarget.transform.position);
+        }
+    }
 
-        tractorItemPosition = transform.InverseTransformPoint(toggles.ToList<Toggle>[0].transform.position);
+    public void StartTractorBeam(int colliderIndex)
+    {
+        currentTarget = grabColliders[colliderIndex];
+        beamActivated = true;
+
+        currentTarget.GetComponent<Rigidbody>().isKinematic = true;
+
+        localTractorPosition = transform.InverseTransformPoint(currentTarget.transform.position);
+
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, currentTarget.transform.position);
+    }
+
+    public void StopTractorBeam()
+    {
+        beamActivated = false;
+        currentTarget.GetComponent<Rigidbody>().isKinematic = false;
+
+        currentTarget = null;
+
+        lineRenderer.positionCount = 0;
     }
 
     public void ScanArea()
@@ -36,7 +68,7 @@ public class TractorBeam : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, tractorBeamScanRadius);
 
         grabColliders.Clear();
-        foreach (var hitCollider in hitColliders)
+        foreach (Collider hitCollider in hitColliders)
         {
             if (hitCollider.tag == "Grab")
             {
@@ -44,6 +76,6 @@ public class TractorBeam : MonoBehaviour
             }
         }
 
-        tractorBeamUI.UpdateToggles(grabColliders);
+        scanAction.Invoke();
     }
 }
