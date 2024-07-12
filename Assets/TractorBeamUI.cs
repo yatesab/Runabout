@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TractorBeamUI : MonoBehaviour
 {
-    [SerializeField] private TractorBeam tractorBeam;
+    [SerializeField] private ShipTractorBeam tractorBeam;
     [SerializeField] private GameObject togglePrefab;
     [SerializeField] private ToggleGroup toggleGroup;
 
