@@ -11,7 +11,7 @@ public class SceneGroup : MonoBehaviour
 
     public int Length {  get { return scenes.Length; } }
 
-    private List<AsyncOperation> sceneLoadOperations;
+    [SerializeField] private List<AsyncOperation> sceneLoadOperations = new List<AsyncOperation>();
     private int loadingSceneIndex = 0;
 
     public void UnloadScenes()
@@ -23,7 +23,7 @@ public class SceneGroup : MonoBehaviour
                 Scene loadedScene = SceneManager.GetSceneAt(j);
                 if (loadedScene.name == scenes[i].SceneName)
                 {
-                    SceneManager.UnloadSceneAsync(scenes[i]);
+                    sceneLoadOperations.Add(SceneManager.UnloadSceneAsync(scenes[i]));
                 }
             }
         }
