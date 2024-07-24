@@ -48,3 +48,5 @@ MonoBehaviour:
   - m_SceneAsset: {fileID: 102900000, guid: 5f22bdc34b1eabf4188581258195bbda, type: 3}
     m_SceneName: Operations
   groupName: Operations
+  needsConvergedCamera: 1
+  spawnLocation: {x: 4.5, y: 10, z: 0}
