@@ -1,19 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.XR.Interaction.Toolkit;
+
+[System.Serializable]
 
 public class GameConditionManager : MonoBehaviour
 {
-    [SerializeField] private SceneGroup currentScene;
-    [SerializeField] private FadeScreen fadeScreen;
-    [SerializeField] private GameObject Player;
+    public static GameConditionManager instance { get; private set; }
+
+    [SerializeField] public SceneGroup currentScene;
+    [SerializeField] private PlayerCameraManager playerCameraManager;
 
     public void Awake()
     {
+        if(instance != null)
+        {
+            Debug.LogError("Found more than one Game Condition Manager");
+        }
+        instance = this;
+
         currentScene.LoadScenes();
 
         Application.runInBackground = true;
@@ -32,12 +36,8 @@ public class GameConditionManager : MonoBehaviour
     public IEnumerator TeleportRoutine(SceneGroup newSceneGroup)
     {
         // Turn off the movement system while we transport
-        LocomotionSystem playerMovement = Player.GetComponentInChildren<LocomotionSystem>();
-        playerMovement.gameObject.SetActive(false);
-
-        // Wait for fade out to continue
-        fadeScreen.FadeOut();
-        yield return new WaitForSeconds(fadeScreen.fadeDuration);
+        playerCameraManager.PlayerFadeOut();
+        yield return new WaitForSeconds(playerCameraManager.fadeDuration);
 
         // Wait for scenes to unload and load
         currentScene.UnloadScenes();
@@ -48,17 +48,15 @@ public class GameConditionManager : MonoBehaviour
         }
 
         // Set new location and turn back on movement
-        Player.transform.position = newSceneGroup.spawnLocation;
-        playerMovement.gameObject.SetActive(true);
+        playerCameraManager.SetNewLocation(newSceneGroup.spawnLocation);
 
         // Setup the camera for the new location
-        PlayerTracker playerTracker = Player.GetComponent<PlayerTracker>();
-        if (newSceneGroup.needsConvergedCamera && playerTracker.isDiverged)
+        if (newSceneGroup.needsConvergedCamera && playerCameraManager.isDiverged)
         {
-            Player.GetComponent<PlayerTracker>().ConvergeCamera();
-        } else if (!newSceneGroup.needsConvergedCamera && !playerTracker.isDiverged)
+            playerCameraManager.ConvergeCamera();
+        } else if (!newSceneGroup.needsConvergedCamera && !playerCameraManager.isDiverged)
         {
-            Player.GetComponent<PlayerTracker>().DivergeCamera();
+            playerCameraManager.DivergeCamera();
         }
 
         // Clear out the operation lists
@@ -66,6 +64,6 @@ public class GameConditionManager : MonoBehaviour
         newSceneGroup.ClearSceneOperationsList();
         currentScene = newSceneGroup;
 
-        fadeScreen.FadeIn();
+        playerCameraManager.PlayerFadeIn();
     }
 }

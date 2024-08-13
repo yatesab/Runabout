@@ -168,8 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScene: {fileID: 3996403316888385922, guid: bd0f71847c807f546a641f5398792b99, type: 3}
-  fadeScreen: {fileID: 777555709}
-  Player: {fileID: 3921941119908694292}
+  playerCameraManager: {fileID: 0}
 --- !u!1 &777555704
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +415,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1166839342}
     - target: {fileID: 2462430680750380870, guid: a3b4a01cd1524e748bc026f922998859, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2462430680750380870, guid: a3b4a01cd1524e748bc026f922998859, type: 3}
       propertyPath: shipCamera
       value: 
       objectReference: {fileID: 0}
@@ -527,6 +530,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 224687398955534438, guid: a3b4a01cd1524e748bc026f922998859, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7809365375526191601}
+    - targetCorrespondingSourceObject: {fileID: 224687398955534438, guid: a3b4a01cd1524e748bc026f922998859, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7809365375526191608}
   m_SourcePrefab: {fileID: 100100000, guid: a3b4a01cd1524e748bc026f922998859, type: 3}
 --- !u!4 &1036231678241127029 stripped
 Transform:
@@ -590,6 +596,29 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.76072, z: 0}
+--- !u!114 &7809365375526191608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3921941119908694292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2edfa2c5f5aca7f4eaeb47b61d1e3986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterBody: {fileID: 2054676531}
+  badge: {fileID: 1166839342}
+  badgeCollider: {fileID: 1992375177}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 352
+  startDiverged: 1
+  playerPlayareaParent: {fileID: 0}
+  shipPlayarea: {fileID: 0}
+  shipCamera: {fileID: 0}
+  isDiverged: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

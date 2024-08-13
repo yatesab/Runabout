@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneGroup : MonoBehaviour
+public class SceneGroup : MonoBehaviour 
 {
     [SerializeField] public SceneField[] scenes;
 
@@ -14,7 +13,6 @@ public class SceneGroup : MonoBehaviour
     public int Length {  get { return scenes.Length; } }
 
     [SerializeField] private List<AsyncOperation> sceneLoadOperations = new List<AsyncOperation>();
-    private int loadingSceneIndex = 0;
 
     public void UnloadScenes()
     {

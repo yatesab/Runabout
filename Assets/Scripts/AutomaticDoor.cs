@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutomaticDoor : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
+    private Animator _animator;
 
     public bool forceClosed = true;
 
@@ -13,7 +13,7 @@ public class AutomaticDoor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
