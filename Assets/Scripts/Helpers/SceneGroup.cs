@@ -4,10 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneGroup : MonoBehaviour 
 {
-    [SerializeField] public SceneField[] scenes;
-
+    public SceneField[] scenes;
+    public bool startDiverged;
     public string groupName;
-    public bool needsConvergedCamera = false;
     public Vector3 spawnLocation;
 
     public int Length {  get { return scenes.Length; } }

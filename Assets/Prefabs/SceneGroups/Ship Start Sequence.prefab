@@ -49,6 +49,6 @@ MonoBehaviour:
     m_SceneName: Ship
   - m_SceneAsset: {fileID: 102900000, guid: 7e778c479ad2d2745aa5ced2167264cb, type: 3}
     m_SceneName: Asteroid Field 1
+  startDiverged: 1
   groupName: Ship Start Sequence
-  needsConvergedCamera: 0
-  spawnLocation: {x: 0, y: 0, z: 0}
+  spawnLocation: {x: 0, y: -10, z: 2}

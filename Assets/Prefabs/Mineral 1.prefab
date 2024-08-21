@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  crystal: {fileID: 6679260595527098919, guid: c416cfd9dee714e40ba4702273dbe002, type: 3}
+  crystal: {fileID: 3044755965202460967, guid: 683384fbebd50a947bbed21d4df51900, type: 3}
 --- !u!65 &6070840698870121453
 BoxCollider:
   m_ObjectHideFlags: 0

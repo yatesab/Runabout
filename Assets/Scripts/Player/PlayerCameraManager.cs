@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -12,14 +13,13 @@ public class PlayerCameraManager : MonoBehaviour
     [SerializeField] private LayerMask playerMask;
 
     [Header("Startup Settings")]
-    [SerializeField] private bool startDiverged;
     [SerializeField] private Transform playerPlayareaParent;
     [SerializeField] private GameObject shipPlayarea;
     [SerializeField] private Camera shipCamera;
 
     public float fadeDuration { get { return fadeScreen.fadeDuration; } }
 
-    public bool isDiverged = false;
+    public bool isDiverged { get; private set; } = false;
 
     private LayerMask originalPlayerMask;
     private Vector3 characterCenter;
@@ -27,15 +27,12 @@ public class PlayerCameraManager : MonoBehaviour
     private Vector3 characterRotation;
     private Vector3 badgeLocation;
 
-    private LocomotionSystem locomotionSystem;
     private CharacterController characterController;
-
     private FadeScreen fadeScreen;
     private Camera playerCamera;
 
     public void Awake()
     {
-        locomotionSystem = GetComponent<LocomotionSystem>();
         characterController = GetComponent<CharacterController>();
 
         playerCamera = GetComponentInChildren<Camera>();
@@ -44,31 +41,24 @@ public class PlayerCameraManager : MonoBehaviour
 
     public void Start()
     {
-        characterCenter = new Vector3(playerCamera.transform.localPosition.x, characterController.height / 2, playerCamera.transform.localPosition.z);
-        characterPosition = new Vector3(playerCamera.transform.localPosition.x, 0f, playerCamera.transform.localPosition.z);
-        characterRotation = new Vector3(0f, playerCamera.transform.localEulerAngles.y, 0f);
-        badgeLocation = new Vector3(badgeCollider.localPosition.x, characterController.height - 0.3f, badgeCollider.localPosition.z);
+        SetCharacterCenter(playerCamera.transform.localPosition, characterController.height);
+        SetCharacterPosition(playerCamera.transform.localPosition);
+        SetCharacterRotation(playerCamera.transform.localEulerAngles);
 
-        if (startDiverged)
-        {
-            DivergeCamera();
-        }
+        badgeLocation = new Vector3(badgeCollider.localPosition.x, characterController.height - 0.3f, badgeCollider.localPosition.z);
     }
 
     public void LateUpdate()
     {
         characterController.height = Mathf.Clamp(playerCamera.transform.localPosition.y, 1f, 2f);
 
-        characterCenter.x = playerCamera.transform.localPosition.x;
-        characterCenter.z = playerCamera.transform.localPosition.z;
-        characterCenter.y = characterController.height / 2;
+        SetCharacterCenter(playerCamera.transform.localPosition, characterController.height);
         characterController.center = characterCenter;
 
-        characterPosition.x = playerCamera.transform.localPosition.x;
-        characterPosition.z = playerCamera.transform.localPosition.z;
+        SetCharacterPosition(playerCamera.transform.localPosition);
         characterBody.localPosition = characterPosition;
 
-        characterRotation.y = playerCamera.transform.localEulerAngles.y;
+        SetCharacterRotation(playerCamera.transform.localEulerAngles);
         badge.localEulerAngles = characterRotation;
 
         badgeLocation.y = characterController.height - 0.3f;
@@ -81,7 +71,22 @@ public class PlayerCameraManager : MonoBehaviour
         }
     }
 
-    private void SetCameraObjects(CameraSpliter cameraSpliter)
+    private void SetCharacterCenter(Vector3 newCenter, float cameraHeight)
+    {
+        characterCenter = new Vector3(newCenter.x, cameraHeight / 2, newCenter.z);
+    }
+
+    private void SetCharacterPosition(Vector3 newPosition)
+    {
+        characterPosition = new Vector3(newPosition.x, 0f, newPosition.z);
+    }
+
+    private void SetCharacterRotation(Vector3 newRotation)
+    {
+        characterRotation = new Vector3(0f, newRotation.y, 0f);
+    }
+
+    public void SetCameraObjects(CameraSpliter cameraSpliter)
     {
         playerPlayareaParent = cameraSpliter.playerParent;
         shipPlayarea = cameraSpliter.shipPlayarea;
@@ -90,48 +95,54 @@ public class PlayerCameraManager : MonoBehaviour
 
     public void DivergeCamera()
     {
-        shipPlayarea.SetActive(true);
+        if (isDiverged == false)
+        {
+            isDiverged = true;
 
-        // Add limited culling mask settings
-        originalPlayerMask = playerCamera.cullingMask;
-        playerCamera.cullingMask = playerMask;
+            shipPlayarea.SetActive(true);
 
-        UniversalAdditionalCameraData playerCameraData = playerCamera.GetUniversalAdditionalCameraData();
-        playerCameraData.renderType = CameraRenderType.Overlay;
+            // Add limited culling mask settings
+            originalPlayerMask = playerCamera.cullingMask;
+            playerCamera.cullingMask = playerMask;
 
-        UniversalAdditionalCameraData shipCameraData = shipCamera.GetUniversalAdditionalCameraData();
-        shipCameraData.cameraStack.Add(playerCamera);
+            UniversalAdditionalCameraData playerCameraData = playerCamera.GetUniversalAdditionalCameraData();
+            playerCameraData.renderType = CameraRenderType.Overlay;
 
-        isDiverged = true;
+            UniversalAdditionalCameraData shipCameraData = shipCamera.GetUniversalAdditionalCameraData();
+            shipCameraData.cameraStack.Add(playerCamera);
+        }
     }
 
     public void ConvergeCamera()
     {
-        shipPlayarea.SetActive(false);
+        if (isDiverged)
+        {
+            isDiverged = false;
 
-        // Remove limited culling mask settings
-        playerCamera.cullingMask = originalPlayerMask;
+            shipPlayarea.SetActive(false);
 
-        UniversalAdditionalCameraData playerCameraData = playerCamera.GetUniversalAdditionalCameraData();
-        playerCameraData.renderType = CameraRenderType.Base;
+            playerPlayareaParent = null;
+            shipPlayarea = null;
+            shipCamera = null;
 
-        isDiverged = false;
+            // Remove limited culling mask settings
+            playerCamera.cullingMask = originalPlayerMask;
+
+            UniversalAdditionalCameraData playerCameraData = playerCamera.GetUniversalAdditionalCameraData();
+            playerCameraData.renderType = CameraRenderType.Base;
+        }
     }
 
     public void PlayerFadeOut()
     {
         fadeScreen.FadeOut();
-        locomotionSystem.gameObject.SetActive(false);
+        PlayerConditionManager.instance.SetPlayerMovement(false);
     }
 
     public void PlayerFadeIn()
     {
-        locomotionSystem.gameObject.SetActive(true);
-    }
-
-    public void SetNewLocation(Vector3 newLocation)
-    {
-        transform.position = newLocation;
+        fadeScreen.FadeIn();
+        PlayerConditionManager.instance.SetPlayerMovement(true);
     }
 
     public void OnTriggerEnter(Collider other)

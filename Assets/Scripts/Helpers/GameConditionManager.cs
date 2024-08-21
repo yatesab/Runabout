@@ -18,7 +18,10 @@ public class GameConditionManager : MonoBehaviour
         }
         instance = this;
 
-        currentScene.LoadScenes();
+        if (currentScene != null)
+        {
+            StartCoroutine(InitialSceneLoad());
+        }
 
         Application.runInBackground = true;
     }
@@ -33,11 +36,44 @@ public class GameConditionManager : MonoBehaviour
         StartCoroutine(TeleportRoutine(newScene));
     }
 
+    private bool SetupSplitCamera()
+    {
+        GameObject cameraSpliter = GameObject.Find("Camera Spliter");
+        if (cameraSpliter != null)
+        {
+            CameraSpliter spliterObject = cameraSpliter.GetComponent<CameraSpliter>();
+            playerCameraManager.SetCameraObjects(spliterObject);
+            return true;
+        }
+
+        return false;
+    }
+
+    public IEnumerator InitialSceneLoad()
+    {
+        // First load scenes
+        currentScene.LoadScenes();
+        while (currentScene.ScenesLoading())
+        {
+            yield return null;
+        }
+
+        PlayerConditionManager.instance.SetNewLocation(currentScene.spawnLocation);
+
+        // Check startDiverged and check if we can diverge the camera
+        if (currentScene.startDiverged && SetupSplitCamera())
+        {
+            playerCameraManager.DivergeCamera();
+        }
+    }
+
     public IEnumerator TeleportRoutine(SceneGroup newSceneGroup)
     {
         // Turn off the movement system while we transport
         playerCameraManager.PlayerFadeOut();
-        yield return new WaitForSeconds(playerCameraManager.fadeDuration);
+        yield return new WaitForSeconds(playerCameraManager.fadeDuration / 2);
+
+        playerCameraManager.ConvergeCamera();
 
         // Wait for scenes to unload and load
         currentScene.UnloadScenes();
@@ -48,14 +84,10 @@ public class GameConditionManager : MonoBehaviour
         }
 
         // Set new location and turn back on movement
-        playerCameraManager.SetNewLocation(newSceneGroup.spawnLocation);
+        PlayerConditionManager.instance.SetNewLocation(newSceneGroup.spawnLocation);
 
         // Setup the camera for the new location
-        if (newSceneGroup.needsConvergedCamera && playerCameraManager.isDiverged)
-        {
-            playerCameraManager.ConvergeCamera();
-        } else if (!newSceneGroup.needsConvergedCamera && !playerCameraManager.isDiverged)
-        {
+        if (SetupSplitCamera()) {
             playerCameraManager.DivergeCamera();
         }
 
