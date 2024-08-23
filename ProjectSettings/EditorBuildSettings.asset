@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Asteroid Field 1.unity
     guid: 7e778c479ad2d2745aa5ced2167264cb
   - enabled: 1
-    path: Assets/Scenes/Operations 1.unity
+    path: Assets/Scenes/Space Station.unity
     guid: af5fb9e31681f3e4d997dbad66087814
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}

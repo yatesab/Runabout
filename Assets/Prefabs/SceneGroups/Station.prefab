@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenes:
   - m_SceneAsset: {fileID: 102900000, guid: af5fb9e31681f3e4d997dbad66087814, type: 3}
-    m_SceneName: Operations 1
+    m_SceneName: Space Station
+  startDiverged: 0
   groupName: Operations
-  needsConvergedCamera: 1
   spawnLocation: {x: 4.7, y: 10, z: 0}
