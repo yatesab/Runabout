@@ -2,10 +2,9 @@ using System.Collections;
 using UnityEngine;
 
 [System.Serializable]
-
-public class GameConditionManager : MonoBehaviour
+public class GameSceneManager : MonoBehaviour
 {
-    public static GameConditionManager instance { get; private set; }
+    public static GameSceneManager instance { get; private set; }
 
     [SerializeField] public SceneGroup currentScene;
     [SerializeField] private PlayerCameraManager playerCameraManager;
@@ -26,30 +25,12 @@ public class GameConditionManager : MonoBehaviour
         Application.runInBackground = true;
     }
 
-    public void QuitApplication()
-    {
-        Application.Quit();
-    }
-
     public void StartTransport(SceneGroup newScene)
     {
         StartCoroutine(TeleportRoutine(newScene));
     }
 
-    private bool SetupSplitCamera()
-    {
-        GameObject cameraSpliter = GameObject.Find("Camera Spliter");
-        if (cameraSpliter != null)
-        {
-            CameraSpliter spliterObject = cameraSpliter.GetComponent<CameraSpliter>();
-            playerCameraManager.SetCameraObjects(spliterObject);
-            return true;
-        }
-
-        return false;
-    }
-
-    public IEnumerator InitialSceneLoad()
+    private IEnumerator InitialSceneLoad()
     {
         // First load scenes
         currentScene.LoadScenes();
@@ -61,13 +42,13 @@ public class GameConditionManager : MonoBehaviour
         PlayerConditionManager.instance.SetNewLocation(currentScene.spawnLocation);
 
         // Check startDiverged and check if we can diverge the camera
-        if (currentScene.startDiverged && SetupSplitCamera())
+        if (currentScene.startDiverged && playerCameraManager.SetupSplitCamera())
         {
             playerCameraManager.DivergeCamera();
         }
     }
 
-    public IEnumerator TeleportRoutine(SceneGroup newSceneGroup)
+    private IEnumerator TeleportRoutine(SceneGroup newSceneGroup)
     {
         // Turn off the movement system while we transport
         playerCameraManager.PlayerFadeOut();
@@ -87,7 +68,7 @@ public class GameConditionManager : MonoBehaviour
         PlayerConditionManager.instance.SetNewLocation(newSceneGroup.spawnLocation);
 
         // Setup the camera for the new location
-        if (SetupSplitCamera()) {
+        if (playerCameraManager.SetupSplitCamera()) {
             playerCameraManager.DivergeCamera();
         }
 

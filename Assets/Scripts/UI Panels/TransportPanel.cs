@@ -6,6 +6,6 @@ public class TransportPanel : MonoBehaviour
 
     public void StartTransport()
     {
-        GameConditionManager.instance.StartTransport(newScene);
+        GameSceneManager.instance.StartTransport(newScene);
     }
 }

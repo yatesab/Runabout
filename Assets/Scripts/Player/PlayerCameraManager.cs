@@ -145,6 +145,19 @@ public class PlayerCameraManager : MonoBehaviour
         PlayerConditionManager.instance.SetPlayerMovement(true);
     }
 
+    public bool SetupSplitCamera()
+    {
+        GameObject cameraSpliter = GameObject.Find("Camera Spliter");
+        if (cameraSpliter != null)
+        {
+            CameraSpliter spliterObject = cameraSpliter.GetComponent<CameraSpliter>();
+            SetCameraObjects(spliterObject);
+            return true;
+        }
+
+        return false;
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (!isDiverged && other.tag == "Ship")

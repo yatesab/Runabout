@@ -125,4 +125,9 @@ public class PhysicsShip : MonoBehaviour
             canDock = false;
         }
     }
+
+    void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("Particles Hit My Engines!!!");
+    }
 }

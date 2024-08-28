@@ -7,8 +7,11 @@ public class PullLever : MonoBehaviour
 {
     [SerializeField] private float retractionSpeed = 0.3f;
 
+    public float pullPercentage = 0;
+
     private Vector3 startPoint;
     private Coroutine resethandleRoutine;
+    private bool isGrabbed;
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +23,17 @@ public class PullLever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CalculateMovementPercentage();
     }
 
-    public void StopReset()
+    public void CalculateMovementPercentage()
     {
+        pullPercentage = (transform.position.y - startPoint.y) / (0.05f);
+    }
+
+    public void GrabbedHandle()
+    {
+        isGrabbed = true;
         if (resethandleRoutine != null)
         {
             StopCoroutine(resethandleRoutine);
@@ -32,8 +41,9 @@ public class PullLever : MonoBehaviour
         }
     }
 
-    public void ResetHandle()
+    public void ReleaseHandle()
     {
+        isGrabbed = false;
         resethandleRoutine = StartCoroutine(MoveHandle());
     }
 

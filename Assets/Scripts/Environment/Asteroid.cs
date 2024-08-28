@@ -11,9 +11,9 @@ public class Asteroid : MonoBehaviour
     {
         transform.localRotation = new Quaternion(Random.Range(0f, 50f), Random.Range(0f, 50f), Random.Range(0f, 50f), Random.Range(0f, 50f));
 
-        rb = GetComponent<Rigidbody>();
-        rb.useGravity = false;
+        //rb = GetComponent<Rigidbody>();
+        //rb.useGravity = false;
 
-        rb.mass = transform.localScale.x;
+        //rb.mass = transform.localScale.x;
     }
 }
