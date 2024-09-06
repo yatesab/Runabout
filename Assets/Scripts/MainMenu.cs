@@ -12,67 +12,34 @@ public class MainMenu : Menu
     [SerializeField] private SceneGroup[] scenesToLoad;
 
     private SceneGroup currentSceneSelection;
-    private List<AsyncOperation> sceneLoadOperations;
 
-    public void Awake()
+    public void StartNewGame()
     {
-        currentSceneSelection = scenesToLoad[1];
-        sceneLoadOperations = new List<AsyncOperation>();
+
     }
 
     public void LoadNewScene(string sceneGroup)
     {
+        GetNewSceneGroup(sceneGroup);
 
-        if(sceneGroup != currentSceneSelection.groupName)
+        if (currentSceneSelection != null)
         {
-            StartCoroutine(LoadNewSceneGroupAsync(sceneGroup));
+            PlayerConditionManager.LoadPlayerData();
+            GameSceneManager.instance.StartTransport(currentSceneSelection);
+        } else
+        {
+            Debug.LogError("No Scene with that name to load");
         }
     }
 
-    private void ForceOpenDoor()
-    {
-        _automaticDoor.UpdateForceClose(false);
-        _automaticDoor.OpenDoor();
-    }
-
-    private void ForceDoorClosed()
-    {
-        _automaticDoor.UpdateForceClose(true);
-        _automaticDoor.CloseDoor();
-    }
-
-    private void SetNewSceneGroup(string sceneGroupName)
+    private void GetNewSceneGroup(string sceneGroupName)
     {
         for(int sceneGroupIndex = 0;  sceneGroupIndex < scenesToLoad.Length; sceneGroupIndex++)
         {
             if (scenesToLoad[sceneGroupIndex].groupName == sceneGroupName)
             {
                 currentSceneSelection = scenesToLoad[sceneGroupIndex];
-                sceneLoadOperations = new List<AsyncOperation>();
             }
         }
-    }
-
-    private IEnumerator LoadNewSceneGroupAsync(string groupName)
-    {
-        ForceDoorClosed();
-
-        while (_automaticDoor.Open)
-        {
-            yield return null;
-        }
-
-        currentSceneSelection.UnloadScenes();
-
-        SetNewSceneGroup(groupName);
-
-        currentSceneSelection.LoadScenes();
-
-        while (currentSceneSelection.ScenesLoading())
-        {
-            yield return null;
-        }
-
-        ForceOpenDoor();
     }
 }

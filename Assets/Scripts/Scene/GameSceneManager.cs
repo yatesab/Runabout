@@ -6,8 +6,8 @@ public class GameSceneManager : MonoBehaviour
 {
     public static GameSceneManager instance { get; private set; }
 
-    [SerializeField] public SceneGroup currentScene;
-    [SerializeField] private PlayerCameraManager playerCameraManager;
+    [SerializeField] private SceneGroup startMenuSceneGroup;
+    [SerializeField] private SceneGroup currentScene;
 
     public void Awake()
     {
@@ -17,12 +17,26 @@ public class GameSceneManager : MonoBehaviour
         }
         instance = this;
 
-        if (currentScene != null)
-        {
-            StartCoroutine(InitialSceneLoad());
+        // Set current scene in nothing is selected to start menu
+        if(currentScene == null){
+            currentScene = startMenuSceneGroup;
         }
 
+        StartCoroutine(LoadCurrentSceneGroup());
+
         Application.runInBackground = true;
+    }
+
+    public void SaveGameState()
+    {
+        PlayerConditionManager.instance.SavePlayerData();
+        ShipConditionManager.instance.SaveShipData();
+    }
+
+    public void LoadGameState()
+    {
+        PlayerConditionManager.instance.LoadPlayerData();
+        ShipConditionManager.instance.LoadShipData();
     }
 
     public void StartTransport(SceneGroup newScene)
@@ -30,7 +44,7 @@ public class GameSceneManager : MonoBehaviour
         StartCoroutine(TeleportRoutine(newScene));
     }
 
-    private IEnumerator InitialSceneLoad()
+    private IEnumerator LoadCurrentSceneGroup()
     {
         // First load scenes
         currentScene.LoadScenes();
@@ -39,22 +53,23 @@ public class GameSceneManager : MonoBehaviour
             yield return null;
         }
 
-        PlayerConditionManager.instance.SetNewLocation(currentScene.spawnLocation);
+        // Set player to location
+        //PlayerConditionManager.instance.SetNewLocation(currentScene.spawnLocation);
 
         // Check startDiverged and check if we can diverge the camera
-        if (currentScene.startDiverged && playerCameraManager.SetupSplitCamera())
+        if (currentScene.startDiverged)
         {
-            playerCameraManager.DivergeCamera();
+            PlayerConditionManager.instance.SetupSplitCamera();
         }
     }
 
     private IEnumerator TeleportRoutine(SceneGroup newSceneGroup)
     {
         // Turn off the movement system while we transport
-        playerCameraManager.PlayerFadeOut();
-        yield return new WaitForSeconds(playerCameraManager.fadeDuration / 2);
+        PlayerConditionManager.instance.PlayerFadeOut();
+        yield return new WaitForSeconds(PlayerConditionManager.instance.CameraFadeDuration / 2);
 
-        playerCameraManager.ConvergeCamera();
+        PlayerConditionManager.instance.AttemptConvergeCamera();
 
         // Wait for scenes to unload and load
         currentScene.UnloadScenes();
@@ -68,15 +83,13 @@ public class GameSceneManager : MonoBehaviour
         PlayerConditionManager.instance.SetNewLocation(newSceneGroup.spawnLocation);
 
         // Setup the camera for the new location
-        if (playerCameraManager.SetupSplitCamera()) {
-            playerCameraManager.DivergeCamera();
-        }
+        PlayerConditionManager.instance.SetupSplitCamera();
 
         // Clear out the operation lists
         currentScene.ClearSceneOperationsList();
         newSceneGroup.ClearSceneOperationsList();
         currentScene = newSceneGroup;
 
-        playerCameraManager.PlayerFadeIn();
+        PlayerConditionManager.instance.PlayerFadeIn();
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3728601634267533337}
   - component: {fileID: 3996403316888385922}
   m_Layer: 0
-  m_Name: Asteroid Field
+  m_Name: Start Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,12 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenes:
-  - m_SceneAsset: {fileID: 102900000, guid: af5fb9e31681f3e4d997dbad66087814, type: 3}
-    m_SceneName: Space Station
-  - m_SceneAsset: {fileID: 102900000, guid: 7e778c479ad2d2745aa5ced2167264cb, type: 3}
-    m_SceneName: Asteroid Field 1
-  - m_SceneAsset: {fileID: 102900000, guid: f50a2ffa1ff602d43bed4c86a5221af8, type: 3}
-    m_SceneName: Ship
+  - m_SceneAsset: {fileID: 102900000, guid: d5eb9a545fa991345924929012e58c2d, type: 3}
+    m_SceneName: Main Menu
   startDiverged: 0
   groupName: Operations
-  spawnLocation: {x: 4.7, y: 0, z: 0}
+  spawnLocation: {x: 0, y: 0, z: 0}

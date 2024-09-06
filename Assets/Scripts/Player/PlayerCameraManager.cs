@@ -17,8 +17,6 @@ public class PlayerCameraManager : MonoBehaviour
     [SerializeField] private GameObject shipPlayarea;
     [SerializeField] private Camera shipCamera;
 
-    public float fadeDuration { get { return fadeScreen.fadeDuration; } }
-
     public bool isDiverged { get; private set; } = false;
 
     private LayerMask originalPlayerMask;
@@ -28,7 +26,6 @@ public class PlayerCameraManager : MonoBehaviour
     private Vector3 badgeLocation;
 
     private CharacterController characterController;
-    private FadeScreen fadeScreen;
     private Camera playerCamera;
 
     public void Awake()
@@ -36,7 +33,6 @@ public class PlayerCameraManager : MonoBehaviour
         characterController = GetComponent<CharacterController>();
 
         playerCamera = GetComponentInChildren<Camera>();
-        fadeScreen = GetComponentInChildren<FadeScreen>();
     }
 
     public void Start()
@@ -115,34 +111,19 @@ public class PlayerCameraManager : MonoBehaviour
 
     public void ConvergeCamera()
     {
-        if (isDiverged)
-        {
-            isDiverged = false;
+        isDiverged = false;
 
-            shipPlayarea.SetActive(false);
+        shipPlayarea.SetActive(false);
 
-            playerPlayareaParent = null;
-            shipPlayarea = null;
-            shipCamera = null;
+        playerPlayareaParent = null;
+        shipPlayarea = null;
+        shipCamera = null;
 
-            // Remove limited culling mask settings
-            playerCamera.cullingMask = originalPlayerMask;
+        // Remove limited culling mask settings
+        playerCamera.cullingMask = originalPlayerMask;
 
-            UniversalAdditionalCameraData playerCameraData = playerCamera.GetUniversalAdditionalCameraData();
-            playerCameraData.renderType = CameraRenderType.Base;
-        }
-    }
-
-    public void PlayerFadeOut()
-    {
-        fadeScreen.FadeOut();
-        PlayerConditionManager.instance.SetPlayerMovement(false);
-    }
-
-    public void PlayerFadeIn()
-    {
-        fadeScreen.FadeIn();
-        PlayerConditionManager.instance.SetPlayerMovement(true);
+        UniversalAdditionalCameraData playerCameraData = playerCamera.GetUniversalAdditionalCameraData();
+        playerCameraData.renderType = CameraRenderType.Base;
     }
 
     public bool SetupSplitCamera()
