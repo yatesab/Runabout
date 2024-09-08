@@ -10,12 +10,20 @@ public class MainMenu : Menu
     [SerializeField] private AutomaticDoor _automaticDoor;
 
     [SerializeField] private SceneGroup[] scenesToLoad;
+    [SerializeField] private SceneGroup newGameSceneGroup;
 
     private SceneGroup currentSceneSelection;
 
     public void StartNewGame()
     {
+        GameSaveManager.CreateNewPlayerData(newGameSceneGroup.spawnLocation);
+        GameSaveManager.CreateNewShipData();
 
+        PlayerConditionManager.instance.PlayerFadeOut();
+        PlayerConditionManager.instance.LoadPlayerData();
+
+        currentSceneSelection = newGameSceneGroup;
+        GameSceneManager.instance.StartTransport(currentSceneSelection);
     }
 
     public void LoadNewScene(string sceneGroup)
@@ -24,7 +32,7 @@ public class MainMenu : Menu
 
         if (currentSceneSelection != null)
         {
-            PlayerConditionManager.LoadPlayerData();
+            PlayerConditionManager.instance.LoadPlayerData();
             GameSceneManager.instance.StartTransport(currentSceneSelection);
         } else
         {

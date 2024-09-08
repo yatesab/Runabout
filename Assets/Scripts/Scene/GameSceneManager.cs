@@ -7,6 +7,7 @@ public class GameSceneManager : MonoBehaviour
     public static GameSceneManager instance { get; private set; }
 
     [SerializeField] private SceneGroup startMenuSceneGroup;
+    public Vector3 SpwanLoaction { get { return currentScene.spawnLocation; } }
     [SerializeField] private SceneGroup currentScene;
 
     public void Awake()
@@ -22,9 +23,14 @@ public class GameSceneManager : MonoBehaviour
             currentScene = startMenuSceneGroup;
         }
 
-        StartCoroutine(LoadCurrentSceneGroup());
+        StartCoroutine(LoadSceneGroup(currentScene));
 
         Application.runInBackground = true;
+    }
+
+    public void LoadMainMenu()
+    {
+        StartCoroutine(TeleportRoutine(startMenuSceneGroup));
     }
 
     public void SaveGameState()
@@ -44,20 +50,20 @@ public class GameSceneManager : MonoBehaviour
         StartCoroutine(TeleportRoutine(newScene));
     }
 
-    private IEnumerator LoadCurrentSceneGroup()
+    private IEnumerator LoadSceneGroup(SceneGroup sceneGroup)
     {
         // First load scenes
-        currentScene.LoadScenes();
+        sceneGroup.LoadScenes();
         while (currentScene.ScenesLoading())
         {
             yield return null;
         }
 
         // Set player to location
-        //PlayerConditionManager.instance.SetNewLocation(currentScene.spawnLocation);
+        PlayerConditionManager.instance.SetNewLocation(sceneGroup.spawnLocation);
 
         // Check startDiverged and check if we can diverge the camera
-        if (currentScene.startDiverged)
+        if (sceneGroup.startDiverged)
         {
             PlayerConditionManager.instance.SetupSplitCamera();
         }
@@ -67,7 +73,7 @@ public class GameSceneManager : MonoBehaviour
     {
         // Turn off the movement system while we transport
         PlayerConditionManager.instance.PlayerFadeOut();
-        yield return new WaitForSeconds(PlayerConditionManager.instance.CameraFadeDuration / 2);
+        yield return new WaitForSeconds(PlayerConditionManager.instance.CameraFadeDuration);
 
         PlayerConditionManager.instance.AttemptConvergeCamera();
 
@@ -82,14 +88,14 @@ public class GameSceneManager : MonoBehaviour
         // Set new location and turn back on movement
         PlayerConditionManager.instance.SetNewLocation(newSceneGroup.spawnLocation);
 
-        // Setup the camera for the new location
-        PlayerConditionManager.instance.SetupSplitCamera();
-
         // Clear out the operation lists
         currentScene.ClearSceneOperationsList();
         newSceneGroup.ClearSceneOperationsList();
         currentScene = newSceneGroup;
 
         PlayerConditionManager.instance.PlayerFadeIn();
+
+        // Setup the camera for the new location
+        PlayerConditionManager.instance.SetupSplitCamera();
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3728601634267533337}
   - component: {fileID: 3996403316888385922}
   m_Layer: 0
-  m_Name: Start Menu
+  m_Name: Main Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,5 +48,5 @@ MonoBehaviour:
   - m_SceneAsset: {fileID: 102900000, guid: d5eb9a545fa991345924929012e58c2d, type: 3}
     m_SceneName: Main Menu
   startDiverged: 0
-  groupName: Operations
+  groupName: Main Menu
   spawnLocation: {x: 0, y: 0, z: 0}

@@ -29,7 +29,10 @@ public class ShipConditionManager : MonoBehaviour
     public void LoadShipData()
     {
         ShipData shipData = GameSaveManager.LoadShipData();
-        physicsShip.transform.position = shipData.GetLocationData();
-        physicsShip.transform.rotation = shipData.GetRotationData();
+
+        Rigidbody shipBody = physicsShip.GetComponent<Rigidbody>();
+
+        shipBody.position = shipData.Position;
+        shipBody.rotation = shipData.Rotation;
     }
 }

@@ -11,6 +11,7 @@ public class PlayerConditionManager : MonoBehaviour
     private PlayerCameraManager playerCameraManager;
     private LocomotionSystem locomotionSystem;
     private FadeScreen fadeScreen;
+    private CharacterController characterController;
 
     public void Awake()
     {
@@ -23,16 +24,19 @@ public class PlayerConditionManager : MonoBehaviour
         playerCameraManager = GetComponentInChildren<PlayerCameraManager>();
         locomotionSystem = GetComponentInChildren<LocomotionSystem>();
         fadeScreen = GetComponentInChildren<FadeScreen>();
+        characterController = GetComponentInChildren<CharacterController>();
     }
     public void PlayerFadeOut()
     {
         fadeScreen.FadeOut();
+        characterController.enabled = false;
         SetPlayerMovement(false);
     }
 
     public void PlayerFadeIn()
     {
         fadeScreen.FadeIn();
+        characterController.enabled = true;
         SetPlayerMovement(true);
     }
 
@@ -70,7 +74,7 @@ public class PlayerConditionManager : MonoBehaviour
     public void LoadPlayerData()
     {
         PlayerData playerData = GameSaveManager.LoadPlayerData();
-        playerCameraManager.transform.position = playerData.GetLocationData();
-        playerCameraManager.transform.rotation = playerData.GetRotationData();
+        playerCameraManager.transform.position = playerData.Position;
+        playerCameraManager.transform.rotation = playerData.Rotation;
     }
 }
