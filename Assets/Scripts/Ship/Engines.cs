@@ -19,6 +19,7 @@ public class Engines : MonoBehaviour
 
     [Header("Thrust Settings")]
     [SerializeField] private float thrust = 200f;
+    [SerializeField] private float thrustGlideReduction = 0.5f;
 
     [Header("Pitch / Yaw / Roll Settings")]
     [SerializeField] private float pitchTorque = 1000f;
@@ -30,6 +31,7 @@ public class Engines : MonoBehaviour
 
 
     private float thrustPercentage = 0f;
+    private float glide = 0f;
     private AudioControl audioControl;
 
     public void Start()
@@ -55,7 +57,7 @@ public class Engines : MonoBehaviour
     private void AddForceToShip()
     {
         float totalThrust = thrust * powerSystem.EngineTotalPower;
-        _shipBody.AddForce(_shipBody.transform.forward * totalThrust * thrustPercentage * Time.fixedDeltaTime, ForceMode.Force);
+        _shipBody.AddRelativeForce(Vector3.forward * totalThrust * thrustPercentage * Time.fixedDeltaTime);
     }
 
     private void OnStrafeShip()
@@ -72,6 +74,8 @@ public class Engines : MonoBehaviour
 
     private void OnThrustShip()
     {
+        //_shipBody.velocity = _shipBody.velocity * thrustGlideReduction * Time.fixedDeltaTime;
+
         if (thrustPercentage >= 0.1f)
         {
             if (!audioControl.GetSource("Engines").isPlaying)

@@ -9,7 +9,6 @@ public class PhysicsShip : MonoBehaviour
 
     [SerializeField] private ShipPart portEngine;
     [SerializeField] private ShipPart starboardEngine;
-    [SerializeField] private ShipPart shipBody;
 
     [SerializeField] private bool shipDocked;
     public Vector3 Velocity { get { return shipRigidbody.velocity; } }
@@ -68,7 +67,7 @@ public class PhysicsShip : MonoBehaviour
         //    }
         //}
 
-        if (portEngine.health <= 0 || starboardEngine.health <= 0 || shipBody.health <= 0)
+        if (portEngine.health <= 0 || starboardEngine.health <= 0)
         {
             // Do Something When Part Is Destroyed
         }

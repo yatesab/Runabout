@@ -7,4 +7,6 @@ public class Item : ScriptableObject
 {
     public string Name;
     public float Weight;
+    public float bufferSize;
+    public GameObject itemObject;
 }
