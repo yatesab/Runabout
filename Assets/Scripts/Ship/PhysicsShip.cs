@@ -67,10 +67,10 @@ public class PhysicsShip : MonoBehaviour
         //    }
         //}
 
-        if (portEngine.health <= 0 || starboardEngine.health <= 0)
-        {
-            // Do Something When Part Is Destroyed
-        }
+        //if (portEngine.health <= 0 || starboardEngine.health <= 0)
+        //{
+        //    // Do Something When Part Is Destroyed
+        //}
     }
 
     private void SyncShip(Vector3 newPosition, Quaternion newRotation)
