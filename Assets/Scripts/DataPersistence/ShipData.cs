@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ShipData
 {
-    public int oreCollected;
+    public int deliveryPoints;
 
     public Vector3 Position
     {
@@ -40,9 +40,9 @@ public class ShipData
     }
     public float[] shipRotation;
 
-    public ShipData(Vector3 position, Quaternion rotation)
+    public ShipData(Vector3 position, Quaternion rotation, int startingPoints)
     {
-        oreCollected = 0;
+        deliveryPoints = startingPoints;
 
         shipLocation = new float[3];
         shipLocation[0] = position.x;

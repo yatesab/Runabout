@@ -14,6 +14,8 @@ public class Engines : MonoBehaviour
     public float LeftRightStrafe { get; set; }
     public float UpDownStrafe { get; set; }
 
+    public bool isReversed { get; set; } = true;
+
     [SerializeField] private Rigidbody _shipBody;
     [SerializeField] private PowerSystem powerSystem;
 
@@ -57,7 +59,14 @@ public class Engines : MonoBehaviour
     private void AddForceToShip()
     {
         float totalThrust = thrust * powerSystem.EngineTotalPower;
-        _shipBody.AddRelativeForce(Vector3.forward * totalThrust * thrustPercentage * Time.fixedDeltaTime);
+        Vector3 forward = Vector3.forward;
+
+        if (isReversed)
+        {
+            forward *= -1;
+        }
+
+        _shipBody.AddRelativeForce(forward * totalThrust * thrustPercentage * Time.fixedDeltaTime);
     }
 
     private void OnStrafeShip()

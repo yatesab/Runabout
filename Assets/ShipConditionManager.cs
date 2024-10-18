@@ -6,7 +6,10 @@ public class ShipConditionManager : MonoBehaviour
 {
     public static ShipConditionManager instance { get; private set; }
 
+    [SerializeField] private int deliveryPoints = 0;
+
     private PhysicsShip physicsShip;
+
 
     void Awake()
     {
@@ -23,7 +26,7 @@ public class ShipConditionManager : MonoBehaviour
 
     public void SaveShipData()
     {
-        GameSaveManager.SaveShipData(physicsShip.transform);
+        GameSaveManager.SaveShipData(physicsShip.transform, deliveryPoints);
     }
 
     public void LoadShipData()
@@ -34,5 +37,11 @@ public class ShipConditionManager : MonoBehaviour
 
         shipBody.position = shipData.Position;
         shipBody.rotation = shipData.Rotation;
+        deliveryPoints = shipData.deliveryPoints;
+    }
+
+    public void AddDeliveryPoints(int newPoints)
+    {
+        deliveryPoints += newPoints;
     }
 }

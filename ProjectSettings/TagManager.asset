@@ -9,6 +9,7 @@ TagManager:
   - Landing
   - Grab
   - proximity
+  - delivery
   layers:
   - Default
   - TransparentFX

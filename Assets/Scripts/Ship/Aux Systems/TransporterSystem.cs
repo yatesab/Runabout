@@ -6,30 +6,54 @@ using TMPro;
 
 public class TransporterSystem : MonoBehaviour
 {
-    public LayerMask transportLayer;
+    [SerializeField] private LayerMask m_LayerMask;
+    [SerializeField] private List<Collider> teleportAreaItemList;
+    [SerializeField] private GameObject[] startingItems;
 
-    [SerializeField] private CargoHold cargoHold;
+    private Queue<GameObject> bufferItems = new Queue<GameObject>();
+    private int maxBufferSize = 2;
 
-    public void ScanAreaForTransportItems()
+    public void Start()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 100, transportLayer);
-
-        foreach (Collider collider in colliders)
+        // If starting items provided then we enqueue them
+        if (startingItems.Length > 0)
         {
-            TransportLocation transportLocation = collider.GetComponent<TransportLocation>();
-
-            foreach (Item transportItem in transportLocation.transporterItems)
+            foreach (var item in startingItems)
             {
-                // Eventually this will just fill a list that is used.
-                cargoHold.AddToCargoHold(transportItem);
+                bufferItems.Enqueue(item);
             }
-
-            transportLocation.transporterItems = new Item[0];
         }
     }
 
-    public void InitiateTransport()
+    public void LoadNextBufferItem()
     {
-        ScanAreaForTransportItems();
+        if (bufferItems.Count > 0 && teleportAreaItemList.Count <= 0)
+        {
+            GameObject newItem = bufferItems.Dequeue();
+            Object.Instantiate(newItem, transform.position, transform.rotation);
+        }
+    }
+
+    public void TransportDeliveryItems()
+    {
+        if (Physics.CheckSphere(transform.position, 100f, m_LayerMask, QueryTriggerInteraction.Collide) && teleportAreaItemList.Count > 0)
+        {
+            for (int i = 0; i < teleportAreaItemList.Count; i++)
+            {
+                ShipConditionManager.instance.AddDeliveryPoints(1);
+
+                Destroy(teleportAreaItemList[i]);
+            }
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        teleportAreaItemList.Add(other);
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        teleportAreaItemList.Remove(other);
     }
 }
