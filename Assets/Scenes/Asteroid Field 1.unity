@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 2eabf7ad32b2a8d4db29a71c28ce3072, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: a399013b700a8584b95da724ce4d8856, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -174,7 +174,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (32)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -238,7 +239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3164728155195755539, guid: c7845f859afa18c4f8f55ccc830b6d4e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -320,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135511341019357802, guid: a2daf3484d48a314cb549d2688f9f96c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -409,7 +410,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -511,7 +513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -525,80 +527,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8257356929583506325, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
   m_PrefabInstance: {fileID: 96550719}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &111923930
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 772977802}
-    m_Modifications:
-    - target: {fileID: 3991665329389817943, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_TagString
-      value: proximity
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 65.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 174.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 726.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859371695519972067, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Name
-      value: Mine Sample 1 (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886115312722844619, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399050239526552833, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: Explosion
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
---- !u!4 &111923931 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-  m_PrefabInstance: {fileID: 111923930}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &119594850
 PrefabInstance:
@@ -664,7 +592,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -751,7 +680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066557174355506708, guid: 9ab5d6a098ffb844b9399e192b9cea8e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -818,7 +747,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (19)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -898,7 +828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647939916085955226, guid: f1c113d026a6a2f4a8e71c9cef1e170d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1000,7 +930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135511341019357802, guid: a2daf3484d48a314cb549d2688f9f96c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1096,7 +1026,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1158,7 +1089,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (35)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1242,7 +1174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3432221324897472966, guid: 254b91af02ebd624288abf5570c33e6e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3792399686693253139, guid: 254b91af02ebd624288abf5570c33e6e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1360,7 +1292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1445,7 +1377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7766365561067514277, guid: e93a22973a8b48c41942ebbfb06b8340, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1460,59 +1392,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6957072933100581663, guid: e93a22973a8b48c41942ebbfb06b8340, type: 3}
   m_PrefabInstance: {fileID: 282070630}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &284126927
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 284126928}
-  - component: {fileID: 284126929}
-  m_Layer: 11
-  m_Name: Delivery Point
-  m_TagString: delivery
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &284126928
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284126927}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 200}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &284126929
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284126927}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &297295614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1595,7 +1474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1679,7 +1558,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (34)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1743,7 +1623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3164728155195755539, guid: c7845f859afa18c4f8f55ccc830b6d4e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1807,7 +1687,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (17)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1916,7 +1797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2045,7 +1926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066557174355506708, guid: 9ab5d6a098ffb844b9399e192b9cea8e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2059,80 +1940,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3685211788757363886, guid: 9ab5d6a098ffb844b9399e192b9cea8e, type: 3}
   m_PrefabInstance: {fileID: 361298341}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &374090393
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 772977802}
-    m_Modifications:
-    - target: {fileID: 3991665329389817943, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_TagString
-      value: proximity
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 65.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 175
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4816
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859371695519972067, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Name
-      value: Mine Sample 1 (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886115312722844619, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399050239526552833, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: Explosion
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
---- !u!4 &374090394 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-  m_PrefabInstance: {fileID: 374090393}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &382977890
 PrefabInstance:
@@ -2186,7 +1993,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2270,7 +2078,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (25)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2368,7 +2177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135511341019357802, guid: a2daf3484d48a314cb549d2688f9f96c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2469,7 +2278,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (27)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2533,7 +2343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3164728155195755539, guid: c7845f859afa18c4f8f55ccc830b6d4e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2627,7 +2437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2694,7 +2504,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (13)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2787,7 +2598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135511341019357802, guid: a2daf3484d48a314cb549d2688f9f96c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2878,7 +2689,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2958,7 +2770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647939916085955226, guid: f1c113d026a6a2f4a8e71c9cef1e170d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3055,7 +2867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066557174355506708, guid: 9ab5d6a098ffb844b9399e192b9cea8e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3122,7 +2934,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (30)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3206,7 +3019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3432221324897472966, guid: 254b91af02ebd624288abf5570c33e6e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3792399686693253139, guid: 254b91af02ebd624288abf5570c33e6e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3319,7 +3132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066557174355506708, guid: 9ab5d6a098ffb844b9399e192b9cea8e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3419,7 +3232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3489,7 +3302,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (29)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3573,7 +3387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3432221324897472966, guid: 254b91af02ebd624288abf5570c33e6e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3792399686693253139, guid: 254b91af02ebd624288abf5570c33e6e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3678,48 +3492,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
---- !u!1 &772977801
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 772977802}
-  m_Layer: 0
-  m_Name: Mines
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &772977802
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772977801}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4511299776942981}
-  - {fileID: 1563902554}
-  - {fileID: 1843727338}
-  - {fileID: 1448389374}
-  - {fileID: 111923931}
-  - {fileID: 374090394}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &792443110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3774,7 +3552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3164728155195755539, guid: c7845f859afa18c4f8f55ccc830b6d4e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3809,7 +3587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 554809522445344069, guid: 5b218ca4ed2cdf34894a5d07e999bf98, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 934713520798009343, guid: 5b218ca4ed2cdf34894a5d07e999bf98, type: 3}
       propertyPath: m_LocalScale.x
@@ -3957,7 +3735,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4014,7 +3793,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4089,7 +3869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647939916085955226, guid: f1c113d026a6a2f4a8e71c9cef1e170d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4198,7 +3978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4312,7 +4092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4396,7 +4176,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (12)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4458,7 +4239,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (23)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4520,7 +4302,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (21)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4617,7 +4400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066557174355506708, guid: 9ab5d6a098ffb844b9399e192b9cea8e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4723,7 +4506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3432221324897472966, guid: 254b91af02ebd624288abf5570c33e6e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3792399686693253139, guid: 254b91af02ebd624288abf5570c33e6e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4837,7 +4620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135511341019357802, guid: a2daf3484d48a314cb549d2688f9f96c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4951,7 +4734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5046,7 +4829,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5103,7 +4887,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (20)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5194,7 +4979,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5385,7 +5171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5482,7 +5268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5741,7 +5527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5843,7 +5629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135511341019357802, guid: a2daf3484d48a314cb549d2688f9f96c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5952,7 +5738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066557174355506708, guid: 9ab5d6a098ffb844b9399e192b9cea8e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6053,7 +5839,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (11)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6127,7 +5914,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (10)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6201,7 +5989,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (26)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6216,6 +6005,111 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4066557174355506708, guid: 9ab5d6a098ffb844b9399e192b9cea8e, type: 3}
   m_PrefabInstance: {fileID: 1944805440}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1335609624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1335609628}
+  - component: {fileID: 1335609627}
+  - component: {fileID: 1335609626}
+  - component: {fileID: 1335609625}
+  m_Layer: 11
+  m_Name: Delivery
+  m_TagString: delivery
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &1335609625
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335609624}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1335609626
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335609624}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1335609627
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335609624}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1335609628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335609624}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 200}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1344940951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6268,7 +6162,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (14)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6361,80 +6256,6 @@ Transform:
   - {fileID: 727982067}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1448389373
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 772977802}
-    m_Modifications:
-    - target: {fileID: 3991665329389817943, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_TagString
-      value: proximity
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1193
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1613
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4816
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859371695519972067, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Name
-      value: Mine Sample 1 (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886115312722844619, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399050239526552833, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: Explosion
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
---- !u!4 &1448389374 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-  m_PrefabInstance: {fileID: 1448389373}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1459146849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6499,7 +6320,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (24)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6527,7 +6349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8222267911651314675, guid: 5db86240f8104a14f82e1fa6ae7aa21c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8741642692513075529, guid: 5db86240f8104a14f82e1fa6ae7aa21c, type: 3}
       propertyPath: m_LocalScale.x
@@ -6693,7 +6515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6810,7 +6632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6912,7 +6734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066557174355506708, guid: 9ab5d6a098ffb844b9399e192b9cea8e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6944,253 +6766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0da9e2a9a8263f4cad7a1cb682c5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1552969003
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3495076136257422000, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495076136257422000, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495076136257422000, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495076136257422000, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3495076136257422000, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564628060783399251, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -504.946
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564628060783399251, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -63.52996
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564628060783399251, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 588.3213
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564628060783399251, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564628060783399251, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564628060783399251, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564628060783399251, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564628060783399251, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564628060783399251, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4564628060783399251, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: autoRandomSeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: ShapeModule.type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: TriggerModule.exit
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: TriggerModule.enter
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: CollisionModule.type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: TriggerModule.inside
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: ShapeModule.m_Scale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: ShapeModule.m_Scale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: ShapeModule.m_Scale.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: TriggerModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: CollisionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: TriggerModule.colliderQueryMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: CollisionModule.collisionMessages
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: CollisionModule.m_Planes.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: TriggerModule.primitives.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913091688638710520, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: CollisionModule.m_Planes.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6575796831527385057, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
-      propertyPath: m_Name
-      value: Nebula Container (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
---- !u!1001 &1563902553
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 772977802}
-    m_Modifications:
-    - target: {fileID: 3991665329389817943, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_TagString
-      value: proximity
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1435
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -629
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4816
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859371695519972067, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Name
-      value: Mine Sample 1 (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886115312722844619, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399050239526552833, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: Explosion
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399050239526552833, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: sounds.Array.data[0].volume
-      value: 0.3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
---- !u!4 &1563902554 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-  m_PrefabInstance: {fileID: 1563902553}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1565906912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7243,7 +6818,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (18)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7305,7 +6881,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (15)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7402,7 +6979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647939916085955226, guid: f1c113d026a6a2f4a8e71c9cef1e170d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7516,7 +7093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7617,7 +7194,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (31)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7763,7 +7341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8222267911651314675, guid: 5db86240f8104a14f82e1fa6ae7aa21c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8741642692513075529, guid: 5db86240f8104a14f82e1fa6ae7aa21c, type: 3}
       propertyPath: m_LocalScale.x
@@ -7900,7 +7478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135511341019357802, guid: a2daf3484d48a314cb549d2688f9f96c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7997,7 +7575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647939916085955226, guid: f1c113d026a6a2f4a8e71c9cef1e170d, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8064,7 +7642,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8156,7 +7735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066557174355506708, guid: 9ab5d6a098ffb844b9399e192b9cea8e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8240,7 +7819,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8267,7 +7847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 554809522445344069, guid: 5b218ca4ed2cdf34894a5d07e999bf98, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 934713520798009343, guid: 5b218ca4ed2cdf34894a5d07e999bf98, type: 3}
       propertyPath: m_LocalScale.x
@@ -8424,7 +8004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135511341019357802, guid: a2daf3484d48a314cb549d2688f9f96c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8491,7 +8071,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (28)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8570,7 +8151,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (16)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8579,80 +8161,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4803137191421678792, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
   m_PrefabInstance: {fileID: 1842146924}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1843727337
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 772977802}
-    m_Modifications:
-    - target: {fileID: 3991665329389817943, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_TagString
-      value: proximity
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -139.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 174.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 726.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859371695519972067, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Name
-      value: Mine Sample 1 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886115312722844619, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399050239526552833, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: Explosion
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
---- !u!4 &1843727338 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-  m_PrefabInstance: {fileID: 1843727337}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1849693153
 PrefabInstance:
@@ -8676,7 +8184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 554809522445344069, guid: 5b218ca4ed2cdf34894a5d07e999bf98, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 934713520798009343, guid: 5b218ca4ed2cdf34894a5d07e999bf98, type: 3}
       propertyPath: m_LocalScale.x
@@ -8838,7 +8346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135511341019357802, guid: a2daf3484d48a314cb549d2688f9f96c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8892,7 +8400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 554809522445344069, guid: 5b218ca4ed2cdf34894a5d07e999bf98, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 934713520798009343, guid: 5b218ca4ed2cdf34894a5d07e999bf98, type: 3}
       propertyPath: m_LocalScale.x
@@ -9036,7 +8544,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (22)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9116,7 +8625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4066557174355506708, guid: 9ab5d6a098ffb844b9399e192b9cea8e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9207,7 +8716,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9299,7 +8809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9383,7 +8893,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Asteroid (33)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7693915495780074795, guid: 1ddf7beaf81621a4a92d2fdcc990023d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9432,7 +8943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 554809522445344069, guid: 5b218ca4ed2cdf34894a5d07e999bf98, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 934713520798009343, guid: 5b218ca4ed2cdf34894a5d07e999bf98, type: 3}
       propertyPath: m_LocalScale.x
@@ -9657,7 +9168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778596271710484783, guid: 68c9ce385ea8cf84e9557ea640866311, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 18
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9689,11 +9200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0da9e2a9a8263f4cad7a1cb682c5266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &4511299776942981 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-  m_PrefabInstance: {fileID: 7781600788492126197}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &778249444495229177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9863,88 +9369,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 201cd3c27cca6a849aef7bbac50ee0c6, type: 3}
---- !u!1001 &7781600788492126197
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 772977802}
-    m_Modifications:
-    - target: {fileID: 3991665329389817943, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_TagString
-      value: proximity
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -37.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 174.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 726.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4859356309190645734, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859371695519972067, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Name
-      value: Mine Sample 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5886115312722844619, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: m_Radius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399050239526552833, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: Explosion
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399050239526552833, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
-      propertyPath: sounds.Array.data[0].volume
-      value: 0.3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6eba578d5d38a6942af7d487f5ed00d4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 284126928}
-  - {fileID: 772977802}
+  - {fileID: 1335609628}
   - {fileID: 1612770427}
   - {fileID: 1419371832}
   - {fileID: 778249444495229177}
-  - {fileID: 1552969003}
   - {fileID: 1173450939}
   - {fileID: 1120751638}
