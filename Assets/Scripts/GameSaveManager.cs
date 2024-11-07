@@ -59,19 +59,19 @@ public static class GameSaveManager
         string path = Application.persistentDataPath + "/shipData";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        ShipData data = new ShipData(new Vector3(0,0,0), new Quaternion(0,0,0,0), 0);
+        ShipData data = new ShipData(new Vector3(0,0,0), new Quaternion(0,0,0,0));
 
         formatter.Serialize(stream, data);
         stream.Close();
     }
 
-    public static void SaveShipData(Transform ship, int deliveryPoints)
+    public static void SaveShipData(Transform ship)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/shipData";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        ShipData data = new ShipData(ship.position, ship.rotation, deliveryPoints);
+        ShipData data = new ShipData(ship.position, ship.rotation);
 
         formatter.Serialize(stream, data);
         stream.Close();

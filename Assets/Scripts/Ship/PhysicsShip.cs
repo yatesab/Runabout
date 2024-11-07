@@ -6,6 +6,7 @@ public class PhysicsShip : MonoBehaviour
     [SerializeField] private Transform shipInterior;
 
     [SerializeField] private PowerSystem powerSystem;
+    [SerializeField] private TransporterSystem transportSystem;
 
     [SerializeField] private ShipPart portEngine;
     [SerializeField] private ShipPart starboardEngine;
@@ -111,18 +112,36 @@ public class PhysicsShip : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Landing" && !shipDocked)
+        switch(other.tag)
         {
-            canDock = true;
+            case "Landing":
+                canDock = true;
+                break;
+            case "warp":
+                Debug.Log("Hit Warp");
+
+                ShipConditionManager.instance.NearWarpGate(other.GetComponent<WarpGate>().WarpScene);
+                break;
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Landing")
+        switch (other.tag)
         {
-            canDock = false;
+            case "Landing":
+                canDock = false;
+                break;
+            case "warp":
+                Debug.Log("Exit Warp");
+                ShipConditionManager.instance.LeaveWarpGate();
+                break;
         }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision");
     }
 
     void OnParticleCollision(GameObject other)

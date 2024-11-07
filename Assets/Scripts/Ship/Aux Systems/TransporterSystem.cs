@@ -9,9 +9,12 @@ public class TransporterSystem : MonoBehaviour
     [SerializeField] private LayerMask m_LayerMask;
     [SerializeField] private List<Collider> teleportAreaItemList;
     [SerializeField] private GameObject[] startingItems;
+    [SerializeField] private TMP_Text availableTransportText;
 
-    private Queue<GameObject> bufferItems = new Queue<GameObject>();
+    public Queue<GameObject> bufferItems = new Queue<GameObject>();
     private int maxBufferSize = 2;
+
+    public Collider teleportLocation { get; set; }
 
     public void Start()
     {
@@ -22,6 +25,17 @@ public class TransporterSystem : MonoBehaviour
             {
                 bufferItems.Enqueue(item);
             }
+        }
+    }
+
+    public void Update()
+    {
+        if (teleportLocation != null)
+        {
+            availableTransportText.text = "Available";
+        } else
+        {
+            availableTransportText.text = "Not Available";
         }
     }
 
@@ -36,11 +50,11 @@ public class TransporterSystem : MonoBehaviour
 
     public void TransportDeliveryItems()
     {
-        if (Physics.CheckSphere(transform.position, 100f, m_LayerMask, QueryTriggerInteraction.Collide) && teleportAreaItemList.Count > 0)
+        if (teleportLocation != null && teleportAreaItemList.Count > 0)
         {
             for (int i = 0; i < teleportAreaItemList.Count; i++)
             {
-                ShipConditionManager.instance.AddDeliveryPoints(1);
+                GameStateManager.instance.AddDeliveryPoints(1);
 
                 Destroy(teleportAreaItemList[i]);
             }

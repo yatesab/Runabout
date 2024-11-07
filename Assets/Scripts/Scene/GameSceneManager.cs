@@ -1,14 +1,18 @@
 using System.Collections;
+using UnityEditor.Build.Content;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class GameSceneManager : MonoBehaviour
 {
     public static GameSceneManager instance { get; private set; }
 
-    [SerializeField] private SceneGroup startMenuSceneGroup;
-    public Vector3 SpwanLoaction { get { return currentScene.spawnLocation; } }
-    [SerializeField] private SceneGroup currentScene;
+    [SerializeField] private SceneField startMenuScene;
+    [SerializeField] private SceneField shipScene;
+    [SerializeField] private SceneField newGameScene;
+    [SerializeField] private SceneField currentScene;
+    [SerializeField] private SceneField loadedScene;
 
     public void Awake()
     {
@@ -18,19 +22,15 @@ public class GameSceneManager : MonoBehaviour
         }
         instance = this;
 
-        // Set current scene in nothing is selected to start menu
-        if(currentScene == null){
-            currentScene = startMenuSceneGroup;
-        }
-
-        StartCoroutine(LoadSceneGroup(currentScene));
+        AsyncOperation sceneLoading = LoadScene(startMenuScene);
+        loadedScene = startMenuScene;
 
         Application.runInBackground = true;
     }
 
     public void LoadMainMenu()
     {
-        StartCoroutine(TeleportRoutine(startMenuSceneGroup));
+        StartCoroutine(SceneChangePlayerFade(startMenuScene, false));
     }
 
     public void SaveGameState()
@@ -45,31 +45,42 @@ public class GameSceneManager : MonoBehaviour
         ShipConditionManager.instance.LoadShipData();
     }
 
-    public void StartTransport(SceneGroup newScene)
+    public void StartNewGame()
     {
-        StartCoroutine(TeleportRoutine(newScene));
+        StartCoroutine(SceneChangePlayerFade(newGameScene, true));
+    }    
+
+    public void InitiateWarp(SceneField newScene)
+    {
+        StartCoroutine(LoadNewScene(newScene));
+    }
+    private AsyncOperation LoadScene(SceneField newScene)
+    {
+        return SceneManager.LoadSceneAsync(newScene, LoadSceneMode.Additive);
     }
 
-    private IEnumerator LoadSceneGroup(SceneGroup sceneGroup)
+    private AsyncOperation UnloadScene(SceneField sceneToRemove)
     {
-        // First load scenes
-        sceneGroup.LoadScenes();
-        while (currentScene.ScenesLoading())
+        return SceneManager.UnloadSceneAsync(sceneToRemove);
+    }
+
+    private IEnumerator LoadNewScene(SceneField newScene)
+    {
+        AsyncOperation sceneUnloading = UnloadScene(loadedScene);
+        while (sceneUnloading.isDone == false)
         {
             yield return null;
         }
 
-        // Set player to location
-        PlayerConditionManager.instance.SetNewLocation(sceneGroup.spawnLocation);
-
-        // Check startDiverged and check if we can diverge the camera
-        if (sceneGroup.startDiverged)
+        AsyncOperation sceneLoading = LoadScene(newScene);
+        while (sceneLoading.isDone == false)
         {
-            PlayerConditionManager.instance.SetupSplitCamera();
+            yield return null;
         }
+        loadedScene = newScene;
     }
 
-    private IEnumerator TeleportRoutine(SceneGroup newSceneGroup)
+    private IEnumerator SceneChangePlayerFade(SceneField newScene, bool loadShip)
     {
         // Turn off the movement system while we transport
         PlayerConditionManager.instance.PlayerFadeOut();
@@ -78,20 +89,38 @@ public class GameSceneManager : MonoBehaviour
         PlayerConditionManager.instance.AttemptConvergeCamera();
 
         // Wait for scenes to unload and load
-        currentScene.UnloadScenes();
-        newSceneGroup.LoadScenes();
-        while (newSceneGroup.ScenesLoading() || currentScene.ScenesLoading())
+        AsyncOperation sceneUnloading = UnloadScene(loadedScene);
+        AsyncOperation sceneLoading = LoadScene(newScene);
+        while (sceneLoading.isDone == false && sceneUnloading.isDone == false)
         {
             yield return null;
         }
+        Scene sceneRef = SceneManager.GetSceneByName("Ship");
+        if (loadShip && sceneRef.isLoaded == false)
+        {
+            AsyncOperation shipSceneLoading = LoadScene(shipScene);
+            while (shipSceneLoading.isDone == false)
+            {
+                yield return null;
+            }
 
-        // Set new location and turn back on movement
-        PlayerConditionManager.instance.SetNewLocation(newSceneGroup.spawnLocation);
+            // Set new location and turn back on movement
+            PlayerConditionManager.instance.SetNewLocation(new Vector3(0, 0, 0));
+        } 
+        else if (loadShip == false && sceneRef.isLoaded == true)
+        {
+            AsyncOperation shipSceneLoading = LoadScene(shipScene);
+            while (shipSceneLoading.isDone == false)
+            {
+                yield return null;
+            }
+
+            // Set new location and turn back on movement
+            PlayerConditionManager.instance.SetNewLocation(new Vector3(0, 0, 0));
+        }
 
         // Clear out the operation lists
-        currentScene.ClearSceneOperationsList();
-        newSceneGroup.ClearSceneOperationsList();
-        currentScene = newSceneGroup;
+        loadedScene = newScene;
 
         PlayerConditionManager.instance.PlayerFadeIn();
 

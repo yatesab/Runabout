@@ -5,8 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class ShipData
 {
-    public int deliveryPoints;
-
     public Vector3 Position
     {
         get
@@ -40,10 +38,8 @@ public class ShipData
     }
     public float[] shipRotation;
 
-    public ShipData(Vector3 position, Quaternion rotation, int startingPoints)
+    public ShipData(Vector3 position, Quaternion rotation)
     {
-        deliveryPoints = startingPoints;
-
         shipLocation = new float[3];
         shipLocation[0] = position.x;
         shipLocation[1] = position.y;

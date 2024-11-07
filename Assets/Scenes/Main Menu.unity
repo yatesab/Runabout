@@ -570,7 +570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3623101430157925177, guid: b5029f5031946804784b39b30782cb5c, type: 3}
       propertyPath: scenesToLoad.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3623101430157925177, guid: b5029f5031946804784b39b30782cb5c, type: 3}
       propertyPath: hangerScene.m_SceneAsset

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class PlayerConditionManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerConditionManager : MonoBehaviour
     private PlayerCameraManager playerCameraManager;
     private LocomotionSystem locomotionSystem;
     private FadeScreen fadeScreen;
-    private CharacterController characterController;
+    private DynamicMoveProvider dynamicMoveProvider;
 
     public void Awake()
     {
@@ -24,19 +25,18 @@ public class PlayerConditionManager : MonoBehaviour
         playerCameraManager = GetComponentInChildren<PlayerCameraManager>();
         locomotionSystem = GetComponentInChildren<LocomotionSystem>();
         fadeScreen = GetComponentInChildren<FadeScreen>();
-        characterController = GetComponentInChildren<CharacterController>();
+        dynamicMoveProvider = GetComponentInChildren<DynamicMoveProvider>();
     }
+
     public void PlayerFadeOut()
     {
         fadeScreen.FadeOut();
-        characterController.enabled = false;
         SetPlayerMovement(false);
     }
 
     public void PlayerFadeIn()
     {
         fadeScreen.FadeIn();
-        characterController.enabled = true;
         SetPlayerMovement(true);
     }
 

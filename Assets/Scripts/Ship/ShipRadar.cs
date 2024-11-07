@@ -27,7 +27,6 @@ public class ShipRadar : MonoBehaviour
             TriggerList.Add(other);
             OnAddRadarTarget.Invoke();
         }
-
     }
 
     void OnTriggerExit(Collider other)

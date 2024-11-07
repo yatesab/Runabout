@@ -14,7 +14,7 @@ public class Engines : MonoBehaviour
     public float LeftRightStrafe { get; set; }
     public float UpDownStrafe { get; set; }
 
-    public bool isReversed { get; set; } = true;
+    public bool isReversed { get; set; }
 
     [SerializeField] private Rigidbody _shipBody;
     [SerializeField] private PowerSystem powerSystem;
@@ -39,6 +39,7 @@ public class Engines : MonoBehaviour
     public void Start()
     {
         audioControl = GetComponent<AudioControl>();
+        isReversed = false;
     }
 
     public void Update()
