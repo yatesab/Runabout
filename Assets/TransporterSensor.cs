@@ -25,6 +25,12 @@ public class TransporterSensor : MonoBehaviour
             Debug.Log("Hit Delivery");
             transportSystem.teleportLocation = other;
         }
+
+        if(other.tag == "pickup")
+        {
+            Debug.Log("Hit Pickup");
+            transportSystem.AddItemsToBuffer(other.GetComponent<PickupSite>().packages);
+        }
     }   
     public void OnTriggerExit(Collider other)
     {

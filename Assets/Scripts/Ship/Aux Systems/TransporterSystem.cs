@@ -10,6 +10,7 @@ public class TransporterSystem : MonoBehaviour
     [SerializeField] private List<Collider> teleportAreaItemList;
     [SerializeField] private GameObject[] startingItems;
     [SerializeField] private TMP_Text availableTransportText;
+    [SerializeField] private TMP_Text bufferAmountText;
 
     public Queue<GameObject> bufferItems = new Queue<GameObject>();
     private int maxBufferSize = 2;
@@ -37,6 +38,8 @@ public class TransporterSystem : MonoBehaviour
         {
             availableTransportText.text = "Not Available";
         }
+
+        bufferAmountText.text = bufferItems.Count.ToString();
     }
 
     public void LoadNextBufferItem()
@@ -57,6 +60,17 @@ public class TransporterSystem : MonoBehaviour
                 GameStateManager.instance.AddDeliveryPoints(1);
 
                 Destroy(teleportAreaItemList[i]);
+            }
+        }
+    }
+
+    public void AddItemsToBuffer(GameObject[] newItem)
+    {
+        if (bufferItems.Count < maxBufferSize)
+        {
+            foreach (var item in newItem)
+            {
+                bufferItems.Enqueue(item);
             }
         }
     }

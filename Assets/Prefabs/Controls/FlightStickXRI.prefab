@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 248453295903165670}
   - component: {fileID: 2007495677621189376}
   - component: {fileID: 6245693259578391714}
-  - component: {fileID: 5398264911606135091}
   m_Layer: 10
   m_Name: Grab Interactable
   m_TagString: Untagged
@@ -311,29 +310,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &5398264911606135091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615908569745428611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0a1302d0d134fa8a2a5b3bf4aec3c20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PermittedDisplacementAxes: 7
-  m_ConstrainedAxisDisplacementMode: 1
-  m_TwoHandedRotationMode: 1
-  m_AllowOneHandedScaling: 1
-  m_AllowTwoHandedScaling: 0
-  m_OneHandedScaleSpeed: 0.5
-  m_ThresholdMoveRatioForScale: 0.05
-  m_ClampScaling: 1
-  m_MinimumScaleRatio: 0.25
-  m_MaximumScaleRatio: 2
-  m_ScaleMultiplier: 0.25
 --- !u!1 &4243960344426157650
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,3 +358,8 @@ MonoBehaviour:
   engines: {fileID: 0}
   stickDeadZoneUpper: 0.1
   stickDeadZoneLower: -0.1
+  stickAction: {fileID: 0}
+  movementLeftRightSetting: 0
+  movementUpDownSetting: 0
+  stickLeftRightSetting: 0
+  stickUpDownSetting: 0

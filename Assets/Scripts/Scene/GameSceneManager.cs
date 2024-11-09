@@ -72,6 +72,8 @@ public class GameSceneManager : MonoBehaviour
             yield return null;
         }
 
+        //Move ship external to correct location for arrival
+
         AsyncOperation sceneLoading = LoadScene(newScene);
         while (sceneLoading.isDone == false)
         {
@@ -106,6 +108,7 @@ public class GameSceneManager : MonoBehaviour
 
             // Set new location and turn back on movement
             PlayerConditionManager.instance.SetNewLocation(new Vector3(0, 0, 0));
+            ShipConditionManager.instance.MoveShip(new Vector3(0,-15,-3000));
         } 
         else if (loadShip == false && sceneRef.isLoaded == true)
         {

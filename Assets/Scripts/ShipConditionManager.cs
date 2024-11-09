@@ -65,8 +65,8 @@ public class ShipConditionManager : MonoBehaviour
     {
         ShipData shipData = GameSaveManager.LoadShipData();
 
-        physicsShip.position = shipData.Position;
-        physicsShip.rotation = shipData.Rotation;
+        SetShipPosition(shipData.Position);
+        SetShipRotation(shipData.Rotation);
     }
 
     public void NearWarpGate(SceneField newScene)
@@ -89,5 +89,20 @@ public class ShipConditionManager : MonoBehaviour
         {
             GameSceneManager.instance.InitiateWarp(warpScene);
         }
+    }
+
+    public void MoveShip(Vector3 newPosition)
+    {
+        SetShipPosition(newPosition);
+    }
+
+    private void SetShipPosition(Vector3 newPosition)
+    {
+        physicsShip.position = newPosition;
+    }
+
+    private void SetShipRotation(Quaternion newRotation)
+    {
+        physicsShip.rotation = newRotation;
     }
 }
