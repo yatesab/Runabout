@@ -7,12 +7,12 @@ public class FadeScreen : MonoBehaviour
     public float fadeDuration = 2;
     public Color fadeColor;
     public bool isFading = false;
-    private Renderer rend;
+    private MeshRenderer mesh;
 
     // Start is called before the first frame update
     void Start()
     {
-        rend = GetComponent<Renderer>();
+        mesh = GetComponent<MeshRenderer>();
         if (fadeOnStart)
         {
             FadeIn();
@@ -36,6 +36,11 @@ public class FadeScreen : MonoBehaviour
 
     public IEnumerator FadeRoutine(float alphaIn, float alphaOut)
     {
+        if (alphaIn < alphaOut && mesh.enabled == false)
+        {
+            mesh.enabled = true;
+        }
+
         isFading = true;
         float timer = 0;
 
@@ -44,7 +49,7 @@ public class FadeScreen : MonoBehaviour
             Color newColor = fadeColor;
             newColor.a = Mathf.Lerp(alphaIn, alphaOut, timer / fadeDuration);
 
-            rend.material.SetColor("_Color", newColor);
+            mesh.material.SetColor("_Color", newColor);
 
             timer += Time.deltaTime;
             yield return null;
@@ -53,7 +58,12 @@ public class FadeScreen : MonoBehaviour
         Color newColor2 = fadeColor;
         newColor2.a = alphaOut;
 
-        rend.material.SetColor("_Color", newColor2);
+        mesh.material.SetColor("_Color", newColor2);
         isFading = false;
+
+        if (alphaOut < alphaIn && mesh.enabled == true)
+        {
+            mesh.enabled = false;
+        }
     }
 }

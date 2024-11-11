@@ -36,6 +36,10 @@ public class PlayerData
     }
     private float[] playerRotation;
 
+    private string YawControls;
+    private string PitchControls;
+    private string RollControls;
+
     public PlayerData(Vector3 position, Quaternion rotation)
     {
         playerLocation = new float[3];

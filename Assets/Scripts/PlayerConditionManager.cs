@@ -1,8 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
+
+public enum SHIP_MOVEMENT_TYPE
+{
+    PITCH = 0,
+    YAW = 1,
+    ROLL = 2,
+    STRAFE = 3,
+    NONE = 4
+}
 
 public class PlayerConditionManager : MonoBehaviour
 {
@@ -13,6 +23,22 @@ public class PlayerConditionManager : MonoBehaviour
     private LocomotionSystem locomotionSystem;
     private FadeScreen fadeScreen;
     private DynamicMoveProvider dynamicMoveProvider;
+    private BadgeMenu badgeMenu;
+
+    public FlightStick LeftFlightStick { get; set; }
+    public FlightStick RightFlightStick { get; set;}
+
+    [Header("Left Flight Stick Settings")]
+    public SHIP_MOVEMENT_TYPE leftMovementLeftRightSetting;
+    public SHIP_MOVEMENT_TYPE leftMovementUpDownSetting;
+    public SHIP_MOVEMENT_TYPE leftStickLeftRightSetting;
+    public SHIP_MOVEMENT_TYPE leftStickUpDownSetting;
+
+    [Header("Right Flight Stick Settings")]
+    public SHIP_MOVEMENT_TYPE rightMovementLeftRightSetting;
+    public SHIP_MOVEMENT_TYPE rightMovementUpDownSetting;
+    public SHIP_MOVEMENT_TYPE rightStickLeftRightSetting;
+    public SHIP_MOVEMENT_TYPE rightStickUpDownSetting;
 
     public void Awake()
     {
@@ -26,6 +52,7 @@ public class PlayerConditionManager : MonoBehaviour
         locomotionSystem = GetComponentInChildren<LocomotionSystem>();
         fadeScreen = GetComponentInChildren<FadeScreen>();
         dynamicMoveProvider = GetComponentInChildren<DynamicMoveProvider>();
+        badgeMenu = GetComponentInChildren<BadgeMenu>();
     }
 
     public void PlayerFadeOut()

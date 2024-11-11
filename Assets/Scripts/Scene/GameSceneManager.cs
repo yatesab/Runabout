@@ -47,6 +47,11 @@ public class GameSceneManager : MonoBehaviour
 
     public void StartNewGame()
     {
+        GameSaveManager.CreateNewPlayerData(new Vector3(0, 0, 0));
+        GameSaveManager.CreateNewShipData();
+
+        PlayerConditionManager.instance.LoadPlayerData();
+
         StartCoroutine(SceneChangePlayerFade(newGameScene, true));
     }    
 

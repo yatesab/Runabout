@@ -14,12 +14,12 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.1
+  m_FogDensity: 0.0001
   m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogEnd: 0.01
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -27,8 +27,8 @@ RenderSettings:
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: a4be220830e90ea4eb88b48b7fd376ce, type: 2}
-  m_HaloStrength: 0.363
-  m_FlareStrength: 1
+  m_HaloStrength: 0.063
+  m_FlareStrength: 0.063
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
@@ -186,6 +186,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_3 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7156129480023273810, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8649943633771727955, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8965253529832779110, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -233,15 +245,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.09
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 209756107}
-  - screenRelativeHeight: 0.03
+  - screenRelativeHeight: 0.05
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 209756106}
-  - screenRelativeHeight: 0.005
+  - screenRelativeHeight: 0.02
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 209756105}
@@ -398,6 +410,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -542,6 +566,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_3 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7156129480023273810, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8649943633771727955, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8965253529832779110, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -589,15 +625,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.09
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 309949063}
-  - screenRelativeHeight: 0.03
+  - screenRelativeHeight: 0.05
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 309949062}
-  - screenRelativeHeight: 0.005
+  - screenRelativeHeight: 0.02
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 309949061}
@@ -610,6 +646,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1419371832}
     m_Modifications:
+    - target: {fileID: 1894561974247294665, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894561974247294665, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894561974247294665, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 3689232885899565532, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -740,6 +788,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_5 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1516057731949428924, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 7156129480023273810, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8649943633771727955, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -787,15 +847,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.09
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 351739597}
-  - screenRelativeHeight: 0.03
+  - screenRelativeHeight: 0.05
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 351739596}
-  - screenRelativeHeight: 0.005
+  - screenRelativeHeight: 0.02
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 351739595}
@@ -808,6 +868,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1419371832}
     m_Modifications:
+    - target: {fileID: 3271801587478592236, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     - target: {fileID: 4707697098152951574, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
       propertyPath: m_LocalScale.x
       value: 36
@@ -864,6 +928,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781987903945772594, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -938,6 +1018,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_5 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1516057731949428924, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 7156129480023273810, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8649943633771727955, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -985,19 +1077,93 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.09
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 534137553}
-  - screenRelativeHeight: 0.03
+  - screenRelativeHeight: 0.05
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 534137552}
-  - screenRelativeHeight: 0.005
+  - screenRelativeHeight: 0.02
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 534137551}
   m_Enabled: 1
+--- !u!1001 &557372075
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1572185477}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2900
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_Name
+      value: Building_01 (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+--- !u!4 &557372076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+  m_PrefabInstance: {fileID: 557372075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &650114347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7445545514024791502, guid: 5e2cca74186b1d34daa012986c90d76b, type: 3}
@@ -1066,6 +1232,18 @@ PrefabInstance:
     - target: {fileID: 5340927475817604524, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
       propertyPath: m_Name
       value: Asteroid_2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1141,6 +1319,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_3 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7156129480023273810, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8649943633771727955, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8965253529832779110, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1188,18 +1378,130 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.09
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 808194727}
-  - screenRelativeHeight: 0.03
+  - screenRelativeHeight: 0.05
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 808194726}
-  - screenRelativeHeight: 0.005
+  - screenRelativeHeight: 0.02
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 808194725}
+  m_Enabled: 1
+--- !u!1001 &870431186
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1572185477}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -400
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3000
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_Name
+      value: Tank_Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620804052379145850, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 1.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 870431191}
+  m_SourcePrefab: {fileID: 100100000, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+--- !u!4 &870431187 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+  m_PrefabInstance: {fileID: 870431186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &870431190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60eafa0ea58877142b0abd30be85546f, type: 3}
+  m_PrefabInstance: {fileID: 870431186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!205 &870431191
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870431190}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 26.122114, z: -0.0000038146973}
+  m_Size: 57.256374
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 0}
+  - screenRelativeHeight: 0.0075
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 0}
+  - screenRelativeHeight: 0.0075
+    fadeTransitionWidth: 0
+    renderers: []
   m_Enabled: 1
 --- !u!1001 &997648439
 PrefabInstance:
@@ -1265,6 +1567,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1283,6 +1597,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1419371832}
     m_Modifications:
+    - target: {fileID: 1894561974247294665, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894561974247294665, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894561974247294665, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 3689232885899565532, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
       propertyPath: m_LocalScale.x
       value: 24
@@ -1413,6 +1739,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7156129480023273810, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8649943633771727955, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8965253529832779110, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1460,15 +1798,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.09
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1074003273}
-  - screenRelativeHeight: 0.03
+  - screenRelativeHeight: 0.05
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1074003272}
-  - screenRelativeHeight: 0.005
+  - screenRelativeHeight: 0.02
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1074003271}
@@ -1536,6 +1874,18 @@ PrefabInstance:
     - target: {fileID: 1784112133660690999, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
       propertyPath: m_Name
       value: Asteroid_1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1736,6 +2086,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6081684902191350511, guid: b9503460634dc894096019e112cbea9a, type: 3}
   m_PrefabInstance: {fileID: 4990397495739506227}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1526548561
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1572185477}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3000
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_Name
+      value: Building_01 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+--- !u!4 &1526548562 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+  m_PrefabInstance: {fileID: 1526548561}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1569195110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1800,6 +2224,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1516057731949428924, guid: 23c1263b945693e40b8b200fb33b8c88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 7156129480023273810, guid: 23c1263b945693e40b8b200fb33b8c88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8649943633771727955, guid: 23c1263b945693e40b8b200fb33b8c88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1847,15 +2283,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.09
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1569195114}
-  - screenRelativeHeight: 0.03
+  - screenRelativeHeight: 0.05
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1569195113}
-  - screenRelativeHeight: 0.005
+  - screenRelativeHeight: 0.02
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1569195112}
@@ -1894,7 +2330,12 @@ Transform:
   - {fileID: 287760358}
   - {fileID: 1431748179}
   - {fileID: 1612770427}
+  - {fileID: 870431187}
+  - {fileID: 2085389656}
   - {fileID: 4958502172413745981}
+  - {fileID: 1778801719}
+  - {fileID: 1526548562}
+  - {fileID: 557372076}
   - {fileID: 1419371832}
   - {fileID: 778249444495229178}
   m_Father: {fileID: 0}
@@ -2181,6 +2622,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7156129480023273810, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8649943633771727955, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8965253529832779110, guid: 9bc78ef5a925c644088c54741751b47c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2228,19 +2681,93 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.09
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1761796763}
-  - screenRelativeHeight: 0.03
+  - screenRelativeHeight: 0.05
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1761796762}
-  - screenRelativeHeight: 0.005
+  - screenRelativeHeight: 0.02
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1761796761}
   m_Enabled: 1
+--- !u!1001 &1778801718
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1572185477}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3000
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+      propertyPath: m_Name
+      value: Building_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+--- !u!4 &1778801719 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1113acc4dfd95ea4a8e97db3d0859e18, type: 3}
+  m_PrefabInstance: {fileID: 1778801718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1784034415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2305,14 +2832,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1516057731949428924, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     - target: {fileID: 7156129480023273810, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
       propertyPath: m_ScaleInLightmap
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 7156129480023273810, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     - target: {fileID: 8649943633771727955, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
       propertyPath: m_ScaleInLightmap
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8649943633771727955, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2360,15 +2899,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.09
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1784034419}
-  - screenRelativeHeight: 0.03
+  - screenRelativeHeight: 0.05
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1784034418}
-  - screenRelativeHeight: 0.005
+  - screenRelativeHeight: 0.02
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1784034417}
@@ -2437,6 +2976,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1516057731949428924, guid: 23c1263b945693e40b8b200fb33b8c88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 7156129480023273810, guid: 23c1263b945693e40b8b200fb33b8c88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8649943633771727955, guid: 23c1263b945693e40b8b200fb33b8c88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2484,15 +3035,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.09
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1849553278}
-  - screenRelativeHeight: 0.03
+  - screenRelativeHeight: 0.05
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1849553277}
-  - screenRelativeHeight: 0.005
+  - screenRelativeHeight: 0.02
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1849553276}
@@ -2561,6 +3112,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1516057731949428924, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 7156129480023273810, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
+    - target: {fileID: 8649943633771727955, guid: b585e013b44ed7c4085afea7f6b65e1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2608,15 +3171,15 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.09
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1957767185}
-  - screenRelativeHeight: 0.03
+  - screenRelativeHeight: 0.05
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1957767184}
-  - screenRelativeHeight: 0.005
+  - screenRelativeHeight: 0.02
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1957767183}
@@ -2685,6 +3248,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2694,6 +3269,72 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4707697098152951574, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
   m_PrefabInstance: {fileID: 2036586931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2085389655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1572185477}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3000
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3ce3930b502bdd4bba21b39fcd7b181, type: 2}
+    - target: {fileID: 919132149155446097, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+      propertyPath: m_Name
+      value: Docking_Station
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+--- !u!4 &2085389656 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3cfab1adad463494895a53ee4f301f3d, type: 3}
+  m_PrefabInstance: {fileID: 2085389655}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2132445849 stripped
 Transform:
@@ -2767,15 +3408,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.05
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7022160392854391127, guid: 8e37fe5e61b982a4492e2e836b2d5234, type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
-      value: 0.005
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2844,15 +3485,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7264356937755717232, guid: c6e916d8a87484248a0bd8945e631289, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.05
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 7264356937755717232, guid: c6e916d8a87484248a0bd8945e631289, type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7264356937755717232, guid: c6e916d8a87484248a0bd8945e631289, type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
-      value: 0.005
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2867,6 +3508,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1419371832}
     m_Modifications:
+    - target: {fileID: 74598702875342810, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96a84e51ef1c1734eb571d9818fca2e8, type: 2}
     - target: {fileID: 1407832439119614093, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
       propertyPath: m_LocalPosition.x
       value: -696
@@ -2921,15 +3566,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.05
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2760135781910036601, guid: b47d2919c58cb3b45a6d9c5817255607, type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
-      value: 0.005
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3166,6 +3811,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_6
       objectReference: {fileID: 0}
+    - target: {fileID: 8334801598383414095, guid: 5e2cca74186b1d34daa012986c90d76b, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334801598383414095, guid: 5e2cca74186b1d34daa012986c90d76b, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334801598383414095, guid: 5e2cca74186b1d34daa012986c90d76b, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3194,15 +3851,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4484324874711401104, guid: b9503460634dc894096019e112cbea9a, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.05
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4484324874711401104, guid: b9503460634dc894096019e112cbea9a, type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4484324874711401104, guid: b9503460634dc894096019e112cbea9a, type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
-      value: 0.005
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6081684902191350511, guid: b9503460634dc894096019e112cbea9a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3265,6 +3922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlignmentTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 2315952163127239351, guid: dc4d410258f1e7f4cb2d5159c425eec6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5a2ec8a1df8bcda47919d13d37dfc8ab, type: 2}
     - target: {fileID: 3488256595628972504, guid: dc4d410258f1e7f4cb2d5159c425eec6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -3344,15 +4005,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1894561974247294665, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.05
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 1894561974247294665, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1894561974247294665, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
-      value: 0.005
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 3689232885899565532, guid: 0a587df5213e2534285b9e52fb171e63, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3414,6 +4075,10 @@ PrefabInstance:
     - target: {fileID: 6631122218037996307, guid: f133e6dd354dfa04a9783eec128ed30b, type: 3}
       propertyPath: m_Name
       value: Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631122218037996307, guid: f133e6dd354dfa04a9783eec128ed30b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7795042087093300708, guid: f133e6dd354dfa04a9783eec128ed30b, type: 3}
       propertyPath: m_LocalPosition.x

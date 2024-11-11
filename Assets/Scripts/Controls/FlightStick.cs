@@ -6,41 +6,44 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
-enum LEFT_RIGHT_MOVEMENT_TYPES
+public enum STICK_ORIENTATION
 {
-    YAW,
-    ROLL,
-    STRAFE,
-    NONE
-}
-
-enum UP_DOWN_MOVEMENT_TYPES
-{
-    PITCH,
-    STRAFE,
-    NONE
+    LEFT = 0,
+    RIGHT = 1
 }
 
 public class FlightStick : MonoBehaviour
 {
     public bool StickGrabbed { get; set; }
 
+    [Header("Stick Side")]
+    public STICK_ORIENTATION stickOrientation;
+
+    [Header("Engines")]
     [SerializeField] private Engines engines;
     [SerializeField] private float stickDeadZoneUpper = 0.1f;
     [SerializeField] private float stickDeadZoneLower = -0.1f;
 
     [Header("Stick Action")]
-    [SerializeField] private InputActionReference stickAction;
+    [SerializeField] private InputActionReference leftStickAction;
+    [SerializeField] private InputActionReference rightStickAction;
+
+    [Header("Flight Stick Settings")]
+    [SerializeField] private SHIP_MOVEMENT_TYPE movementLeftRightSetting;
+    [SerializeField] private SHIP_MOVEMENT_TYPE movementUpDownSetting;
+    [SerializeField] private SHIP_MOVEMENT_TYPE stickLeftRightSetting;
+    [SerializeField] private SHIP_MOVEMENT_TYPE stickUpDownSetting;
 
     private XRGrabInteractable interactable;
-    [SerializeField] private LEFT_RIGHT_MOVEMENT_TYPES movementLeftRightSetting;
-    [SerializeField] private UP_DOWN_MOVEMENT_TYPES movementUpDownSetting;
-    [SerializeField] private LEFT_RIGHT_MOVEMENT_TYPES stickLeftRightSetting;
-    [SerializeField] private UP_DOWN_MOVEMENT_TYPES stickUpDownSetting;
 
     private void Awake()
     {
-
+        if (stickOrientation == STICK_ORIENTATION.LEFT) {
+            PlayerConditionManager.instance.LeftFlightStick = this;
+        } else
+        {
+            PlayerConditionManager.instance.RightFlightStick = this;
+        }
     }
 
     // Start is called before the first frame update
@@ -50,6 +53,8 @@ public class FlightStick : MonoBehaviour
 
         interactable.selectEntered.AddListener(HandleGrabStick);
         interactable.selectExited.AddListener(HandleReleaseStick);
+
+        PullStickSettings();
     }
 
     // Update is called once per frame
@@ -66,10 +71,10 @@ public class FlightStick : MonoBehaviour
         float newMovementX = GetMovement(interactable.transform.localRotation.x);
         switch (movementUpDownSetting)
         {
-            case UP_DOWN_MOVEMENT_TYPES.PITCH:
+            case SHIP_MOVEMENT_TYPE.PITCH:
                 engines.Pitch = newMovementX;
                 break;
-            case UP_DOWN_MOVEMENT_TYPES.STRAFE:
+            case SHIP_MOVEMENT_TYPE.STRAFE:
                 engines.UpDownStrafe = newMovementX;
                 break;
         }
@@ -77,13 +82,13 @@ public class FlightStick : MonoBehaviour
         float newMovementZ = GetMovement(interactable.transform.localRotation.z) * -1;
         switch (movementLeftRightSetting)
         {
-            case LEFT_RIGHT_MOVEMENT_TYPES.YAW:
+            case SHIP_MOVEMENT_TYPE.YAW:
                 engines.Yaw = GetMovement(interactable.transform.localRotation.y);
                 break;
-            case LEFT_RIGHT_MOVEMENT_TYPES.ROLL:
+            case SHIP_MOVEMENT_TYPE.ROLL:
                 engines.Roll = newMovementZ;
                 break;
-            case LEFT_RIGHT_MOVEMENT_TYPES.STRAFE:
+            case SHIP_MOVEMENT_TYPE.STRAFE:
                 engines.LeftRightStrafe = newMovementZ;
                 break;
         }
@@ -105,72 +110,6 @@ public class FlightStick : MonoBehaviour
         }
     }
 
-    public void ChangeMovementLeftRightSetting(int selectedIndex)
-    {
-        switch (selectedIndex)
-        {
-            case 2:
-                movementLeftRightSetting = LEFT_RIGHT_MOVEMENT_TYPES.STRAFE;
-                break;
-            case 1:
-                movementLeftRightSetting = LEFT_RIGHT_MOVEMENT_TYPES.ROLL;
-                break;
-            case 0:
-            default:
-                movementLeftRightSetting = LEFT_RIGHT_MOVEMENT_TYPES.YAW; 
-                break;
-
-        }
-    }
-
-    public void ChangeStickLeftRightSetting(int selectedIndex)
-    {
-        switch (selectedIndex)
-        {
-            case 2:
-                stickLeftRightSetting = LEFT_RIGHT_MOVEMENT_TYPES.STRAFE;
-                break;
-            case 1:
-                stickLeftRightSetting = LEFT_RIGHT_MOVEMENT_TYPES.ROLL;
-                break;
-            case 0:
-            default:
-                stickLeftRightSetting = LEFT_RIGHT_MOVEMENT_TYPES.YAW;
-                break;
-
-        }
-    }
-
-    public void ChangeMovementUpDownSetting(int selectedIndex)
-    {
-        switch (selectedIndex)
-        {
-            case 1:
-                movementUpDownSetting = UP_DOWN_MOVEMENT_TYPES.PITCH;
-                break;
-            case 0:
-            default:
-                movementUpDownSetting = UP_DOWN_MOVEMENT_TYPES.STRAFE;
-                break;
-
-        }
-    }
-
-    public void ChangeStickUpDownSetting(int selectedIndex)
-    {
-        switch (selectedIndex)
-        {
-            case 1:
-                stickUpDownSetting = UP_DOWN_MOVEMENT_TYPES.PITCH;
-                break;
-            case 0:
-            default:
-                stickUpDownSetting = UP_DOWN_MOVEMENT_TYPES.STRAFE;
-                break;
-
-        }
-    }
-
     private void HandleStickMovement(InputAction.CallbackContext obj)
     {
         Vector2 stickNewValue = obj.ReadValue<Vector2>();
@@ -178,23 +117,23 @@ public class FlightStick : MonoBehaviour
         // Rotation Controls for stick
         switch (stickLeftRightSetting)
         {
-            case LEFT_RIGHT_MOVEMENT_TYPES.YAW:
+            case SHIP_MOVEMENT_TYPE.YAW:
                 engines.Yaw = stickNewValue.x;
                 break;
-            case LEFT_RIGHT_MOVEMENT_TYPES.ROLL:
+            case SHIP_MOVEMENT_TYPE.ROLL:
                 engines.Roll = stickNewValue.x;
                 break;
-            case LEFT_RIGHT_MOVEMENT_TYPES.STRAFE:
+            case SHIP_MOVEMENT_TYPE.STRAFE:
                 engines.LeftRightStrafe = stickNewValue.x;
                 break;
         }
 
         switch(stickUpDownSetting)
         {
-            case UP_DOWN_MOVEMENT_TYPES.PITCH:
+            case SHIP_MOVEMENT_TYPE.PITCH:
                 engines.Pitch = stickNewValue.y;
                 break;
-            case UP_DOWN_MOVEMENT_TYPES.STRAFE:
+            case SHIP_MOVEMENT_TYPE.STRAFE:
                 engines.UpDownStrafe = stickNewValue.y;
                 break;
         }
@@ -203,28 +142,28 @@ public class FlightStick : MonoBehaviour
     private void StopStickMovement(InputAction.CallbackContext obj)
     {
         // Rotation Controls for stick
-        if (stickLeftRightSetting == LEFT_RIGHT_MOVEMENT_TYPES.YAW)
+        if (stickLeftRightSetting == SHIP_MOVEMENT_TYPE.YAW)
         {
             engines.Yaw = 0;
         }
 
-        if (stickUpDownSetting == UP_DOWN_MOVEMENT_TYPES.PITCH)
+        if (stickUpDownSetting == SHIP_MOVEMENT_TYPE.PITCH)
         {
             engines.Pitch = 0;
         }
 
-        if (stickLeftRightSetting == LEFT_RIGHT_MOVEMENT_TYPES.ROLL)
+        if (stickLeftRightSetting == SHIP_MOVEMENT_TYPE.ROLL)
         {
             engines.Roll = 0;
         }
 
         // Strafe Controls for stick
-        if (stickLeftRightSetting == LEFT_RIGHT_MOVEMENT_TYPES.STRAFE)
+        if (stickLeftRightSetting == SHIP_MOVEMENT_TYPE.STRAFE)
         {
             engines.LeftRightStrafe = 0;
         }
 
-        if (stickUpDownSetting == UP_DOWN_MOVEMENT_TYPES.STRAFE)
+        if (stickUpDownSetting == SHIP_MOVEMENT_TYPE.STRAFE)
         {
             engines.UpDownStrafe = 0;
         }
@@ -235,9 +174,7 @@ public class FlightStick : MonoBehaviour
         StickGrabbed = true;
         PlayerConditionManager.instance.SetPlayerMovement(false);
 
-        // Add stick listeners when flight stick is grabbed
-        stickAction.action.performed += HandleStickMovement;
-        stickAction.action.canceled += StopStickMovement;
+        PullStickSettings();
     }
 
     public void HandleReleaseStick(SelectExitEventArgs args)
@@ -255,7 +192,37 @@ public class FlightStick : MonoBehaviour
         engines.UpDownStrafe = 0;
 
         // Remove stick listeners when flight stick is let go
-        stickAction.action.performed -= HandleStickMovement;
-        stickAction.action.canceled -= StopStickMovement;
+        if (stickOrientation == STICK_ORIENTATION.LEFT)
+        {
+            leftStickAction.action.performed -= HandleStickMovement;
+            leftStickAction.action.canceled -= StopStickMovement;
+        } else
+        {
+            rightStickAction.action.performed -= HandleStickMovement;
+            rightStickAction.action.canceled -= StopStickMovement;
+        }
+    }
+
+    public void PullStickSettings()
+    {
+        if (stickOrientation == STICK_ORIENTATION.LEFT)
+        {
+            movementLeftRightSetting = PlayerConditionManager.instance.leftMovementLeftRightSetting;
+            movementUpDownSetting = PlayerConditionManager.instance.leftMovementUpDownSetting;
+            stickLeftRightSetting = PlayerConditionManager.instance.leftStickLeftRightSetting;
+            stickUpDownSetting = PlayerConditionManager.instance.leftStickUpDownSetting;
+
+            leftStickAction.action.performed += HandleStickMovement;
+            leftStickAction.action.canceled += StopStickMovement;
+        } else
+        {
+            movementLeftRightSetting = PlayerConditionManager.instance.rightMovementLeftRightSetting;
+            movementUpDownSetting = PlayerConditionManager.instance.rightMovementUpDownSetting;
+            stickLeftRightSetting = PlayerConditionManager.instance.rightStickLeftRightSetting;
+            stickUpDownSetting = PlayerConditionManager.instance.rightStickUpDownSetting;
+
+            rightStickAction.action.performed += HandleStickMovement;
+            rightStickAction.action.canceled += StopStickMovement;
+        }
     }
 }

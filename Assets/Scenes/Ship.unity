@@ -520,7 +520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4243960344426157650, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: m_Name
-      value: FlightStickXRI
+      value: Left Flight Stick
       objectReference: {fileID: 0}
     - target: {fileID: 4243960344426157650, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: m_Layer
@@ -651,6 +651,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
+      propertyPath: leftStickAction
+      value: 
+      objectReference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
+      propertyPath: rightStickAction
+      value: 
+      objectReference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: stickStickAction
       value: 
       objectReference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
@@ -660,19 +668,19 @@ PrefabInstance:
       objectReference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: stickUpDownSetting
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: movementUpDownSetting
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: stickLeftRightSetting
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: movementLeftRightSetting
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1889,7 +1897,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: a59722dc4fa70144aa0402d4aaf925cf, type: 3}
+  - {fileID: 2100000, guid: 5a2ec8a1df8bcda47919d13d37dfc8ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8742,7 +8750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4243960344426157650, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: m_Name
-      value: FlightStickXRI (1)
+      value: Right Flight Stick
       objectReference: {fileID: 0}
     - target: {fileID: 4243960344426157650, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: m_Layer
@@ -8869,9 +8877,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1479804095}
     - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
+      propertyPath: stickSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: stickAction
       value: 
       objectReference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
+      propertyPath: leftStickAction
+      value: 
+      objectReference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
+      propertyPath: rightStickAction
+      value: 
+      objectReference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
+      propertyPath: stickOrientation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: stickStickAction
       value: 
@@ -8894,7 +8918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9046582531598195716, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
       propertyPath: movementLeftRightSetting
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5398264911606135091, guid: 68871927cc30a644daaaf92ec00cf38c, type: 3}
