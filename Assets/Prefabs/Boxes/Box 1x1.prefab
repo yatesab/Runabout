@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5707836212543278585}
   - component: {fileID: 5471124978639857972}
   - component: {fileID: 1417066004143451364}
+  - component: {fileID: 5750266437070782113}
   m_Layer: 8
   m_Name: Box 1x1
   m_TagString: Untagged
@@ -214,6 +215,21 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &5750266437070782113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6544824281817817788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad727b1467a649499f1002e1d087d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxSegments:
+  - {fileID: 3321048034842065343}
+  transparentMaterial: {fileID: 2100000, guid: abf2efed355fb944ea2c94ce7601be61, type: 2}
 --- !u!1001 &8852918518504877809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -271,6 +287,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7091f4559b7c324ba6c6d239ab373f2, type: 3}
+--- !u!1 &3321048034842065343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6110639137112512334, guid: f7091f4559b7c324ba6c6d239ab373f2, type: 3}
+  m_PrefabInstance: {fileID: 8852918518504877809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5131080204170563444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4462680470854164869, guid: f7091f4559b7c324ba6c6d239ab373f2, type: 3}

@@ -53,8 +53,6 @@ public class FlightStick : MonoBehaviour
 
         interactable.selectEntered.AddListener(HandleGrabStick);
         interactable.selectExited.AddListener(HandleReleaseStick);
-
-        PullStickSettings();
     }
 
     // Update is called once per frame
