@@ -113,7 +113,7 @@ public class GameSceneManager : MonoBehaviour
 
             // Set new location and turn back on movement
             PlayerConditionManager.instance.SetNewLocation(new Vector3(0, 0, 0));
-            ShipConditionManager.instance.MoveShip(new Vector3(0,-15,-3000));
+            ShipConditionManager.instance.MoveShip(new Vector3(0,-15, 0));
         } 
         else if (loadShip == false && sceneRef.isLoaded == true)
         {

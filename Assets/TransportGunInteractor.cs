@@ -8,6 +8,8 @@ public class TransportGunInteractor : MonoBehaviour
     [SerializeField] private InputActionReference triggerAction;
     [SerializeField] private InputActionReference grabAction;
     [SerializeField] private LayerMask transportLayer;
+    [SerializeField] private LayerMask placementLayer;
+    [SerializeField] private float transportDistance = 50f;
 
     private LineRenderer lineRenderer;
     private int bufferMaximum = 2;
@@ -33,7 +35,18 @@ public class TransportGunInteractor : MonoBehaviour
     {
         if(numberOfItems > 0)
         {
-            dematerializedList[itemToAccess].MovePosition(transform.position + transform.TransformDirection(Vector3.forward) * 2);
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, transportDistance, placementLayer))
+            {
+                BoxController boxController = dematerializedList[itemToAccess].GetComponent<BoxController>();
+
+                Vector3 newPoint = hit.point;
+
+                newPoint.y += boxController.GetBoxBounds().y / 2;
+
+                dematerializedList[itemToAccess].MoveRotation(Quaternion.LookRotation(hit.normal));
+                dematerializedList[itemToAccess].MovePosition(newPoint);
+            }
         }
     }
 
@@ -45,7 +58,7 @@ public class TransportGunInteractor : MonoBehaviour
             if (numberOfItems < bufferMaximum)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 100f, transportLayer))
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, transportDistance, transportLayer))
                 {
                     // Dematerialize
                     dematerializedList[numberOfItems] = hit.rigidbody;

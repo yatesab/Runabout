@@ -59,7 +59,7 @@ public class TransporterSystem : MonoBehaviour
             {
                 GameStateManager.instance.AddDeliveryPoints(1);
 
-                Destroy(teleportAreaItemList[i]);
+                Destroy(teleportAreaItemList[i].GetComponentInParent<BoxController>().gameObject);
             }
         }
     }

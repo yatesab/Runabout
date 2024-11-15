@@ -16,12 +16,6 @@ public class BoxController : MonoBehaviour
         boxBody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void DeactivateBoxSegments()
     {
         boxBody.useGravity = false;
@@ -41,6 +35,9 @@ public class BoxController : MonoBehaviour
 
     public void ReactivateBoxSegments()
     {
+        boxBody.useGravity = true;
+        boxBody.isKinematic = true;
+
         foreach (GameObject boxSegment in boxSegments)
         {
             BoxCollider collider = boxSegment.GetComponent<BoxCollider>();
@@ -50,8 +47,20 @@ public class BoxController : MonoBehaviour
 
             mesh.material = originalMaterial;
         }
+    }
 
-        boxBody.useGravity = true;
-        boxBody.isKinematic = true;
+    public Vector3 GetBoxBounds()
+    {
+        Vector3 overallSize = Vector3.one;
+        foreach(GameObject boxSegment in boxSegments)
+        {
+            Renderer mesh = boxSegment.GetComponent<Renderer>();
+
+            overallSize.x += mesh.bounds.size.x;
+            overallSize.y = mesh.bounds.size.y;
+            overallSize.z = mesh.bounds.size.z;
+        }
+
+        return overallSize;
     }
 }
