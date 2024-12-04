@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : Menu
 {
-    [SerializeField] private AutomaticDoor _automaticDoor;
-
     [SerializeField] private SceneGroup[] scenesToLoad;
 
     private SceneGroup currentSceneSelection;
