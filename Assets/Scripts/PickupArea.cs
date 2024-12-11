@@ -8,5 +8,5 @@ public class PickupArea : MonoBehaviour
     public float resourceResetTime;
     public int maxResourceLimit;
     public bool isActive = false;
-    public GameObject spawnObject;
+    public Item locationItem;
 }

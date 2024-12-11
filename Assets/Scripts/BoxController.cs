@@ -6,6 +6,7 @@ public class BoxController : MonoBehaviour
 {
     [SerializeField] private Material transparentMaterial;
     public int BoxID {  get; set; }
+    public Item boxItem {  get; set; }
 
     private Material originalMaterial;
     private Rigidbody boxBody;

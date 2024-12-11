@@ -7,15 +7,17 @@ using UnityEngine.UIElements;
 
 public class TransporterSystem : MonoBehaviour
 {
-    [SerializeField] private LayerMask m_LayerMask;
+    [SerializeField] private LayerMask interior_LayerMask;
+    [SerializeField] private LayerMask exterior_LayerMask;
+
     [SerializeField] private GameObject m_Transporter_Center;
     [SerializeField] private List<Collider> transportAreaItemList;
-    [SerializeField] private GameObject[] startingItems;
+    [SerializeField] private Item[] startingItems;
     [SerializeField] private TMP_Text availableTransportText;
     [SerializeField] private TMP_Text bufferAmountText;
     [SerializeField] private Vector3 transporterPadSize;
 
-    public Queue<GameObject> bufferItems = new Queue<GameObject>();
+    public Queue<Item> bufferItems = new Queue<Item>();
     private int maxBufferSize = 2;
     private BoxCollider boxCollider;
 
@@ -26,7 +28,7 @@ public class TransporterSystem : MonoBehaviour
         // If starting items provided then we enqueue them
         if (startingItems.Length > 0)
         {
-            foreach (GameObject item in startingItems)
+            foreach (Item item in startingItems)
             {
                 bufferItems.Enqueue(item);
             }
@@ -53,41 +55,48 @@ public class TransporterSystem : MonoBehaviour
             PickupLocation location = GameStateManager.instance.GetPickupLocation(ShipConditionManager.instance.TransporterPickupArea.locationID);
                         
             // Add open spots to ship buffer
-            for (int i = 0; i < location.currentResources; i++)
+            for (int i = 0; i <= location.currentResources; i++)
             {
-                AddItemToBuffer(ShipConditionManager.instance.TransporterPickupArea.spawnObject);
+                AddItemToBuffer(ShipConditionManager.instance.TransporterPickupArea.locationItem);
                 location.currentResources--;
             }
 
-            location.StartTimer();
+            if (location.IsTimerRunning == false)
+            {
+                location.StartTimer();
+            }
         }
     }
 
     public void LoadNextBufferItem()
     {
-        Collider[] hitColliders = Physics.OverlapBox(m_Transporter_Center.transform.position, transporterPadSize / 2, m_Transporter_Center.transform.rotation, m_LayerMask);
+        Collider[] hitColliders = Physics.OverlapBox(m_Transporter_Center.transform.position, transporterPadSize / 2, m_Transporter_Center.transform.rotation, interior_LayerMask);
 
         if (bufferItems.Count > 0 && hitColliders.Length <= 0)
         {
-            GameObject newItem = bufferItems.Dequeue();
-            Object.Instantiate(newItem, transform.position, transform.rotation);
+            Item newItem = bufferItems.Dequeue();
+            GameObject newBox = Object.Instantiate(newItem.itemObject, transform.position, transform.rotation);
+
+            newBox.GetComponent<BoxController>().boxItem = newItem;
         }
     }
 
     public void TransportDeliveryItems()
     {
         //Make Item List
-        Collider[] hitColliders = Physics.OverlapBox(m_Transporter_Center.transform.position, transporterPadSize / 2, m_Transporter_Center.transform.rotation, m_LayerMask);
+        Collider[] hitColliders = Physics.OverlapBox(m_Transporter_Center.transform.position, transporterPadSize / 2, m_Transporter_Center.transform.rotation, interior_LayerMask);
 
         if (ShipConditionManager.instance.TransporterDeliveryArea != null && hitColliders.Length > 0)
         {
             for (int i = 0; i < hitColliders.Length; i++)
             {
                 BoxController boxContoller = hitColliders[i].GetComponent<BoxController>();
+                DeliveryLocation location = GameStateManager.instance.GetDeliveryLocation(ShipConditionManager.instance.TransporterDeliveryArea.locationID);
 
-                if (GameStateManager.instance.CanDeliverHere(boxContoller, ShipConditionManager.instance.TransporterDeliveryArea))
+                if (location)
                 {
-                    GameStateManager.instance.AddDeliveryPoints(1);
+                    location.AddResource(boxContoller.boxItem);
+                    location.PrintOutResources();
 
                     Destroy(hitColliders[i].GetComponentInParent<BoxController>().gameObject);
                 }
@@ -95,35 +104,22 @@ public class TransporterSystem : MonoBehaviour
         }
     }
 
-    public void AddItemsToBuffer(GameObject[] newItems)
+    public void AddItemsToBuffer(Item[] newItems)
     {
         if (bufferItems.Count < maxBufferSize)
         {
-            foreach (var item in newItems)
+            foreach (Item item in newItems)
             {
                 bufferItems.Enqueue(item);
             }
         }
     }
 
-    public void AddItemToBuffer(GameObject newItem)
+    public void AddItemToBuffer(Item newItem)
     {
         if (bufferItems.Count < maxBufferSize)
         {
             bufferItems.Enqueue(newItem);
         }
     }
-
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    //if (other.bounds.Intersects(boxCollider.bounds))
-    //    //{
-    //        transportAreaItemList.Add(other);
-    //    //}
-    //}
-
-    //public void OnTriggerExit(Collider other)
-    //{
-    //    transportAreaItemList.Remove(other);
-    //}
 }

@@ -20,6 +20,7 @@ public class GameStateManager : MonoBehaviour
     private List<BoxController> boxesList;
     private List<DeliveryArea> deliveryAreas;
     private List<PickupLocation> pickupLocations;
+    private List<DeliveryLocation> deliveryLocations;
     private Mission currentMission;
 
     public void Awake()
@@ -37,6 +38,15 @@ public class GameStateManager : MonoBehaviour
         boxesList = new List<BoxController>();
         deliveryAreas = new List<DeliveryArea>();
         pickupLocations = new List<PickupLocation>();
+        deliveryLocations = new List<DeliveryLocation>();
+
+        DeliveryLocation newLocation = timerGameObject.AddComponent<DeliveryLocation>();
+        newLocation.ID = 0;
+        deliveryLocations.Add(newLocation);
+
+        DeliveryLocation newLocation2 = timerGameObject.AddComponent<DeliveryLocation>();
+        newLocation2.ID = 1;
+        deliveryLocations.Add(newLocation2);
     }
 
     public void Update()
@@ -60,6 +70,7 @@ public class GameStateManager : MonoBehaviour
         if (localPickupArea != null)
         {
             PickupLocation newLocation = timerGameObject.AddComponent<PickupLocation>();
+            newLocation.ID = localPickupArea.locationID;
             newLocation.MaxResources = localPickupArea.maxResourceLimit;
             newLocation.MaxResetTime = localPickupArea.resourceResetTime;
             localPickupArea.isActive = true;
@@ -99,5 +110,18 @@ public class GameStateManager : MonoBehaviour
         PickupLocation location = GetPickupLocation(ShipConditionManager.instance.TransporterPickupArea.locationID);
 
         return location.currentResources;
+    }
+    
+    public DeliveryLocation? GetDeliveryLocation(int locationID)
+    {
+        foreach (DeliveryLocation location in deliveryLocations)
+        {
+            if (location.ID == locationID)
+            {
+                return location;
+            }
+        }
+
+        return null;
     }
 }

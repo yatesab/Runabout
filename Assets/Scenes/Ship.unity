@@ -9303,7 +9303,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 7.75, y: 4, z: 3.2}
   m_Center: {x: 0, y: 1, z: -0.05}
@@ -9319,16 +9319,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b23d8dab7ba0d4fbfbeb1d0152e7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LayerMask:
+  interior_LayerMask:
     serializedVersion: 2
     m_Bits: 2048
+  exterior_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
   m_Transporter_Center: {fileID: 924372484}
   transportAreaItemList: []
   startingItems:
-  - {fileID: 4992824899669872616, guid: 0919fe9e43bb04b4f8f9f713f6d2ce89, type: 3}
+  - {fileID: 11400000, guid: b2c00b2dafc74cc4585ad7b8d7649a3e, type: 2}
   availableTransportText: {fileID: 2125853780}
   bufferAmountText: {fileID: 1301346082}
-  transporterPadSize: {x: 0, y: 0, z: 0}
+  transporterPadSize: {x: 7.75, y: 4, z: 3.2}
 --- !u!1 &1429686967
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a9ec6626285d8a4bba90932b59759e2, type: 3}
-  m_Name: RoboticArms
+  m_Name: Simple Ore
   m_EditorClassIdentifier: 
-  Name: Robotic Arms
-  Weight: 50
-  isDelivered: 0
+  Name: Ore
+  Weight: 1
+  bufferSize: 1
+  itemObject: {fileID: 4992824899669872616, guid: 0919fe9e43bb04b4f8f9f713f6d2ce89, type: 3}
